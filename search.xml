@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Hexo添加全局搜索]]></title>
+    <url>%2F2019%2F04%2F16%2FHexo%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80%E6%90%9C%E7%B4%A2%2F</url>
+    <content type="text"><![CDATA[安装搜索插件1npm install hexo-generator-searchdb --save 找到到博客配置文件 _config.yml，添加如下配置12345search: path: search.xml field: post format: html limit: 10000 Next 主题自带搜索设置，编辑主题配置文件：_config.yml找到文件中 Local search 的相关配置，设为 true 123# Local searchlocal_search: enable: true 重新部署 hexo123$ hexo clean$ hexo g$ hexo d]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JS格式化时间戳]]></title>
+    <url>%2F2019%2F04%2F16%2FJS%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%97%B6%E9%97%B4%E6%88%B3%2F</url>
+    <content type="text"><![CDATA[在项目中经常会遇到后台接口返回来的时间戳，我们需要转换一下才能显示日常使用的时间格式。 1234567891011121314151617181920212223242526272829303132//转换时间格式function getNowFormatDate(setdate) &#123; var date = new Date(setdate); var seperator1 = &quot;-&quot;; var seperator2 = &quot;:&quot;; var month = date.getMonth() + 1; var strDate = date.getDate(); if (month &gt;= 1 &amp;&amp; month &lt;= 9) &#123; month = &quot;0&quot; + month; &#125; if (strDate &gt;= 0 &amp;&amp; strDate &lt;= 9) &#123; strDate = &quot;0&quot; + strDate; &#125; var h = date.getHours(); var m = date.getMinutes(); var s = date.getSeconds(); if (h &gt;= 0 &amp;&amp; h &lt;= 9) &#123; h = &quot;0&quot; + h; &#125; if (m &gt;= 0 &amp;&amp; m &lt;= 9) &#123; m = &quot;0&quot; + m; &#125; if (s &gt;= 0 &amp;&amp; s &lt;= 9) &#123; s = &quot;0&quot; + s; &#125; var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate + &quot; &quot; + h + seperator2 + m; return currentdate;&#125;]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MUI子页面向父页面传参]]></title>
+    <url>%2F2019%2F04%2F15%2FMUI%E5%AD%90%E9%A1%B5%E9%9D%A2%E5%90%91%E7%88%B6%E9%A1%B5%E9%9D%A2%E4%BC%A0%E5%8F%82%2F</url>
+    <content type="text"><![CDATA[经常有这样的需求：子页面新增数据后完成后，跳转到父页面的列表界面。但是 MUI 采用的是页面跳转其实是打开新窗口，返回父页面并不会刷新父页面，只是把子页面关闭，父页面从始至终都在那里并没有刷新过。 思路：子页面提交数据后，向父页面传参，父页面监听子页面的参数，调用刷新方法，从而达到页面刷新，数据更新的目的。 子页面： 12345//向父页面传参mui.fire (plus.webview.currentWebview().opener(), &apos;getRes&apos;, &#123; &quot;type&quot;: 1&#125;);mui.back(); 其中 res 是上传数据，后台接口返回的参数，用于判断是否成功，成功的话，向父页面传参，并调用 mui.bac() 方法关闭页面。getRes 是监听的方法，父页面监听子页面的数据变化，需要用到这个监听方法，命名可以自取。 父页面： 12345678//监听子页面提交数据后，刷新页面window.addEventListener(&apos;getRes&apos;, function(event) &#123; //获得事件参数 var type = event.detail.type; if (type == 1) &#123; location.reload(); &#125;&#125;);]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>MUI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MUI父页面向子页面传参]]></title>
+    <url>%2F2019%2F04%2F14%2FMUI%E7%88%B6%E9%A1%B5%E9%9D%A2%E5%90%91%E5%AD%90%E9%A1%B5%E9%9D%A2%E4%BC%A0%E5%8F%82%2F</url>
+    <content type="text"><![CDATA[在以往有讲过 MUI 创建新页面 ，其中有提到 extras 传参。 我们可以在 a 标签中进行页面的跳转和传参，但是如果数据量较多的话，会影响代码的可读性，我建议还是写在 JS 中。 这里有一个很简单的例子,可以参考一下方法进行页面之间的传参。openUrl 的方法可以参考创建页面的那个方法。 父页面：12345//父页面传值$(&quot;#id&quot;).on(&quot;.child&quot;,&quot;tap&quot;,function()&#123; var id = $(this).attr(&quot;parameterID&quot;); openUrl(&apos;url&apos;,&apos;id&apos;,&#123;&apos;parameter&apos;:parameterID&#125;);&#125;); parameter是子页面接收参数的名字 子页面： 1234// 接收父页面传值var self = plus.webview.currentWebview();console.log(self.parameter);var parameterID = self.parameter; MUI 提供了很多父页面向子页面传参的方法，不过我个人用得比较多的是这一种方法。]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>MUI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MUI创建新页面]]></title>
+    <url>%2F2019%2F04%2F13%2FMUI%E5%88%9B%E5%BB%BA%E6%96%B0%E9%A1%B5%E9%9D%A2%2F</url>
+    <content type="text"><![CDATA[在常规的前端开发中,我们经常使用a标签中的href属性来进行页面之间的跳转和传参. 但是这样会产生一个问题,a标签打开的页面返回时并不是返回到上一个页面,返回只是一个后退的操作. 如果对页面进行多次操作页面,当你想回到上一个页面时,就会来回的切换页面,严重影响体验. 在一个项目中,我们可以写一个公共的JS文件,创建新页面方法,代码如下. 12345678910111213141516171819202122//创建新页面function openUrl(url, id, params) &#123; if (typeof(params) == &apos;undefined&apos;) &#123; params = &#123;&#125;; &#125; if (mui.os.plus) &#123; mui.openWindow(&#123; id: id, //url:新页面的地址 url: url, //id:新页面的 WebView ID extras: params, //params:页面传参 styles: &#123; statusbar: &#123; //设置新页面状态栏背景颜色，以便达到沉浸式状态栏 background: &apos;#3EAD74&apos;, color: &apos;#FFFFFF&apos; &#125; &#125; &#125;) &#125; else &#123; window.location.href = url; &#125;&#125; 引用 js 文件后就可以,我们可以用a标签进行快速的使用. 1&lt;a href=&quot;javascript:openUrl(&apos;url&apos;,&apos;id&apos;,&#123;&#125;)&quot;&gt;打开新的 webview页面&lt;/a&gt; 我们可以很方便的用 a 标签进行传参，但是要注意的是，在动态生成的 DOM 结构里，用 a 标签来传参的话，页面跳转会失效。我的建议是用JS点击绑定事件进行页面的跳转和传参。]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>MUI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F04%2F12%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
