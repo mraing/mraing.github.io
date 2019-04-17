@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JS 简便替换空值]]></title>
+    <url>%2F2019%2F04%2F17%2FJS-%E7%AE%80%E4%BE%BF%E6%9B%BF%E6%8D%A2%E7%A9%BA%E5%80%BC%2F</url>
+    <content type="text"><![CDATA[在与后台对接的时候，经常有时候会拿到一个空值 undefined，把 undefined 显示在页面上，对于普通用户来说，是不可行的。以下有一中简便的方便，快速替换 undefined。 这行代码的意思就是：如果值为false，那么就采用后面的，如果值为true，那么就采用前面的。1var myEntryStandard = ParentDelivery[i].EntryStandard||&quot;无&quot;;]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo添加全局搜索]]></title>
     <url>%2F2019%2F04%2F16%2FHexo%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80%E6%90%9C%E7%B4%A2%2F</url>
     <content type="text"><![CDATA[安装搜索插件hexo-generator-searchdb1npm install hexo-generator-searchdb --save 找到到博客配置文件 _config.yml，添加如下配置12345search: path: search.xml field: post format: html limit: 10000 Next 主题自带搜索设置，编辑主题配置文件：_config.yml找到文件中 Local search 的相关配置，设为 true 123# Local searchlocal_search: enable: true 重新部署 hexo123$ hexo clean$ hexo g$ hexo d]]></content>
