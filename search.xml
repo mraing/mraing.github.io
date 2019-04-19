@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Mac-文件夹内快捷打开命令行]]></title>
+    <url>%2F2019%2F04%2F19%2FMac-%E6%96%87%E4%BB%B6%E5%A4%B9%E5%86%85%E5%BF%AB%E6%8D%B7%E6%89%93%E5%BC%80%E5%91%BD%E4%BB%A4%E8%A1%8C%2F</url>
+    <content type="text"><![CDATA[macOS 的终端很好用，但是却不能像 Windows 那么便捷的文件夹内打开终端，只能手动 cd 定位到当前目录。 附上大佬的 GitHub 地址：OpenInTerminal 地址 打开下载地址，下载最新的文件 解压后得到一个 OpenInTerminal应用 和一个 iocn 文件夹，把OpenInTerminal应用拖进应用程序进行安装。 最后选择默认的终端就可以啦。 最后的效果就是如下图所示，在文件内点开就可以直接打开终端了。 重选选择默认终端，请在终端执行如下命令： 1defaults remove wang.jianing.OpenInTerminal OIT_TerminalBundleIdentifier]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>macOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo更换博客主题]]></title>
     <url>%2F2019%2F04%2F17%2FHexo%E6%9B%B4%E6%8D%A2%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%2F</url>
     <content type="text"><![CDATA[Hexo 有很多主题可以选择，但是我试过好几种，还是喜欢 nexT 主题，集成了很多插件，用起来很方便。 安装 nexT 主题有多种方式，大同小异。我不过我使用的是 git clone 的方法。 首先克隆 nexT 的仓库到我们的博客中。 12cd 你的博客目录git clone https://github.com/iissnan/hexo-theme-next themes/next 编辑 博客配置文件 _config.yml 1theme: next NexT 主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前， 我们最好使用 hexo clean 来清除 Hexo 的缓存。 以防万一，我们先在本地预览博客是否成功更换了主题，启动本地服务预览一下。 1hexo s 如果成功了的话，那么就可以把博客重新部署到服务器上了。]]></content>
