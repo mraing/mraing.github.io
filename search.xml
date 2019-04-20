@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CSS字体溢出隐藏]]></title>
+    <url>%2F2019%2F04%2F20%2FCSS%E5%AD%97%E4%BD%93%E6%BA%A2%E5%87%BA%E9%9A%90%E8%97%8F%2F</url>
+    <content type="text"><![CDATA[#CSS 字体溢出隐藏 单行字体溢出隐藏 123text-overflow:ellipsis;white-space: nowrap;overflow: hidden; 多行字体溢出隐藏 1234display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mac-文件夹内快捷打开命令行]]></title>
     <url>%2F2019%2F04%2F19%2FMac-%E6%96%87%E4%BB%B6%E5%A4%B9%E5%86%85%E5%BF%AB%E6%8D%B7%E6%89%93%E5%BC%80%E5%91%BD%E4%BB%A4%E8%A1%8C%2F</url>
     <content type="text"><![CDATA[macOS 的终端很好用，但是却不能像 Windows 那么便捷的文件夹内打开终端，只能手动 cd 定位到当前目录。 附上大佬的 GitHub 地址：OpenInTerminal 地址 打开下载地址，下载最新的文件 解压后得到一个 OpenInTerminal应用 和一个 iocn 文件夹，把OpenInTerminal应用拖进应用程序进行安装。 最后选择默认的终端就可以啦。 最后的效果就是如下图所示，在文件内点开就可以直接打开终端了。 重选选择默认终端，请在终端执行如下命令： 1defaults remove wang.jianing.OpenInTerminal OIT_TerminalBundleIdentifier]]></content>
