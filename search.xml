@@ -12,6 +12,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[MUI跨页面调用方法]]></title>
+    <url>%2F2019%2F04%2F17%2FMUI%E8%B7%A8%E9%A1%B5%E9%9D%A2%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[因为公司项目用 MUI 用得比较多，有碰到如下需求： 在一个双 WebView 的上拉刷新下拉加载的页面中，A页面就是父页面，B页面就是列表页。A页面中还带有搜索框，搜索框中的值会被传到 B页面，进行数据请求。 1234//A页面function setTotal(parameters)&#123; ……&#125; 1234567891011//B页面var total = 需要传的参数;var evalstr = &apos;setTotal(\&apos;&apos; + total + &apos;\&apos;)&apos;;var wvs = plus.webview.all();for (var i = 0; i &lt; wvs.length; i++) &#123; console.log(&apos;webview&apos; + i + &apos;: &apos; + wvs[i].id); if(wvs[i].id==&quot;你的 WebView ID&quot;)&#123; wvs[i].evalJS(evalstr); &#125;&#125;]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>MUI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo更换博客主题]]></title>
     <url>%2F2019%2F04%2F17%2FHexo%E6%9B%B4%E6%8D%A2%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%2F</url>
     <content type="text"><![CDATA[Hexo 有很多主题可以选择，但是我试过好几种，还是喜欢 nexT 主题，集成了很多插件，用起来很方便。 安装 nexT 主题有多种方式，大同小异。我不过我使用的是 git clone 的方法。 首先克隆 nexT 的仓库到我们的博客中。 12cd 你的博客目录git clone https://github.com/iissnan/hexo-theme-next themes/next 编辑 博客配置文件 _config.yml 1theme: next NexT 主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前， 我们最好使用 hexo clean 来清除 Hexo 的缓存。 以防万一，我们先在本地预览博客是否成功更换了主题，启动本地服务预览一下。 1hexo s 如果成功了的话，那么就可以把博客重新部署到服务器上了。]]></content>
