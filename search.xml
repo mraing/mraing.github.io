@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[预设图片比例]]></title>
+    <url>%2F2019%2F04%2F21%2F%E9%A2%84%E8%AE%BE%E5%9B%BE%E7%89%87%E6%AF%94%E4%BE%8B%2F</url>
+    <content type="text"><![CDATA[在项目中，经常有用到图片，但是我们不能直接使用图片，防止图片大小不一致，而导致页面的布局错乱，但是又不能直接把图片的宽高写成固定的，不然图片会变形之类的。所以我们我们需要一个等比例的图片宽高，又不能使图片变形。我推荐采用以下这种方式。 1234// html &lt;div class=&quot;demoImg&quot;&gt; &lt;img src=&quot;http://images.leegeing.cn/hexoImg/demo.jpeg&quot;&gt; &lt;/div&gt; 12345678910111213141516// css.demoImg&#123; position: relative; width: 100%; height: 0; padding-top: 100%; overflow: hidden;&#125;.demoImg&gt;img&#123; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;&#125; 当 CSS 的宽度 width 和上内边距 padding-top 的都为 100%，代表的是 1:1 的图片比例。 当设置为宽高和上内边距的分别设置为 100%，和 75%的时候，代表的图片比例 4：3 的比例。 object-fit 属性指定可替换元素的内容应该如何适应到其使用的高度和宽度确定的框。 fill被替换的内容正好填充元素的内容框。整个对象将完全填充此框。如果对象的宽高比与内容框不相匹配，那么该对象将被拉伸以适应内容框。 contain被替换的内容将被缩放，以在填充元素的内容框时保持其宽高比。 整个对象在填充盒子的同时保留其长宽比，因此如果宽高比与框的宽高比不匹配，该对象将被添加“黑边”。 cover被替换的内容在保持其宽高比的同时填充元素的整个内容框。如果对象的宽高比与内容框不相匹配，该对象将被剪裁以适应内容框。 none被替换的内容将保持其原有的尺寸。 scale-down内容的尺寸与 none 或 contain 中的一个相同，取决于它们两个之间谁得到的对象尺寸会更小一些。 浏览器的兼容性]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CSS字体溢出隐藏]]></title>
     <url>%2F2019%2F04%2F20%2FCSS%E5%AD%97%E4%BD%93%E6%BA%A2%E5%87%BA%E9%9A%90%E8%97%8F%2F</url>
-    <content type="text"><![CDATA[#CSS 字体溢出隐藏 单行字体溢出隐藏 123text-overflow:ellipsis;white-space: nowrap;overflow: hidden; 多行字体溢出隐藏 1234display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;]]></content>
+    <content type="text"><![CDATA[单行字体溢出隐藏 123text-overflow:ellipsis;white-space: nowrap;overflow: hidden; 多行字体溢出隐藏 1234display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;]]></content>
       <categories>
         <category>前端</category>
       </categories>
