@@ -282,6 +282,182 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/Vue路由传参/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绪锋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/23/Vue路由传参/" itemprop="url">Vue路由传参</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T08:30:36+08:00">
+                2019-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/23/Vue路由传参/" class="leancloud_visitors" data-flag-title="Vue路由传参">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Vue页面路由实现页面之间的跳转，我们还可以通过路由来进行参数之间的传递</p>
+<ul>
+<li>第一种方式是通过 <code>query</code> 传参</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//index.vue</span><br><span class="line">&lt;router-link :to=&quot;&#123; path: &apos;your router url&apos;, query: &#123; name: &apos;your parameters&apos; &#125; &#125;&quot;&gt;link name&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//your link</span><br><span class="line">&lt;div&gt;get parameters: &#123;&#123; this.$route.query.name &#125;&#125;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二种方式是通过 <code>params</code> 来传参</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//index.vue</span><br><span class="line">&lt;router-link :to=&quot;&#123; path: &apos;your router url&apos;, params: &#123; name: &apos;your parameters&apos; &#125; &#125;&quot;&gt;link name&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//your link</span><br><span class="line">&lt;div&gt;get parameters: &#123;&#123; this.$route.params.name &#125;&#125;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第三种方式通过 router/index.js 中的 <code>name</code> 属性去传参</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// router/index.js </span><br><span class="line">&#123;</span><br><span class="line">	path: &apos;your router url&apos;,</span><br><span class="line">	name: &apos;😊your parameters&apos;,</span><br><span class="line">	component: routerName</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//your link</span><br><span class="line">&lt;div&gt;get parameters: &#123;&#123; this.$route.name &#125;&#125;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>具体效果如下：<br><img src="http://images.leegeing.cn/hexoImg/vue-routerParameter.gif" alt="vue路由传参演示"></p>
+<hr>
+<p><code>query</code> 传参和 <code>params</code> 来传参的区别：</p>
+<ul>
+<li>params: params只能用name来引入路由，如果这里写成了path，接收参数页面会是undefined。</li>
+<li>query: 相当于get请求，这种传参方式相当于url拼接参数，页面跳转的时候，可以在地址栏看到请求参数。</li>
+<li>params: 相当于post请求，参数可以传递但是地址栏不会显示，刷新时会造成参数丢失。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/Vue简单路由/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1760,159 +1936,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/JS格式化时间戳/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content>
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="绪锋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/JS格式化时间戳/" itemprop="url">JS格式化时间戳</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-16T10:09:46+08:00">
-                2019-04-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/04/16/JS格式化时间戳/" class="leancloud_visitors" data-flag-title="JS格式化时间戳">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在项目中经常会遇到后台接口返回来的时间戳，我们需要转换一下才能显示日常使用的时间格式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">//转换时间格式</span><br><span class="line">function getNowFormatDate(setdate) &#123;</span><br><span class="line">	var date = new Date(setdate);</span><br><span class="line">	var seperator1 = &quot;-&quot;;</span><br><span class="line">	var seperator2 = &quot;:&quot;;</span><br><span class="line">	var month = date.getMonth() + 1;</span><br><span class="line">	var strDate = date.getDate();</span><br><span class="line">	if (month &gt;= 1 &amp;&amp; month &lt;= 9) &#123;</span><br><span class="line">		month = &quot;0&quot; + month;</span><br><span class="line">	&#125;</span><br><span class="line">	if (strDate &gt;= 0 &amp;&amp; strDate &lt;= 9) &#123;</span><br><span class="line">		strDate = &quot;0&quot; + strDate;</span><br><span class="line">	&#125;</span><br><span class="line">	var h = date.getHours();</span><br><span class="line">	var m = date.getMinutes();</span><br><span class="line">	var s = date.getSeconds();</span><br><span class="line">	if (h &gt;= 0 &amp;&amp; h &lt;= 9) &#123;</span><br><span class="line">		h = &quot;0&quot; + h;</span><br><span class="line">	&#125;</span><br><span class="line">	if (m &gt;= 0 &amp;&amp; m &lt;= 9) &#123;</span><br><span class="line">		m = &quot;0&quot; + m;</span><br><span class="line">	&#125;</span><br><span class="line">	if (s &gt;= 0 &amp;&amp; s &lt;= 9) &#123;</span><br><span class="line">		s = &quot;0&quot; + s;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +</span><br><span class="line">		&quot; &quot; + h + seperator2 + m;</span><br><span class="line"></span><br><span class="line">	return currentdate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1965,7 +1988,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
