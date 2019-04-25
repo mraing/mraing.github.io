@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://images.leegeing.cn/hexoImg/vue-router-1.png">
 <meta property="og:image" content="http://images.leegeing.cn/hexoImg/vue-router.gif">
-<meta property="og:updated_time" content="2019-04-22T02:56:55.986Z">
+<meta property="og:updated_time" content="2019-04-23T03:45:17.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 简单路由">
 <meta name="twitter:description" content="附上demo 地址：Vue简单路由 demo  项目中引入 vue-router  1npm install vue-router  新建一个 *.js 文件  初始化路由模块 12345//router.jsimport Vue from &amp;apos;vue&amp;apos;import VueRouter from &amp;apos;vue-router&amp;apos;Vue.use(VueRouter)">
@@ -412,6 +412,19 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		&lt;ol  start=&quot;1&quot; class=&quot;index-list&quot;&gt;</span><br><span class="line">			&lt;li&gt;&lt;router-link to=&quot;/index/hi1&quot;&gt;子路由 H1&lt;/router-link&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li&gt;&lt;router-link to=&quot;/index/hi2&quot;&gt;子路由 H2&lt;/router-link&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li&gt;&lt;router-link to=&quot;/clicli&quot;&gt;(全屏) 平级路由 CliCli&lt;/router-link&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li&gt;&lt;router-link to=&quot;/hi1&quot;&gt;(全屏) 子路由 H1&lt;/router-link&gt;&lt;/li&gt;</span><br><span class="line">		&lt;/ol&gt;</span><br><span class="line">		&lt;div class=&quot;routerBox&quot;&gt;</span><br><span class="line">			&lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">	li&#123;</span><br><span class="line">		list-style: none;</span><br><span class="line">	&#125;</span><br><span class="line">	.index-list&#123;</span><br><span class="line">		margin: 0;</span><br><span class="line">		padding: 10px;</span><br><span class="line">		text-align: left;</span><br><span class="line">	&#125;</span><br><span class="line">	.index-list&gt;li&#123;</span><br><span class="line">		line-height: 30px;</span><br><span class="line">	&#125;</span><br><span class="line">	.routerBox&#123;</span><br><span class="line">		margin: 10px;</span><br><span class="line">		padding: 10px;</span><br><span class="line">		border: 1px solid #000;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 <p>具体实现效果如下<br><img src="http://images.leegeing.cn/hexoImg/vue-router.gif" alt="vue-router"></p>
+<ul>
+<li><p>vue路由 mode属性</p>
+<ul>
+<li><p><code>hash</code></p>
+<p> 使用 URL 的 hash 来模拟一个完整的 URL，当 URL 改变时，页面不会重新加载。(有#号)</p>
+</li>
+<li><p><code>history</code></p>
+<p>如果不想要很丑的 hash，我们可以用路由的 history 模式，这种模式充分利用 history.pushState API 来完成 URL 跳转而无须重新加载页面。</p>
+<p>当你使用 history 模式时，URL 就像正常的 url一样。(无#号)</p>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -524,7 +537,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -535,7 +548,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -546,7 +559,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
