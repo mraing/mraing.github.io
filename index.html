@@ -282,6 +282,220 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/GitHub简单烹饪指南/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绪锋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/26/GitHub简单烹饪指南/" itemprop="url">GitHub简单烹饪指南</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-26T08:47:49+08:00">
+                2019-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/26/GitHub简单烹饪指南/" class="leancloud_visitors" data-flag-title="GitHub简单烹饪指南">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本文简单介绍 GitHub 的日常使用，包括拉取和上传代码。</p>
+<ul>
+<li>第一种方式使用客户端。</li>
+<li>使用命令行操作。</li>
+</ul>
+<hr>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><h5 id="1-首先新建一个仓库"><a href="#1-首先新建一个仓库" class="headerlink" title="1. 首先新建一个仓库"></a>1. 首先新建一个仓库</h5><p>  <img src="http://images.leegeing.cn/hexoImg/GitHub%E7%83%B9%E9%A5%AA%E6%8C%87%E5%8D%97-01.png" alt="GitHub烹饪指南-01"></p>
+<ul>
+<li><p>配置仓库参数</p>
+<p><img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-02.png" alt="GitHub烹饪指南-02"></p>
+</li>
+</ul>
+<p>　　仓库名称： 我建议使用英文名称。<br>　　<br>　　仓库描述：对你这个项目做一个简单的描述。<br>　　<br>　　公开/私有：指你的仓库是否开源。<br>　　<br>　　是否添加自述文件：这个选项选不选随你，现在没有选上的话，建议在后期还是要加上，增加阅读体验。值得注意的是，如果你要导入现有的仓库，那么就不必要添加这个自述文件了，如果做为一个新仓库的使用，还是有很必要添加这个文件的。<br>　　<br>　　你使用的语言：不选的话，它也会自动去识别你所使用的语言。<br>　　<br>　　添加证书：也看你自己的需求吧。
+　　</p>
+<ul>
+<li>将新建的仓库克隆到本地</li>
+</ul>
+<pre><code>![GitHub烹饪指南-03](http://images.leegeing.cn/hexoImg/GitHub烹饪指南-03.png)
+新建号的仓库大致如上图所示。
+点击右边的 `Set up in Desktop` 下载桌面版 GitHub，下载完成之后，登入你的 GitHub 账号。
+</code></pre><ul>
+<li><p>选择文件-克隆仓库。</p>
+<p>  <img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-04.png" alt="GitHub烹饪指南-04"></p>
+</li>
+</ul>
+<pre><code>+ 第一种方式，选择 GitHub.com 从自己的仓库列表中克隆仓库。
+
+![GitHub烹饪指南-05](http://images.leegeing.cn/hexoImg/GitHub烹饪指南-05.png)
+
++ 第二方式，选择 URL 
+
+![GitHub烹饪指南-06](http://images.leegeing.cn/hexoImg/GitHub烹饪指南-06.png)
+
+绿色框表示对应的 URL，橙色框代表克隆至本地的地址。
+
+这两种方式都可以将仓库克隆到自己本地，任选其一即可。
+</code></pre><ul>
+<li>等待克隆结束</li>
+</ul>
+<p><img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-07.png" alt="GitHub烹饪指南-07"></p>
+<p>稍等片刻就完成了。<br><img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-08.png" alt="GitHub烹饪指南-08"></p>
+<p>我们可以选择第一个打开你刚刚克隆到本地的仓库文件夹。</p>
+<p><img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-10.png" alt="GitHub烹饪指南-10"></p>
+<p>里面除了一个隐藏的 git文件夹就没有别的东西了。如果我们在创建的时候，勾选上了那个自述文件，那么还会有一个 README.md 文件。</p>
+<p>要看到隐藏的文件，需要根据自己的操作系统去开启这个设置，一般默认是关闭的。</p>
+<p>以后我们的代码就存放到这个文件夹里面了。</p>
+<ul>
+<li><p>尝试上传到 GitHub 上<br>  因为我们没有自述文件，刚好就自己创建一个，上传到 GitHub 当做一次练习。</p>
+<ul>
+<li><p>创建一个名为 <code>README.md</code> 的文件。</p>
+<p>  前缀 “README” 是 GitHub 自述文件的固定写法，后缀 “.md”，是支持 Markdown 的文本文件。有关于 Markdown 的语法介绍可以自己去百度查一下，有很多有关于这个的介绍。</p>
+</li>
+<li><p>在 GitHub 客户端上可以看到这个关于这个文件的变动。<img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-11.png" alt="GitHub烹饪指南-11"></p>
+<p>在提交处填写你的”提交信息“，然后点击 “commit to master”, 进行提交。然后我们点击”Publish branch“ 发布到当前分支。</p>
+<p>等待结束后就完成了上传。我们可以点击”View on GitHub“,打开你的 GitHub 仓库地址，验证是否上传完毕。</p>
+<p><img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-12.png" alt="GitHub烹饪指南-12"></p>
+<p>如图所示，这是我刚刚上传的自述文件，就已经显示出来了。还有一种方法是使用命令行进行使用 GitHub 的操作，下次有空再说。</p>
+<p>( ^ _ ^ )/~~拜拜</p>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/25/macOS安装Sass/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -409,6 +623,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem update sass</span><br></pre></td></tr></table></figure>
 <p>卸载sass命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem uninstall sass</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.sassmeister.com/" target="_blank" rel="noopener">Sass在线转换器</a></p>
+
           
         
       
@@ -1787,188 +2003,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/常用的DOS-命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content>
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="绪锋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/17/常用的DOS-命令/" itemprop="url">常用的DOS命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-17T10:54:19+08:00">
-                2019-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/04/17/常用的DOS-命令/" class="leancloud_visitors" data-flag-title="常用的DOS命令">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>DOS命令：计算机术语，是指DOS操作系统的命令，是一种面向磁盘的操作命令，主要包括<code>目录操作类命令</code>、<code>磁盘操作类命令</code>、<code>文件操作类命令</code>和<code>其它命令</code>。</p>
-<p>目前大家常用的操作系统有<code>windows10</code>,<code>windows 7</code>等，都是图形化的界面。在有这些系统之前的人们使用的操作系统是DOS系统。 <strong><code>macOS</code>命令行的使用不全包括以下命令</strong>。</p>
-<ul>
-<li>回看上一次执行的命令</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">向上箭头&quot;↑&quot;和向下箭头&quot;↓&quot;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>中断操作</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;Ctrl+C&quot; 组合键或&quot;Break&quot;键</span><br></pre></td></tr></table></figure>
-<ul>
-<li>盘符: 直接进入某盘符 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如直接进入D盘，D：</span><br></pre></td></tr></table></figure>
-<ul>
-<li>md 建立子目录</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">md[盘符：][路径名]〈子目录名〉</span><br><span class="line">md c:\ fox （在当前驱动器c盘下创建子目录fox）</span><br></pre></td></tr></table></figure>
-<ul>
-<li>cd 改变当前目录</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd [/D] [drive:][path] (进入某一目录)</span><br><span class="line">cd ../ (返回上级目录)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>查看当前目录下的文件和子目录列表</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir</span><br></pre></td></tr></table></figure>
-<ul>
-<li>命令行清屏</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cls</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2021,7 +2055,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2043,7 +2077,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
