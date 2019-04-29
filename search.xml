@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Sass上手指南]]></title>
+    <url>%2F2019%2F04%2F29%2FSass%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%2F</url>
+    <content type="text"><![CDATA[创建Sass文件也是新建文件，后缀名改为 .scss或者 .sass ,这两种后缀名都属于 Sass语法，只是两者所使用的语法有些不同。 scss 文件的语法有缩进，用花括号表示层级关系。 123456789101112/*test.scss*/#box &#123; width: 160px; height: 200px; background: firebrick; .child &#123; width: 50px; height: 50px; background: #666; border-radius: 50%; &#125;&#125; 编译Sass文件12/*在你的文件目录下打开终端*/scss test.scss 当然这只是在终端编译的，在项目中，我们是需要将显示结果保存成文件，后面再跟一个.css文件名。 12/*在你的文件目录下打开终端*/sass test.scss test.css 然后就会在你的目录下面，多出一个 test.css 和 test.css.map 。在项目中，我们使用的就是编译后的 .css 文件。 scss文件是源文件，网页呈现的是css样式表文件，scss文件通过编译生成css文件，css.map文件是对照表文件。 编译风格Sass有四种编译风格 1234567* nested：嵌套缩进的css代码，它是默认值。 * expanded：没有缩进的、扩展的css代码。 * compact：简洁格式的css代码。 * compressed：压缩后的css代码。 用法 1sass --style 编译风格 test.sass test.css 编译后的代码如下 123456789101112/*nested*/#box &#123; width: 160px; height: 200px; background: firebrick; &#125; #box .child &#123; width: 50px; height: 50px; background: #666; border-radius: 50%; &#125;/*# sourceMappingURL=test.css.map */ 1234567891011121314/*expanded*/#box &#123; width: 160px; height: 200px; background: firebrick;&#125;#box .child &#123; width: 50px; height: 50px; background: #666; border-radius: 50%;&#125;/*# sourceMappingURL=test.css.map */ 12345/*compact*/#box &#123; width: 160px; height: 200px; background: firebrick; &#125;#box .child &#123; width: 50px; height: 50px; background: #666; border-radius: 50%; &#125;/*# sourceMappingURL=test.css.map */ 123/*compressed*/#box&#123;width:160px;height:200px;background:firebrick&#125;#box .child&#123;width:50px;height:50px;background:#666;border-radius:50%&#125;/*# sourceMappingURL=test.css.map */ 平时项目中，采用最后一种方式就可以了。]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>Sass</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Sass与SCSS的区别]]></title>
     <url>%2F2019%2F04%2F28%2FSass%E4%B8%8ESCSS%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[最近项目有个需求，需要整体都改大一号字体。心慌慌的全局替换了一下，还好没有出什么其他问题。不过这也引发了我的思考，有没有一种方式，把这些固定的样式写成一种变量，去预编译 CSS。然后我就找到了 Sass。 在学习的过程中，Sass和SCSS傻傻分不清，查阅了诸多的资料，我决定记录一下自己的心得。 Sass是什么？Sass是一种编译为CSS的样式表语言。它允许您使用变量，嵌套规则，混合，函数等，所有这些都使用完全CSS兼容的语法。Sass有助于保持大型样式表的组织良好，并且可以轻松地在项目内和项目间共享设计。 而 Sass 它包含两种语法，一种是 Sass,一种是 SCSS。 Sass 和 SCSS的区别? 后缀名 SCSS 的后缀名是.scss。 Sass 的后缀名是.sass。 语法 SCSS 是 Sass 3 引入新的语法，其语法完全兼容 CSS3。 Sass 的语法没有花括号，并且有严格的缩进，缩进的不同代表层级关系的不同，如果你是 Python 相关人员，用起来会更加容易上手。 SCSS 的语法没有严格的缩进，是用花括号来表示层级关系的，相比 Sass,它更加接近 CSS 的模样。 123456789101112131415/*Sass*/#Sass width: 30% background-color: #faa .childer color:red /*SCSS*/#sidebar &#123; width: 30%; background-color: #faa; .childer&#123; color:red; &#125;&#125; 还有一种预编译 CSS语法，stylus, 更加自由个人开发者的话，可以使用。可以自行百度去了解一下。这里不做过多说明了。 参考资料 SCSS 与 Sass 异同 SCSS和Sass有什么区别？]]></content>
