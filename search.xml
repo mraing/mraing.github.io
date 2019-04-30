@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mui.plusReady 初始化]]></title>
+    <url>%2F2019%2F04%2F30%2Fmui-plusReady-%E5%88%9D%E5%A7%8B%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[plus是5+Runtime的内部对象。就像chrome浏览器里有chrome.开头的一些对象方法，5+runtime内部内置了plus对象。因为plus和mui不一样，plus是引擎级别的，不需要前端框架。而mui是前端框架，所以是要引入mui.js才能使用的。 不要在没有plus和mui的环境下调用相关API. 我们可以初始化一下mui.plusReady方法，代码如下： 123456789if(mui.os.plus) &#123; mui.plusReady(ready_fun);&#125; else &#123; mui.ready(ready_fun);&#125; function ready_fun()&#123; ... 自定义事件&#125; 我建议事件函数尽可能的写在 ready_fun() 里面，避免不必要的报错。 附上H5+ plus 文档 MUI H5+官方文档]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>MUI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Sass上手指南]]></title>
     <url>%2F2019%2F04%2F29%2FSass%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%2F</url>
     <content type="text"><![CDATA[创建Sass文件也是新建文件，后缀名改为 .scss或者 .sass ,这两种后缀名都属于 Sass语法，只是两者所使用的语法有些不同。 scss 文件的语法有缩进，用花括号表示层级关系。 123456789101112/*test.scss*/#box &#123; width: 160px; height: 200px; background: firebrick; .child &#123; width: 50px; height: 50px; background: #666; border-radius: 50%; &#125;&#125; 编译Sass文件12/*在你的文件目录下打开终端*/scss test.scss 当然这只是在终端编译的，在项目中，我们是需要将显示结果保存成文件，后面再跟一个.css文件名。 12/*在你的文件目录下打开终端*/sass test.scss test.css 然后就会在你的目录下面，多出一个 test.css 和 test.css.map 。在项目中，我们使用的就是编译后的 .css 文件。 scss文件是源文件，网页呈现的是css样式表文件，scss文件通过编译生成css文件，css.map文件是对照表文件。 编译风格Sass有四种编译风格 1234567* nested：嵌套缩进的css代码，它是默认值。 * expanded：没有缩进的、扩展的css代码。 * compact：简洁格式的css代码。 * compressed：压缩后的css代码。 用法 1sass --style 编译风格 test.sass test.css 编译后的代码如下 123456789101112/*nested*/#box &#123; width: 160px; height: 200px; background: firebrick; &#125; #box .child &#123; width: 50px; height: 50px; background: #666; border-radius: 50%; &#125;/*# sourceMappingURL=test.css.map */ 1234567891011121314/*expanded*/#box &#123; width: 160px; height: 200px; background: firebrick;&#125;#box .child &#123; width: 50px; height: 50px; background: #666; border-radius: 50%;&#125;/*# sourceMappingURL=test.css.map */ 12345/*compact*/#box &#123; width: 160px; height: 200px; background: firebrick; &#125;#box .child &#123; width: 50px; height: 50px; background: #666; border-radius: 50%; &#125;/*# sourceMappingURL=test.css.map */ 123/*compressed*/#box&#123;width:160px;height:200px;background:firebrick&#125;#box .child&#123;width:50px;height:50px;background:#666;border-radius:50%&#125;/*# sourceMappingURL=test.css.map */ 平时项目中，采用最后一种方式就可以了。]]></content>
