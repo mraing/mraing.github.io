@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="MUI,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,14 @@
 
 
 
-<meta name="description" content="在常规的前端开发中,我们经常使用a标签中的href属性来进行页面之间的跳转和传参. 但是这样会产生一个问题,a标签打开的页面返回时并不是返回到上一个页面,返回只是一个后退的操作. 如果对页面进行多次操作页面,当你想回到上一个页面时,就会来回的切换页面,严重影响体验. 在一个项目中,我们可以写一个公共的JS文件,创建新页面方法,代码如下. 123456789101112131415161718192">
-<meta name="keywords" content="MUI">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MUI创建新页面">
-<meta property="og:url" content="http://yoursite.com/2019/04/13/MUI创建新页面/index.html">
+<meta name="keywords" content="个人博客,前端,学习">
+<meta property="og:type" content="website">
+<meta property="og:title" content="绪锋">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="绪锋">
-<meta property="og:description" content="在常规的前端开发中,我们经常使用a标签中的href属性来进行页面之间的跳转和传参. 但是这样会产生一个问题,a标签打开的页面返回时并不是返回到上一个页面,返回只是一个后退的操作. 如果对页面进行多次操作页面,当你想回到上一个页面时,就会来回的切换页面,严重影响体验. 在一个项目中,我们可以写一个公共的JS文件,创建新页面方法,代码如下. 123456789101112131415161718192">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-13T15:28:14.219Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MUI创建新页面">
-<meta name="twitter:description" content="在常规的前端开发中,我们经常使用a标签中的href属性来进行页面之间的跳转和传参. 但是这样会产生一个问题,a标签打开的页面返回时并不是返回到上一个页面,返回只是一个后退的操作. 如果对页面进行多次操作页面,当你想回到上一个页面时,就会来回的切换页面,严重影响体验. 在一个项目中,我们可以写一个公共的JS文件,创建新页面方法,代码如下. 123456789101112131415161718192">
+<meta name="twitter:title" content="绪锋">
 
 
 
@@ -120,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/13/MUI创建新页面/">
+  <link rel="canonical" href="http://yoursite.com/page/3/">
 
 
 
 
 
-  <title>MUI创建新页面 | 绪锋</title>
+  <title>绪锋</title>
   
 
 
@@ -155,7 +151,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -270,9 +267,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -302,7 +299,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MUI创建新页面</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/13/MUI创建新页面/" itemprop="url">MUI创建新页面</a></h1>
         
 
         <div class="post-meta">
@@ -385,7 +384,9 @@
       
 
       
-        <p>在常规的前端开发中,我们经常使用<code>a</code>标签中的<code>href</code>属性来进行页面之间的跳转和传参.</p>
+        
+          
+            <p>在常规的前端开发中,我们经常使用<code>a</code>标签中的<code>href</code>属性来进行页面之间的跳转和传参.</p>
 <p>但是这样会产生一个问题,<code>a</code>标签打开的页面返回时并不是返回到上一个页面,返回只是一个后退的操作.</p>
 <p>如果对页面进行多次操作页面,当你想回到上一个页面时,就会来回的切换页面,严重影响体验.</p>
 <p>在一个项目中,我们可以写一个公共的<code>JS</code>文件,创建新页面方法,代码如下.</p>
@@ -394,6 +395,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;javascript:openUrl(&apos;url&apos;,&apos;id&apos;,&#123;&#125;)&quot;&gt;打开新的 webview页面&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 <p>我们可以很方便的用 a 标签进行传参，但是要注意的是，在动态生成的 DOM 结构里，用 a 标签来传参的话，页面跳转会失效。我的建议是用JS点击绑定事件进行页面的跳转和传参。</p>
 
+          
+        
       
     </div>
     
@@ -408,36 +411,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/MUI/" rel="tag"># MUI</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/14/MUI父页面向子页面传参/" rel="prev" title="MUI父页面向子页面传参">
-                MUI父页面向子页面传参 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -447,11 +428,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
 
 
           </div>
@@ -459,10 +443,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -709,10 +689,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
