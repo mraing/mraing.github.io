@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hbuilder 新增模板]]></title>
+    <url>%2F2019%2F05%2F09%2FHbuilder-%E6%96%B0%E5%A2%9E%E6%A8%A1%E6%9D%BF%2F</url>
+    <content type="text"><![CDATA[因为用 MUI 框架用的比较多，所以经常官方推荐的的编程工具 HBuilder 。此教程是针对Mac版的，PC版上有或许有些出入。 打开访达，点击工具栏的前往。 找到资源库，如果没有资源库，请按住 option 键。 在其资源库中找到Applocation Support文件夹。 然后找到 HBuilder X 文件夹，在其文件中找到 templates 文件夹。 如图所示，里面有好几个文件夹代表不同的分类，在该目录新建你常用的模板或将你常用的模板复制到该目录，新建文件时，模板列表会多出以该文件的文件名命名的模板。模板内容为该文件的内容。若不再需要该模板，请删除该文件。]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[初始化CSS]]></title>
     <url>%2F2019%2F05%2F07%2F%E5%88%9D%E5%A7%8B%E5%8C%96CSS%2F</url>
     <content type="text"><![CDATA[新浪官网: 12345678910body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div&#123;margin:0;padding:0;border:0;&#125; body&#123;background:#fff;color:#333;font-size:12px; margin-top:5px;font-family:"SimSun","宋体","Arial Narrow";&#125; ul,ol&#123;list-style-type:none;&#125; select,input,img,select&#123;vertical-align:middle;&#125; a&#123;text-decoration:none;&#125; a:link&#123;color:#009;&#125; a:visited&#123;color:#800080;&#125; a:hover,a:active,a:focus&#123;color:#c00;text-decoration:underline;&#125; 淘宝官网: 123456789101112131415body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td &#123; margin:0; padding:0; &#125; body, button, input, select, textarea &#123; font:12px/1.5tahoma, arial, \5b8b\4f53; &#125; h1, h2, h3, h4, h5, h6&#123; font-size:100%; &#125; address, cite, dfn, em, var &#123; font-style:normal; &#125; code, kbd, pre, samp &#123; font-family:couriernew, courier, monospace; &#125; small&#123; font-size:12px; &#125; ul, ol &#123; list-style:none; &#125; a &#123; text-decoration:none; &#125; a:hover &#123; text-decoration:underline; &#125; sup &#123; vertical-align:text-top; &#125; sub&#123; vertical-align:text-bottom; &#125; legend &#123; color:#000; &#125; fieldset, img &#123; border:0; &#125; button, input, select, textarea &#123; font-size:100%; &#125; table &#123; border-collapse:collapse; border-spacing:0; &#125; 网易官网:123456789html &#123;overflow-y:scroll;&#125; body &#123;margin:0; padding:29px00; font:12px"\5B8B\4F53",sans-serif;background:#ffffff;&#125; div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p&#123;padding:0; margin:0;&#125; table,td,tr,th&#123;font-size:12px;&#125; li&#123;list-style-type:none;&#125; img&#123;vertical-align:top;border:0;&#125; ol,ul &#123;list-style:none;&#125; h1,h2,h3,h4,h5,h6&#123;font-size:12px; font-weight:normal;&#125; address,cite,code,em,th &#123;font-weight:normal; font-style:normal;&#125; 腾讯QQ官网:123456789body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select&#123;margin:0;padding:0&#125; body&#123;font:12px"宋体","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;&#125; a&#123;color:#2d374b;text-decoration:none&#125; a:hover&#123;color:#cd0200;text-decoration:underline&#125; em&#123;font-style:normal&#125; li&#123;list-style:none&#125; img&#123;border:0;vertical-align:middle&#125; table&#123;border-collapse:collapse;border-spacing:0&#125; p&#123;word-wrap:break-word&#125; 自用:1body,html,p,ul,li,h1,h2,h3,h4,h5,h6,input,button&#123;margin:0;padding:0;&#125;]]></content>
       <categories>
         <category>CSS</category>
-        <category>前端</category>
       </categories>
       <tags>
         <tag>CSS</tag>
