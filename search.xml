@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使用Mui tabber]]></title>
+    <url>%2F2019%2F05%2F17%2F%E4%BD%BF%E7%94%A8Mui-tabber%2F</url>
+    <content type="text"><![CDATA[顶部选项卡 div 模式 引入 Mui 的 JS 1&lt;script src="http://www.dcloud.io/hellomui/js/mui.min.js"&gt;&lt;/script&gt; 添加 DOM 结构 123456789101112131415&lt;!-- 选项卡头部 --&gt;&lt;div style="padding: 10px 10px;"&gt; &lt;div id="segmentedControl" class="mui-segmented-control"&gt; &lt;a class="mui-control-item mui-active" href="#item1"&gt;选项卡 1&lt;/a&gt; &lt;a class="mui-control-item" href="#item2"&gt;选项卡 2&lt;/a&gt; &lt;a class="mui-control-item" href="#item3"&gt;选项卡 3&lt;/a&gt; &lt;/div&gt;&lt;/div&gt; &lt;!-- 选项卡内容 --&gt;&lt;div class="tabBox"&gt; &lt;div id="item1" class="mui-control-content mui-active"&gt;item1&lt;/div&gt; &lt;div id="item2" class="mui-control-content"&gt;item2&lt;/div&gt; &lt;div id="item3" class="mui-control-content"&gt;item3&lt;/div&gt;&lt;/div&gt; 具体效果如下]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>mui</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hbuilder 新增模板]]></title>
     <url>%2F2019%2F05%2F09%2FHbuilder-%E6%96%B0%E5%A2%9E%E6%A8%A1%E6%9D%BF%2F</url>
     <content type="text"><![CDATA[因为用 MUI 框架用的比较多，所以经常官方推荐的的编程工具 HBuilder 。此教程是针对Mac版的，PC版上有或许有些出入。 打开访达，点击工具栏的前往。 找到资源库，如果没有资源库，请按住 option 键。 在其资源库中找到Applocation Support文件夹。 然后找到 HBuilder X 文件夹，在其文件中找到 templates 文件夹。 如图所示，里面有好几个文件夹代表不同的分类，在该目录新建你常用的模板或将你常用的模板复制到该目录，新建文件时，模板列表会多出以该文件的文件名命名的模板。模板内容为该文件的内容。若不再需要该模板，请删除该文件。]]></content>
