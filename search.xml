@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Vue路由重定向]]></title>
+    <url>%2F2019%2F06%2F12%2FVue%E8%B7%AF%E7%94%B1%E9%87%8D%E5%AE%9A%E5%90%91%2F</url>
+    <content type="text"><![CDATA[重定向路由，刚进来就默认显示其中的一个子页面。 12// 路由属性redirect: '重定向地址' 123456789101112131415161718192021222324// router.jsimport Vue from 'vue'import Router from 'vue-router'import HelloWorld from '@/components/HelloWorld'import Switch from '@/components/mint-ui-switch'Vue.use(Router)export default new Router(&#123; routes: [ &#123; path: '/', name: 'HelloWorld', component: HelloWorld, redirect: '/switch', children:[&#123; path:'/switch', component:Switch &#125;] &#125; ]&#125;)]]></content>
+      <categories>
+        <category>vue-router</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[使用Mui tabber]]></title>
     <url>%2F2019%2F05%2F17%2F%E4%BD%BF%E7%94%A8Mui-tabber%2F</url>
     <content type="text"><![CDATA[写在前面的注意事项 何谓div模式的选项卡？其实就是通过DIV模拟一个独立页面，通过DIV的显示、隐藏模拟不同页面的切换，典型的SPA模式； 使用场景这种模式适合简单业务系统，因为每个选项卡内容要写在一个DIV中，若逻辑复杂，会导致当前页面DOM结构繁杂，造成webview响应缓慢，甚至崩溃；因此若系统较复杂，需要下拉刷新等操作，推荐使用webview模式的选项卡； 引入mui.js如果不是在 HBuilder 中新建的 MUI 项目，那么需要自行下载，点我下载 JS，右键保存页面存储到项目中就可以了。 12//引入 JS&lt;script src="js/mui.min.js"&gt;&lt;/script&gt; 联动绑定Mui绝大多数联动，都是采用类似锚点与ID相绑定，选项卡也不例外。 123&lt;!-- 例如 --&gt;&lt;a href="#id-01"&gt;选项卡名称&lt;/a&gt;&lt;div id="id-01"&gt;选项卡内容&lt;/div&gt; 高亮或选中状态Mui 统一是添加mui-active，所以如果你要默认哪个选项卡先显示，可以在其 class 上添加这个mui-active。 底部选项卡 div 模式12345678910111213141516171819202122232425262728&lt;!-- 底部选项卡 --&gt;&lt;nav class="mui-bar mui-bar-tab"&gt; &lt;a class="mui-tab-item mui-active" href="#tabbar"&gt; &lt;span class="mui-icon mui-icon-home"&gt;&lt;/span&gt; &lt;span class="mui-tab-label"&gt;首页&lt;/span&gt; &lt;/a&gt; &lt;a class="mui-tab-item" href="#tabbar-with-chat"&gt; &lt;span class="mui-icon mui-icon-email"&gt;&lt;span class="mui-badge"&gt;9&lt;/span&gt;&lt;/span&gt; &lt;span class="mui-tab-label"&gt;消息&lt;/span&gt; &lt;/a&gt; &lt;a class="mui-tab-item" href="#tabbar-with-contact"&gt; &lt;span class="mui-icon mui-icon-contact"&gt;&lt;/span&gt; &lt;span class="mui-tab-label"&gt;通讯录&lt;/span&gt; &lt;/a&gt; &lt;a class="mui-tab-item" href="#tabbar-with-map"&gt; &lt;span class="mui-icon mui-icon-gear"&gt;&lt;/span&gt; &lt;span class="mui-tab-label"&gt;设置&lt;/span&gt; &lt;/a&gt;&lt;/nav&gt;&lt;!-- 选项卡内容 --&gt;&lt;div class="mui-content"&gt; &lt;div id="tabbar" class="mui-control-content mui-active"&gt;tabbar-01&lt;/div&gt; &lt;div id="tabbar-with-chat" class="mui-control-content"&gt;tabbar-02&lt;/div&gt; &lt;div id="tabbar-with-contact" class="mui-control-content"&gt;tabbar-03&lt;/div&gt; &lt;div id="tabbar-with-map" class="mui-control-content"&gt;tabbar-04&lt;/div&gt;&lt;/div&gt; 具体效果如下 顶部选项卡 div 模式添加 DOM 结构 123456789101112131415&lt;!-- 选项卡头部 --&gt;&lt;div style="padding: 10px 10px;"&gt; &lt;div id="segmentedControl" class="mui-segmented-control"&gt; &lt;a class="mui-control-item mui-active" href="#item1"&gt;选项卡 1&lt;/a&gt; &lt;a class="mui-control-item" href="#item2"&gt;选项卡 2&lt;/a&gt; &lt;a class="mui-control-item" href="#item3"&gt;选项卡 3&lt;/a&gt; &lt;/div&gt;&lt;/div&gt; &lt;!-- 选项卡内容 --&gt;&lt;div class="tabBox"&gt; &lt;div id="item1" class="mui-control-content mui-active"&gt;item1&lt;/div&gt; &lt;div id="item2" class="mui-control-content"&gt;item2&lt;/div&gt; &lt;div id="item3" class="mui-control-content"&gt;item3&lt;/div&gt;&lt;/div&gt; 具体效果如下]]></content>
