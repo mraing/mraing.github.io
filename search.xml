@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Vue引入Mint-UI框架]]></title>
+    <url>%2F2019%2F06%2F12%2FVue%E5%BC%95%E5%85%A5Mint-UI%E6%A1%86%E6%9E%B6%2F</url>
+    <content type="text"><![CDATA[安装 1npm i mint-ui -S 全局引入 123456789101112// main.jsimport Vue from 'vue'import MintUI from 'mint-ui'import 'mint-ui/lib/style.css'import App from './App.vue'Vue.use(MintUI)new Vue(&#123; el: '#app', components: &#123; App &#125;&#125;)]]></content>
+      <categories>
+        <category>Vue</category>
+        <category>Mint-UI</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Vue路由重定向]]></title>
     <url>%2F2019%2F06%2F12%2FVue%E8%B7%AF%E7%94%B1%E9%87%8D%E5%AE%9A%E5%90%91%2F</url>
     <content type="text"><![CDATA[重定向路由，刚进来就默认显示其中的一个子页面。 12// 路由属性redirect: '重定向地址' 123456789101112131415161718192021222324// router.jsimport Vue from 'vue'import Router from 'vue-router'import HelloWorld from '@/components/HelloWorld'import Switch from '@/components/mint-ui-switch'Vue.use(Router)export default new Router(&#123; routes: [ &#123; path: '/', name: 'HelloWorld', component: HelloWorld, redirect: '/switch', children:[&#123; path:'/switch', component:Switch &#125;] &#125; ]&#125;)]]></content>
