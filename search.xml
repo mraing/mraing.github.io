@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[git常用指令]]></title>
+    <url>%2F2019%2F06%2F12%2Fgit%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[基础篇提交更新1git commit 创建分支1git branch &lt;分支名称&gt; 切换分支1git checkout &lt;分支名称&gt; 创建一个新的分支同时切换到新创建的分支的话，可以使用 1git checkout -b &lt;分支名称&gt; 分支与合并新建一个分支，在其上开发某个新功能，开发完成后再合并回主线。 merge合并分支咱们先来看一下第一种方法 —— git merge。在 Git 中合并两个分支时会产生一个特殊的提交记录，它有两个父节点。翻译成自然语言相当于：“我要把这两个父节点本身及它们所有的祖先都包含进来。” 换回分支 1git checkout &lt;分支名称&gt; 再合并master分支 1git merge master 再切换master分支 1git checkout master 再合并分支 1git merge &lt;分支名称&gt; rebase合并分支和 merge 用法类似。不过语法关键字不一样。 1git rebase &lt;分支名称&gt; 高级篇HEAD 指向如果想看 HEAD 指向，可以通过查看. 1234567cat .git/HEAD``` 如果 HEAD 指向的是一个引用，还可以用查看它的指向。```bashgit symbolic-ref HEAD 分离的 HEAD 就是让其指向了某个具体的提交记录而不是分支名。 我们首先看一下 “HEAD”。 HEAD 是一个对当前检出记录的符号引用 —— 也就是指向你正在其基础上进行工作的提交记录。 HEAD 总是指向当前分支上最近一次提交记录。大多数修改提交树的 Git 命令都是从改变 HEAD 的指向开始的。 HEAD 通常情况下是指向分支名的（如 bugFix）。在你提交时，改变了 bugFix 的状态，这一变化通过 HEAD 变得可见。 通过哈希值指定提交记录。每个提交记录的哈希值显示在代表提交记录的圆圈中。 相对引用通过指定提交记录哈希值的方式在 Git 中移动不太方便。用 git log来查查看提交记录的哈希值。 1git log Git 对哈希的处理很智能。你只需要提供能够唯一标识提交记录的前几个字符即可。 通过哈希值指定提交记录很不方便，所以 Git 引入了相对引用。 使用相对引用的话，你就可以从一个易于记忆的地方（比如 bugFix 分支或 HEAD）开始计算。 相对引用非常给力，这里我介绍两个简单的用法： 使用 ^ 向上移动 1 个提交记录 使用 ~&lt;num&gt; 向上移动多个提交记录，如 ~3 首先看看操作符 (^)。把这个符号加在引用名称的后面，表示让 Git 寻找指定提交记录的父提交。 所以 master^ 相当于“master 的父节点”。 也可以将 HEAD 作为相对引用的参照,我们可以一直使用 HEAD^ 向上移动。]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>-GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Vue引入Mint-UI框架]]></title>
     <url>%2F2019%2F06%2F12%2FVue%E5%BC%95%E5%85%A5Mint-UI%E6%A1%86%E6%9E%B6%2F</url>
     <content type="text"><![CDATA[安装 1npm i mint-ui -S 全局引入 123456789101112// main.jsimport Vue from 'vue'import MintUI from 'mint-ui'import 'mint-ui/lib/style.css'import App from './App.vue'Vue.use(MintUI)new Vue(&#123; el: '#app', components: &#123; App &#125;&#125;)]]></content>
