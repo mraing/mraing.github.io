@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://images.leegeing.cn/hexoImg/vue组件传值-01.gif">
 <meta property="og:image" content="http://images.leegeing.cn/hexoImg/vue组件传值-02.gif">
-<meta property="og:updated_time" content="2019-06-19T06:18:58.786Z">
+<meta property="og:updated_time" content="2019-06-23T16:27:35.969Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue组件简单传值">
 <meta name="twitter:description" content="父组件传值到子组件通过 props 进行父组件向组件传值。  首先，在子组件中绑定参数，参数名字自拟。  1&amp;lt;子组件名称 :content=&quot;参数值&quot;&amp;gt;&amp;lt;/子组件名称&amp;gt;  然后在子组件中用 props 属性接收参数。  1props: [&quot;content&quot;]  最后就在页面中调用参数  1&amp;lt;div&amp;gt;&amp;#123;&amp;#123;content&amp;#125;&amp;#125;&amp;">
@@ -443,6 +443,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"search"</span> <span class="attr">v-model</span>=<span class="string">"value"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"addList"</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">todo-item</span> <span class="attr">v-for</span>=<span class="string">"(item,index) in list"</span> <span class="attr">:key</span>=<span class="string">"index"</span> <span class="attr">:content</span>=<span class="string">"item"</span> <span class="attr">:index</span>=<span class="string">"index"</span> @<span class="attr">delete</span>=<span class="string">"handleItemsDelete"</span>&gt;</span><span class="tag">&lt;/<span class="name">todo-item</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> todoItem = &#123;</span><br><span class="line">   props: [<span class="string">"content"</span>,<span class="string">"index"</span>],</span><br><span class="line">   template: <span class="string">"&lt;li @click='handleItems'&gt; &#123;&#123;content&#125;&#125; &lt;/li&gt;"</span>,</span><br><span class="line">   methods:&#123;</span><br><span class="line">     handleItems()&#123;</span><br><span class="line">       <span class="keyword">this</span>.$emit(<span class="string">'delete'</span>,<span class="keyword">this</span>.index);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;;</span><br><span class="line"> <span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">   el: <span class="string">"#app"</span>,</span><br><span class="line">   data() &#123;</span><br><span class="line">     <span class="keyword">return</span> &#123;</span><br><span class="line">       value: <span class="string">""</span>,</span><br><span class="line">       list: []</span><br><span class="line">     &#125;;</span><br><span class="line">   &#125;,</span><br><span class="line">   methods: &#123;</span><br><span class="line">     addList() &#123;</span><br><span class="line">       <span class="keyword">this</span>.list.push(<span class="keyword">this</span>.value);</span><br><span class="line">       <span class="keyword">this</span>.value = <span class="string">""</span>;</span><br><span class="line">     &#125;,</span><br><span class="line">     handleItemsDelete(index)&#123;</span><br><span class="line">       <span class="keyword">this</span>.list.splice(index,<span class="number">1</span>);</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;,</span><br><span class="line">   components: &#123;</span><br><span class="line">     todoItem</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
 <p><img src="http://images.leegeing.cn/hexoImg/vue组件传值-02.gif" alt="vue组件传值-02"></p>
+<h4 id="👨‍👦父子组件之间的传值需要注意的事项"><a href="#👨‍👦父子组件之间的传值需要注意的事项" class="headerlink" title="👨‍👦父子组件之间的传值需要注意的事项"></a>👨‍👦父子组件之间的传值需要注意的事项</h4><p>Vue提倡的是单向数据流，即父组件可以传值给子组件，但是子组件不能去直接修改父组件传过来的值。</p>
 
       
     </div>
@@ -564,7 +565,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -575,7 +576,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -635,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#父组件传值到子组件"><span class="nav-number">1.</span> <span class="nav-text">父组件传值到子组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#子组件传值给父组件"><span class="nav-number">2.</span> <span class="nav-text">子组件传值给父组件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#父组件传值到子组件"><span class="nav-number">1.</span> <span class="nav-text">父组件传值到子组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#子组件传值给父组件"><span class="nav-number">2.</span> <span class="nav-text">子组件传值给父组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#👨‍👦父子组件之间的传值需要注意的事项"><span class="nav-number">3.</span> <span class="nav-text">👨‍👦父子组件之间的传值需要注意的事项</span></a></li></ol></div>
             
 
           </div>
