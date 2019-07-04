@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Echarts常用属性]]></title>
+    <url>%2F2019%2F07%2F04%2FEcharts%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7%2F</url>
+    <content type="text"><![CDATA[引入CDNJS1https://cdnjs.com/libraries/echarts 可以从这里面去下载你需要的版本 完整的实例123456789101112131415161718192021222324252627&lt;script type="text/javascript"&gt;// 基于准备好的dom，初始化echarts实例var myChart = echarts.init(document.getElementById('main'));// 指定图表的配置项和数据var option = &#123; title: &#123; text: 'ECharts 入门示例' &#125;, tooltip: &#123;&#125;, legend: &#123; data:['销量'] &#125;, xAxis: &#123; data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"] &#125;, yAxis: &#123;&#125;, series: [&#123; name: '销量', type: 'bar', data: [5, 20, 36, 10, 10, 20] &#125;]&#125;;// 使用刚指定的配置项和数据显示图表。myChart.setOption(option);&lt;/script&gt;]]></content>
+      <categories>
+        <category>Echarts</category>
+      </categories>
+      <tags>
+        <tag>Echarts</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Vue快捷引用目录]]></title>
     <url>%2F2019%2F06%2F29%2FVue%E5%BF%AB%E6%8D%B7%E5%BC%95%E7%94%A8%E7%9B%AE%E5%BD%95%2F</url>
     <content type="text"><![CDATA[Vue 中，有时候需要经常引用到某个文件，每次输入一长串的目录地址，不是很方便。这时我们可以给目录取一个别名，快捷引用目录。 首先找到 build 目录下面的 webpack.base.conf.js 文件。 在文件中找到 1234567resolve: &#123; extensions: ['.js', '.vue', '.json'], alias: &#123; 'vue$': 'vue/dist/vue.esm.js', '@': resolve('src') &#125;&#125;, 在 alias 中新增一个别名，例如： 12345678resolve: &#123; extensions: ['.js', '.vue', '.json'], alias: &#123; 'vue$': 'vue/dist/vue.esm.js', '@': resolve('src'), 'styles': resolve('src/assets/styles') &#125;&#125; 然后就可以这样去引用它，比如原来我们需要引入的地址是这样的： 12&lt;!--old--&gt;import '../../../styles/reset.css' 现在我们只需要这样做： 12&lt;!--new--&gt;import &apos;styles/reset.css&apos; 需要注意的一点是，如果是在 css样式中引入别的样式表，需要在前面加上一个 ~ 符号，例如： 123&lt;style lang="stylus" scoped&gt; @import '~styles/varibles.styl'&lt;/style&gt;]]></content>
