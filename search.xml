@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Echarts常用属性]]></title>
-    <url>%2F2019%2F07%2F04%2FEcharts%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7%2F</url>
-    <content type="text"><![CDATA[引入CDNJS1https://cdnjs.com/libraries/echarts 可以从这里面去下载你需要的版本 完整的实例123456789101112131415161718192021222324252627&lt;script type="text/javascript"&gt;// 基于准备好的dom，初始化echarts实例var myChart = echarts.init(document.getElementById('main'));// 指定图表的配置项和数据var option = &#123; title: &#123; text: 'ECharts 入门示例' &#125;, tooltip: &#123;&#125;, legend: &#123; data:['销量'] &#125;, xAxis: &#123; data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"] &#125;, yAxis: &#123;&#125;, series: [&#123; name: '销量', type: 'bar', data: [5, 20, 36, 10, 10, 20] &#125;]&#125;;// 使用刚指定的配置项和数据显示图表。myChart.setOption(option);&lt;/script&gt;]]></content>
+    <title><![CDATA[Vuex的简单使用]]></title>
+    <url>%2F2019%2F07%2F10%2FVuex%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 Vuex 并不限制你的代码结构。但是，它规定了一些需要遵守的规则： 应用层级的状态应该集中到单个 store 对象中。 提交 mutation 是更改状态的唯一方法，并且这个过程是同步的。 异步逻辑都应该封装到 action 里面。 安装 Vuex1npm install vuex --save 导入 Vuex1234import Vue from 'vue'import Vuex from 'vuex'Vue.use(Vuex) 实例化一个 Vuex1234567891011export default new Vuex.Store(&#123; state: &#123; // 这里写数据的初始状态 &#125;, actions: &#123; // 数据动作 &#125;, mutations: &#123; // 更改变化 &#125;&#125;) 本地存储12345678910// statetry &#123; if (localStorage.city) &#123; defaultCity = localStorage.city &#125;&#125; catch (error) &#123;&#125;export default &#123; city: defaultCity&#125;]]></content>
       <categories>
-        <category>Echarts</category>
+        <category>Vue</category>
       </categories>
       <tags>
-        <tag>Echarts</tag>
+        <tag>vuex</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[Vue快捷引用目录]]></title>
     <url>%2F2019%2F06%2F29%2FVue%E5%BF%AB%E6%8D%B7%E5%BC%95%E7%94%A8%E7%9B%AE%E5%BD%95%2F</url>
     <content type="text"><![CDATA[Vue 中，有时候需要经常引用到某个文件，每次输入一长串的目录地址，不是很方便。这时我们可以给目录取一个别名，快捷引用目录。 首先找到 build 目录下面的 webpack.base.conf.js 文件。 在文件中找到 1234567resolve: &#123; extensions: ['.js', '.vue', '.json'], alias: &#123; 'vue$': 'vue/dist/vue.esm.js', '@': resolve('src') &#125;&#125;, 在 alias 中新增一个别名，例如： 12345678resolve: &#123; extensions: ['.js', '.vue', '.json'], alias: &#123; 'vue$': 'vue/dist/vue.esm.js', '@': resolve('src'), 'styles': resolve('src/assets/styles') &#125;&#125; 然后就可以这样去引用它，比如原来我们需要引入的地址是这样的： 12&lt;!--old--&gt;import '../../../styles/reset.css' 现在我们只需要这样做： 12&lt;!--new--&gt;import &apos;styles/reset.css&apos; 需要注意的一点是，如果是在 css样式中引入别的样式表，需要在前面加上一个 ~ 符号，例如： 123&lt;style lang="stylus" scoped&gt; @import '~styles/varibles.styl'&lt;/style&gt;]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>Vue 小技巧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Vue动态渲染组件]]></title>
+    <url>%2F2019%2F06%2F25%2FVue%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E7%BB%84%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[动态组件，通过 is 去动态渲染组件1&lt;component :is="type"&gt;&lt;/component&gt; 比如下面这个例子 123456&lt;!--父组件--&gt;&lt;div id="app"&gt; &lt;component :is="type"&gt;&lt;/component&gt; &lt;button @click="handleClick"&gt;click me&lt;/button&gt;&lt;/div&gt; 12345678910111213141516171819Vue.component("child-one", &#123; template: `&lt;div v-once&gt;one,one&lt;/div&gt;`&#125;);Vue.component("child-two", &#123; template: `&lt;div v-once&gt;two-two&lt;/div&gt;`&#125;);var vm = new Vue(&#123; el: "#app", data: &#123; type: 'child-one' &#125;, methods:&#123; handleClick ()&#123; this.type = (this.type === 'child-one'? 'child-two': 'child-one'); &#125; &#125;&#125;); 在子组件中添加 v-once 有助于提高静态页面的渲染速度。]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue 组件</tag>
       </tags>
   </entry>
   <entry>
@@ -24,10 +38,10 @@
     <url>%2F2019%2F06%2F25%2FVue-%E6%8F%92%E6%A7%BD%2F</url>
     <content type="text"><![CDATA[我们定义一个子组件后，有时候还需要往子组件中插入 html，这时我们就需要用到 slot 。 基本用法12345&lt;div id="app"&gt; &lt;child&gt; &lt;h1&gt;Mr.Aing&lt;/h1&gt; &lt;/child&gt;&lt;/div&gt; 1234567891011Vue.component("child", &#123;template: `&lt;div&gt; &lt;p&gt;Hello&lt;/p&gt; &lt;slot&gt;默认内容&lt;/slot&gt; &lt;/div&gt;`&#125;);var vm = new Vue(&#123; el: "#app", data: &#123;&#125;&#125;); 设置默认值我们还可以设置默认slot的默认值。如果父组件中插入的 html没有值，然后可以在子组件中的 slot标签中写入默认值。 进阶用法我们又有一个需求，在父组件中，我们需要在子组件中插入头部和尾部标签。这时我们就需要用 name 属性。 123456&lt;div id="app"&gt; &lt;child&gt; &lt;div class="header" slot="header"&gt;header&lt;/div&gt; &lt;div class="footer" slot="footer"&gt;footer&lt;/div&gt; &lt;/child&gt;&lt;/div&gt; 123456789101112Vue.component("child", &#123;template: `&lt;div&gt; &lt;slot name="header"&gt;&lt;/slot&gt; &lt;p&gt;Hello&lt;/p&gt; &lt;slot name="footer"&gt;&lt;/slot&gt; &lt;/div&gt;`&#125;);var vm = new Vue(&#123; el: "#app", data: &#123;&#125;&#125;); 👏新语法123456&lt;!--父组件--&gt;&lt;child&gt; &lt;template v-slot:head="&#123; msg &#125;"&gt; &lt;p&gt;new: i'm new slot - &#123;&#123; msg &#125;&#125;&lt;/p&gt; &lt;/template&gt;&lt;/child&gt; 123456789&lt;!--子组件--&gt;&lt;div&gt; &lt;slot name="head" v-for="item in items" :msg=item &gt; 默认值 &lt;/slot&gt;&lt;/div&gt; 上述语法是新语法，注意双花括号和单括号的切换使用]]></content>
       <categories>
-        <category>vue slot</category>
+        <category>Vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>Vue 组件</tag>
       </tags>
   </entry>
   <entry>
@@ -35,10 +49,10 @@
     <url>%2F2019%2F06%2F25%2F%E9%9D%9E%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E8%AE%AF%2F</url>
     <content type="text"><![CDATA[Bus/总线/发布订阅模式/观察者模式在 vue 的prototype上挂载了一个 bus 的属性，这样做的目的就是让所有的 Vue 实例都带有这个属性1Vue.prototype.bus = new Vue(); 在子组件上触发事件时，通过bus.$emit这个方法向外触发事件. 1this.bus.$emit("change", this.selfContent); 在子组件上的生命周期-挂载时接收这个通知 123456 mounted:function() &#123; var _this = this; this.bus.$on("change", function(msg) &#123; console.log(msg+'被挂载时执行这个函数'); &#125;);&#125; 整体代码如下： 12345&lt;div id="app"&gt; &lt;div&gt;父子组件通讯：Bus/总线/发布订阅模式/观察者模式&lt;/div&gt; &lt;child content="LEE"&gt;&lt;/child&gt; &lt;child content="DELL"&gt;&lt;/child&gt;&lt;/div&gt; 1234567891011121314151617181920212223242526272829303132333435363738&lt;script src="https://cdn.jsdelivr.net/npm/vue"&gt;&lt;/script&gt;&lt;script&gt; //在 vue 的prototype上挂载了一个 bus 的属性，这样做的目的就是让所有的 Vue 实例都带有这个属性 Vue.prototype.bus = new Vue(); Vue.component("child", &#123; props: &#123; content: String &#125;, data() &#123; return&#123; selfContent: this.content &#125; &#125;, template: '&lt;div @click="handleClick"&gt;&#123;&#123;selfContent&#125;&#125;&lt;/div&gt;', methods: &#123; handleClick() &#123; // console.log(this.content); console.log("触发 methods"); this.bus.$emit("change", this.selfContent); //this.bus 指的是挂载在 Vue 上的一个属性，每个实例上都有会 bus 这个属性，bus 又是 Vue 的实例，所以bus 上也会有 $emit 这个方法，我们就可以通过这个方法向外触发事件 &#125; &#125;, //生命周期-被挂载时执行这个函数 mounted:function() &#123; var _this = this; this.bus.$on("change", function(msg) &#123; console.log(msg+'被挂载时执行这个函数'); _this.selfContent = msg; &#125;); &#125; &#125;); //实例化Vue var vm = new Vue(&#123; el: "#app", &#125;); &lt;/script&gt;]]></content>
       <categories>
-        <category>组件</category>
+        <category>Vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>Vue 组件</tag>
       </tags>
   </entry>
   <entry>
@@ -46,10 +60,10 @@
     <url>%2F2019%2F06%2F20%2FVue%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%BB%84%E4%BB%B6%E7%9A%84%E5%B0%8F%E5%9D%91%2F</url>
     <content type="text"><![CDATA[模板组件渲染出错在使用组件的过程中，会碰到耦合性特别强的标签，比如 ul,li 、 ol,li 、select,option 、table tr, td 标签等。 如果我们直接用里面的子标签做为组件使用，就可能会出现问题。 例如下面这个表格 123456&lt;!--html--&gt;&lt;table&gt; &lt;tr&gt;&lt;td&gt;123&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;123&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;123&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; 在网页上展示的 DOM 结构为如下图所示，这样是没有问题的。 当我们把 td 当做一个子组件去使用时，就可能会出现下面这种情况。 123456&lt;!--html--&gt;&lt;table&gt; &lt;tr&gt;&lt;my-td&gt;&lt;/my-td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;my-td&gt;&lt;/my-td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;my-td&gt;&lt;/my-td&gt;&lt;/tr&gt;&lt;/table&gt; 12345678910//注册全局组件Vue.component("my-td",&#123; "template": "&lt;td&gt;123&lt;/td&gt;"&#125;);//创建 Vue 实例var vm = new Vue(&#123; el: "#app", data: &#123;&#125;&#125;); 我们注册了一个全局组件，组件内容就是 td 标签，然后放入到页面中去使用它，然后我们到页面上查看 DOM 结构，发现有问题。 在 H5的规范里面，我们需要遵循标签的嵌套，table &gt; tr &gt;tr 。但是现在table tr 并没有包裹住 td 标签。 那么如果解决这种情况呢？ Vue 给我们提供了解决方法，既然对于某些标签有严格的嵌套标准，那么我们便去遵守它，还是和原来的代码一样。只不过 DOM 结构有些不同。 12345&lt;table&gt; &lt;tr&gt;&lt;td is="my-td"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td is="my-td"&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td is="my-td"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt; 用 is 表示指向这个组件，这样符合H5的代码标准，又能保证我们能正常使用组件。 同理，对于其他耦合性较强的标签，都可以使用 is 属性进行模板组件的使用。 子组件数据渲染出错在子组件中定义 data 时，data 必须是个函数。 还是刚刚那个例子，这时我们在 data 中定义一个content 参数，然后在模板中调用它。 1234567//注册全局组件Vue.component("my-td",&#123; data: &#123; content: '123' &#125;, "template": "&lt;td&gt;&#123;&#123; content &#125;&#125;&lt;/td&gt;"&#125;); 运行到浏览器中，我们会发现控制台报错了。 1vue:6 ReferenceError: content is not defined 提示我们 content 没有定义，这是因为在子组件中定义 data 时，data 必须是个函数。 所以，我们应该这样把 data 改为一个函数，这样就能正常渲染出数据了。 123456789//注册全局组件Vue.component("my-td",&#123; data()&#123; return &#123; content: '123' &#125; &#125;, "template": "&lt;td&gt;&#123;&#123; content &#125;&#125;&lt;/td&gt;"&#125;); 操作 DOMvue 官方不推荐我们去操作 DOM，取而代之的是数据绑定，但是在处理某些极为复杂的情况时，又必须得去操作 DOM ,所以 vue 给我们提供了 ref 属性。 12&lt;!--html--&gt;&lt;div @click="handleClickMe" ref="hello"&gt;Click Me&lt;/div&gt; 123456//JSmethods:&#123; handleClickMe() &#123; console.log(this.$refs.hello); &#125;&#125; 打印结果如下,它会把这个 DOM 节点都打印输出。 1&lt;div&gt;Click Me&lt;/div&gt;]]></content>
       <categories>
-        <category>vue 组件</category>
+        <category>Vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>Vue 组件</tag>
       </tags>
   </entry>
   <entry>
@@ -57,10 +71,10 @@
     <url>%2F2019%2F06%2F19%2Fvue%E3%81%AE%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7computed%2F</url>
     <content type="text"><![CDATA[基本用法用途 对于任何复杂逻辑，你都应当使用计算属性 用法12&lt;!--html--&gt;&lt;div&gt;计算属性 : &#123;&#123;fullName&#125;&#125;&lt;/div&gt; 123456789101112131415//jsvar vm = new Vue(&#123; el: "#app", data: &#123; firstName: "Lee", lastName: "Geing", fullName: "LeeGeing" &#125;, //计算属性 computed: &#123; fullName:function() &#123; return this.fullName = this.firstName + this.lastName; &#125; &#125;&#125;); 计算属性 computed 有缓存的机制，如果依赖的值没有变化，是不会进行改变的，这样做的好处是减少性能的损耗。 计算属性缓存和方法的区别计算属性 computed : 是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生改变时它们才会重新求值。这就意味着只要 fullName 还没有发生改变，多次访问 fullName 计算属性会立即返回之前的计算结果，而不必再次执行函数。 方法 methods : 数据的每次变换都会重新加载一次。 监听 watch: 只有变换的那个数据会被重新加载。 完整代码如下 12345678910111213&lt;!--html--&gt;&lt;div id="app"&gt; &lt;!-- 计算属性 --&gt; &lt;div&gt;计算属性 computed :有缓存的机制，如果依赖的值没有变化，是不会进行改变的，这样做的好处是减少性能的损耗&lt;/div&gt; &lt;div&gt;计算属性 : &#123;&#123;fullName&#125;&#125; &#123;&#123;age&#125;&#125;&lt;/div&gt; &lt;hr&gt; &lt;!-- 方法属性 --&gt; &lt;div&gt;通过方式去实现的数据更改，改变数据会重新加载一次 DOM&lt;/div&gt; &lt;div&gt;方法 : &#123;&#123; fullNameFuc() &#125;&#125; &#123;&#123;age&#125;&#125;&lt;/div&gt; &lt;hr&gt; &lt;!-- 监听 --&gt; &lt;div&gt;监听 : &#123;&#123; fullName2 &#125;&#125; &#123;&#123;age&#125;&#125;&lt;/div&gt;&lt;/div&gt; 123456789101112131415161718192021222324252627282930313233343536373839//jsvar vm = new Vue(&#123; el: "#app", data: &#123; firstName: "Lee", lastName: "Geing", fullName2: "LeeGeing", age: 23 &#125;, //计算属性 computed: &#123; fullName:function() &#123; console.log("computed 执行了一次"); return this.firstName + this.lastName; &#125; &#125;, //方法 methods: &#123; fullNameFuc:function() &#123; console.log("methods 执行了一次"); return this.firstName + this.lastName; &#125; &#125;, //监听 watch: &#123; //监听firstName firstName:function()&#123; console.log("监听firstName 执行了一次"); this.fullName2 = this.firstName + this.lastName; &#125;, //监听lastName lastName:function()&#123; console.log("监听lastName 执行了一次"); this.fullName2 = this.firstName + this.lastName; &#125; &#125;&#125;);]]></content>
       <categories>
-        <category>vue 全局 API</category>
+        <category>Vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>Vue computed</tag>
       </tags>
   </entry>
   <entry>
@@ -68,10 +82,10 @@
     <url>%2F2019%2F06%2F19%2FVue%E7%BB%84%E4%BB%B6%E7%AE%80%E5%8D%95%E4%BC%A0%E5%80%BC%2F</url>
     <content type="text"><![CDATA[父组件传值到子组件通过 props 进行父组件向组件传值。 首先，在子组件中绑定参数，参数名字自拟。 1&lt;子组件名称 :content="参数值"&gt;&lt;/子组件名称&gt; 然后在子组件中用 props 属性接收参数。 1props: ["content"] 最后就在页面中调用参数 1&lt;div&gt;&#123;&#123;content&#125;&#125;&lt;/div&gt; 例如下面这个例子12345678910&lt;!--html--&gt;&lt;div id="app"&gt; &lt;input type="search" v-model="value" /&gt; &lt;button @click="addList"&gt;提交&lt;/button&gt; &lt;ul&gt; &lt;!-- &lt;li v-for="(item,index) in list" :key="index"&gt;&#123;&#123; item &#125;&#125;&lt;/li&gt; --&gt; &lt;todo-item v-for="(item,index) in list" :key="index" :content="item"&gt;&lt;/todo-item&gt; &lt;/ul&gt;&lt;/div&gt; 12345678910111213141516171819202122232425//组件模板var todoItem = &#123; props: ["content"], template: "&lt;li&gt; &#123;&#123;content&#125;&#125; &lt;/li&gt;"&#125;;、、实例化对象var app = new Vue(&#123; el: "#app", data() &#123; return &#123; value: "", list: [] &#125;; &#125;, methods: &#123; addList() &#123; this.list.push(this.value); this.value = ""; &#125; &#125;, components: &#123; todoItem &#125;&#125;); 子组件传值给父组件上一个例子是点击提交，生成一条列表。现在我们需要点击当前某一条列表，删除列表。 我们还是参考上一个例子来完成这个效果。其中就需要用到子组件传值给父组件。 我们先给子组件绑定事件 1template: "&lt;li @click='handleItems'&gt; &#123;&#123;content&#125;&#125; &lt;/li&gt;", 然后在子组件的中的 methods编写事件 子组件可以使用 $emit 触发父组件的自定义事件 12345methods:&#123; handleItems() &#123; this.$emit('delete'); &#125;&#125; 在父组件中进行绑定事件 1&lt;todo-item v-for="(item,index) in list" :key="index" :content="item" @delete="handleItemsDelete"&gt;&lt;/todo-item&gt; 然后在父组件中 methods 编写事件方法 123456//清空列表methods: &#123; handleItemsDelete(index)&#123; this.list = []; &#125;&#125; 这样可以实现点击列表，可以清空列表。但是这不是我们想要的效果。我们需要点击哪一条列表，哪一条列表就消失，而不是全部消失。 做到这样的效果，我们需要知道列表的下标才好去操作某一条数据。 再回到刚刚父组件传值给子组件的那个，我们还需要多穿一个下标值给子组件。 1&lt;todo-item v-for="(item,index) in list" :key="index" :content="item" :index="index" @delete="handleItemsDelete"&gt;&lt;/todo-item&gt; 我们多绑定一个 index属性，做为传下标给子组件的参数。 子组件接收值，并把值再传回给父组件 123456props: ["content","index"],methods:&#123; handleItems()&#123; this.$emit('delete',this.index); &#125;&#125; 父组件在编写事件时，把值传入handleItemsDelete方法，并进行删减操作。 12345methods: &#123; handleItemsDelete(index)&#123; this.list.splice(index,1); &#125;&#125; 全部代码如下 12345678&lt;div id="app"&gt; &lt;input type="search" v-model="value" /&gt; &lt;button @click="addList"&gt;提交&lt;/button&gt; &lt;ul&gt; &lt;todo-item v-for="(item,index) in list" :key="index" :content="item" :index="index" @delete="handleItemsDelete"&gt;&lt;/todo-item&gt; &lt;/ul&gt;&lt;/div&gt; 123456789101112131415161718192021222324252627282930var todoItem = &#123; props: ["content","index"], template: "&lt;li @click='handleItems'&gt; &#123;&#123;content&#125;&#125; &lt;/li&gt;", methods:&#123; handleItems()&#123; this.$emit('delete',this.index); &#125; &#125; &#125;; var app = new Vue(&#123; el: "#app", data() &#123; return &#123; value: "", list: [] &#125;; &#125;, methods: &#123; addList() &#123; this.list.push(this.value); this.value = ""; &#125;, handleItemsDelete(index)&#123; this.list.splice(index,1); &#125; &#125;, components: &#123; todoItem &#125; &#125;); 👨‍👦父子组件之间的传值需要注意的事项Vue提倡的是单向数据流，即父组件可以传值给子组件，但是子组件不能去直接修改父组件传过来的值。]]></content>
       <categories>
-        <category>Vue 组件</category>
+        <category>Vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>Vue 组件</tag>
       </tags>
   </entry>
   <entry>
@@ -79,10 +93,10 @@
     <url>%2F2019%2F06%2F17%2Fvue-%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%2F</url>
     <content type="text"><![CDATA[1:style=&quot;&#123;background: &apos;url(&apos; + citem.iconImg + &apos;) 12.5px 50% / 25px no-repeat&apos;&#125;&quot;]]></content>
       <categories>
-        <category>v-bind</category>
+        <category>Vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>Vue 动态绑定</tag>
       </tags>
   </entry>
   <entry>
@@ -90,10 +104,10 @@
     <url>%2F2019%2F06%2F17%2FVue-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%A4%B1%E6%95%88%2F</url>
     <content type="text"><![CDATA[问题描述今天使用 vue 框架做项目时，发现热更新失效了。有些页面可以使用热更新，有些页面不能使用热更新，找了半天终于发现问题了。 问题解决使用vue-router时，对应的页面需要区分大小写，虽然不会报错，但是会影响热更新。 使用vue-router时，对应的页面需要区分大小写，虽然不会报错，但是会影响热更新。 使用vue-router时，对应的页面需要区分大小写，虽然不会报错，但是会影响热更新。 重要的事情说三遍！！ 此情况同样适用于.vue文件里组件的引用，大小写不一致的话，也会导致子组件热修复失效。]]></content>
       <categories>
-        <category>vue-cli</category>
+        <category>Vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>Vue 热更新</tag>
       </tags>
   </entry>
   <entry>
@@ -101,10 +115,10 @@
     <url>%2F2019%2F06%2F12%2Fgit%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[基础篇提交更新1git commit 创建分支1git branch &lt;分支名称&gt; 切换分支1git checkout &lt;分支名称&gt; 创建一个新的分支同时切换到新创建的分支的话，可以使用 1git checkout -b &lt;分支名称&gt; 分支与合并新建一个分支，在其上开发某个新功能，开发完成后再合并回主线。 merge合并分支咱们先来看一下第一种方法 —— git merge。在 Git 中合并两个分支时会产生一个特殊的提交记录，它有两个父节点。翻译成自然语言相当于：“我要把这两个父节点本身及它们所有的祖先都包含进来。” 换回分支 1git checkout &lt;分支名称&gt; 再合并master分支 1git merge master 再切换master分支 1git checkout master 再合并分支 1git merge &lt;分支名称&gt; rebase合并分支和 merge 用法类似。不过语法关键字不一样。 1git rebase &lt;分支名称&gt; 高级篇HEAD 指向如果想看 HEAD 指向，可以通过查看. 1234567cat .git/HEAD``` 如果 HEAD 指向的是一个引用，还可以用查看它的指向。```bashgit symbolic-ref HEAD 分离的 HEAD 就是让其指向了某个具体的提交记录而不是分支名。 我们首先看一下 “HEAD”。 HEAD 是一个对当前检出记录的符号引用 —— 也就是指向你正在其基础上进行工作的提交记录。 HEAD 总是指向当前分支上最近一次提交记录。大多数修改提交树的 Git 命令都是从改变 HEAD 的指向开始的。 HEAD 通常情况下是指向分支名的（如 bugFix）。在你提交时，改变了 bugFix 的状态，这一变化通过 HEAD 变得可见。 通过哈希值指定提交记录。每个提交记录的哈希值显示在代表提交记录的圆圈中。 相对引用通过指定提交记录哈希值的方式在 Git 中移动不太方便。用 git log来查查看提交记录的哈希值。 1git log Git 对哈希的处理很智能。你只需要提供能够唯一标识提交记录的前几个字符即可。 通过哈希值指定提交记录很不方便，所以 Git 引入了相对引用。 使用相对引用的话，你就可以从一个易于记忆的地方（比如 bugFix 分支或 HEAD）开始计算。 相对引用非常给力，这里我介绍两个简单的用法： 使用 ^ 向上移动 1 个提交记录 使用 ~&lt;num&gt; 向上移动多个提交记录，如 ~3 首先看看操作符 (^)。把这个符号加在引用名称的后面，表示让 Git 寻找指定提交记录的父提交。 所以 master^ 相当于“master 的父节点”。 也可以将 HEAD 作为相对引用的参照,我们可以一直使用 HEAD^ 向上移动。]]></content>
       <categories>
-        <category>工具</category>
+        <category>编程</category>
       </categories>
       <tags>
-        <tag>-GitHub</tag>
+        <tag>git 指令</tag>
       </tags>
   </entry>
   <entry>
@@ -116,7 +130,7 @@
         <category>Mint-UI</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>Mint-UI</tag>
       </tags>
   </entry>
   <entry>
@@ -124,10 +138,10 @@
     <url>%2F2019%2F06%2F12%2FVue%E8%B7%AF%E7%94%B1%E9%87%8D%E5%AE%9A%E5%90%91%2F</url>
     <content type="text"><![CDATA[重定向路由，刚进来就默认显示其中的一个子页面。 12// 路由属性redirect: '重定向地址' 123456789101112131415161718192021222324// router.jsimport Vue from 'vue'import Router from 'vue-router'import HelloWorld from '@/components/HelloWorld'import Switch from '@/components/mint-ui-switch'Vue.use(Router)export default new Router(&#123; routes: [ &#123; path: '/', name: 'HelloWorld', component: HelloWorld, redirect: '/switch', children:[&#123; path:'/switch', component:Switch &#125;] &#125; ]&#125;)]]></content>
       <categories>
-        <category>vue-router</category>
+        <category>Vue</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>Vue 路由</tag>
       </tags>
   </entry>
   <entry>
@@ -135,10 +149,10 @@
     <url>%2F2019%2F05%2F17%2F%E4%BD%BF%E7%94%A8Mui-tabber%2F</url>
     <content type="text"><![CDATA[写在前面的注意事项 何谓div模式的选项卡？其实就是通过DIV模拟一个独立页面，通过DIV的显示、隐藏模拟不同页面的切换，典型的SPA模式； 使用场景这种模式适合简单业务系统，因为每个选项卡内容要写在一个DIV中，若逻辑复杂，会导致当前页面DOM结构繁杂，造成webview响应缓慢，甚至崩溃；因此若系统较复杂，需要下拉刷新等操作，推荐使用webview模式的选项卡； 引入mui.js如果不是在 HBuilder 中新建的 MUI 项目，那么需要自行下载，点我下载 JS，右键保存页面存储到项目中就可以了。 12//引入 JS&lt;script src="js/mui.min.js"&gt;&lt;/script&gt; 联动绑定Mui绝大多数联动，都是采用类似锚点与ID相绑定，选项卡也不例外。 123&lt;!-- 例如 --&gt;&lt;a href="#id-01"&gt;选项卡名称&lt;/a&gt;&lt;div id="id-01"&gt;选项卡内容&lt;/div&gt; 高亮或选中状态Mui 统一是添加mui-active，所以如果你要默认哪个选项卡先显示，可以在其 class 上添加这个mui-active。 底部选项卡 div 模式12345678910111213141516171819202122232425262728&lt;!-- 底部选项卡 --&gt;&lt;nav class="mui-bar mui-bar-tab"&gt; &lt;a class="mui-tab-item mui-active" href="#tabbar"&gt; &lt;span class="mui-icon mui-icon-home"&gt;&lt;/span&gt; &lt;span class="mui-tab-label"&gt;首页&lt;/span&gt; &lt;/a&gt; &lt;a class="mui-tab-item" href="#tabbar-with-chat"&gt; &lt;span class="mui-icon mui-icon-email"&gt;&lt;span class="mui-badge"&gt;9&lt;/span&gt;&lt;/span&gt; &lt;span class="mui-tab-label"&gt;消息&lt;/span&gt; &lt;/a&gt; &lt;a class="mui-tab-item" href="#tabbar-with-contact"&gt; &lt;span class="mui-icon mui-icon-contact"&gt;&lt;/span&gt; &lt;span class="mui-tab-label"&gt;通讯录&lt;/span&gt; &lt;/a&gt; &lt;a class="mui-tab-item" href="#tabbar-with-map"&gt; &lt;span class="mui-icon mui-icon-gear"&gt;&lt;/span&gt; &lt;span class="mui-tab-label"&gt;设置&lt;/span&gt; &lt;/a&gt;&lt;/nav&gt;&lt;!-- 选项卡内容 --&gt;&lt;div class="mui-content"&gt; &lt;div id="tabbar" class="mui-control-content mui-active"&gt;tabbar-01&lt;/div&gt; &lt;div id="tabbar-with-chat" class="mui-control-content"&gt;tabbar-02&lt;/div&gt; &lt;div id="tabbar-with-contact" class="mui-control-content"&gt;tabbar-03&lt;/div&gt; &lt;div id="tabbar-with-map" class="mui-control-content"&gt;tabbar-04&lt;/div&gt;&lt;/div&gt; 具体效果如下 顶部选项卡 div 模式添加 DOM 结构 123456789101112131415&lt;!-- 选项卡头部 --&gt;&lt;div style="padding: 10px 10px;"&gt; &lt;div id="segmentedControl" class="mui-segmented-control"&gt; &lt;a class="mui-control-item mui-active" href="#item1"&gt;选项卡 1&lt;/a&gt; &lt;a class="mui-control-item" href="#item2"&gt;选项卡 2&lt;/a&gt; &lt;a class="mui-control-item" href="#item3"&gt;选项卡 3&lt;/a&gt; &lt;/div&gt;&lt;/div&gt; &lt;!-- 选项卡内容 --&gt;&lt;div class="tabBox"&gt; &lt;div id="item1" class="mui-control-content mui-active"&gt;item1&lt;/div&gt; &lt;div id="item2" class="mui-control-content"&gt;item2&lt;/div&gt; &lt;div id="item3" class="mui-control-content"&gt;item3&lt;/div&gt;&lt;/div&gt; 具体效果如下]]></content>
       <categories>
-        <category>前端</category>
+        <category>MUI</category>
       </categories>
       <tags>
-        <tag>mui</tag>
+        <tag>MUI 选项卡</tag>
       </tags>
   </entry>
   <entry>
@@ -146,10 +160,10 @@
     <url>%2F2019%2F05%2F09%2FHbuilder-%E6%96%B0%E5%A2%9E%E6%A8%A1%E6%9D%BF%2F</url>
     <content type="text"><![CDATA[因为用 MUI 框架用的比较多，所以经常官方推荐的的编程工具 HBuilder 。此教程是针对Mac版的，PC版上有或许有些出入。 打开访达，点击工具栏的前往。 找到资源库，如果没有资源库，请按住 option 键。 在其资源库中找到Applocation Support文件夹。 然后找到 HBuilder X 文件夹，在其文件中找到 templates 文件夹。 如图所示，里面有好几个文件夹代表不同的分类，在该目录新建你常用的模板或将你常用的模板复制到该目录，新建文件时，模板列表会多出以该文件的文件名命名的模板。模板内容为该文件的内容。若不再需要该模板，请删除该文件。]]></content>
       <categories>
-        <category>工具</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>前端</tag>
+        <tag>HBuilder</tag>
       </tags>
   </entry>
   <entry>
@@ -157,7 +171,7 @@
     <url>%2F2019%2F05%2F07%2F%E5%88%9D%E5%A7%8B%E5%8C%96CSS%2F</url>
     <content type="text"><![CDATA[新浪官网: 12345678910body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div&#123;margin:0;padding:0;border:0;&#125; body&#123;background:#fff;color:#333;font-size:12px; margin-top:5px;font-family:"SimSun","宋体","Arial Narrow";&#125; ul,ol&#123;list-style-type:none;&#125; select,input,img,select&#123;vertical-align:middle;&#125; a&#123;text-decoration:none;&#125; a:link&#123;color:#009;&#125; a:visited&#123;color:#800080;&#125; a:hover,a:active,a:focus&#123;color:#c00;text-decoration:underline;&#125; 淘宝官网: 123456789101112131415body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td &#123; margin:0; padding:0; &#125; body, button, input, select, textarea &#123; font:12px/1.5tahoma, arial, \5b8b\4f53; &#125; h1, h2, h3, h4, h5, h6&#123; font-size:100%; &#125; address, cite, dfn, em, var &#123; font-style:normal; &#125; code, kbd, pre, samp &#123; font-family:couriernew, courier, monospace; &#125; small&#123; font-size:12px; &#125; ul, ol &#123; list-style:none; &#125; a &#123; text-decoration:none; &#125; a:hover &#123; text-decoration:underline; &#125; sup &#123; vertical-align:text-top; &#125; sub&#123; vertical-align:text-bottom; &#125; legend &#123; color:#000; &#125; fieldset, img &#123; border:0; &#125; button, input, select, textarea &#123; font-size:100%; &#125; table &#123; border-collapse:collapse; border-spacing:0; &#125; 网易官网:123456789html &#123;overflow-y:scroll;&#125; body &#123;margin:0; padding:29px00; font:12px"\5B8B\4F53",sans-serif;background:#ffffff;&#125; div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p&#123;padding:0; margin:0;&#125; table,td,tr,th&#123;font-size:12px;&#125; li&#123;list-style-type:none;&#125; img&#123;vertical-align:top;border:0;&#125; ol,ul &#123;list-style:none;&#125; h1,h2,h3,h4,h5,h6&#123;font-size:12px; font-weight:normal;&#125; address,cite,code,em,th &#123;font-weight:normal; font-style:normal;&#125; 腾讯QQ官网:123456789body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select&#123;margin:0;padding:0&#125; body&#123;font:12px"宋体","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;&#125; a&#123;color:#2d374b;text-decoration:none&#125; a:hover&#123;color:#cd0200;text-decoration:underline&#125; em&#123;font-style:normal&#125; li&#123;list-style:none&#125; img&#123;border:0;vertical-align:middle&#125; table&#123;border-collapse:collapse;border-spacing:0&#125; p&#123;word-wrap:break-word&#125; 自用:1body,html,p,ul,li,h1,h2,h3,h4,h5,h6,input,button&#123;margin:0;padding:0;&#125;]]></content>
       <categories>
-        <category>CSS</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>CSS</tag>
@@ -168,10 +182,10 @@
     <url>%2F2019%2F05%2F07%2FMUI-AJAX%E8%AF%B7%E6%B1%82%2F</url>
     <content type="text"><![CDATA[mui框架基于htm5plus的XMLHttpRequest，封装了常用的Ajax函数，支持GET、POST请求方式，支持返回json、xml、html、text、script数据类型； 本着极简的设计原则，mui提供了mui.ajax方法，并在mui.ajax方法基础上，进一步简化出最常用的mui.get()、mui.getJSON()、mui.post()三个方法。 mui.ajax()123456789101112131415161718mui.ajax(&apos;http://server-name/login.php&apos;,&#123; data:&#123; username:&apos;username&apos;, password:&apos;password&apos; &#125;, dataType:&apos;json&apos;,//服务器返回json格式数据 type:&apos;post&apos;,//HTTP请求类型 timeout:10000,//超时时间设置为10秒； headers:&#123;&apos;Content-Type&apos;:&apos;application/json&apos;&#125;, success:function(data)&#123; //服务器返回响应，根据响应结果，分析是否登录成功； ... &#125;, error:function(xhr,type,errorThrown)&#123; //异常处理； console.log(type); &#125;&#125;); mui.post()12345678mui.post(&apos;http://server-name/login.php&apos;,&#123; username:&apos;username&apos;, password:&apos;password&apos; &#125;,function(data)&#123; //服务器返回响应，根据响应结果，分析是否登录成功； ... &#125;,&apos;json&apos;); mui.get()12345mui.get(&apos;http://server-name/list.php&apos;,&#123;category:&apos;news&apos;&#125;,function(data)&#123; //获得服务器响应 ... &#125;,&apos;json&apos;); 封装 AJax通常在项目中，我们并不会直接使用它，而是会封装一下。 123456789101112131415161718192021222324252627// **.js 请求数据function startRequest(url, callBack) &#123; //接口地址 var GETURL = &quot;https://www.easy-mock.com/mock/5cae89ce96ef6f08c01d52de/fitness/&quot; + url; mui.ajax(GETURL, &#123; dataType: &apos;json&apos;, //服务器返回json格式数据 type: &apos;get&apos;, //HTTP请求类型 success: function(data) &#123; console.log(data); callBack(data); //回调函数 &#125;, error: function(xhr, type, errorThrown) &#123; console.log(type); return &quot;网络错误&quot;; &#125; &#125;);&#125;var HTTP_ACTION = &#123; //请求用户名密码 userccount: function(callBack) &#123; startRequest(&quot;userccount&quot;, callBack); &#125;&#125; 12345**.html 调用请求数据//请求用户名密码HTTP_ACTION.userccount(function(data)&#123; console.log(data);&#125;);]]></content>
       <categories>
-        <category>前端</category>
+        <category>MUI</category>
       </categories>
       <tags>
-        <tag>MUI</tag>
+        <tag>Mui AJax</tag>
       </tags>
   </entry>
   <entry>
@@ -179,7 +193,7 @@
     <url>%2F2019%2F05%2F05%2FSass-%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%2F</url>
     <content type="text"><![CDATA[以下语法均以 *.scss 为前提。 基本用法变量 SASS允许使用变量，所有变量以$开头 12345 $blue : #1875e7; div &#123; color : $blue; &#125; 如果变量需要镶嵌在字符串之中，就必须需要写在#{}之中 12345$side : left; .rounded &#123; border-#&#123;$side&#125;-radius: 5px; &#125; 计算 SASS允许在代码中使用算式 12345body &#123; margin: (14px/2); top: 50px + 100px; right: $var * 10%;&#125; 嵌套 SASS允许选择器嵌套 12345div &#123; hi &#123; color:red; &#125; &#125; 属性嵌套 12345p &#123; border: &#123; color: red; &#125;&#125; border后面必须加上冒号。 在嵌套的代码块内，可以使用&amp;引用父元素。比如a:hover伪类，可以写成： 123a &#123; &amp;:hover &#123; color: #ffb3ff; &#125;&#125; 注释SASS共有两种注释风格。 标准的CSS注释 /* comment */，会保留到编译后的文件。 单行注释 // comment，只保留在SASS源文件中，编译后被省略。 在/*后面加一个感叹号，表示这是”重要注释”。即使是压缩模式编译，也会保留这行注释，通常可以用于声明版权信息。 1/*! 重要注释！*/ 代码的重用继承 SASS允许一个选择器，继承另一个选择器 123.class1 &#123; border: 1px solid #ddd; &#125; class2要继承class1，就要使用@extend命令： 1234.class2 &#123; @extend .class1; font-size:120%; &#125; MixinMixin有点像C语言的宏（macro），是可以重用的代码块。使用@mixin命令，定义一个代码块。 1234 @mixin left &#123; float: left; margin-left: 10px; &#125; 使用@include命令，调用这个mixin。 123div &#123; @include left; &#125; mixin的强大之处，在于可以指定参数和缺省值。 1234@mixin left($value: 10px) &#123; float: left; margin-right: $value;&#125; 使用的时候，根据需要加入参数： 123div &#123; @include left(20px); &#125; 下面是一个mixin的实例，用来生成浏览器前缀。 12345@mixin rounded($vert, $horz, $radius: 10px) &#123; border-#&#123;$vert&#125;-#&#123;$horz&#125;-radius: $radius; -moz-border-radius-#&#123;$vert&#125;#&#123;$horz&#125;: $radius; -webkit-border-#&#123;$vert&#125;-#&#123;$horz&#125;-radius: $radius; &#125; 使用的时候，可以像下面这样调用： 123#navbar li &#123; @include rounded(top, left); &#125;#footer &#123; @include rounded(top, left, 5px); &#125; 颜色函数SASS提供了一些内置的颜色函数，以便生成系列颜色。 1234lighten(#cc3, 10%) // #d6d65c darken(#cc3, 10%) // #a3a329 grayscale(#cc3) // #808080 complement(#cc3) // #33c 插入文件@import命令，用来插入外部文件。 1 @import "path/filename.scss"; 如果插入的是.css文件，则等同于css的import命令。 1@import &quot;foo.css&quot;; 高级用法条件语句@if可以用来判断： 1234 p &#123; @if 1 + 1 == 2 &#123; border: 1px solid; &#125; @if 5 &lt; 3 &#123; border: 2px dotted; &#125; &#125; 配套的还有@else命令： 12345@if lightness($color) &gt; 30% &#123; background-color: #000; &#125; @else &#123; background-color: #fff; &#125; 循环语句SASS支持for循环： 12345@for $i from 1 to 10 &#123; .border-#&#123;$i&#125; &#123; border: #&#123;$i&#125;px solid blue; &#125; &#125; 也支持while循环： 123456 $i: 6; @while $i &gt; 0 &#123; .item-#&#123;$i&#125; &#123; width: 2em * $i; &#125; $i: $i - 2; &#125; each命令，作用与for类似： 12345@each $member in a, b, c, d &#123; .#&#123;$member&#125; &#123; background-image: url("/image/#&#123;$member&#125;.jpg"); &#125; &#125; 自定义函数SASS允许用户编写自己的函数。 1234567@function double($n) &#123; @return $n * 2; &#125; #sidebar &#123; width: double(5px); &#125; 转载-阮一峰老师的SASS教程]]></content>
       <categories>
-        <category>CSS</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>Sass</tag>
@@ -190,10 +204,10 @@
     <url>%2F2019%2F04%2F30%2Fmui-plusReady-%E5%88%9D%E5%A7%8B%E5%8C%96%2F</url>
     <content type="text"><![CDATA[plus是5+Runtime的内部对象。就像chrome浏览器里有chrome.开头的一些对象方法，5+runtime内部内置了plus对象。因为plus和mui不一样，plus是引擎级别的，不需要前端框架。而mui是前端框架，所以是要引入mui.js才能使用的。 不要在没有plus和mui的环境下调用相关API. 我们可以初始化一下mui.plusReady方法，代码如下： 123456789if(mui.os.plus) &#123; mui.plusReady(ready_fun);&#125; else &#123; mui.ready(ready_fun);&#125; function ready_fun()&#123; ... 自定义事件&#125; 我建议事件函数尽可能的写在 ready_fun() 里面，避免不必要的报错。 附上H5+ plus 文档 MUI H5+官方文档]]></content>
       <categories>
-        <category>前端</category>
+        <category>MUI</category>
       </categories>
       <tags>
-        <tag>MUI</tag>
+        <tag>Mui 初始化</tag>
       </tags>
   </entry>
   <entry>
@@ -201,7 +215,7 @@
     <url>%2F2019%2F04%2F29%2FSass%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97%2F</url>
     <content type="text"><![CDATA[创建Sass文件也是新建文件，后缀名改为 .scss或者 .sass ,这两种后缀名都属于 Sass语法，只是两者所使用的语法有些不同。 scss 文件的语法有缩进，用花括号表示层级关系。 123456789101112/*test.scss*/#box &#123; width: 160px; height: 200px; background: firebrick; .child &#123; width: 50px; height: 50px; background: #666; border-radius: 50%; &#125;&#125; 编译Sass文件12/*在你的文件目录下打开终端*/scss test.scss 当然这只是在终端编译的，在项目中，我们是需要将显示结果保存成文件，后面再跟一个.css文件名。 12/*在你的文件目录下打开终端*/sass test.scss test.css 然后就会在你的目录下面，多出一个 test.css 和 test.css.map 。在项目中，我们使用的就是编译后的 .css 文件。 scss文件是源文件，网页呈现的是css样式表文件，scss文件通过编译生成css文件，css.map文件是对照表文件。 编译风格Sass有四种编译风格 1234567* nested：嵌套缩进的css代码，它是默认值。 * expanded：没有缩进的、扩展的css代码。 * compact：简洁格式的css代码。 * compressed：压缩后的css代码。 用法 1sass --style 编译风格 test.sass test.css 编译后的代码如下 123456789101112/*nested*/#box &#123; width: 160px; height: 200px; background: firebrick; &#125; #box .child &#123; width: 50px; height: 50px; background: #666; border-radius: 50%; &#125;/*# sourceMappingURL=test.css.map */ 1234567891011121314/*expanded*/#box &#123; width: 160px; height: 200px; background: firebrick;&#125;#box .child &#123; width: 50px; height: 50px; background: #666; border-radius: 50%;&#125;/*# sourceMappingURL=test.css.map */ 12345/*compact*/#box &#123; width: 160px; height: 200px; background: firebrick; &#125;#box .child &#123; width: 50px; height: 50px; background: #666; border-radius: 50%; &#125;/*# sourceMappingURL=test.css.map */ 123/*compressed*/#box&#123;width:160px;height:200px;background:firebrick&#125;#box .child&#123;width:50px;height:50px;background:#666;border-radius:50%&#125;/*# sourceMappingURL=test.css.map */ 平时项目中，采用最后一种方式就可以了。 也可以让SASS监听某个文件或目录，一旦源文件有变动，就自动生成编译后的版本。 12345// watch a file 监听文件sass --watch input.scss:output.css// watch a directory 监听目录sass --watch app/sass:public/stylesheets]]></content>
       <categories>
-        <category>CSS</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>Sass</tag>
@@ -212,7 +226,7 @@
     <url>%2F2019%2F04%2F28%2FSass%E4%B8%8ESCSS%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[最近项目有个需求，需要整体都改大一号字体。心慌慌的全局替换了一下，还好没有出什么其他问题。不过这也引发了我的思考，有没有一种方式，把这些固定的样式写成一种变量，去预编译 CSS。然后我就找到了 Sass。 在学习的过程中，Sass和SCSS傻傻分不清，查阅了诸多的资料，我决定记录一下自己的心得。 Sass是什么？Sass是一种编译为CSS的样式表语言。它允许您使用变量，嵌套规则，混合，函数等，所有这些都使用完全CSS兼容的语法。Sass有助于保持大型样式表的组织良好，并且可以轻松地在项目内和项目间共享设计。 而 Sass 它包含两种语法，一种是 Sass,一种是 SCSS。 Sass 和 SCSS的区别? 后缀名 SCSS 的后缀名是.scss。 Sass 的后缀名是.sass。 语法 SCSS 是 Sass 3 引入新的语法，其语法完全兼容 CSS3。 Sass 的语法没有花括号，并且有严格的缩进，缩进的不同代表层级关系的不同，如果你是 Python 相关人员，用起来会更加容易上手。 SCSS 的语法没有严格的缩进，是用花括号来表示层级关系的，相比 Sass,它更加接近 CSS 的模样。 123456789101112131415/*Sass*/#Sass width: 30% background-color: #faa .childer color:red /*SCSS*/#sidebar &#123; width: 30%; background-color: #faa; .childer&#123; color:red; &#125;&#125; 还有一种预编译 CSS语法，stylus, 更加自由个人开发者的话，可以使用。可以自行百度去了解一下。这里不做过多说明了。 参考资料 SCSS 与 Sass 异同 SCSS和Sass有什么区别？]]></content>
       <categories>
-        <category>CSS</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>Sass</tag>
@@ -223,10 +237,10 @@
     <url>%2F2019%2F04%2F26%2FGitHub%E7%AE%80%E5%8D%95%E7%83%B9%E9%A5%AA%E6%8C%87%E5%8D%97%2F</url>
     <content type="text"><![CDATA[本文简单介绍 GitHub 的日常使用，包括拉取和上传代码。 第一种方式使用客户端。 第二种方法使用命令行操作。 客户端首先新建一个仓库 配置仓库参数 仓库名称： 我建议使用英文名称。 仓库描述：对你这个项目做一个简单的描述。 公开/私有：指你的仓库是否开源。 是否添加自述文件：这个选项选不选随你，现在没有选上的话，建议在后期还是要加上，增加阅读体验。值得注意的是，如果你要导入现有的仓库，那么就不必要添加这个自述文件了，如果做为一个新仓库的使用，还是有很必要添加这个文件的。 你使用的语言：不选的话，它也会自动去识别你所使用的语言。 添加证书：也看你自己的需求吧。 将新建的仓库克隆到本地 新建号的仓库大致如上图所示。点击右边的 Set up in Desktop 下载桌面版 GitHub，下载完成之后，登入你的 GitHub 账号。 选择文件-克隆仓库。 + 第一种方式，选择 GitHub.com 从自己的仓库列表中克隆仓库。 ![GitHub烹饪指南-05](http://images.leegeing.cn/hexoImg/GitHub烹饪指南-05.png) + 第二方式，选择 URL ![GitHub烹饪指南-06](http://images.leegeing.cn/hexoImg/GitHub烹饪指南-06.png) 绿色框表示对应的 URL，橙色框代表克隆至本地的地址。 这两种方式都可以将仓库克隆到自己本地，任选其一即可。 等待克隆结束 稍等片刻就完成了。 我们可以选择第一个打开你刚刚克隆到本地的仓库文件夹。 里面除了一个隐藏的 git文件夹就没有别的东西了。如果我们在创建的时候，勾选上了那个自述文件，那么还会有一个 README.md 文件。 要看到隐藏的文件，需要根据自己的操作系统去开启这个设置，一般默认是关闭的。 以后我们的代码就存放到这个文件夹里面了。 尝试上传到 GitHub 上因为我们没有自述文件，刚好就自己创建一个，上传到 GitHub 当做一次练习。 创建一个名为 README.md 的文件。 前缀 “README” 是 GitHub 自述文件的固定写法，后缀 “.md”，是支持 Markdown 的文本文件。有关于 Markdown 的语法介绍可以自己去百度查一下，有很多有关于这个的介绍。 在 GitHub 客户端上可以看到这个关于这个文件的变动。 在提交处填写你的”提交信息“，然后点击 “commit to master”, 进行提交。然后我们点击”Publish branch“ 发布到当前分支。 等待结束后就完成了上传。我们可以点击”View on GitHub“,打开你的 GitHub 仓库地址，验证是否上传完毕。 如图所示，这是我刚刚上传的自述文件，就已经显示出来了。还有一种方法是使用命令行进行使用 GitHub 的操作，下次有空再说。 ( ^ _ ^ )/~~拜拜]]></content>
       <categories>
-        <category>工具</category>
+        <category>编程</category>
       </categories>
       <tags>
-        <tag>GitHub</tag>
+        <tag>git 指令</tag>
       </tags>
   </entry>
   <entry>
@@ -234,7 +248,7 @@
     <url>%2F2019%2F04%2F25%2FmacOS%E5%AE%89%E8%A3%85Sass%2F</url>
     <content type="text"><![CDATA[Sass 是一个 CSS 的扩展，它在 CSS 语法的基础上，允许您使用变量 (variables), 嵌套规则 (nested rules), 混合 (mixins), 导入 (inline imports) 等功能，令 CSS 更加强大与优雅。使用 Sass 以及 Compass 样式库 有助于更好地组织管理样式文件，以及更高效地开发项目。 首先安装 Ruby,因为 Sass 需要有 Ruby 的安装环境。 安装 Ruby 的前提又需要软件包的管理器HomeBrew。 所以我们首先安装 HomeBrew ，在终端输入 1/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; 等待安装结束后。输入 ruby -v ,查看版本号，看是否安装成功。（如下图所示则表示安装成功） 没有出现版本号的话，那就再次安装ruby 1brew install ruby 出现版本号了则代表安装成功。接下来安装 Sass 1sudo gem install sass 如果出现安装错误，如下图所示 则输入一下命令重新安装 1sudo gem install -n /usr/local/bin sass 安装完成之后，检查 sass 是否安装成功 1sass -v 出现版本号了，则代表安装成功 更新sass命令 1gem update sass 卸载sass命令 1gem uninstall sass Sass在线转换器]]></content>
       <categories>
-        <category>CSS</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>Sass</tag>
@@ -259,7 +273,7 @@
         <category>Vue</category>
       </categories>
       <tags>
-        <tag>vue-route</tag>
+        <tag>Vue 路由</tag>
       </tags>
   </entry>
   <entry>
@@ -270,7 +284,7 @@
         <category>Vue</category>
       </categories>
       <tags>
-        <tag>vue-route</tag>
+        <tag>Vue 路由</tag>
       </tags>
   </entry>
   <entry>
@@ -300,10 +314,10 @@
     <url>%2F2019%2F04%2F19%2FMac-%E6%96%87%E4%BB%B6%E5%A4%B9%E5%86%85%E5%BF%AB%E6%8D%B7%E6%89%93%E5%BC%80%E5%91%BD%E4%BB%A4%E8%A1%8C%2F</url>
     <content type="text"><![CDATA[macOS 的终端很好用，但是却不能像 Windows 那么便捷的文件夹内打开终端，只能手动 cd 定位到当前目录。 附上大佬的 GitHub 地址：OpenInTerminal 地址 打开下载地址，下载最新的文件 解压后得到一个 OpenInTerminal应用 和一个 iocn 文件夹，把OpenInTerminal应用拖进应用程序进行安装。 最后选择默认的终端就可以啦。 最后的效果就是如下图所示，在文件内点开就可以直接打开终端了。 重选选择默认终端，请在终端执行如下命令： 1defaults remove wang.jianing.OpenInTerminal OIT_TerminalBundleIdentifier]]></content>
       <categories>
-        <category>工具</category>
+        <category>编程</category>
       </categories>
       <tags>
-        <tag>macOS</tag>
+        <tag>Mac 小技巧</tag>
       </tags>
   </entry>
   <entry>
@@ -311,10 +325,10 @@
     <url>%2F2019%2F04%2F17%2FMUI%E8%B7%A8%E9%A1%B5%E9%9D%A2%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[因为公司项目用 MUI 用得比较多，有碰到如下需求： 在一个双 WebView 的上拉刷新下拉加载的页面中，A页面就是父页面，B页面就是列表页。A页面中还带有搜索框，搜索框中的值会被传到 B页面，进行数据请求。 1234//A页面function setTotal(parameters)&#123; ……&#125; 1234567891011//B页面var total = 需要传的参数;var evalstr = &apos;setTotal(\&apos;&apos; + total + &apos;\&apos;)&apos;;var wvs = plus.webview.all();for (var i = 0; i &lt; wvs.length; i++) &#123; console.log(&apos;webview&apos; + i + &apos;: &apos; + wvs[i].id); if(wvs[i].id==&quot;你的 WebView ID&quot;)&#123; wvs[i].evalJS(evalstr); &#125;&#125;]]></content>
       <categories>
-        <category>前端</category>
+        <category>MUI</category>
       </categories>
       <tags>
-        <tag>MUI</tag>
+        <tag>Mui 传参</tag>
       </tags>
   </entry>
   <entry>
@@ -322,10 +336,10 @@
     <url>%2F2019%2F04%2F17%2FHexo%E6%9B%B4%E6%8D%A2%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%2F</url>
     <content type="text"><![CDATA[Hexo 有很多主题可以选择，但是我试过好几种，还是喜欢 nexT 主题，集成了很多插件，用起来很方便。 安装 nexT 主题有多种方式，大同小异。我不过我使用的是 git clone 的方法。 首先克隆 nexT 的仓库到我们的博客中。 12cd 你的博客目录git clone https://github.com/iissnan/hexo-theme-next themes/next 编辑 博客配置文件 _config.yml 1theme: next NexT 主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前， 我们最好使用 hexo clean 来清除 Hexo 的缓存。 以防万一，我们先在本地预览博客是否成功更换了主题，启动本地服务预览一下。 1hexo s 如果成功了的话，那么就可以把博客重新部署到服务器上了。]]></content>
       <categories>
-        <category>hexo</category>
+        <category>编程</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -333,10 +347,10 @@
     <url>%2F2019%2F04%2F17%2F%E5%B8%B8%E7%94%A8%E7%9A%84DOS-%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[DOS命令：计算机术语，是指DOS操作系统的命令，是一种面向磁盘的操作命令，主要包括目录操作类命令、磁盘操作类命令、文件操作类命令和其它命令。 目前大家常用的操作系统有windows10,windows 7等，都是图形化的界面。在有这些系统之前的人们使用的操作系统是DOS系统。 macOS命令行的使用不全包括以下命令。 回看上一次执行的命令 1向上箭头&quot;↑&quot;和向下箭头&quot;↓&quot; 中断操作 1&quot;Ctrl+C&quot; 组合键或&quot;Break&quot;键 盘符: 直接进入某盘符 1如直接进入D盘，D： md 建立子目录 12md[盘符：][路径名]〈子目录名〉md c:\ fox （在当前驱动器c盘下创建子目录fox） cd 改变当前目录 12cd [/D] [drive:][path] (进入某一目录)cd ../ (返回上级目录) 查看当前目录下的文件和子目录列表 1dir 命令行清屏 1cls]]></content>
       <categories>
-        <category>工具</category>
+        <category>编程</category>
       </categories>
       <tags>
-        <tag>编程</tag>
+        <tag>DOS 指令</tag>
       </tags>
   </entry>
   <entry>
@@ -355,10 +369,10 @@
     <url>%2F2019%2F04%2F16%2FHexo%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80%E6%90%9C%E7%B4%A2%2F</url>
     <content type="text"><![CDATA[安装搜索插件hexo-generator-searchdb1npm install hexo-generator-searchdb --save 找到到博客配置文件 _config.yml，添加如下配置12345search: path: search.xml field: post format: html limit: 10000 Next 主题自带搜索设置，编辑主题配置文件：_config.yml找到文件中 Local search 的相关配置，设为 true 123# Local searchlocal_search: enable: true 重新部署 hexo123$ hexo clean$ hexo g$ hexo d]]></content>
       <categories>
-        <category>hexo</category>
+        <category>编程</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -377,10 +391,10 @@
     <url>%2F2019%2F04%2F15%2FMUI%E5%AD%90%E9%A1%B5%E9%9D%A2%E5%90%91%E7%88%B6%E9%A1%B5%E9%9D%A2%E4%BC%A0%E5%8F%82%2F</url>
     <content type="text"><![CDATA[经常有这样的需求：子页面新增数据后完成后，跳转到父页面的列表界面。但是 MUI 采用的是页面跳转其实是打开新窗口，返回父页面并不会刷新父页面，只是把子页面关闭，父页面从始至终都在那里并没有刷新过。 思路：子页面提交数据后，向父页面传参，父页面监听子页面的参数，调用刷新方法，从而达到页面刷新，数据更新的目的。 子页面： 12345//向父页面传参mui.fire (plus.webview.currentWebview().opener(), &apos;getRes&apos;, &#123; &quot;type&quot;: 1&#125;);mui.back(); 其中 res 是上传数据，后台接口返回的参数，用于判断是否成功，成功的话，向父页面传参，并调用 mui.bac() 方法关闭页面。getRes 是监听的方法，父页面监听子页面的数据变化，需要用到这个监听方法，命名可以自取。 父页面： 12345678//监听子页面提交数据后，刷新页面window.addEventListener(&apos;getRes&apos;, function(event) &#123; //获得事件参数 var type = event.detail.type; if (type == 1) &#123; location.reload(); &#125;&#125;);]]></content>
       <categories>
-        <category>前端</category>
+        <category>MUI</category>
       </categories>
       <tags>
-        <tag>MUI</tag>
+        <tag>Mui 传参</tag>
       </tags>
   </entry>
   <entry>
@@ -388,10 +402,10 @@
     <url>%2F2019%2F04%2F14%2FMUI%E7%88%B6%E9%A1%B5%E9%9D%A2%E5%90%91%E5%AD%90%E9%A1%B5%E9%9D%A2%E4%BC%A0%E5%8F%82%2F</url>
     <content type="text"><![CDATA[在以往有讲过 MUI 创建新页面 ，其中有提到 extras 传参。 我们可以在 a 标签中进行页面的跳转和传参，但是如果数据量较多的话，会影响代码的可读性，我建议还是写在 JS 中。 这里有一个很简单的例子,可以参考一下方法进行页面之间的传参。openUrl 的方法可以参考创建页面的那个方法。 父页面：12345//父页面传值$(&quot;#id&quot;).on(&quot;.child&quot;,&quot;tap&quot;,function()&#123; var id = $(this).attr(&quot;parameterID&quot;); openUrl(&apos;url&apos;,&apos;id&apos;,&#123;&apos;parameter&apos;:parameterID&#125;);&#125;); parameter是子页面接收参数的名字 子页面： 1234// 接收父页面传值var self = plus.webview.currentWebview();console.log(self.parameter);var parameterID = self.parameter; MUI 提供了很多父页面向子页面传参的方法，不过我个人用得比较多的是这一种方法。]]></content>
       <categories>
-        <category>前端</category>
+        <category>MUI</category>
       </categories>
       <tags>
-        <tag>MUI</tag>
+        <tag>MUI 传参</tag>
       </tags>
   </entry>
   <entry>
@@ -399,10 +413,10 @@
     <url>%2F2019%2F04%2F13%2FMUI%E5%88%9B%E5%BB%BA%E6%96%B0%E9%A1%B5%E9%9D%A2%2F</url>
     <content type="text"><![CDATA[在常规的前端开发中,我们经常使用a标签中的href属性来进行页面之间的跳转和传参. 但是这样会产生一个问题,a标签打开的页面返回时并不是返回到上一个页面,返回只是一个后退的操作. 如果对页面进行多次操作页面,当你想回到上一个页面时,就会来回的切换页面,严重影响体验. 在一个项目中,我们可以写一个公共的JS文件,创建新页面方法,代码如下. 12345678910111213141516171819202122//创建新页面function openUrl(url, id, params) &#123; if (typeof(params) == &apos;undefined&apos;) &#123; params = &#123;&#125;; &#125; if (mui.os.plus) &#123; mui.openWindow(&#123; id: id, //url:新页面的地址 url: url, //id:新页面的 WebView ID extras: params, //params:页面传参 styles: &#123; statusbar: &#123; //设置新页面状态栏背景颜色，以便达到沉浸式状态栏 background: &apos;#3EAD74&apos;, color: &apos;#FFFFFF&apos; &#125; &#125; &#125;) &#125; else &#123; window.location.href = url; &#125;&#125; 引用 js 文件后就可以,我们可以用a标签进行快速的使用. 1&lt;a href=&quot;javascript:openUrl(&apos;url&apos;,&apos;id&apos;,&#123;&#125;)&quot;&gt;打开新的 webview页面&lt;/a&gt; 我们可以很方便的用 a 标签进行传参，但是要注意的是，在动态生成的 DOM 结构里，用 a 标签来传参的话，页面跳转会失效。我的建议是用JS点击绑定事件进行页面的跳转和传参。]]></content>
       <categories>
-        <category>前端</category>
+        <category>MUI</category>
       </categories>
       <tags>
-        <tag>MUI</tag>
+        <tag>Mui page</tag>
       </tags>
   </entry>
 </search>
