@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Vue 真机调试]]></title>
+    <url>%2F2019%2F07%2F14%2FVue-%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[跨平台预览在 package.json 文件中，修改代码如下 123"scripts": &#123; "dev": "webpack-dev-server --host 0.0.0.0 --inline --progress --config build/webpack.dev.conf.js" &#125;, 这样的话，其他同局域网的设备也就都能通过本机的 IP 地址进行访问了. 项目正式上线在 config 目录下的 idnex.js 文件中找到 1assetsPublicPath: '/(目录名称)', 如果是 根目录的话，就直接 / 就行了]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue 打包</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Vuex的简单使用]]></title>
     <url>%2F2019%2F07%2F10%2FVuex%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 Vuex 并不限制你的代码结构。但是，它规定了一些需要遵守的规则： 应用层级的状态应该集中到单个 store 对象中。 提交 mutation 是更改状态的唯一方法，并且这个过程是同步的。 异步逻辑都应该封装到 action 里面。 安装 Vuex1npm install vuex --save 导入 Vuex1234import Vue from 'vue'import Vuex from 'vuex'Vue.use(Vuex) 实例化一个 Vuex1234567891011export default new Vuex.Store(&#123; state: &#123; // 这里写数据的初始状态 &#125;, actions: &#123; // 数据动作 &#125;, mutations: &#123; // 更改变化 &#125;&#125;) 本地存储12345678910// statetry &#123; if (localStorage.city) &#123; defaultCity = localStorage.city &#125;&#125; catch (error) &#123;&#125;export default &#123; city: defaultCity&#125;]]></content>
+    <content type="text"><![CDATA[Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 Vuex 并不限制你的代码结构。但是，它规定了一些需要遵守的规则： 应用层级的状态应该集中到单个 store 对象中。 提交 mutation 是更改状态的唯一方法，并且这个过程是同步的。 异步逻辑都应该封装到 action 里面。 核心概念 State：存放公有的数据 Getter：类似于计算属性 Mutation：对数据同步的改变 Action：异步的方法 安装 Vuex1npm install vuex --save 导入 Vuex1234import Vue from 'vue'import Vuex from 'vuex'Vue.use(Vuex) 实例化一个 Vuex1234567891011export default new Vuex.Store(&#123; state: &#123; // 这里写数据的初始状态 &#125;, actions: &#123; // 数据动作 &#125;, mutations: &#123; // 更改变化 &#125;&#125;) 本地存储12345678910// statetry &#123; if (localStorage.city) &#123; defaultCity = localStorage.city &#125;&#125; catch (error) &#123;&#125;export default &#123; city: defaultCity&#125;]]></content>
       <categories>
         <category>Vue</category>
       </categories>

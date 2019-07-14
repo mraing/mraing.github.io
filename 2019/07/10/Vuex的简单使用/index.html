@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="绪锋">
 <meta property="og:description" content="Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。　　Vuex 并不限制你的代码结构。但是，它规定了一些需要遵守的规则：  应用层级的状态应该集中到单个 store 对象中。  提交 mutation 是更改状态的唯一方法，并且这个过程是同步的。  异步逻辑都应该封装到 action 里面。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-10T02:04:44.734Z">
+<meta property="og:updated_time" content="2019-07-10T02:52:21.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vuex的简单使用">
 <meta name="twitter:description" content="Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。　　Vuex 并不限制你的代码结构。但是，它规定了一些需要遵守的规则：  应用层级的状态应该集中到单个 store 对象中。  提交 mutation 是更改状态的唯一方法，并且这个过程是同步的。  异步逻辑都应该封装到 action 里面。">
@@ -394,6 +394,16 @@
 <li><p>异步逻辑都应该封装到 action 里面。</p>
 </li>
 </ul>
+<h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><ul>
+<li><p><strong>State</strong>：存放公有的数据</p>
+</li>
+<li><p><strong>Getter</strong>：类似于计算属性</p>
+</li>
+<li><p><strong>Mutation</strong>：对数据同步的改变</p>
+</li>
+<li><p><strong>Action</strong>：异步的方法  </p>
+</li>
+</ul>
 <h3 id="安装-Vuex"><a href="#安装-Vuex" class="headerlink" title="安装 Vuex"></a>安装 Vuex</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vuex --save</span><br></pre></td></tr></table></figure>
 <h3 id="导入-Vuex"><a href="#导入-Vuex" class="headerlink" title="导入 Vuex"></a>导入 Vuex</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Vuex)</span><br></pre></td></tr></table></figure>
 <h3 id="实例化一个-Vuex"><a href="#实例化一个-Vuex" class="headerlink" title="实例化一个 Vuex"></a>实例化一个 Vuex</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">  <span class="comment">// 这里写数据的初始状态</span></span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">  <span class="comment">// 数据动作</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">  <span class="comment">// 更改变化</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -436,6 +446,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/14/Vue-真机调试/" rel="prev" title="Vue 真机调试">
+                Vue 真机调试 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -514,7 +528,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -536,7 +550,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -585,7 +599,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Vuex"><span class="nav-number">1.</span> <span class="nav-text">安装 Vuex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入-Vuex"><span class="nav-number">2.</span> <span class="nav-text">导入 Vuex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例化一个-Vuex"><span class="nav-number">3.</span> <span class="nav-text">实例化一个 Vuex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地存储"><span class="nav-number">4.</span> <span class="nav-text">本地存储</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#核心概念"><span class="nav-number">1.</span> <span class="nav-text">核心概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Vuex"><span class="nav-number">2.</span> <span class="nav-text">安装 Vuex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入-Vuex"><span class="nav-number">3.</span> <span class="nav-text">导入 Vuex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例化一个-Vuex"><span class="nav-number">4.</span> <span class="nav-text">实例化一个 Vuex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地存储"><span class="nav-number">5.</span> <span class="nav-text">本地存储</span></a></li></ol></div>
             
 
           </div>
