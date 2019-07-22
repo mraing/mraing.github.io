@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Vue 路由,">
+  <meta name="keywords" content="vux-datetime,">
 
 
 
@@ -79,21 +79,18 @@
 
 
 
-<meta name="description" content="附上demo 地址：Vue简单路由 demo  项目中引入 vue-router  1npm install vue-router  新建一个 *.js 文件  初始化路由模块 12345//router.jsimport Vue from &amp;apos;vue&amp;apos;import VueRouter from &amp;apos;vue-router&amp;apos;Vue.use(VueRouter)">
-<meta name="keywords" content="Vue 路由">
+<meta name="description" content="安装 Vux1npm install vux --save 安装less-loader为了正确编译less源码 1npm install less less-loader --save-dev 安装 yaml-loader为了正确进行语言文件读取 1npm install yaml-loader --save-dev 安装vux-loader保证了组件按需使用，因此不用担心最终打包了整个vux的组">
+<meta name="keywords" content="vux-datetime">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue 简单路由">
-<meta property="og:url" content="http://yoursite.com/2019/04/22/Vue简单路由/index.html">
+<meta property="og:title" content="引入 VUX 库">
+<meta property="og:url" content="http://yoursite.com/2019/07/22/使用-Vux-时间选择控件/index.html">
 <meta property="og:site_name" content="绪锋">
-<meta property="og:description" content="附上demo 地址：Vue简单路由 demo  项目中引入 vue-router  1npm install vue-router  新建一个 *.js 文件  初始化路由模块 12345//router.jsimport Vue from &amp;apos;vue&amp;apos;import VueRouter from &amp;apos;vue-router&amp;apos;Vue.use(VueRouter)">
+<meta property="og:description" content="安装 Vux1npm install vux --save 安装less-loader为了正确编译less源码 1npm install less less-loader --save-dev 安装 yaml-loader为了正确进行语言文件读取 1npm install yaml-loader --save-dev 安装vux-loader保证了组件按需使用，因此不用担心最终打包了整个vux的组">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://images.leegeing.cn/hexoImg/vue-router-1.png">
-<meta property="og:image" content="http://images.leegeing.cn/hexoImg/vue-router.gif">
-<meta property="og:updated_time" content="2019-07-10T02:00:14.918Z">
+<meta property="og:updated_time" content="2019-07-22T02:46:50.798Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue 简单路由">
-<meta name="twitter:description" content="附上demo 地址：Vue简单路由 demo  项目中引入 vue-router  1npm install vue-router  新建一个 *.js 文件  初始化路由模块 12345//router.jsimport Vue from &amp;apos;vue&amp;apos;import VueRouter from &amp;apos;vue-router&amp;apos;Vue.use(VueRouter)">
-<meta name="twitter:image" content="http://images.leegeing.cn/hexoImg/vue-router-1.png">
+<meta name="twitter:title" content="引入 VUX 库">
+<meta name="twitter:description" content="安装 Vux1npm install vux --save 安装less-loader为了正确编译less源码 1npm install less less-loader --save-dev 安装 yaml-loader为了正确进行语言文件读取 1npm install yaml-loader --save-dev 安装vux-loader保证了组件按需使用，因此不用担心最终打包了整个vux的组">
 
 
 
@@ -123,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/22/Vue简单路由/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/22/使用-Vux-时间选择控件/">
 
 
 
 
 
-  <title>Vue 简单路由 | 绪锋</title>
+  <title>引入 VUX 库 | 绪锋</title>
   
 
 
@@ -288,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/Vue简单路由/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/22/使用-Vux-时间选择控件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content>
@@ -305,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vue 简单路由</h1>
+          <h1 class="post-title" itemprop="name headline">引入 VUX 库</h1>
         
 
         <div class="post-meta">
@@ -317,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-22T08:50:28+08:00">
-                2019-04-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-22T09:44:22+08:00">
+                2019-07-22
               </time>
             
 
@@ -357,7 +354,7 @@
 
           
           
-             <span id="/2019/04/22/Vue简单路由/" class="leancloud_visitors" data-flag-title="Vue 简单路由">
+             <span id="/2019/07/22/使用-Vux-时间选择控件/" class="leancloud_visitors" data-flag-title="引入 VUX 库">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -388,44 +385,31 @@
       
 
       
-        <p>附上demo 地址：<a href="https://github.com/mraing/Vue/tree/master/vue-demo" target="_blank" rel="noopener">Vue简单路由 demo</a></p>
+        <h5 id="安装-Vux"><a href="#安装-Vux" class="headerlink" title="安装 Vux"></a>安装 Vux</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vux --save</span><br></pre></td></tr></table></figure>
+<h5 id="安装less-loader"><a href="#安装less-loader" class="headerlink" title="安装less-loader"></a>安装less-loader</h5><p>为了正确编译less源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less less-loader --save-dev</span><br></pre></td></tr></table></figure>
+<h5 id="安装-yaml-loader"><a href="#安装-yaml-loader" class="headerlink" title="安装 yaml-loader"></a>安装 yaml-loader</h5><p>为了正确进行语言文件读取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install yaml-loader --save-dev</span><br></pre></td></tr></table></figure>
+<h5 id="安装vux-loader"><a href="#安装vux-loader" class="headerlink" title="安装vux-loader"></a>安装vux-loader</h5><p>保证了组件按需使用，因此不用担心最终打包了整个vux的组件库代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vux-loader --save-dev</span><br></pre></td></tr></table></figure>
+<p>安装完这些依赖后，还有些文件需要修改下。</p>
+<h5 id="修改-webpack-base-conf-js"><a href="#修改-webpack-base-conf-js" class="headerlink" title="修改 webpack.base.conf.js"></a>修改 webpack.base.conf.js</h5><p>为了降低使用成本及不侵入原来配置，只需要调用<code>merge</code>方法对原来webpack配置进行操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const webpackConfig = &#123;&#125; // 原来的 webpack.base.js 配置</span><br></pre></td></tr></table></figure>
+<p>把原来的 <code>module.exports</code> 替换成 <code>const webpackConfig</code></p>
+<h5 id="引入vux-loader"><a href="#引入vux-loader" class="headerlink" title="引入vux-loader"></a>引入vux-loader</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const vuxLoader = require(&apos;vux-loader&apos;)</span><br></pre></td></tr></table></figure>
+<h5 id="调用merge方法"><a href="#调用merge方法" class="headerlink" title="调用merge方法"></a>调用merge方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module.exports = vuxLoader.merge(webpackConfig, &#123;</span><br><span class="line">  options: &#123;&#125;,</span><br><span class="line">  plugins: [&#123;</span><br><span class="line">    name: &apos;vux-ui&apos;</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="最后重新运行启动项目"><a href="#最后重新运行启动项目" class="headerlink" title="最后重新运行启动项目"></a>最后重新运行启动项目</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<p>不知道自己有没有引入成功的话，可以试一下引入一个简单的按钮组件尝试一下。</p>
 <ul>
-<li>项目中引入 vue-router</li>
+<li>引入按钮组件并注册</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-router</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123; XButton &#125; from &apos;vux&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    XButton</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>新建一个 *.js 文件</li>
+<li>使用组件</li>
 </ul>
-<p>初始化路由模块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//router.js</span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import VueRouter from &apos;vue-router&apos;</span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter)</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<ul>
-<li>新建一个文件夹，名字随意，创建两个子 *.vue文件，并把它们初始化。</li>
-</ul>
-<p><img src="http://images.leegeing.cn/hexoImg/vue-router-1.png" alt="vue-router-1"></p>
-<p>如图所示蓝色框内的是子路由，绿色框内的是平级路由。</p>
-<ul>
-<li>在router.js 中设置路由配置</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;   </span><br><span class="line">import Router from &apos;vue-router&apos;</span><br><span class="line"></span><br><span class="line">//引入*.vue 页面</span><br><span class="line">import Index from &apos;@/components/index.vue&apos;       </span><br><span class="line">import Hi1 from &apos;@/components/children/hi1.vue&apos; </span><br><span class="line">import Hi2 from &apos;@/components/children/hi2.vue&apos; </span><br><span class="line">import Clicli from &apos;@/components/clicli.vue&apos;</span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line">export default new Router(&#123;</span><br><span class="line">	routes: [&#123;</span><br><span class="line">		path: &apos;/&apos;,    //重定向路由</span><br><span class="line">		name: &apos;Index&apos;,</span><br><span class="line">		component: Index,</span><br><span class="line">		children: [   //配置子路由</span><br><span class="line">			&#123;</span><br><span class="line">				path: &apos;/&apos;,</span><br><span class="line">				component: Hi2</span><br><span class="line">			&#125;,</span><br><span class="line">			&#123;</span><br><span class="line">				path: &apos;/index/hi1&apos;,</span><br><span class="line">				component: Hi1</span><br><span class="line">			&#125;,</span><br><span class="line">			&#123;</span><br><span class="line">				path: &apos;/index/hi2&apos;,</span><br><span class="line">				component: Hi2</span><br><span class="line">			&#125;</span><br><span class="line">		]</span><br><span class="line">	&#125;, &#123;       //同级路由</span><br><span class="line">		path: &apos;/clicli&apos;,</span><br><span class="line">		name: &apos;Clicli&apos;,</span><br><span class="line">		component: Clicli</span><br><span class="line">	&#125;, &#123;</span><br><span class="line">		path: &apos;/hi1&apos;,</span><br><span class="line">		name: &apos;Hi1&apos;,</span><br><span class="line">		component: Hi1</span><br><span class="line">	&#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在 index.vue 中配置子路由的入口端</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		&lt;ol  start=&quot;1&quot; class=&quot;index-list&quot;&gt;</span><br><span class="line">			&lt;li&gt;&lt;router-link to=&quot;/index/hi1&quot;&gt;子路由 H1&lt;/router-link&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li&gt;&lt;router-link to=&quot;/index/hi2&quot;&gt;子路由 H2&lt;/router-link&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li&gt;&lt;router-link to=&quot;/clicli&quot;&gt;(全屏) 平级路由 CliCli&lt;/router-link&gt;&lt;/li&gt;</span><br><span class="line">			&lt;li&gt;&lt;router-link to=&quot;/hi1&quot;&gt;(全屏) 子路由 H1&lt;/router-link&gt;&lt;/li&gt;</span><br><span class="line">		&lt;/ol&gt;</span><br><span class="line">		&lt;div class=&quot;routerBox&quot;&gt;</span><br><span class="line">			&lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">	li&#123;</span><br><span class="line">		list-style: none;</span><br><span class="line">	&#125;</span><br><span class="line">	.index-list&#123;</span><br><span class="line">		margin: 0;</span><br><span class="line">		padding: 10px;</span><br><span class="line">		text-align: left;</span><br><span class="line">	&#125;</span><br><span class="line">	.index-list&gt;li&#123;</span><br><span class="line">		line-height: 30px;</span><br><span class="line">	&#125;</span><br><span class="line">	.routerBox&#123;</span><br><span class="line">		margin: 10px;</span><br><span class="line">		padding: 10px;</span><br><span class="line">		border: 1px solid #000;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p>具体实现效果如下<br><img src="http://images.leegeing.cn/hexoImg/vue-router.gif" alt="vue-router"></p>
-<ul>
-<li><p>vue路由 mode属性</p>
-<ul>
-<li><p><code>hash</code></p>
-<p> 使用 URL 的 hash 来模拟一个完整的 URL，当 URL 改变时，页面不会重新加载。(有#号)</p>
-</li>
-<li><p><code>history</code></p>
-<p>如果不想要很丑的 hash，我们可以用路由的 history 模式，这种模式充分利用 history.pushState API 来完成 URL 跳转而无须重新加载页面。</p>
-<p>当你使用 history 模式时，URL 就像正常的 url一样。(无#号)</p>
-</li>
-</ul>
-</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    hello vux</span><br><span class="line">    &lt;x-button</span><br><span class="line">      type=&quot;primary&quot;</span><br><span class="line">      text=&quot;按钮&quot;</span><br><span class="line">    &gt;</span><br><span class="line">    &lt;/x-button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<p>我们可以看到按钮能被正常加载，并且控制台也没有任何报错，这个时候就说明 <code>VUX</code> 引入成功了。</p>
+<p>至此结束 ✧(≖ ◡ ≖✿)嘿嘿</p>
 
       
     </div>
@@ -443,7 +427,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Vue-路由/" rel="tag"># Vue 路由</a>
+            <a href="/tags/vux-datetime/" rel="tag"># vux-datetime</a>
           
         </div>
       
@@ -456,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/21/预设图片比例/" rel="next" title="预设图片比例">
-                <i class="fa fa-chevron-left"></i> 预设图片比例
+              <a href="/2019/07/14/Vue-真机调试/" rel="next" title="Vue 真机调试">
+                <i class="fa fa-chevron-left"></i> Vue 真机调试
               </a>
             
           </div>
@@ -465,10 +449,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/23/Vue路由传参/" rel="prev" title="Vue路由传参">
-                Vue路由传参 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -520,8 +500,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -599,6 +588,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-Vux"><span class="nav-number">1.</span> <span class="nav-text">安装 Vux</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装less-loader"><span class="nav-number">2.</span> <span class="nav-text">安装less-loader</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-yaml-loader"><span class="nav-number">3.</span> <span class="nav-text">安装 yaml-loader</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装vux-loader"><span class="nav-number">4.</span> <span class="nav-text">安装vux-loader</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改-webpack-base-conf-js"><span class="nav-number">5.</span> <span class="nav-text">修改 webpack.base.conf.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#引入vux-loader"><span class="nav-number">6.</span> <span class="nav-text">引入vux-loader</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调用merge方法"><span class="nav-number">7.</span> <span class="nav-text">调用merge方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#最后重新运行启动项目"><span class="nav-number">8.</span> <span class="nav-text">最后重新运行启动项目</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

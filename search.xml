@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[引入 VUX 库]]></title>
+    <url>%2F2019%2F07%2F22%2F%E4%BD%BF%E7%94%A8-Vux-%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9%E6%8E%A7%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[安装 Vux1npm install vux --save 安装less-loader为了正确编译less源码 1npm install less less-loader --save-dev 安装 yaml-loader为了正确进行语言文件读取 1npm install yaml-loader --save-dev 安装vux-loader保证了组件按需使用，因此不用担心最终打包了整个vux的组件库代码。 1npm install vux-loader --save-dev 安装完这些依赖后，还有些文件需要修改下。 修改 webpack.base.conf.js为了降低使用成本及不侵入原来配置，只需要调用merge方法对原来webpack配置进行操作 1const webpackConfig = &#123;&#125; // 原来的 webpack.base.js 配置 把原来的 module.exports 替换成 const webpackConfig 引入vux-loader1const vuxLoader = require(&apos;vux-loader&apos;) 调用merge方法123456module.exports = vuxLoader.merge(webpackConfig, &#123; options: &#123;&#125;, plugins: [&#123; name: &apos;vux-ui&apos; &#125;]&#125;) 最后重新运行启动项目1npm run dev 不知道自己有没有引入成功的话，可以试一下引入一个简单的按钮组件尝试一下。 引入按钮组件并注册 123456import &#123; XButton &#125; from &apos;vux&apos;export default &#123; components: &#123; XButton &#125;&#125; 使用组件 12345678910&lt;template&gt; &lt;div&gt; hello vux &lt;x-button type=&quot;primary&quot; text=&quot;按钮&quot; &gt; &lt;/x-button&gt; &lt;/div&gt;&lt;/template&gt; 我们可以看到按钮能被正常加载，并且控制台也没有任何报错，这个时候就说明 VUX 引入成功了。 至此结束 ✧(≖ ◡ ≖✿)嘿嘿]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>vux-datetime</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Vue 真机调试]]></title>
     <url>%2F2019%2F07%2F14%2FVue-%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95%2F</url>
     <content type="text"><![CDATA[跨平台预览在 package.json 文件中，修改代码如下 123"scripts": &#123; "dev": "webpack-dev-server --host 0.0.0.0 --inline --progress --config build/webpack.dev.conf.js" &#125;, 这样的话，其他同局域网的设备也就都能通过本机的 IP 地址进行访问了. 项目正式上线在 config 目录下的 idnex.js 文件中找到 1assetsPublicPath: '/(目录名称)', 如果是 根目录的话，就直接 / 就行了]]></content>
