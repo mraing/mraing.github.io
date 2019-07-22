@@ -87,10 +87,16 @@
 <meta property="og:site_name" content="绪锋">
 <meta property="og:description" content="安装 Vux1npm install vux --save 安装less-loader为了正确编译less源码 1npm install less less-loader --save-dev 安装 yaml-loader为了正确进行语言文件读取 1npm install yaml-loader --save-dev 安装vux-loader保证了组件按需使用，因此不用担心最终打包了整个vux的组">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-22T02:46:50.798Z">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/Vux-01.png">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/Vux-02.png">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/Vux-03.png">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/Vux-04.png">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/Vux-05.png">
+<meta property="og:updated_time" content="2019-07-22T02:50:44.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="引入 VUX 库">
 <meta name="twitter:description" content="安装 Vux1npm install vux --save 安装less-loader为了正确编译less源码 1npm install less less-loader --save-dev 安装 yaml-loader为了正确进行语言文件读取 1npm install yaml-loader --save-dev 安装vux-loader保证了组件按需使用，因此不用担心最终打包了整个vux的组">
+<meta name="twitter:image" content="http://images.leegeing.cn/hexoImg/Vux-01.png">
 
 
 
@@ -396,19 +402,24 @@
 <h5 id="修改-webpack-base-conf-js"><a href="#修改-webpack-base-conf-js" class="headerlink" title="修改 webpack.base.conf.js"></a>修改 webpack.base.conf.js</h5><p>为了降低使用成本及不侵入原来配置，只需要调用<code>merge</code>方法对原来webpack配置进行操作</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const webpackConfig = &#123;&#125; // 原来的 webpack.base.js 配置</span><br></pre></td></tr></table></figure>
 <p>把原来的 <code>module.exports</code> 替换成 <code>const webpackConfig</code></p>
+<p><img src="http://images.leegeing.cn/hexoImg/Vux-01.png" alt="Vux-01"></p>
 <h5 id="引入vux-loader"><a href="#引入vux-loader" class="headerlink" title="引入vux-loader"></a>引入vux-loader</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const vuxLoader = require(&apos;vux-loader&apos;)</span><br></pre></td></tr></table></figure>
+<p><img src="http://images.leegeing.cn/hexoImg/Vux-02.png" alt="Vux-02"></p>
 <h5 id="调用merge方法"><a href="#调用merge方法" class="headerlink" title="调用merge方法"></a>调用merge方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module.exports = vuxLoader.merge(webpackConfig, &#123;</span><br><span class="line">  options: &#123;&#125;,</span><br><span class="line">  plugins: [&#123;</span><br><span class="line">    name: &apos;vux-ui&apos;</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="http://images.leegeing.cn/hexoImg/Vux-03.png" alt="Vux-03"></p>
 <h5 id="最后重新运行启动项目"><a href="#最后重新运行启动项目" class="headerlink" title="最后重新运行启动项目"></a>最后重新运行启动项目</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
 <p>不知道自己有没有引入成功的话，可以试一下引入一个简单的按钮组件尝试一下。</p>
 <ul>
 <li>引入按钮组件并注册</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123; XButton &#125; from &apos;vux&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    XButton</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://images.leegeing.cn/hexoImg/Vux-04.png" alt="Vux-04"></p>
 <ul>
 <li>使用组件</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    hello vux</span><br><span class="line">    &lt;x-button</span><br><span class="line">      type=&quot;primary&quot;</span><br><span class="line">      text=&quot;按钮&quot;</span><br><span class="line">    &gt;</span><br><span class="line">    &lt;/x-button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
 <p>我们可以看到按钮能被正常加载，并且控制台也没有任何报错，这个时候就说明 <code>VUX</code> 引入成功了。</p>
+<p><img src="http://images.leegeing.cn/hexoImg/Vux-05.png" alt="Vux-05"></p>
 <p>至此结束 ✧(≖ ◡ ≖✿)嘿嘿</p>
 
       
