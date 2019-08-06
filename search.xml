@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[React Hello World]]></title>
+    <url>%2F2019%2F08%2F06%2FReact-Hello-World%2F</url>
+    <content type="text"><![CDATA[我们初始化 React 项目后，可以看一下 React 的目录。 node_moudules : 用于存放项目的依赖包 public : 公共文件 src : 平时我们编写的代码就都存储在这个文件夹内 .gitignore : 忽略提交文件的配置文件 package-lock.json ：这个文件用一句话来解释，就是锁定安装时的版本号，并且需要上传到git，以保证其他人再npm install 时大家的依赖能保证一致。 package.json : 这个文件是webpack配置和项目包管理文件，项目中依赖的第三方包（包的版本）和一些常用命令配置都在这个里边进行配置，当然脚手架已经为我们配置了一些了，目前位置，我们不需要改动。如果你对webpack了解，对这个一定也很熟悉。 项目开始的时候，可以删除 src 文件夹目录下的所有文件，自己新建一个 index.js 以及 App.js. 12345// index.jsimport React from 'react'import ReactDOM from 'react-dom'import App from './App'ReactDOM.render(&lt;App /&gt;,document.getElementById('root')) 12345678910111213// App.jsimport React, &#123;Component&#125; from 'react'class App extends Component&#123; render()&#123; return ( &lt;div&gt; Hello World &lt;/div&gt; ) &#125;&#125;export default App 运行项目，就应该能看到页面上显示的 “Hello World” 了]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[React JSX]]></title>
+    <url>%2F2019%2F08%2F06%2FReact-JSX%2F</url>
+    <content type="text"><![CDATA[JSXReact 认为渲染逻辑本质上与其他 UI 逻辑内在耦合，比如，在 UI 中需要绑定处理事件、在某些时刻状态发生变化时需要通知到 UI，以及需要在 UI 中展示准备好的数据。 在 JSX 中嵌入变量12const name = 'Josh Perez';const element = &lt;h1&gt;Hello, &#123;name&#125;&lt;/h1&gt;; 插入表达式123456789function formatName(user) &#123; return user.firstName + ' ' + user.lastName;&#125;const element = ( &lt;h1&gt; Hello, &#123;formatName(user)&#125;! &lt;/h1&gt;); JSX 特定属性你可以通过使用引号，来将属性值指定为字符串字面量 1const element = &lt;div tabIndex="0"&gt;&lt;/div&gt;; 使用大括号，来在属性值中插入一个 JavaScript 表达式 1const element = &lt;img src=&#123;user.avatarUrl&#125;&gt;&lt;/img&gt; 因为 JSX 语法上更接近 JavaScript 而不是 HTML，所以 React DOM 使用 camelCase（小驼峰命名）来定义属性的名称，而不使用 HTML 属性名称的命名约定。JSX 里的 class 变成了 className，而 tabindex 则变为 tabIndex]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+        <tag>JSX</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[创建一个 React 项目]]></title>
     <url>%2F2019%2F08%2F05%2F%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA-React-%E9%A1%B9%E7%9B%AE%2F</url>
     <content type="text"><![CDATA[创建一个 React 项目有好几种方法，但是我唯独喜欢搭建本地开发环境的这种方式去创建。 12// 创建 react 项目npx create-react-app my-app 12// 进入到项目目录cd my-app 12// 启动项目npm start]]></content>
