@@ -282,6 +282,163 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/React组件的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绪锋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/09/React组件的使用/" itemprop="url">React组件的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-09T14:30:03+08:00">
+                2019-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/09/React组件的使用/" class="leancloud_visitors" data-flag-title="React组件的使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>React 组件的使用与 Vue 稍微有些不同。</p>
+<p>React 没有注册组件这个过程，引入就可以直接使用了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入子组件</span></span><br><span class="line"><span class="keyword">import</span> AddList <span class="keyword">from</span> <span class="string">'./component/AddList'</span></span><br></pre></td></tr></table></figure>
+<p>然后直接在 JSX 中直接使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;AddList/&gt;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/在Vue中运用Swiper/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -388,11 +545,17 @@
           
             <p>Swiper常用于移动端网站的内容触摸滑动<br>Swiper是纯javascript打造的滑动特效插件，面向手机、平板电脑等移动终端。</p>
 <p>Swiper能实现触屏焦点图、触屏Tab切换、触屏多图切换等常用效果。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-awesome-swiper --save</span><br></pre></td></tr></table></figure>
-<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>引入方式有两种，一种全局引入，一种为组件引入，根据自己需求去引入文件。</p>
-<h4 id="全局引入"><a href="#全局引入" class="headerlink" title="全局引入"></a>全局引入</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VueAwesomeSwiper <span class="keyword">from</span> <span class="string">'vue-awesome-swiper'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">'swiper/dist/css/swiper.css'</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueAwesomeSwiper)</span><br></pre></td></tr></table></figure>
-<h4 id="组件引入"><a href="#组件引入" class="headerlink" title="组件引入"></a>组件引入</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'swiper/dist/css/swiper.css'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; swiper, swiperSlide &#125; <span class="keyword">from</span> <span class="string">'vue-awesome-swiper'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    swiper,</span><br><span class="line">    swiperSlide</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper</span> <span class="attr">:options</span>=<span class="string">"swiperOption"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 轮播 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">swiper-slide</span>&gt;</span>I'm Slide 1<span class="tag">&lt;/<span class="name">swiper-slide</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">swiper-slide</span>&gt;</span>I'm Slide 2<span class="tag">&lt;/<span class="name">swiper-slide</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">swiper-slide</span>&gt;</span>I'm Slide 3<span class="tag">&lt;/<span class="name">swiper-slide</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 可选配置 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 分页器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-pagination"</span>  <span class="attr">slot</span>=<span class="string">"pagination"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 前进后退按钮 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-button-prev"</span> <span class="attr">slot</span>=<span class="string">"button-prev"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-button-next"</span> <span class="attr">slot</span>=<span class="string">"button-next"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 滚动条 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-scrollbar"</span>   <span class="attr">slot</span>=<span class="string">"scrollbar"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">swiper</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-awesome-swiper --save</span><br></pre></td></tr></table></figure>
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>引入方式有两种，一种全局引入，一种为组件引入，根据自己需求去引入文件。</p>
+<ul>
+<li>全局引入</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VueAwesomeSwiper <span class="keyword">from</span> <span class="string">'vue-awesome-swiper'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">'swiper/dist/css/swiper.css'</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueAwesomeSwiper)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>组件引入</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'swiper/dist/css/swiper.css'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; swiper, swiperSlide &#125; <span class="keyword">from</span> <span class="string">'vue-awesome-swiper'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    swiper,</span><br><span class="line">    swiperSlide</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">swiper</span> <span class="attr">:options</span>=<span class="string">"swiperOption"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 轮播 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">swiper-slide</span>&gt;</span>I'm Slide 1<span class="tag">&lt;/<span class="name">swiper-slide</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">swiper-slide</span>&gt;</span>I'm Slide 2<span class="tag">&lt;/<span class="name">swiper-slide</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">swiper-slide</span>&gt;</span>I'm Slide 3<span class="tag">&lt;/<span class="name">swiper-slide</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 可选配置 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 分页器 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-pagination"</span>  <span class="attr">slot</span>=<span class="string">"pagination"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 前进后退按钮 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-button-prev"</span> <span class="attr">slot</span>=<span class="string">"button-prev"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-button-next"</span> <span class="attr">slot</span>=<span class="string">"button-next"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 滚动条 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-scrollbar"</span>   <span class="attr">slot</span>=<span class="string">"scrollbar"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">swiper</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">swiperOption: &#123;</span><br><span class="line">    <span class="comment">// 分页器</span></span><br><span class="line">    pagination: &#123;</span><br><span class="line">      el: <span class="string">'.swiper-pagination'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 前进后退按钮</span></span><br><span class="line">    navigation: &#123;</span><br><span class="line">      nextEl: <span class="string">'.swiper-button-next'</span>,</span><br><span class="line">      prevEl: <span class="string">'.swiper-button-prev'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 是否无限循环</span></span><br><span class="line">    loop: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 切换方式</span></span><br><span class="line">    effect: <span class="string">'cube'</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>一个基本的轮播就做好了，有关于更多详细API，请移步官网 API。<br><a href="https://www.swiper.com.cn/api/navigation/355.html" target="_blank" rel="noopener">Swiper4 API : https://www.swiper.com.cn/api/navigation/355.html</a></p>
 
@@ -1819,163 +1982,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/Vue动态渲染组件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content>
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="绪锋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/25/Vue动态渲染组件/" itemprop="url">Vue动态渲染组件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-25T16:51:55+08:00">
-                2019-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/06/25/Vue动态渲染组件/" class="leancloud_visitors" data-flag-title="Vue动态渲染组件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>动态组件，通过 <code>is</code> 去动态渲染组件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;component :is=<span class="string">"type"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-<p>比如下面这个例子</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--父组件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"type"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"handleClick"</span>&gt;</span>click me<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">"child-one"</span>, &#123;</span><br><span class="line">    template: <span class="string">`&lt;div v-once&gt;one,one&lt;/div&gt;`</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Vue.component(<span class="string">"child-two"</span>, &#123;</span><br><span class="line">    template: <span class="string">`&lt;div v-once&gt;two-two&lt;/div&gt;`</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">"#app"</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">      type: <span class="string">'child-one'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">      handleClick ()&#123;</span><br><span class="line">        <span class="keyword">this</span>.type = (<span class="keyword">this</span>.type === <span class="string">'child-one'</span>? <span class="string">'child-two'</span>: <span class="string">'child-one'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>在子组件中添加 <code>v-once</code> 有助于提高静态页面的渲染速度。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2028,7 +2034,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
