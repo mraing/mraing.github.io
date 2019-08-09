@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[React 父子组件传值]]></title>
+    <url>%2F2019%2F08%2F09%2FReact-%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC%2F</url>
+    <content type="text"><![CDATA[父组件可以通过属性的方式，向子组件传递参数 父组件向子组件传递参数12// 父组件&lt;AddList list=&#123;this.state.list&#125; /&gt; 12// 子组件接收参数&#123;this.props.list&#125; 子组件向父组件传递参数 React 是单向数据流，并不支持子组件修改父组件的数据。 如果需要修改，那也是现在父组件中去修改，子组件只是调用父组件传过来的方法而已。 举个🌰 123456// 父组件向子组件传递一个方法&lt;AddList delfuc=&#123;this.delData&#125; /&gt;delData (index) &#123; conosle.log(index)&#125; 1234567// 子组件接收方法&lt;div onClick=&#123;this.delData.bind(this, '参数')&gt;Childer-Component&lt;/div&gt;delData (parameter) &#123; // 接收父组件的方法，并传递参数 this.props.delfuc(parameter)&#125;]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+        <tag>props</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[React组件的使用]]></title>
     <url>%2F2019%2F08%2F09%2FReact%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[React 组件的使用与 Vue 稍微有些不同。 React 没有注册组件这个过程，引入就可以直接使用了 12// 引入子组件import AddList from './component/AddList' 然后直接在 JSX 中直接使用 1&lt;AddList/&gt;]]></content>
