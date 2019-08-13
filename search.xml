@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[在React中安装Ant Design组件库]]></title>
+    <url>%2F2019%2F08%2F13%2FReact%20%E5%AE%89%E8%A3%85%20antd%20%E7%BB%84%E4%BB%B6%E5%BA%93%2F</url>
+    <content type="text"><![CDATA[安装 Yarn根据操作系统选择不同的安装方式，我这里以 macOS 为例。 1brew install yarn 安装完成之后可以查看 Yarn 的版本号，是否安装成功 1yarn --version 若是出现版本号，那就代表安装成功了。 安装 create-react-app123yarn create react-app antd-democd antd-demoyarn start 此时浏览器会访问 http://localhost:3000/ ，看到 Welcome to React 的界面就算成功了。 引入antd 组件库1yarn add antd 按需引入 安装 react-app-rewired customize-cra babel-plugin-import 此时我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 react-app-rewired，由于新的 react-app-rewired@2.x 版本的关系，你还需要安装 customize-cra 1yarn add react-app-rewired customize-cra babel-plugin-import 修改 package.json 配置 123456/* package.json */"scripts": &#123; "start": "react-app-rewired start", "build": "react-app-rewired build", "test": "react-app-rewired test"&#125; 创建 config-overrides.js 文件 12345678const &#123; override, fixBabelImports &#125; = require('customize-cra')module.exports = override( fixBabelImports('import', &#123; libraryName: 'antd', libraryDirectory: 'es', style: 'css', &#125;),) 最后重启 yarn start 访问页面，antd 组件的 js 和 css 代码都会按需加载]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>react</tag>
+        <tag>antd</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[React 父子组件传值]]></title>
     <url>%2F2019%2F08%2F09%2FReact-%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC%2F</url>
     <content type="text"><![CDATA[父组件可以通过属性的方式，向子组件传递参数 父组件向子组件传递参数12// 父组件&lt;AddList list=&#123;this.state.list&#125; /&gt; 12// 子组件接收参数&#123;this.props.list&#125; 子组件向父组件传递参数 React 是单向数据流，并不支持子组件修改父组件的数据。 如果需要修改，那也是现在父组件中去修改，子组件只是调用父组件传过来的方法而已。 举个🌰 123456// 父组件向子组件传递一个方法&lt;AddList delfuc=&#123;this.delData&#125; /&gt;delData (index) &#123; conosle.log(index)&#125; 1234567// 子组件接收方法&lt;div onClick=&#123;this.delData.bind(this, '参数')&gt;Childer-Component&lt;/div&gt;delData (parameter) &#123; // 接收父组件的方法，并传递参数 this.props.delfuc(parameter)&#125;]]></content>
