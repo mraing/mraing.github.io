@@ -282,6 +282,368 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/14/Redux的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绪锋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/14/Redux的使用/" itemprop="url">Redux的基本使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-14T09:36:43+08:00">
+                2019-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/14/Redux的使用/" class="leancloud_visitors" data-flag-title="Redux的基本使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><blockquote>
+<p>Redux 是 JavaScript 状态容器，提供可预测化的状态管理。</p>
+</blockquote>
+<p><img src="http://images.leegeing.cn/hexoImg/redux_01.png" alt="redux_01"></p>
+<p>或者可以用图书馆案例来理解</p>
+<p><img src="http://images.leegeing.cn/hexoImg/redux_02.png" alt="redux_02"></p>
+<p><strong>图片来源与<a href="https://jspang.com/posts/2019/06/20/redux.html" target="_blank" rel="noopener">技术胖 jspang.com</a></strong></p>
+<h3 id="安装-redux"><a href="#安装-redux" class="headerlink" title="安装 redux"></a>安装 redux</h3><ul>
+<li>npm 安装</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// npm 安装</span></span><br><span class="line">npm install --save redux</span><br></pre></td></tr></table></figure>
+<ul>
+<li>yarn 安装</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// yarn 安装</span></span><br><span class="line">yarn add redux</span><br></pre></td></tr></table></figure>
+<h3 id="创建-store-数据仓库"><a href="#创建-store-数据仓库" class="headerlink" title="创建 store 数据仓库"></a>创建 store 数据仓库</h3><p>安装好<code>redux</code>之后，在src目录下创建一个<code>store</code>文件夹,然后在文件夹下创建一个<code>index.js</code>文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>  <span class="comment">// 引入createStore方法</span></span><br><span class="line"><span class="keyword">const</span> store = createStore()          <span class="comment">// 创建数据存储仓库</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store                 <span class="comment">//暴露出去</span></span><br></pre></td></tr></table></figure>
+<p>再创建一个文件 <code>reducer.js</code> 文件用于管理数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// reducer.js</span></span><br><span class="line"><span class="keyword">const</span> defaultState = &#123;&#125;  <span class="comment">//默认数据</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (state = defaultState,action)=&gt;&#123;  <span class="comment">//就是一个方法函数</span></span><br><span class="line">    <span class="keyword">return</span> state</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后将在 <code>index.js</code> 中引入 <code>reducer.js</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> <span class="string">'./reducer'</span></span><br><span class="line"><span class="keyword">const</span> store = createStore(&#123;</span><br><span class="line">    reducer,</span><br><span class="line">    <span class="comment">//用于 redux dev tools 调试</span></span><br><span class="line">    <span class="built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION__ &amp;&amp; <span class="built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION__()  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="在组件中使用仓库"><a href="#在组件中使用仓库" class="headerlink" title="在组件中使用仓库"></a>在组件中使用仓库</h3><h4 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h4><p>首先引入仓库，根据组件的位置不同，路径可能不太一样，根据实际需求来</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'./store/index'</span></span><br></pre></td></tr></table></figure>
+<p>将仓库里的数据赋值给组件的 state 数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.state=store.getState()</span><br></pre></td></tr></table></figure>
+<h4 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h4><p>想改变Redux里边State的值就要创建Action了。Action就是一个对象，这个对象一般有两个属性，第一个是对Action的描述，第二个是要改变的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> action =&#123;</span><br><span class="line">    type:<span class="string">'标识名称/方法名称'</span>,</span><br><span class="line">    value:<span class="string">'需要传递的参数'</span></span><br><span class="line">&#125;</span><br><span class="line">store.dispatch(action)</span><br></pre></td></tr></table></figure>
+<p>然后在 reducer.js 中去接收这个参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// reducer.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (state = defaultState,action)=&gt;&#123;</span><br><span class="line">    <span class="keyword">if</span>(action.type === <span class="string">'标识名称/方法名称'</span>)&#123;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">let</span> newState = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(state)) <span class="comment">// 深度拷贝state</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// action.value 是传递过来的参数</span></span><br><span class="line">        newState.inputValue = action.value</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> newState</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> state</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>做完这一步还不够，还需要让组件进行更新</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//----------关键代码-----------start</span></span><br><span class="line"><span class="keyword">this</span>.storeChange = <span class="keyword">this</span>.storeChange.bind(<span class="keyword">this</span>)  <span class="comment">//转变this指向</span></span><br><span class="line">store.subscribe(<span class="keyword">this</span>.storeChange) <span class="comment">//订阅Redux的状态</span></span><br><span class="line"><span class="comment">//----------关键代码-----------end</span></span><br><span class="line"></span><br><span class="line">storeChange () &#123;</span><br><span class="line">    <span class="comment">// 重新setState一次就可以实现组件也是变化的。在代码的最下方，编写storeChange方法。</span></span><br><span class="line">    <span class="keyword">this</span>.setState(store.getState())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>🎉基础部分就是这样啦</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/13/Updating-Homebrew长时间不动的解决方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绪锋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/13/Updating-Homebrew长时间不动的解决方法/" itemprop="url">Updating Homebrew长时间不动的解决方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T13:04:16+08:00">
+                2019-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/13/Updating-Homebrew长时间不动的解决方法/" class="leancloud_visitors" data-flag-title="Updating Homebrew长时间不动的解决方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Homebrew是Macs的软件包管理器，可以安装许多不同的软件，比如Git，Ruby和Node。Homebrew可以避免与使用sudo命令安装Node等软件相关的安全问题。</p>
+<h3 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span></span><br></pre></td></tr></table></figure>
+<h3 id="卸载Homebrew"><a href="#卸载Homebrew" class="headerlink" title="卸载Homebrew"></a>卸载Homebrew</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e <span class="string">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"</span></span><br></pre></td></tr></table></figure>
+<p>因为每次安装应用之前，都会进行一个检查的更新，有时候网络太慢了，导致浪费很多时间花在检查更新和下载的过程中。</p>
+<p>我们可以简单替换一下镜像源，这里我推荐的是选择 中科大的镜像</p>
+<h3 id="替换镜像源"><a href="#替换镜像源" class="headerlink" title="替换镜像源"></a>替换镜像源</h3><ul>
+<li>第一步：替换brew.git</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="string">"$(brew --repo)"</span></span><br><span class="line">git remote <span class="keyword">set</span>-url origin https://mirrors.ustc.edu.cn/brew.git</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二步：替换homebrew-core.git</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="string">"$(brew --repo)/Library/Taps/homebrew/homebrew-core"</span></span><br><span class="line">git remote <span class="keyword">set</span>-url origin https://mirrors.ustc.edu.cn/homebrew-core.git</span><br></pre></td></tr></table></figure>
+<ul>
+<li>最后使用进行更新</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br></pre></td></tr></table></figure>
+<p>如果对替换源不满意，可以选择重置源，切换回默认的</p>
+<h3 id="重置镜像源、"><a href="#重置镜像源、" class="headerlink" title="重置镜像源、"></a>重置镜像源、</h3><ul>
+<li>重置brew.git</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="string">"$(brew --repo)"</span></span><br><span class="line">git remote <span class="keyword">set</span>-url origin https://github.com/Homebrew/brew.git</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重置homebrew-core.git</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="string">"$(brew --repo)/Library/Taps/homebrew/homebrew-core"</span></span><br><span class="line">git remote <span class="keyword">set</span>-url origin https://github.com/Homebrew/homebrew-core.git</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/13/React 安装 antd 组件库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1620,346 +1982,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/22/使用-Vux-时间选择控件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content>
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="绪锋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/22/使用-Vux-时间选择控件/" itemprop="url">引入 VUX 库</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-22T09:44:22+08:00">
-                2019-07-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/07/22/使用-Vux-时间选择控件/" class="leancloud_visitors" data-flag-title="引入 VUX 库">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="安装-Vux"><a href="#安装-Vux" class="headerlink" title="安装 Vux"></a>安装 Vux</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vux --save</span><br></pre></td></tr></table></figure>
-<h5 id="安装less-loader"><a href="#安装less-loader" class="headerlink" title="安装less-loader"></a>安装less-loader</h5><p>为了正确编译less源码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less less-loader --save-dev</span><br></pre></td></tr></table></figure>
-<h5 id="安装-yaml-loader"><a href="#安装-yaml-loader" class="headerlink" title="安装 yaml-loader"></a>安装 yaml-loader</h5><p>为了正确进行语言文件读取</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install yaml-loader --save-dev</span><br></pre></td></tr></table></figure>
-<h5 id="安装vux-loader"><a href="#安装vux-loader" class="headerlink" title="安装vux-loader"></a>安装vux-loader</h5><p>保证了组件按需使用，因此不用担心最终打包了整个vux的组件库代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vux-loader --save-dev</span><br></pre></td></tr></table></figure>
-<p>安装完这些依赖后，还有些文件需要修改下。</p>
-<h5 id="修改-webpack-base-conf-js"><a href="#修改-webpack-base-conf-js" class="headerlink" title="修改 webpack.base.conf.js"></a>修改 webpack.base.conf.js</h5><p>为了降低使用成本及不侵入原来配置，只需要调用<code>merge</code>方法对原来webpack配置进行操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const webpackConfig = &#123;&#125; // 原来的 webpack.base.js 配置</span><br></pre></td></tr></table></figure>
-<p>把原来的 <code>module.exports</code> 替换成 <code>const webpackConfig</code></p>
-<p><img src="http://images.leegeing.cn/hexoImg/Vux-01.png" alt="Vux-01"></p>
-<h5 id="引入vux-loader"><a href="#引入vux-loader" class="headerlink" title="引入vux-loader"></a>引入vux-loader</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const vuxLoader = require(&apos;vux-loader&apos;)</span><br></pre></td></tr></table></figure>
-<p><img src="http://images.leegeing.cn/hexoImg/Vux-02.png" alt="Vux-02"></p>
-<h5 id="调用merge方法"><a href="#调用merge方法" class="headerlink" title="调用merge方法"></a>调用merge方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module.exports = vuxLoader.merge(webpackConfig, &#123;</span><br><span class="line">  options: &#123;&#125;,</span><br><span class="line">  plugins: [&#123;</span><br><span class="line">    name: &apos;vux-ui&apos;</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p><img src="http://images.leegeing.cn/hexoImg/Vux-03.png" alt="Vux-03"></p>
-<h5 id="最后重新运行启动项目"><a href="#最后重新运行启动项目" class="headerlink" title="最后重新运行启动项目"></a>最后重新运行启动项目</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
-<p>不知道自己有没有引入成功的话，可以试一下引入一个简单的按钮组件尝试一下。</p>
-<ul>
-<li>引入按钮组件并注册</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123; XButton &#125; from &apos;vux&apos;</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    XButton</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://images.leegeing.cn/hexoImg/Vux-04.png" alt="Vux-04"></p>
-<ul>
-<li>使用组件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    hello vux</span><br><span class="line">    &lt;x-button</span><br><span class="line">      type=&quot;primary&quot;</span><br><span class="line">      text=&quot;按钮&quot;</span><br><span class="line">    &gt;</span><br><span class="line">    &lt;/x-button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-<p>我们可以看到按钮能被正常加载，并且控制台也没有任何报错，这个时候就说明 <code>VUX</code> 引入成功了。</p>
-<p><img src="http://images.leegeing.cn/hexoImg/Vux-05.png" alt="Vux-05"></p>
-<p>至此结束 ✧(≖ ◡ ≖✿)嘿嘿</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/14/Vue-真机调试/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content>
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="绪锋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/14/Vue-真机调试/" itemprop="url">Vue 真机调试</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-14T21:47:42+08:00">
-                2019-07-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/07/14/Vue-真机调试/" class="leancloud_visitors" data-flag-title="Vue 真机调试">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="跨平台预览"><a href="#跨平台预览" class="headerlink" title="跨平台预览"></a>跨平台预览</h4><p>在 <code>package.json</code> 文件中，修改代码如下</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"dev"</span>: <span class="string">"webpack-dev-server --host 0.0.0.0 --inline --progress --config build/webpack.dev.conf.js"</span></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-<p>这样的话，其他同局域网的设备也就都能通过本机的 IP 地址进行访问了.</p>
-<h4 id="项目正式上线"><a href="#项目正式上线" class="headerlink" title="项目正式上线"></a>项目正式上线</h4><p>在 <code>config</code> 目录下的 <code>idnex.js</code> 文件中找到</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assetsPublicPath: <span class="string">'/(目录名称)'</span>,</span><br></pre></td></tr></table></figure>
-<p>如果是 根目录的话，就直接 <code>/</code> 就行了</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2012,7 +2034,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2034,7 +2056,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
