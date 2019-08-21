@@ -282,6 +282,164 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/MUI-AJAX请求/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绪锋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/07/MUI-AJAX请求/" itemprop="url">MUI AJAX请求</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T18:12:48+08:00">
+                2019-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MUI/" itemprop="url" rel="index">
+                    <span itemprop="name">MUI</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/05/07/MUI-AJAX请求/" class="leancloud_visitors" data-flag-title="MUI AJAX请求">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>mui框架基于htm5plus的<code>XMLHttpRequest</code>，封装了常用的Ajax函数，支持GET、POST请求方式，支持返回json、xml、html、text、script数据类型； 本着极简的设计原则，mui提供了mui.ajax方法，并在mui.ajax方法基础上，进一步简化出最常用的<code>mui.get()</code>、<code>mui.getJSON()</code>、<code>mui.post()</code>三个方法。</p>
+<h3 id="mui-ajax"><a href="#mui-ajax" class="headerlink" title="mui.ajax()"></a>mui.ajax()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mui.ajax(&apos;http://server-name/login.php&apos;,&#123;</span><br><span class="line">	data:&#123;</span><br><span class="line">		username:&apos;username&apos;,</span><br><span class="line">		password:&apos;password&apos;</span><br><span class="line">	&#125;,</span><br><span class="line">	dataType:&apos;json&apos;,//服务器返回json格式数据</span><br><span class="line">	type:&apos;post&apos;,//HTTP请求类型</span><br><span class="line">	timeout:10000,//超时时间设置为10秒；</span><br><span class="line">	headers:&#123;&apos;Content-Type&apos;:&apos;application/json&apos;&#125;,	              </span><br><span class="line">	success:function(data)&#123;</span><br><span class="line">		//服务器返回响应，根据响应结果，分析是否登录成功；</span><br><span class="line">		...</span><br><span class="line">	&#125;,</span><br><span class="line">	error:function(xhr,type,errorThrown)&#123;</span><br><span class="line">		//异常处理；</span><br><span class="line">		console.log(type);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="mui-post"><a href="#mui-post" class="headerlink" title="mui.post()"></a>mui.post()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mui.post(&apos;http://server-name/login.php&apos;,&#123;</span><br><span class="line">		username:&apos;username&apos;,</span><br><span class="line">		password:&apos;password&apos;</span><br><span class="line">	&#125;,function(data)&#123;</span><br><span class="line">		//服务器返回响应，根据响应结果，分析是否登录成功；</span><br><span class="line">		...</span><br><span class="line">	&#125;,&apos;json&apos;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="mui-get"><a href="#mui-get" class="headerlink" title="mui.get()"></a>mui.get()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mui.get(&apos;http://server-name/list.php&apos;,&#123;category:&apos;news&apos;&#125;,function(data)&#123;</span><br><span class="line">		//获得服务器响应</span><br><span class="line">		...</span><br><span class="line">	&#125;,&apos;json&apos;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="封装-AJax"><a href="#封装-AJax" class="headerlink" title="封装 AJax"></a>封装 AJax</h3><p>通常在项目中，我们并不会直接使用它，而是会封装一下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//  **.js 请求数据</span><br><span class="line">function startRequest(url, callBack) &#123;</span><br><span class="line">	//接口地址</span><br><span class="line">	var GETURL = &quot;https://www.easy-mock.com/mock/5cae89ce96ef6f08c01d52de/fitness/&quot; + url;</span><br><span class="line">	mui.ajax(GETURL, &#123;</span><br><span class="line">		dataType: &apos;json&apos;, //服务器返回json格式数据</span><br><span class="line">		type: &apos;get&apos;, //HTTP请求类型</span><br><span class="line">		success: function(data) &#123;</span><br><span class="line">			console.log(data);</span><br><span class="line">			callBack(data);  //回调函数</span><br><span class="line">		&#125;,</span><br><span class="line">		error: function(xhr, type, errorThrown) &#123;</span><br><span class="line">			console.log(type);</span><br><span class="line">			return &quot;网络错误&quot;;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var HTTP_ACTION = &#123;</span><br><span class="line">	//请求用户名密码</span><br><span class="line">	userccount: function(callBack) &#123;</span><br><span class="line">		startRequest(&quot;userccount&quot;, callBack);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">**.html 调用请求数据</span><br><span class="line">//请求用户名密码</span><br><span class="line">HTTP_ACTION.userccount(function(data)&#123;</span><br><span class="line">	console.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/Sass-常用语法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1805,177 +1963,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/21/预设图片比例/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content>
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="绪锋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/21/预设图片比例/" itemprop="url">预设图片比例</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-21T23:16:40+08:00">
-                2019-04-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/04/21/预设图片比例/" class="leancloud_visitors" data-flag-title="预设图片比例">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在项目中，经常有用到图片，但是我们不能直接使用图片，防止图片大小不一致，而导致页面的布局错乱，但是又不能直接把图片的宽高写成固定的，不然图片会变形之类的。<br>所以我们我们需要一个等比例的图片宽高，又不能使图片变形。我推荐采用以下这种方式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// html</span><br><span class="line"> &lt;div class=&quot;demoImg&quot;&gt;</span><br><span class="line">    &lt;img src=&quot;http://images.leegeing.cn/hexoImg/demo.jpeg&quot;&gt;</span><br><span class="line"> &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// css</span><br><span class="line">.demoImg&#123;</span><br><span class="line">	position: relative;</span><br><span class="line">	width: 100%;</span><br><span class="line">	height: 0;</span><br><span class="line">	padding-top: 100%;</span><br><span class="line">	overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">.demoImg&gt;img&#123;</span><br><span class="line">	position: absolute;</span><br><span class="line">	top: 0;</span><br><span class="line">	left: 0;</span><br><span class="line">	width: 100%;</span><br><span class="line">	height: 100%;</span><br><span class="line">	object-fit: cover;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>当 CSS 的宽度 width 和上内边距 padding-top 的都为 100%，代表的是 1:1 的图片比例。</li>
-<li>当设置为宽高和上内边距的分别设置为 100%，和 75%的时候，代表的图片比例 4：3 的比例。</li>
-<li>object-fit 属性指定可替换元素的内容应该如何适应到其使用的高度和宽度确定的框。<ul>
-<li>fill<br>被替换的内容正好填充元素的内容框。整个对象将完全填充此框。如果对象的宽高比与内容框不相匹配，那么该对象将被拉伸以适应内容框。</li>
-<li>contain<br>被替换的内容将被缩放，以在填充元素的内容框时保持其宽高比。 整个对象在填充盒子的同时保留其长宽比，因此如果宽高比与框的宽高比不匹配，该对象将被添加“黑边”。</li>
-<li>cover<br>被替换的内容在保持其宽高比的同时填充元素的整个内容框。如果对象的宽高比与内容框不相匹配，该对象将被剪裁以适应内容框。</li>
-<li>none<br>被替换的内容将保持其原有的尺寸。</li>
-<li>scale-down<br>内容的尺寸与 none 或 contain 中的一个相同，取决于它们两个之间谁得到的对象尺寸会更小一些。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>浏览器的兼容性</li>
-</ul>
-<p><img src="http://images.leegeing.cn/hexoImg/object-fit.png" alt="object-fit"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2028,7 +2015,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2050,7 +2037,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
