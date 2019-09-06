@@ -282,6 +282,221 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://mraing.github.io/2019/09/06/docsify-博客搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绪锋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/06/docsify-博客搭建/" itemprop="url">docsify 博客搭建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-06T09:31:13+08:00">
+                2019-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/09/06/docsify-博客搭建/" class="leancloud_visitors" data-flag-title="docsify 博客搭建">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>docsify 是一个文档站点生成器。</p>
+</blockquote>
+<p>使用起来非常简单。也是采用 <code>Markdown</code> 语法来编写文档。</p>
+<p>但它与 <code>Hexo</code> 不同的是，<code>Hexo</code> 是编译完成之后再展示，会把源文件转换成 <code>html</code> 文件。</p>
+<p> <code>docsify</code> 是在展示时再进行实时编译，这样做的好处是<code>.md</code>源文件不会变成 <code>.html</code> 文件。</p>
+<h2 id="💁安装"><a href="#💁安装" class="headerlink" title="💁安装"></a>💁安装</h2><p>建议docsify-cli全局安装，这有助于在本地初始化和预览网站。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i docsify-cli -g</span><br></pre></td></tr></table></figure>
+<p>然后选择目录进行初始化,这里的 <code>.docs</code>是指在当前目录 <code>dosc</code> 文件夹下面安装 <code>docsify</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docsify init ./docs</span><br></pre></td></tr></table></figure>
+<p>初始化完成后，你可以看到 <code>dosc</code> 文件夹的目录结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 在之后init完成后，你可以看到在文件列表./docs子目录。</span><br><span class="line"></span><br><span class="line">---index.html 作为条目文件</span><br><span class="line"></span><br><span class="line">---README.md 作为主页</span><br><span class="line"></span><br><span class="line">---.nojekyll 阻止GitHub页面忽略以下划线开头的文件</span><br></pre></td></tr></table></figure>
+<h2 id="🧐预览项目"><a href="#🧐预览项目" class="headerlink" title="🧐预览项目"></a>🧐预览项目</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docsify serve docs</span><br></pre></td></tr></table></figure>
+<p>默认地址是 <code>http://localhost:3000</code>，复制到浏览者打开便能看到了欢迎页面了。</p>
+<h2 id="🥳给你的文档加点花样"><a href="#🥳给你的文档加点花样" class="headerlink" title="🥳给你的文档加点花样"></a>🥳给你的文档加点花样</h2><h3 id="👨🏻‍🏫侧边栏"><a href="#👨🏻‍🏫侧边栏" class="headerlink" title="👨🏻‍🏫侧边栏"></a>👨🏻‍🏫侧边栏</h3><ul>
+<li>添加属性 <code>loadSidebar: true</code></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- index.html --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.$docsify = &#123;</span></span><br><span class="line"><span class="javascript">    loadSidebar: <span class="literal">true</span></span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建文件 <code>_sidebar.md</code></li>
+</ul>
+<p>熟悉 Markdown 语法的同学，就可以直接做一个列表了。列表的内容就是你的侧边栏的内容</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- _sidebar.md --&gt;</span></span><br><span class="line">* **这里写标题(不写也没关系，只是为了分类更清楚，双引号只是加粗的意思，就是 md 语法而已)** </span><br><span class="line">    * [你的页面标题A](页面链接)</span><br><span class="line">    * [你的页面标题B](页面链接)</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<p><img src="http://images.leegeing.cn/hexoImg/docsify_01.png" alt="docsify_01"></p>
+<p>完成之后，进行项目预览</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docsify serve docs</span><br></pre></td></tr></table></figure>
+<p>具体效果就如下啦</p>
+<p><img src="http://images.leegeing.cn/hexoImg/docsify_02.png" alt="docsify_02"></p>
+<h3 id="👨🏻‍🏫添加封面"><a href="#👨🏻‍🏫添加封面" class="headerlink" title="👨🏻‍🏫添加封面"></a>👨🏻‍🏫添加封面</h3><ul>
+<li>添加属性 <code>coverpage: true</code></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- index.html --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.$docsify = &#123;</span></span><br><span class="line"><span class="javascript">    coverpage: <span class="literal">true</span></span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建文件 <code>_coverpage.md</code></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--logo图 可以用 &lt;svg&gt; 的方式添加图片--&gt;</span> </span><br><span class="line">![logo](_media/icon.svg)</span><br><span class="line"></span><br><span class="line"># docsify <span class="tag">&lt;<span class="name">small</span>&gt;</span>3.5<span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&gt; A magical documentation site generator.</span><br><span class="line"></span><br><span class="line">- Simple and lightweight (~21kB gzipped)</span><br><span class="line">- No statically built html files</span><br><span class="line">- Multiple themes</span><br></pre></td></tr></table></figure>
+<h3 id="👨🏻‍🏫添加-vuep-实时预览代码"><a href="#👨🏻‍🏫添加-vuep-实时预览代码" class="headerlink" title="👨🏻‍🏫添加 vuep 实时预览代码"></a>👨🏻‍🏫添加 vuep 实时预览代码</h3><p>其他类似的功能我就不重复了，这里只举一两个例子，可以对照官方文档去举一反三使用。</p>
+<blockquote>
+<p>vuep 是一个使用实时编辑器和预览渲染Vue组件的插件。</p>
+</blockquote>
+<ul>
+<li>安装</li>
+</ul>
+<p>下面这些东西放在 <code>index.html</code> 中就行，具体放哪里，不要我说了吧，不知道的话，我会锤死你哦🌝</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"//unpkg.com/vuep/dist/vuep.css"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//unpkg.com/vue"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//unpkg.com/vuep"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>为了<strong>代码美观高亮</strong>，还可以引入如下两个插件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//unpkg.com/prismjs/components/prism-bash.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//unpkg.com/prismjs/components/prism-php.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>做好这些准备工作之后，就可以使用了 <code>vuep</code> 了。</p>
+<ul>
+<li>使用</li>
+</ul>
+<p>这是一个简单的例子，如果你会 <code>vue</code> 的一些基本语法的话，那就太棒了。</p>
+<p><strong>vuep中的template 属性值 = scrip中的id属性值</strong>，至于属性值叫啥名，那就由你自己去决定了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vuep 中的 template 属性值 = scrip 中的 id 属性值</span></span><br><span class="line">&lt;vuep template=<span class="string">"#demo"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">vuep</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;script v-pre type=<span class="string">"text/x-template"</span> id=<span class="string">"demo"</span>&gt;</span><br><span class="line"><span class="comment">// html 模板文件</span></span><br><span class="line">&lt;template&gt;<span class="xml"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="comment">// 样式文件</span></span><br><span class="line">&lt;sytle&gt;<span class="xml"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line"><span class="comment">// 事件处理</span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    data: () &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">name</span>: <span class="string">'cinwell'</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+<p>如果你想要<strong>使用 <code>ES6</code> 语法</strong>的话，那么你得引入下面这个文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//unpkg.com/babel-standalone/babel.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果你想要<strong>使用 <code>JSX</code> 语法</strong>的话，那么你得引入下面这些文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//unpkg.com/babel-standalone/babel.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//unpkg.com/babel-plugin-transform-vue-jsx"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>最后，你需要注意的是，<code>&lt;script v-pre type=&quot;text/x-template&quot;&gt;</code> 必须放在末尾！</p>
+<p>最后，你需要注意的是，<code>&lt;script v-pre type=&quot;text/x-template&quot;&gt;</code> 必须放在末尾！</p>
+<p>最后，你需要注意的是，<code>&lt;script v-pre type=&quot;text/x-template&quot;&gt;</code> 必须放在末尾！</p>
+<p>你可以就按照这样的格式来写就行了，正确的例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;vuep&gt;&lt;/vuep&gt;</span><br><span class="line"></span><br><span class="line">&lt;script v-pre type=&quot;text/x-template&quot;&gt;</span><br><span class="line">&lt;template&gt;&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;&lt;/script&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://mraing.github.io/2019/08/21/vue-lazyload图片懒加载/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1851,177 +2066,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://mraing.github.io/2019/08/06/React-Hello-World/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content>
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="绪锋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/06/React-Hello-World/" itemprop="url">React Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-06T09:26:31+08:00">
-                2019-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/React/" itemprop="url" rel="index">
-                    <span itemprop="name">React</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/08/06/React-Hello-World/" class="leancloud_visitors" data-flag-title="React Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>我们初始化 <code>React</code> 项目后，可以看一下 <code>React</code> 的目录。</p>
-<ul>
-<li><p><strong>node_moudules</strong> : 用于存放项目的依赖包</p>
-</li>
-<li><p><strong>public</strong> : 公共文件</p>
-</li>
-<li><p><strong>src</strong> : 平时我们编写的代码就都存储在这个文件夹内</p>
-</li>
-<li><p><strong>.gitignore</strong> :  忽略提交文件的配置文件</p>
-</li>
-<li><p><strong>package-lock.json</strong> ：这个文件用一句话来解释，就是锁定安装时的版本号，并且需要上传到git，以保证其他人再npm install 时大家的依赖能保证一致。</p>
-</li>
-<li><p><strong>package.json</strong> : 这个文件是webpack配置和项目包管理文件，项目中依赖的第三方包（包的版本）和一些常用命令配置都在这个里边进行配置，当然脚手架已经为我们配置了一些了，目前位置，我们不需要改动。如果你对webpack了解，对这个一定也很熟悉。</p>
-</li>
-</ul>
-<p>项目开始的时候，可以删除 src 文件夹目录下的所有文件，自己新建一个 <code>index.js</code> 以及 <code>App.js</code>.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App'</span></span><br><span class="line">ReactDOM.render(&lt;App /&gt;,document.getElementById('root'))</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="keyword">import</span> React, &#123;Component&#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                Hello World</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">export default App</span></span><br></pre></td></tr></table></figure>
-<p>运行项目，就应该能看到页面上显示的 “Hello World” 了</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2074,7 +2118,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2096,7 +2140,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
