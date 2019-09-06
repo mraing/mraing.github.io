@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[docsify 博客搭建]]></title>
-    <url>%2F2019%2F09%2F06%2Fdocsify-%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%2F</url>
-    <content type="text"></content>
-      <tags>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[vue-lazyload图片懒加载]]></title>
     <url>%2F2019%2F08%2F21%2Fvue-lazyload%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD%2F</url>
     <content type="text"><![CDATA[前言Vue模块，用于在应用程序中延迟加载图像。该项目的一些目标值得注意包括： 轻巧，功能强大且易于使用适用于任何图像类型在加载图像时添加加载类支持Vue 1.0和Vue 2.0 安装1npm i vue-lazyload -S 12345// main.jsimport VueLazyload from 'vue-lazyload'Vue.use(VueLazyload, &#123; loading: require('这里是写图片路径')&#125;) 基本用法1234// old ==&gt; :src&lt;li v-for="item in discList" :key="item.listennum"&gt; &lt;img width="60" height="60" :src="item.imgurl"&gt;&lt;/li&gt; 1234// new ==&gt; v-lazy&lt;li v-for="item in discList" :key="item.listennum"&gt; &lt;img width="60" height="60" v-lazy="item.imgurl"&gt;&lt;/li&gt; 简便的用法，只需要将原来的 :src 改为 v-lazy 就完成了替换。 常用 API 属性 说明 类型 默认 preLoad 预加载高度的比例 Number 1.3 error 加载失败后图像的路径 String data-src loading 加载时图像的路径 String data-src attempt 重试次数 Number 3 listenEvents 监听事件 详细说明 [&#39;scroll&#39;, &#39;wheel&#39;, &#39;mousewheel&#39;, &#39;resize&#39;, &#39;animationend&#39;, &#39;transitionend&#39;, &#39;touchmove&#39;]]]></content>
