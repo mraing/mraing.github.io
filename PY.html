@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
   
-  <title>在React中安装Ant Design组件库 - 绪锋</title>
+  <title>links - 绪锋</title>
   <meta charset="UTF-8">
   <meta name="description" content="小镇青年,心怀远方">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,18 +11,17 @@
   
 
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <meta name="description" content="安装 Yarn根据操作系统选择不同的安装方式，我这里以 macOS 为例。 brew install yarn  安装完成之后可以查看 Yarn 的版本号，是否安装成功 yarn --version  若是出现版本号，那就代表安装成功了。 安装 create-react-appyarn create react-app antd-demo cd antd-demo yarn start  此时浏览">
-<meta name="keywords" content="react">
-<meta property="og:type" content="article">
-<meta property="og:title" content="在React中安装Ant Design组件库">
-<meta property="og:url" content="https://mraing.github.io/2019/08/13/React 安装 antd 组件库/index.html">
+  <meta name="keywords" content="个人博客,前端,学习">
+<meta property="og:type" content="website">
+<meta property="og:title" content="links">
+<meta property="og:url" content="https://mraing.github.io/PY.html">
 <meta property="og:site_name" content="绪锋">
-<meta property="og:description" content="安装 Yarn根据操作系统选择不同的安装方式，我这里以 macOS 为例。 brew install yarn  安装完成之后可以查看 Yarn 的版本号，是否安装成功 yarn --version  若是出现版本号，那就代表安装成功了。 安装 create-react-appyarn create react-app antd-demo cd antd-demo yarn start  此时浏览">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-12T04:09:27.263Z">
+<meta property="og:image" content="https://www.chainwon.com/static/logo.png">
+<meta property="og:updated_time" content="2019-09-14T08:04:52.190Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在React中安装Ant Design组件库">
-<meta name="twitter:description" content="安装 Yarn根据操作系统选择不同的安装方式，我这里以 macOS 为例。 brew install yarn  安装完成之后可以查看 Yarn 的版本号，是否安装成功 yarn --version  若是出现版本号，那就代表安装成功了。 安装 create-react-appyarn create react-app antd-demo cd antd-demo yarn start  此时浏览">
+<meta name="twitter:title" content="links">
+<meta name="twitter:image" content="https://www.chainwon.com/static/logo.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -30,7 +29,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568448401714">
+  <link rel="stylesheet" href="/css/style.css?v=1568448402802">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -208,83 +207,60 @@
   </div>
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
-        <div class="nexmoe-post">
-    <div class="nexmoe-post-cover"> 
-        
-            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
-        
-        <h1>在React中安装Ant Design组件库</h1>
-    </div>
-  <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月13日</a>
-    <a><i class="nexmoefont icon-areachart"></i>287 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-    
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
-    
-    
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/react/">react</a>
-    
-  </div>
-  <article>
-    <h3 id="安装-Yarn"><a href="#安装-Yarn" class="headerlink" title="安装 Yarn"></a>安装 Yarn</h3><p>根据操作系统选择不同的安装方式，我这里以 macOS 为例。</p>
-<pre><code class="JS">brew install yarn
-</code></pre>
-<p>安装完成之后可以查看 Yarn 的版本号，是否安装成功</p>
-<pre><code class="JS">yarn --version
-</code></pre>
-<p>若是出现版本号，那就代表安装成功了。</p>
-<h3 id="安装-create-react-app"><a href="#安装-create-react-app" class="headerlink" title="安装 create-react-app"></a>安装 create-react-app</h3><pre><code class="JS">yarn create react-app antd-demo
-cd antd-demo
-yarn start
-</code></pre>
-<p>此时浏览器会访问 <a href="http://localhost:3000/" target="_blank" rel="noopener">http://localhost:3000/</a> ，看到 Welcome to React 的界面就算成功了。</p>
-<h3 id="引入antd-组件库"><a href="#引入antd-组件库" class="headerlink" title="引入antd 组件库"></a>引入antd 组件库</h3><pre><code class="JS">yarn add antd
-</code></pre>
-<h3 id="按需引入"><a href="#按需引入" class="headerlink" title="按需引入"></a>按需引入</h3><ul>
-<li>安装 <code>react-app-rewired</code> <code>customize-cra</code> <code>babel-plugin-import</code></li>
-</ul>
-<p>此时我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 react-app-rewired，由于新的 <a href="mailto:react-app-rewired@2.x" target="_blank" rel="noopener">react-app-rewired@2.x</a> 版本的关系，你还需要安装 customize-cra</p>
-<pre><code class="JS">yarn add react-app-rewired customize-cra babel-plugin-import
-</code></pre>
-<ul>
-<li>修改 <code>package.json</code> 配置</li>
-</ul>
-<pre><code class="JS">/* package.json */
-&quot;scripts&quot;: {
-  &quot;start&quot;: &quot;react-app-rewired start&quot;,
-  &quot;build&quot;: &quot;react-app-rewired build&quot;,
-  &quot;test&quot;: &quot;react-app-rewired test&quot;
+        <style>
+  article ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: -5px;
+  }
+  article ul li {
+    transition: all .03s;
+    width: calc(12.5% - 10px);
+    margin: 5px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    font-size: 0;
+    overflow: hidden;
+  }
+  article ul li > a::after {
+    font-size: 13px;
+    color: #606266;
+    -webkit-transition: none;
+    transition: none;
+    content: attr(title);
+    display: block;
+    position: relative;
+    width: 100%;
+    border: none;
+    padding: 3px 10px 5px 10px;
+    margin-top: -2px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  article ul li img {
+    width: 100%;
+    border-radius: 0;
+    border: none;
+  }
+  @media screen and (max-width: 768px) {
+    article ul li {
+      width: calc(33.3333333333% - 10px);
+    }
 }
-</code></pre>
-<ul>
-<li>创建 <code>config-overrides.js</code> 文件</li>
+</style>
+
+<div class="nexmoe-post">
+  <article class="nexmoe-py">
+    <ul>
+<li><a href="https://www.chainwon.com/" title="轻惋导航" target="_blank" rel="noopener"><img src="https://www.chainwon.com/static/logo.png" alt="轻惋导航"></a></li>
 </ul>
-<pre><code class="JS">const { override, fixBabelImports } = require(&#39;customize-cra&#39;)
-module.exports = override(
-  fixBabelImports(&#39;import&#39;, {
-    libraryName: &#39;antd&#39;,
-    libraryDirectory: &#39;es&#39;,
-    style: &#39;css&#39;,
-  }),
-)
-</code></pre>
-<p>最后重启 yarn start 访问页面，antd 组件的 js 和 css 代码都会按需加载</p>
 
   </article>
-  
-    
-<div class="nexmoe-post-copyright">
-<i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
-<strong>本文作者：</strong>LeeGeing<br>
-<strong>本文链接：</strong><a href="https://mraing.github.io/2019/08/13/React 安装 antd 组件库/" title="https://mraing.github.io/2019/08/13/React 安装 antd 组件库/" target="_blank" rel="noopener">https://mraing.github.io/2019/08/13/React 安装 antd 组件库/</a><br>
-
-  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
-
-</div>
-
-
-  
   <section class="nexmoe-comment">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
 <div id="gitalk"></div>
@@ -317,7 +293,7 @@ module.exports = override(
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568448401725"></script>
+<script src="/js/app.js?v=1568448402818"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
