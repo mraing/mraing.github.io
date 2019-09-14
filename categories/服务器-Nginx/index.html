@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
   
-  <title>标签：mui - 绪锋</title>
+  <title>分类：服务器 - Nginx - 绪锋</title>
   <meta charset="UTF-8">
   <meta name="description" content="小镇青年,心怀远方">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -18,7 +18,7 @@
 <meta name="keywords" content="个人博客,前端,学习">
 <meta property="og:type" content="website">
 <meta property="og:title" content="绪锋">
-<meta property="og:url" content="https://mraing.github.io/tags/mui/index.html">
+<meta property="og:url" content="https://mraing.github.io/categories/服务器-Nginx/index.html">
 <meta property="og:site_name" content="绪锋">
 <meta property="og:description" content="小镇青年,心怀远方">
 <meta property="og:locale" content="zh-CN">
@@ -32,7 +32,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568454862163">
+  <link rel="stylesheet" href="/css/style.css?v=1568454862003">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -227,91 +227,30 @@
         <section class="nexmoe-posts" id="brand-waterfall">
     
     <div class="nexmoe-post">
-        <a href="/2019/04/17/MUI跨页面调用方法/">
+        <a href="/2019/09/11/Ngnix的简单使用/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="MUI跨页面调用方法">
+                <img src="http://images.leegeing.cn/ikons104-original.png" alt="Ngnix的简单使用">
                 
-                <h1>MUI跨页面调用方法</h1>
+                <h1>Ngnix的简单使用</h1>
             </div>
         </a>
         <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年04月17日</a>
-            <a><i class="nexmoefont icon-areachart"></i>149 字</a>
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月11日</a>
+            <a><i class="nexmoefont icon-areachart"></i>265 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
             
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/服务器-Nginx/">服务器 - Nginx</a>
             
             
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/mui/">mui</a>
+                <a class="nexmoefont icon-tag-fill -link" href="/tags/Nginx/">Nginx</a>
             
         </div>
         <article>
             
-            <p>因为公司项目用 MUI 用得比较多，有碰到如下需求：<br>　　在一个双 WebView 的上拉刷新下拉加载的页面中，A页面就是父页面，B页面就是列表页。A页面中还带有搜索框，搜索框中的值会被传到 B页面，进行数据请求。
-　</p>
-<pre><code>//A页面
-function setTotal(parameters){
-    ……
-}
-</code></pre><p>　</p>
-<pre><code>//B页面
-var total = 需要传的参数;
-var evalstr = &#39;setTotal(\&#39;&#39; + total + &#39;\&#39;)&#39;;
-var wvs = plus.webview.all();
-for (var i = 0; i &lt; wvs.length; i++) {
-    console.log(&#39;webview&#39; + i + &#39;: &#39; + wvs[i].id);
-    if(wvs[i].id==&quot;你的 WebView ID&quot;){
-        wvs[i].evalJS(evalstr);
-
-    }
-}
-</code></pre>
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2019/04/15/MUI子页面向父页面传参/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="MUI子页面向父页面传参">
-                
-                <h1>MUI子页面向父页面传参</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年04月15日</a>
-            <a><i class="nexmoefont icon-areachart"></i>281 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/mui/">mui</a>
-            
-        </div>
-        <article>
-            
-            <p>经常有这样的需求：子页面新增数据后完成后，跳转到父页面的列表界面。但是 MUI 采用的是页面跳转其实是打开新窗口，返回父页面并不会刷新父页面，只是把子页面关闭，父页面从始至终都在那里并没有刷新过。</p>
-<p>思路：子页面提交数据后，向父页面传参，父页面监听子页面的参数，调用刷新方法，从而达到页面刷新，数据更新的目的。</p>
-<p>子页面：</p>
-<pre><code>//向父页面传参
-mui.fire (plus.webview.currentWebview().opener(), &#39;getRes&#39;, {
-    &quot;type&quot;: 1
-});
-mui.back();
-</code></pre><p>其中 res 是上传数据，后台接口返回的参数，用于判断是否成功，成功的话，向父页面传参，并调用 mui.bac() 方法关闭页面。<br>getRes 是监听的方法，父页面监听子页面的数据变化，需要用到这个监听方法，命名可以自取。</p>
-<p>父页面：</p>
-<pre><code>//监听子页面提交数据后，刷新页面
-window.addEventListener(&#39;getRes&#39;, function(event) {
-    //获得事件参数
-    var type = event.detail.type;
-    if (type == 1) {
-        location.reload();
-    }
-});
-</code></pre>
+            <blockquote>
+<p>Nginx同Apache一样都是一种WEB服务器。基于REST架构风格，以统一资源描述符(Uniform Resources Identifier)URI或者统一资源定位符(Uniform Resources Locator)URL作为沟通依据，通过HTTP协议提供各种网络服务。</p>
+</blockquote>
             
         </article>
     </div>
@@ -333,7 +272,7 @@ window.addEventListener(&#39;getRes&#39;, function(event) {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568454862169"></script>
+<script src="/js/app.js?v=1568454862009"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

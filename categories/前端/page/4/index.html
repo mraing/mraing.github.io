@@ -32,7 +32,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568453633868">
+  <link rel="stylesheet" href="/css/style.css?v=1568454861983">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -58,7 +58,7 @@
     <div class="nexmoe-count">
         <div><span>文章</span>55</div>
         <div><span>标签</span>27</div>
-        <div><span>分类</span>9</div>
+        <div><span>分类</span>11</div>
     </div>
     <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
@@ -141,7 +141,21 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/前端/">前端</a>
-          <span class="category-list-count">37</span>
+          <span class="category-list-count">34</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端-vue/">前端 - vue</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客-docsify/">博客 - docsify</a>
+          <span class="category-list-count">1</span>
         </li>
 
         
@@ -154,7 +168,7 @@
         
 
         <li class="category-list-item">
-          <a class="category-list-link" href="/categories/服务器/">服务器</a>
+          <a class="category-list-link" href="/categories/服务器-Nginx/">服务器 - Nginx</a>
           <span class="category-list-count">1</span>
         </li>
 
@@ -211,140 +225,6 @@
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
         <section class="nexmoe-posts" id="brand-waterfall">
-    
-    <div class="nexmoe-post">
-        <a href="/2019/04/22/Vue简单路由/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="Vue 简单路由">
-                
-                <h1>Vue 简单路由</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年04月22日</a>
-            <a><i class="nexmoefont icon-areachart"></i>540 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/vue/">vue</a>
-            
-        </div>
-        <article>
-            
-            <p>附上demo 地址：<a href="https://github.com/mraing/Vue/tree/master/vue-demo" target="_blank" rel="noopener">Vue简单路由 demo</a></p>
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2019/04/21/预设图片比例/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="预设图片比例">
-                
-                <h1>预设图片比例</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年04月21日</a>
-            <a><i class="nexmoefont icon-areachart"></i>505 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/CSS/">CSS</a>
-            
-        </div>
-        <article>
-            
-            <p>在项目中，经常有用到图片，但是我们不能直接使用图片，防止图片大小不一致，而导致页面的布局错乱，但是又不能直接把图片的宽高写成固定的，不然图片会变形之类的。<br>所以我们我们需要一个等比例的图片宽高，又不能使图片变形。我推荐采用以下这种方式。</p>
-<pre><code>// html
- &lt;div class=&quot;demoImg&quot;&gt;
-    &lt;img src=&quot;http://images.leegeing.cn/hexoImg/demo.jpeg&quot;&gt;
- &lt;/div&gt;
-</code></pre><pre><code>// css
-.demoImg{
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-top: 100%;
-    overflow: hidden;
-}
-.demoImg&gt;img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-</code></pre><ul>
-<li>当 CSS 的宽度 width 和上内边距 padding-top 的都为 100%，代表的是 1:1 的图片比例。</li>
-<li>当设置为宽高和上内边距的分别设置为 100%，和 75%的时候，代表的图片比例 4：3 的比例。</li>
-<li>object-fit 属性指定可替换元素的内容应该如何适应到其使用的高度和宽度确定的框。<ul>
-<li>fill<br>被替换的内容正好填充元素的内容框。整个对象将完全填充此框。如果对象的宽高比与内容框不相匹配，那么该对象将被拉伸以适应内容框。</li>
-<li>contain<br>被替换的内容将被缩放，以在填充元素的内容框时保持其宽高比。 整个对象在填充盒子的同时保留其长宽比，因此如果宽高比与框的宽高比不匹配，该对象将被添加“黑边”。</li>
-<li>cover<br>被替换的内容在保持其宽高比的同时填充元素的整个内容框。如果对象的宽高比与内容框不相匹配，该对象将被剪裁以适应内容框。</li>
-<li>none<br>被替换的内容将保持其原有的尺寸。</li>
-<li>scale-down<br>内容的尺寸与 none 或 contain 中的一个相同，取决于它们两个之间谁得到的对象尺寸会更小一些。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>浏览器的兼容性</li>
-</ul>
-<p><img src="http://images.leegeing.cn/hexoImg/object-fit.png" alt="object-fit"></p>
-
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2019/04/20/CSS字体溢出隐藏/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="CSS字体溢出隐藏">
-                
-                <h1>CSS字体溢出隐藏</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年04月20日</a>
-            <a><i class="nexmoefont icon-areachart"></i>37 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/CSS/">CSS</a>
-            
-        </div>
-        <article>
-            
-            <ul>
-<li>单行字体溢出隐藏</li>
-</ul>
-<pre><code>text-overflow:ellipsis;
-white-space: nowrap;
-overflow: hidden;
-</code></pre><p><img src="http://images.leegeing.cn/hexoImg/CSS字体溢出隐藏-1.png" alt="CSS字体溢出隐藏-1"></p>
-<hr>
-<ul>
-<li>多行字体溢出隐藏</li>
-</ul>
-<pre><code>display: -webkit-box;
--webkit-box-orient: vertical;
--webkit-line-clamp: 3;
-overflow: hidden;
-</code></pre><p><img src="http://images.leegeing.cn/hexoImg/CSS字体溢出隐藏-2.png" alt="CSS字体溢出隐藏-2"></p>
-
-            
-        </article>
-    </div>
     
     <div class="nexmoe-post">
         <a href="/2019/04/17/MUI跨页面调用方法/">
@@ -547,7 +427,7 @@ window.addEventListener(&#39;getRes&#39;, function(event) {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568453633873"></script>
+<script src="/js/app.js?v=1568454861988"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

@@ -14,18 +14,18 @@
     <meta name="baidu-site-verification" content="cXpXJOvmtY">
 
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <meta name="description" content="前言在 github 找到了一个网易云的后台 API 文档，自己用服务器搭建起来了一个小的接口地址。直接在浏览器中打开API 地址是可以拿到数据的，但是放在开发项目中，却出现了跨域问题。 本文就是通过代理请求去解决这个问题的。 因为没有新版的 vue-cli 没有 dev-server.js 这个文件了，因为它被合并到了 webpack.dev.conf.js 文件中。">
+  <meta name="description" content="为什么要代理请求呢？说到底还是为了解决跨域问题。">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue 代理请求">
 <meta property="og:url" content="https://mraing.github.io/2019/08/21/Vue-代理请求/index.html">
 <meta property="og:site_name" content="绪锋">
-<meta property="og:description" content="前言在 github 找到了一个网易云的后台 API 文档，自己用服务器搭建起来了一个小的接口地址。直接在浏览器中打开API 地址是可以拿到数据的，但是放在开发项目中，却出现了跨域问题。 本文就是通过代理请求去解决这个问题的。 因为没有新版的 vue-cli 没有 dev-server.js 这个文件了，因为它被合并到了 webpack.dev.conf.js 文件中。">
+<meta property="og:description" content="为什么要代理请求呢？说到底还是为了解决跨域问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-12T04:04:34.598Z">
+<meta property="og:updated_time" content="2019-09-14T09:53:52.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 代理请求">
-<meta name="twitter:description" content="前言在 github 找到了一个网易云的后台 API 文档，自己用服务器搭建起来了一个小的接口地址。直接在浏览器中打开API 地址是可以拿到数据的，但是放在开发项目中，却出现了跨域问题。 本文就是通过代理请求去解决这个问题的。 因为没有新版的 vue-cli 没有 dev-server.js 这个文件了，因为它被合并到了 webpack.dev.conf.js 文件中。">
+<meta name="twitter:description" content="为什么要代理请求呢？说到底还是为了解决跨域问题。">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -33,7 +33,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568453633231">
+  <link rel="stylesheet" href="/css/style.css?v=1568454861333">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -59,7 +59,7 @@
     <div class="nexmoe-count">
         <div><span>文章</span>55</div>
         <div><span>标签</span>27</div>
-        <div><span>分类</span>9</div>
+        <div><span>分类</span>11</div>
     </div>
     <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
@@ -142,7 +142,21 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/前端/">前端</a>
-          <span class="category-list-count">37</span>
+          <span class="category-list-count">34</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端-vue/">前端 - vue</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客-docsify/">博客 - docsify</a>
+          <span class="category-list-count">1</span>
         </li>
 
         
@@ -155,7 +169,7 @@
         
 
         <li class="category-list-item">
-          <a class="category-list-link" href="/categories/服务器/">服务器</a>
+          <a class="category-list-link" href="/categories/服务器-Nginx/">服务器 - Nginx</a>
           <span class="category-list-count">1</span>
         </li>
 
@@ -214,26 +228,28 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
+        <img src="http://images.leegeing.cn/ikons12-original.png">
         
         <h1>Vue 代理请求</h1>
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月21日</a>
-    <a><i class="nexmoefont icon-areachart"></i>493 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>515 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端-vue/">前端 - vue</a>
     
     
       <a class="nexmoefont icon-tag-fill -link" href="/tags/vue/">vue</a>
     
   </div>
   <article>
-    <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在 github 找到了一个网易云的后台 API 文档，自己用服务器搭建起来了一个小的接口地址。直接在浏览器中打开API 地址是可以拿到数据的，但是放在开发项目中，却出现了跨域问题。</p>
+    <p>为什么要代理请求呢？说到底还是为了解决跨域问题。</p>
+<a id="more"></a>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在 github 找到了一个网易云的后台 API 文档，自己用服务器搭建起来了一个小的接口地址。直接在浏览器中打开API 地址是可以拿到数据的，但是放在开发项目中，却出现了跨域问题。</p>
 <p>本文就是通过代理请求去解决这个问题的。</p>
 <p>因为没有新版的 <code>vue-cli</code> 没有 <code>dev-server.js</code> 这个文件了，因为它被合并到了 <code>webpack.dev.conf.js</code> 文件中。</p>
-<a id="more"></a>
+<!-- more -->
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>我们需要一个 <code>API</code> 接口地址，以及安装 <code>axios</code> 插件。</p>
 <p>安装 <code>axios</code> 插件。</p>
 <pre><code class="JS">npm install axios --save
@@ -324,7 +340,7 @@ getLoginInfo(data)
 
   
   <section class="nexmoe-comment">
-    <script id="dsq-count-scr" src="https://sword-leegeing-cn.disqus.com/count.js" async></script>
+    <script id="dsq-count-scr" src="https://leegeing-cn.disqus.com/count.js" async></script>
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
@@ -336,7 +352,7 @@ getLoginInfo(data)
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document;
         var s = d.createElement('script');
-        s.src = '//sword-leegeing-cn.disqus.com/embed.js';
+        s.src = '//leegeing-cn.disqus.com/embed.js';
         s.setAttribute('data-timestamp', + new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -359,7 +375,7 @@ getLoginInfo(data)
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568453633238"></script>
+<script src="/js/app.js?v=1568454861342"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

@@ -14,18 +14,18 @@
     <meta name="baidu-site-verification" content="cXpXJOvmtY">
 
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <meta name="description" content="前言Vue模块，用于在应用程序中延迟加载图像。该项目的一些目标值得注意包括： 轻巧，功能强大且易于使用适用于任何图像类型在加载图像时添加加载类支持Vue 1.0和Vue 2.0">
+  <meta name="description" content="Vue模块，用于在应用程序中延迟加载图像">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-lazyload图片懒加载">
 <meta property="og:url" content="https://mraing.github.io/2019/08/21/vue-lazyload图片懒加载/index.html">
 <meta property="og:site_name" content="绪锋">
-<meta property="og:description" content="前言Vue模块，用于在应用程序中延迟加载图像。该项目的一些目标值得注意包括： 轻巧，功能强大且易于使用适用于任何图像类型在加载图像时添加加载类支持Vue 1.0和Vue 2.0">
+<meta property="og:description" content="Vue模块，用于在应用程序中延迟加载图像">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-12T04:01:35.884Z">
+<meta property="og:updated_time" content="2019-09-14T09:46:50.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-lazyload图片懒加载">
-<meta name="twitter:description" content="前言Vue模块，用于在应用程序中延迟加载图像。该项目的一些目标值得注意包括： 轻巧，功能强大且易于使用适用于任何图像类型在加载图像时添加加载类支持Vue 1.0和Vue 2.0">
+<meta name="twitter:description" content="Vue模块，用于在应用程序中延迟加载图像">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -33,7 +33,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568453633221">
+  <link rel="stylesheet" href="/css/style.css?v=1568454861325">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -59,7 +59,7 @@
     <div class="nexmoe-count">
         <div><span>文章</span>55</div>
         <div><span>标签</span>27</div>
-        <div><span>分类</span>9</div>
+        <div><span>分类</span>11</div>
     </div>
     <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
@@ -142,7 +142,21 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/前端/">前端</a>
-          <span class="category-list-count">37</span>
+          <span class="category-list-count">34</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端-vue/">前端 - vue</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客-docsify/">博客 - docsify</a>
+          <span class="category-list-count">1</span>
         </li>
 
         
@@ -155,7 +169,7 @@
         
 
         <li class="category-list-item">
-          <a class="category-list-link" href="/categories/服务器/">服务器</a>
+          <a class="category-list-link" href="/categories/服务器-Nginx/">服务器 - Nginx</a>
           <span class="category-list-count">1</span>
         </li>
 
@@ -214,24 +228,25 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
+        <img src="http://images.leegeing.cn/ikons11-original.png">
         
         <h1>vue-lazyload图片懒加载</h1>
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月21日</a>
-    <a><i class="nexmoefont icon-areachart"></i>292 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>237 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端-vue/">前端 - vue</a>
     
     
       <a class="nexmoefont icon-tag-fill -link" href="/tags/vue/">vue</a>
     
   </div>
   <article>
-    <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Vue模块，用于在应用程序中延迟加载图像。该项目的一些目标值得注意包括：</p>
-<p>轻巧，功能强大且易于使用<br>适用于任何图像类型<br>在加载图像时添加加载类<br>支持Vue 1.0和Vue 2.0</p>
+    <blockquote>
+<p>Vue模块，用于在应用程序中延迟加载图像</p>
+</blockquote>
 <a id="more"></a>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code class="JS">npm i vue-lazyload -S
 </code></pre>
@@ -311,7 +326,7 @@ Vue.use(VueLazyload, {
 
   
   <section class="nexmoe-comment">
-    <script id="dsq-count-scr" src="https://sword-leegeing-cn.disqus.com/count.js" async></script>
+    <script id="dsq-count-scr" src="https://leegeing-cn.disqus.com/count.js" async></script>
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
@@ -323,7 +338,7 @@ Vue.use(VueLazyload, {
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document;
         var s = d.createElement('script');
-        s.src = '//sword-leegeing-cn.disqus.com/embed.js';
+        s.src = '//leegeing-cn.disqus.com/embed.js';
         s.setAttribute('data-timestamp', + new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -346,7 +361,7 @@ Vue.use(VueLazyload, {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568453633229"></script>
+<script src="/js/app.js?v=1568454861332"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
