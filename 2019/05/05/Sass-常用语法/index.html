@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+  <title>Sass 常用语法 - 绪锋</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="小镇青年,心怀远方">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <meta name="description" content="以下语法均以 *.scss 为前提。 基本用法变量 SASS允许使用变量，所有变量以$开头  　$blue : #1875e7;　  　　div { 　　　color : $blue; 　　}   如果变量需要镶嵌在字符串之中，就必须需要写在#{}之中  $side : left;  　　.rounded { 　　　　border-#{$side}-radius: 5px; 　　}">
+<meta name="keywords" content="Sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass 常用语法">
+<meta property="og:url" content="https://mraing.github.io/2019/05/05/Sass-常用语法/index.html">
+<meta property="og:site_name" content="绪锋">
+<meta property="og:description" content="以下语法均以 *.scss 为前提。 基本用法变量 SASS允许使用变量，所有变量以$开头  　$blue : #1875e7;　  　　div { 　　　color : $blue; 　　}   如果变量需要镶嵌在字符串之中，就必须需要写在#{}之中  $side : left;  　　.rounded { 　　　　border-#{$side}-radius: 5px; 　　}">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-12T04:07:00.284Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sass 常用语法">
+<meta name="twitter:description" content="以下语法均以 *.scss 为前提。 基本用法变量 SASS允许使用变量，所有变量以$开头  　$blue : #1875e7;　  　　div { 　　　color : $blue; 　　}   如果变量需要镶嵌在字符串之中，就必须需要写在#{}之中  $side : left;  　　.rounded { 　　　　border-#{$side}-radius: 5px; 　　}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1568451941602">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="LeeGeing" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.jpg"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="LeeGeing">
+            <img src="/images/avatar.jpg" alt="LeeGeing">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>55</div>
+        <div><span>标签</span>27</div>
+        <div><span>分类</span>9</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">社交按钮</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/11147795" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/mraing/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/MUI/">MUI</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Vue/">Vue</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Vue/Vuex/">Vuex</a>
+          <span class="category-list-count">0</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">37</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/工具/">工具</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/服务器/">服务器</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/碎碎念/">碎碎念</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/编程/">编程</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 14px;">CSS</a> <a href="/tags/DOS-指令/" style="font-size: 10px;">DOS 指令</a> <a href="/tags/HBuilder/" style="font-size: 10px;">HBuilder</a> <a href="/tags/Hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/Homebrew/" style="font-size: 10px;">Homebrew</a> <a href="/tags/JS/" style="font-size: 12px;">JS</a> <a href="/tags/MUI-传参/" style="font-size: 10px;">MUI 传参</a> <a href="/tags/MUI-选项卡/" style="font-size: 10px;">MUI 选项卡</a> <a href="/tags/Mac-小技巧/" style="font-size: 10px;">Mac 小技巧</a> <a href="/tags/Mint-UI/" style="font-size: 10px;">Mint-UI</a> <a href="/tags/Mui-AJax/" style="font-size: 10px;">Mui AJax</a> <a href="/tags/Mui-page/" style="font-size: 10px;">Mui page</a> <a href="/tags/Mui-初始化/" style="font-size: 10px;">Mui 初始化</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Sass/" style="font-size: 16px;">Sass</a> <a href="/tags/Vue-组件/" style="font-size: 10px;">Vue 组件</a> <a href="/tags/docsify/" style="font-size: 10px;">docsify</a> <a href="/tags/git-指令/" style="font-size: 12px;">git 指令</a> <a href="/tags/mui/" style="font-size: 12px;">mui</a> <a href="/tags/react/" style="font-size: 18px;">react</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vux-datetime/" style="font-size: 10px;">vux-datetime</a> <a href="/tags/小秘密/" style="font-size: 10px;">小秘密</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2019 LeeGeing
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    <div class="nexmoe-post-cover"> 
+        
+            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
+        
+        <h1>Sass 常用语法</h1>
+    </div>
+  <div class="nexmoe-post-meta">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年05月05日</a>
+    <a><i class="nexmoefont icon-areachart"></i>693 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+    
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
+    
+    
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/Sass/">Sass</a>
+    
+  </div>
+  <article>
+    <p><strong>以下语法均以 *.scss 为前提。</strong></p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ul>
+<li>SASS允许使用变量，所有变量以$开头</li>
+</ul>
+<pre><code class="scss">　$blue : #1875e7;　
+
+　　div {
+　　　color : $blue;
+　　}
+</code></pre>
+<ul>
+<li>如果变量需要镶嵌在字符串之中，就必须需要写在#{}之中</li>
+</ul>
+<pre><code class="scss">$side : left;
+
+　　.rounded {
+　　　　border-#{$side}-radius: 5px;
+　　}
+</code></pre>
+<a id="more"></a>
+<h3 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h3><ul>
+<li>SASS允许在代码中使用算式</li>
+</ul>
+<pre><code class="scss">body {
+    margin: (14px/2);
+    top: 50px + 100px;
+    right: $var * 10%;
+}
+</code></pre>
+<h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><ul>
+<li>SASS允许选择器嵌套</li>
+</ul>
+<pre><code class="scss">div {
+　　　　hi {
+　　　　　　color:red;
+　　　　}
+　　}
+</code></pre>
+<ul>
+<li>属性嵌套</li>
+</ul>
+<pre><code class="scss">p {
+　　border: {
+　　　　color: red;
+　　}
+}
+</code></pre>
+<p>border后面必须加上冒号。</p>
+<p>在嵌套的代码块内，可以使用&amp;引用父元素。比如a:hover伪类，可以写成：</p>
+<pre><code class="scss">a {
+　　&amp;:hover { color: #ffb3ff; }
+}
+</code></pre>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>SASS共有两种注释风格。</p>
+<p>标准的CSS注释 <code>/* comment */</code>，会保留到编译后的文件。</p>
+<p>单行注释 <code>// comment</code>，只保留在SASS源文件中，编译后被省略。</p>
+<p>在/*后面加一个感叹号，表示这是”重要注释”。即使是压缩模式编译，也会保留这行注释，通常可以用于声明版权信息。</p>
+<pre><code class="scss">/*! 重要注释！*/
+</code></pre>
+<!-- more -->
+<h2 id="代码的重用"><a href="#代码的重用" class="headerlink" title="代码的重用"></a>代码的重用</h2><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p> SASS允许一个选择器，继承另一个选择器</p>
+<pre><code class="scss">.class1 {
+　　　　border: 1px solid #ddd;
+　　}
+</code></pre>
+<p>class2要继承class1，就要使用@extend命令：</p>
+<pre><code>.class2 {
+　　　　@extend .class1;
+　　　　font-size:120%;
+　　}
+</code></pre><h3 id="Mixin"><a href="#Mixin" class="headerlink" title="Mixin"></a>Mixin</h3><p>Mixin有点像C语言的宏（macro），是可以重用的代码块。<br>使用@mixin命令，定义一个代码块。</p>
+<pre><code class="scss">　@mixin left {
+　　　　float: left;
+　　　　margin-left: 10px;
+　　}
+</code></pre>
+<p>使用@include命令，调用这个mixin。</p>
+<pre><code class="scss">div {
+　　　　@include left;
+　　}
+</code></pre>
+<p>mixin的强大之处，在于可以指定参数和缺省值。</p>
+<pre><code class="scss">@mixin left($value: 10px) {
+　　float: left;
+　　margin-right: $value;
+}
+</code></pre>
+<p>使用的时候，根据需要加入参数：</p>
+<pre><code class="scss">div {
+　　　　@include left(20px);
+　　}
+</code></pre>
+<p>下面是一个mixin的实例，用来生成浏览器前缀。</p>
+<pre><code class="scss">@mixin rounded($vert, $horz, $radius: 10px) {
+　　　　border-#{$vert}-#{$horz}-radius: $radius;
+　　　　-moz-border-radius-#{$vert}#{$horz}: $radius;
+　　　　-webkit-border-#{$vert}-#{$horz}-radius: $radius;
+　　}
+</code></pre>
+<p>使用的时候，可以像下面这样调用：</p>
+<pre><code class="scss">#navbar li { @include rounded(top, left); }
+
+#footer { @include rounded(top, left, 5px); }
+</code></pre>
+<h3 id="颜色函数"><a href="#颜色函数" class="headerlink" title="颜色函数"></a>颜色函数</h3><p>SASS提供了一些内置的颜色函数，以便生成系列颜色。</p>
+<pre><code class="scss">    lighten(#cc3, 10%) // #d6d65c
+　　darken(#cc3, 10%) // #a3a329
+　　grayscale(#cc3) // #808080
+　　complement(#cc3) // #33c
+</code></pre>
+<h3 id="插入文件"><a href="#插入文件" class="headerlink" title="插入文件"></a>插入文件</h3><p>@import命令，用来插入外部文件。</p>
+<pre><code class="scss">　@import &quot;path/filename.scss&quot;;
+</code></pre>
+<p>如果插入的是.css文件，则等同于css的import命令。</p>
+<pre><code>@import &quot;foo.css&quot;;
+</code></pre><h2 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h2><h3 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h3><p>@if可以用来判断：</p>
+<pre><code class="scss">　p {
+　　　　@if 1 + 1 == 2 { border: 1px solid; }
+　　　　@if 5 &lt; 3 { border: 2px dotted; }
+　　}
+</code></pre>
+<p>配套的还有@else命令：</p>
+<pre><code class="scss">@if lightness($color) &gt; 30% {
+　　　　background-color: #000;
+　　} @else {
+　　　　background-color: #fff;
+　　}
+</code></pre>
+<h3 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h3><p>SASS支持for循环：</p>
+<pre><code class="scss">@for $i from 1 to 10 {
+　　　　.border-#{$i} {
+　　　　　　border: #{$i}px solid blue;
+　　　　}
+　　}
+</code></pre>
+<p>也支持while循环：</p>
+<pre><code class="scss">　　$i: 6;
+
+　　@while $i &gt; 0 {
+　　　　.item-#{$i} { width: 2em * $i; }
+　　　　$i: $i - 2;
+　　}
+</code></pre>
+<p>each命令，作用与for类似：</p>
+<pre><code class="scss">@each $member in a, b, c, d {
+　　　　.#{$member} {
+　　　　　　background-image: url(&quot;/image/#{$member}.jpg&quot;);
+　　　　}
+　　}
+</code></pre>
+<h3 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h3><p>SASS允许用户编写自己的函数。</p>
+<pre><code class="scss">@function double($n) {
+　　　　@return $n * 2;
+　　}
+
+　　#sidebar {
+　　　　width: double(5px);
+　　}
+</code></pre>
+<p><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="noopener">转载-阮一峰老师的SASS教程</a></p>
+
+  </article>
+  
+    
+<div class="nexmoe-post-copyright">
+<i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+<strong>本文作者：</strong>LeeGeing<br>
+<strong>本文链接：</strong><a href="https://mraing.github.io/2019/05/05/Sass-常用语法/" title="https://mraing.github.io/2019/05/05/Sass-常用语法/" target="_blank" rel="noopener">https://mraing.github.io/2019/05/05/Sass-常用语法/</a><br>
+
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+</div>
+
+
+  
+  <section class="nexmoe-comment">
+    <script id="dsq-count-scr" src="https://leegeing-cn.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://mraing.github.io/2019/05/05/Sass-常用语法/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://mraing.github.io/2019/05/05/Sass-常用语法/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//leegeing-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+</section>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1568451941610"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+  
+
+
+
+
+
+</body>
+
+</html>

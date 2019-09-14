@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+  <title>GitHub简单烹饪指南 - 绪锋</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="小镇青年,心怀远方">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <meta name="description" content="本文简单介绍 GitHub 的日常使用，包括拉取和上传代码。  第一种方式使用客户端。 第二种方法使用命令行操作。   客户端首先新建一个仓库    配置仓库参数">
+<meta name="keywords" content="git 指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub简单烹饪指南">
+<meta property="og:url" content="https://mraing.github.io/2019/04/26/GitHub简单烹饪指南/index.html">
+<meta property="og:site_name" content="绪锋">
+<meta property="og:description" content="本文简单介绍 GitHub 的日常使用，包括拉取和上传代码。  第一种方式使用客户端。 第二种方法使用命令行操作。   客户端首先新建一个仓库    配置仓库参数">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/GitHub%E7%83%B9%E9%A5%AA%E6%8C%87%E5%8D%97-01.png">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-02.png">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-03.png">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-04.png">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-07.png">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-08.png">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-10.png">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-11.png">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-12.png">
+<meta property="og:updated_time" content="2019-07-10T01:51:41.700Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitHub简单烹饪指南">
+<meta name="twitter:description" content="本文简单介绍 GitHub 的日常使用，包括拉取和上传代码。  第一种方式使用客户端。 第二种方法使用命令行操作。   客户端首先新建一个仓库    配置仓库参数">
+<meta name="twitter:image" content="http://images.leegeing.cn/hexoImg/GitHub%E7%83%B9%E9%A5%AA%E6%8C%87%E5%8D%97-01.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1568451941651">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="LeeGeing" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.jpg"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="LeeGeing">
+            <img src="/images/avatar.jpg" alt="LeeGeing">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>55</div>
+        <div><span>标签</span>27</div>
+        <div><span>分类</span>9</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">社交按钮</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/11147795" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/mraing/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/MUI/">MUI</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Vue/">Vue</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Vue/Vuex/">Vuex</a>
+          <span class="category-list-count">0</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">37</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/工具/">工具</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/服务器/">服务器</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/碎碎念/">碎碎念</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/编程/">编程</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 14px;">CSS</a> <a href="/tags/DOS-指令/" style="font-size: 10px;">DOS 指令</a> <a href="/tags/HBuilder/" style="font-size: 10px;">HBuilder</a> <a href="/tags/Hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/Homebrew/" style="font-size: 10px;">Homebrew</a> <a href="/tags/JS/" style="font-size: 12px;">JS</a> <a href="/tags/MUI-传参/" style="font-size: 10px;">MUI 传参</a> <a href="/tags/MUI-选项卡/" style="font-size: 10px;">MUI 选项卡</a> <a href="/tags/Mac-小技巧/" style="font-size: 10px;">Mac 小技巧</a> <a href="/tags/Mint-UI/" style="font-size: 10px;">Mint-UI</a> <a href="/tags/Mui-AJax/" style="font-size: 10px;">Mui AJax</a> <a href="/tags/Mui-page/" style="font-size: 10px;">Mui page</a> <a href="/tags/Mui-初始化/" style="font-size: 10px;">Mui 初始化</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Sass/" style="font-size: 16px;">Sass</a> <a href="/tags/Vue-组件/" style="font-size: 10px;">Vue 组件</a> <a href="/tags/docsify/" style="font-size: 10px;">docsify</a> <a href="/tags/git-指令/" style="font-size: 12px;">git 指令</a> <a href="/tags/mui/" style="font-size: 12px;">mui</a> <a href="/tags/react/" style="font-size: 18px;">react</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vux-datetime/" style="font-size: 10px;">vux-datetime</a> <a href="/tags/小秘密/" style="font-size: 10px;">小秘密</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2019 LeeGeing
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    <div class="nexmoe-post-cover"> 
+        
+            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
+        
+        <h1>GitHub简单烹饪指南</h1>
+    </div>
+  <div class="nexmoe-post-meta">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年04月26日</a>
+    <a><i class="nexmoefont icon-areachart"></i>807 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+    
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/编程/">编程</a>
+    
+    
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/git-指令/">git 指令</a>
+    
+  </div>
+  <article>
+    <p>本文简单介绍 GitHub 的日常使用，包括拉取和上传代码。</p>
+<ul>
+<li>第一种方式使用客户端。</li>
+<li>第二种方法使用命令行操作。</li>
+</ul>
+<hr>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><h5 id="首先新建一个仓库"><a href="#首先新建一个仓库" class="headerlink" title="首先新建一个仓库"></a>首先新建一个仓库</h5><p>  <img src="http://images.leegeing.cn/hexoImg/GitHub%E7%83%B9%E9%A5%AA%E6%8C%87%E5%8D%97-01.png" alt="GitHub烹饪指南-01"></p>
+<ul>
+<li><p>配置仓库参数</p>
+<p><img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-02.png" alt="GitHub烹饪指南-02"></p>
+</li>
+</ul>
+<a id="more"></a>
+<p>　　仓库名称： 我建议使用英文名称。<br>　　<br>　　仓库描述：对你这个项目做一个简单的描述。<br>　　<br>　　公开/私有：指你的仓库是否开源。<br>　　<br>　　是否添加自述文件：这个选项选不选随你，现在没有选上的话，建议在后期还是要加上，增加阅读体验。值得注意的是，如果你要导入现有的仓库，那么就不必要添加这个自述文件了，如果做为一个新仓库的使用，还是有很必要添加这个文件的。<br>　　<br>　　你使用的语言：不选的话，它也会自动去识别你所使用的语言。<br>　　<br>　　添加证书：也看你自己的需求吧。
+　
+　
+　　</p>
+<h5 id="将新建的仓库克隆到本地"><a href="#将新建的仓库克隆到本地" class="headerlink" title="将新建的仓库克隆到本地"></a>将新建的仓库克隆到本地</h5><p><img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-03.png" alt="GitHub烹饪指南-03"></p>
+<p>新建号的仓库大致如上图所示。<br>点击右边的 <code>Set up in Desktop</code> 下载桌面版 GitHub，下载完成之后，登入你的 GitHub 账号。</p>
+<ul>
+<li><p>选择文件-克隆仓库。</p>
+<p>  <img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-04.png" alt="GitHub烹饪指南-04"></p>
+</li>
+</ul>
+<pre><code>+ 第一种方式，选择 GitHub.com 从自己的仓库列表中克隆仓库。
+
+![GitHub烹饪指南-05](http://images.leegeing.cn/hexoImg/GitHub烹饪指南-05.png)
+
++ 第二方式，选择 URL 
+
+![GitHub烹饪指南-06](http://images.leegeing.cn/hexoImg/GitHub烹饪指南-06.png)
+
+绿色框表示对应的 URL，橙色框代表克隆至本地的地址。
+
+这两种方式都可以将仓库克隆到自己本地，任选其一即可。
+</code></pre><ul>
+<li>等待克隆结束</li>
+</ul>
+<p><img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-07.png" alt="GitHub烹饪指南-07"></p>
+<p>稍等片刻就完成了。<br><img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-08.png" alt="GitHub烹饪指南-08"></p>
+<p>我们可以选择第一个打开你刚刚克隆到本地的仓库文件夹。</p>
+<p><img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-10.png" alt="GitHub烹饪指南-10"></p>
+<p>里面除了一个隐藏的 git文件夹就没有别的东西了。如果我们在创建的时候，勾选上了那个自述文件，那么还会有一个 README.md 文件。</p>
+<p>要看到隐藏的文件，需要根据自己的操作系统去开启这个设置，一般默认是关闭的。</p>
+<p>以后我们的代码就存放到这个文件夹里面了。</p>
+<h5 id="尝试上传到-GitHub-上"><a href="#尝试上传到-GitHub-上" class="headerlink" title="尝试上传到 GitHub 上"></a>尝试上传到 GitHub 上</h5><p>因为我们没有自述文件，刚好就自己创建一个，上传到 GitHub 当做一次练习。</p>
+<ul>
+<li>创建一个名为 <code>README.md</code> 的文件。</li>
+</ul>
+<p>　  前缀 “README” 是 GitHub 自述文件的固定写法，后缀 “.md”，是支持 Markdown 的文本文件。有关于 Markdown 的语法介绍可以自己去百度查一下，有很多有关于这个的介绍。</p>
+<ul>
+<li>在 GitHub 客户端上可以看到这个关于这个文件的变动。<img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-11.png" alt="GitHub烹饪指南-11"></li>
+</ul>
+<p>　  在提交处填写你的”提交信息“，然后点击 “commit to master”, 进行提交。然后我们点击”Publish branch“ 发布到当前分支。</p>
+<p>　  等待结束后就完成了上传。我们可以点击”View on GitHub“,打开你的 GitHub 仓库地址，验证是否上传完毕。</p>
+<p><img src="http://images.leegeing.cn/hexoImg/GitHub烹饪指南-12.png" alt="GitHub烹饪指南-12"></p>
+<p>　  如图所示，这是我刚刚上传的自述文件，就已经显示出来了。还有一种方法是使用命令行进行使用 GitHub 的操作，下次有空再说。</p>
+<p>　  ( ^ _ ^ )/~~拜拜</p>
+
+  </article>
+  
+    
+<div class="nexmoe-post-copyright">
+<i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+<strong>本文作者：</strong>LeeGeing<br>
+<strong>本文链接：</strong><a href="https://mraing.github.io/2019/04/26/GitHub简单烹饪指南/" title="https://mraing.github.io/2019/04/26/GitHub简单烹饪指南/" target="_blank" rel="noopener">https://mraing.github.io/2019/04/26/GitHub简单烹饪指南/</a><br>
+
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+</div>
+
+
+  
+  <section class="nexmoe-comment">
+    <script id="dsq-count-scr" src="https://leegeing-cn.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://mraing.github.io/2019/04/26/GitHub简单烹饪指南/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://mraing.github.io/2019/04/26/GitHub简单烹饪指南/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//leegeing-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+</section>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1568451941658"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+  
+
+
+
+
+
+</body>
+
+</html>
