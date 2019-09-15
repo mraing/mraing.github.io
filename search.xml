@@ -5,10 +5,10 @@
     <url>%2F2019%2F09%2F11%2FNgnix%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[Nginx同Apache一样都是一种WEB服务器。基于REST架构风格，以统一资源描述符(Uniform Resources Identifier)URI或者统一资源定位符(Uniform Resources Locator)URL作为沟通依据，通过HTTP协议提供各种网络服务。 安装进入官网，下载 Nginx, 下载稳定版即可 使用安装完成后，进行解压后得到如下文件目录 然后按住 Shfit ,右键当前目录，选择 在此处打开命令窗口 // 启动 `Nginx` start nginx.exe 启动界面会一闪而过，然后打开到浏览器打开 http://localhost ，看是否成功启动了 Nginx,看到了欢迎页，那么久代表已经启动成功了。 需要注意的是，解压目录不能有中文 常用命令 名称 命令 启动nginx start nginx 修改配置后重新加载生效 nginx -s reload 重新打开日志文件 nginx -s reopen 测试nginx配置文件是否正确 nnginx -t -c nginx.conf 关闭nginx ：快速停止nginx nginx -s stop 完整有序的停止nginx nginx -s quit]]></content>
       <categories>
-        <category>服务器</category>
+        <category>工具</category>
       </categories>
       <tags>
-        <tag>Nginx</tag>
+        <tag>Ngnix</tag>
       </tags>
   </entry>
   <entry>
@@ -63,7 +63,7 @@
         <category>React</category>
       </categories>
       <tags>
-        <tag>Redux</tag>
+        <tag>redux</tag>
       </tags>
   </entry>
   <entry>
@@ -80,12 +80,12 @@
   <entry>
     <title><![CDATA[在React中安装Ant Design组件库]]></title>
     <url>%2F2019%2F08%2F13%2FReact%20%E5%AE%89%E8%A3%85%20antd%20%E7%BB%84%E4%BB%B6%E5%BA%93%2F</url>
-    <content type="text"><![CDATA[Ant Design of React 其中包含一组高质量的组件和演示，用于构建丰富的交互式用户界面。 安装 Yarn根据操作系统选择不同的安装方式，我这里以 macOS 为例。 brew install yarn 安装完成之后可以查看 Yarn 的版本号，是否安装成功 yarn --version 若是出现版本号，那就代表安装成功了。 安装 create-react-appyarn create react-app antd-demo cd antd-demo yarn start 此时浏览器会访问 http://localhost:3000/ ，看到 Welcome to React 的界面就算成功了。 引入antd 组件库yarn add antd 按需引入 安装 react-app-rewired customize-cra babel-plugin-import 此时我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 react-app-rewired，由于新的 react-app-rewired@2.x 版本的关系，你还需要安装 customize-cra yarn add react-app-rewired customize-cra babel-plugin-import 修改 package.json 配置 /* package.json */ &quot;scripts&quot;: { &quot;start&quot;: &quot;react-app-rewired start&quot;, &quot;build&quot;: &quot;react-app-rewired build&quot;, &quot;test&quot;: &quot;react-app-rewired test&quot; } 创建 config-overrides.js 文件 const { override, fixBabelImports } = require(&#39;customize-cra&#39;) module.exports = override( fixBabelImports(&#39;import&#39;, { libraryName: &#39;antd&#39;, libraryDirectory: &#39;es&#39;, style: &#39;css&#39;, }), ) 最后重启 yarn start 访问页面，antd 组件的 js 和 css 代码都会按需加载]]></content>
+    <content type="text"><![CDATA[Ant Design of React 其中包含一组高质量的组件和演示，用于构建丰富的交互式用户界面。 安装 Yarn根据操作系统选择不同的安装方式，我这里以 macOS 为例。 brew install yarn 安装完成之后可以查看 Yarn 的版本号，是否安装成功 yarn --version 若是出现版本号，那就代表安装成功了。 安装 create-react-appyarn create react-app antd-demo cd antd-demo yarn start 此时浏览器会访问 http://localhost:3000/ ，看到 Welcome to React 的界面就算成功了。 引入 antd 组件库yarn add antd 按需引入 安装 react-app-rewired customize-cra babel-plugin-import 此时我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 react-app-rewired，由于新的 react-app-rewired@2.x 版本的关系，你还需要安装 customize-cra yarn add react-app-rewired customize-cra babel-plugin-import 修改 package.json 配置 /* package.json */ &quot;scripts&quot;: { &quot;start&quot;: &quot;react-app-rewired start&quot;, &quot;build&quot;: &quot;react-app-rewired build&quot;, &quot;test&quot;: &quot;react-app-rewired test&quot; } 创建 config-overrides.js 文件 const { override, fixBabelImports } = require(&#39;customize-cra&#39;) module.exports = override( fixBabelImports(&#39;import&#39;, { libraryName: &#39;antd&#39;, libraryDirectory: &#39;es&#39;, style: &#39;css&#39;, }), ) 最后重启 yarn start 访问页面，antd 组件的 js 和 css 代码都会按需加载]]></content>
       <categories>
         <category>React</category>
       </categories>
       <tags>
-        <tag>react</tag>
+        <tag>antd</tag>
       </tags>
   </entry>
   <entry>
@@ -118,7 +118,6 @@
         <category>Vue</category>
       </categories>
       <tags>
-        <tag>vue</tag>
         <tag>swiper</tag>
       </tags>
   </entry>
@@ -163,7 +162,7 @@
         <category>Vue</category>
       </categories>
       <tags>
-        <tag>TodoList</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -196,7 +195,7 @@
         <category>Vue</category>
       </categories>
       <tags>
-        <tag>vuex</tag>
+        <tag>Vuex</tag>
       </tags>
   </entry>
   <entry>
@@ -259,7 +258,7 @@
     <url>%2F2019%2F06%2F19%2Fvue%E3%81%AE%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7computed%2F</url>
     <content type="text"><![CDATA[对于任何复杂逻辑，你都应当使用计算属性 语法&lt;!--html--&gt; &lt;div&gt;计算属性 : {{fullName}}&lt;/div&gt; //js var vm = new Vue({ el: &quot;#app&quot;, data: { firstName: &quot;Lee&quot;, lastName: &quot;Geing&quot;, fullName: &quot;LeeGeing&quot; }, //计算属性 computed: { fullName:function() { return this.fullName = this.firstName + this.lastName; } } }); 计算属性 computed 有缓存的机制，如果依赖的值没有变化，是不会进行改变的，这样做的好处是减少性能的损耗。 计算属性缓存和方法的区别计算属性 computed : 是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生改变时它们才会重新求值。这就意味着只要 fullName 还没有发生改变，多次访问 fullName 计算属性会立即返回之前的计算结果，而不必再次执行函数。 方法 methods : 数据的每次变换都会重新加载一次。 监听 watch: 只有变换的那个数据会被重新加载。 完整代码如下 &lt;!--html--&gt; &lt;div id=&quot;app&quot;&gt; &lt;!-- 计算属性 --&gt; &lt;div&gt;计算属性 computed :有缓存的机制，如果依赖的值没有变化，是不会进行改变的，这样做的好处是减少性能的损耗&lt;/div&gt; &lt;div&gt;计算属性 : {{fullName}} {{age}}&lt;/div&gt; &lt;hr&gt; &lt;!-- 方法属性 --&gt; &lt;div&gt;通过方式去实现的数据更改，改变数据会重新加载一次 DOM&lt;/div&gt; &lt;div&gt;方法 : {{ fullNameFuc() }} {{age}}&lt;/div&gt; &lt;hr&gt; &lt;!-- 监听 --&gt; &lt;div&gt;监听 : {{ fullName2 }} {{age}}&lt;/div&gt; &lt;/div&gt; //js var vm = new Vue({ el: &quot;#app&quot;, data: { firstName: &quot;Lee&quot;, lastName: &quot;Geing&quot;, fullName2: &quot;LeeGeing&quot;, age: 23 }, //计算属性 computed: { fullName:function() { console.log(&quot;computed 执行了一次&quot;); return this.firstName + this.lastName; } }, //方法 methods: { fullNameFuc:function() { console.log(&quot;methods 执行了一次&quot;); return this.firstName + this.lastName; } }, //监听 watch: { //监听firstName firstName:function(){ console.log(&quot;监听firstName 执行了一次&quot;); this.fullName2 = this.firstName + this.lastName; }, //监听lastName lastName:function(){ console.log(&quot;监听lastName 执行了一次&quot;); this.fullName2 = this.firstName + this.lastName; } } });]]></content>
       <categories>
-        <category>前端</category>
+        <category>Vue</category>
       </categories>
       <tags>
         <tag>vue</tag>
@@ -303,7 +302,7 @@
     <url>%2F2019%2F06%2F12%2Fgit%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[git 常用命令大集合 基础篇提交更新git commit 创建分支git branch &lt;分支名称&gt; 切换分支git checkout &lt;分支名称&gt; 创建一个新的分支同时切换到新创建的分支的话，可以使用 git checkout -b &lt;分支名称&gt; 分支与合并新建一个分支，在其上开发某个新功能，开发完成后再合并回主线。 merge合并分支咱们先来看一下第一种方法 —— git merge。在 Git 中合并两个分支时会产生一个特殊的提交记录，它有两个父节点。翻译成自然语言相当于：“我要把这两个父节点本身及它们所有的祖先都包含进来。” 换回分支 git checkout &lt;分支名称&gt; 再合并master分支 git merge master 再切换master分支 git checkout master 再合并分支 git merge &lt;分支名称&gt; rebase合并分支和 merge 用法类似。不过语法关键字不一样。 git rebase &lt;分支名称&gt; 高级篇HEAD 指向如果想看 HEAD 指向，可以通过查看. cat .git/HEAD 如果 HEAD 指向的是一个引用，还可以用查看它的指向。 git symbolic-ref HEAD 分离的 HEAD 就是让其指向了某个具体的提交记录而不是分支名。 我们首先看一下 “HEAD”。 HEAD 是一个对当前检出记录的符号引用 —— 也就是指向你正在其基础上进行工作的提交记录。 HEAD 总是指向当前分支上最近一次提交记录。大多数修改提交树的 Git 命令都是从改变 HEAD 的指向开始的。 HEAD 通常情况下是指向分支名的（如 bugFix）。在你提交时，改变了 bugFix 的状态，这一变化通过 HEAD 变得可见。 通过哈希值指定提交记录。每个提交记录的哈希值显示在代表提交记录的圆圈中。 相对引用通过指定提交记录哈希值的方式在 Git 中移动不太方便。用 git log来查查看提交记录的哈希值。 git log Git 对哈希的处理很智能。你只需要提供能够唯一标识提交记录的前几个字符即可。 通过哈希值指定提交记录很不方便，所以 Git 引入了相对引用。 使用相对引用的话，你就可以从一个易于记忆的地方（比如 bugFix 分支或 HEAD）开始计算。 相对引用非常给力，这里我介绍两个简单的用法： 使用 ^ 向上移动 1 个提交记录 使用 ~&lt;num&gt; 向上移动多个提交记录，如 ~3 首先看看操作符 (^)。把这个符号加在引用名称的后面，表示让 Git 寻找指定提交记录的父提交。 所以 master^ 相当于“master 的父节点”。 也可以将 HEAD 作为相对引用的参照,我们可以一直使用 HEAD^ 向上移动。]]></content>
       <categories>
-        <category>Git</category>
+        <category>工具</category>
       </categories>
       <tags>
         <tag>git</tag>
@@ -339,7 +338,7 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>MUI</tag>
+        <tag>mui</tag>
       </tags>
   </entry>
   <entry>
@@ -350,7 +349,7 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>HBuilder</tag>
+        <tag>Hbuilder</tag>
       </tags>
   </entry>
   <entry>
@@ -361,7 +360,7 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>CSS</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -372,7 +371,7 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>MUI</tag>
+        <tag>mui</tag>
       </tags>
   </entry>
   <entry>
@@ -394,7 +393,7 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>MUI</tag>
+        <tag>mui</tag>
       </tags>
   </entry>
   <entry>
@@ -424,7 +423,7 @@
     <url>%2F2019%2F04%2F26%2FGitHub%E7%AE%80%E5%8D%95%E7%83%B9%E9%A5%AA%E6%8C%87%E5%8D%97%2F</url>
     <content type="text"><![CDATA[本文简单介绍 GitHub 的日常使用，包括拉取和上传代码。 第一种方式使用客户端。 第二种方法使用命令行操作。 客户端首先新建一个仓库 配置仓库参数 仓库名称： 我建议使用英文名称。 仓库描述：对你这个项目做一个简单的描述。 公开/私有：指你的仓库是否开源。 是否添加自述文件：这个选项选不选随你，现在没有选上的话，建议在后期还是要加上，增加阅读体验。值得注意的是，如果你要导入现有的仓库，那么就不必要添加这个自述文件了，如果做为一个新仓库的使用，还是有很必要添加这个文件的。 你使用的语言：不选的话，它也会自动去识别你所使用的语言。 添加证书：也看你自己的需求吧。 将新建的仓库克隆到本地 新建号的仓库大致如上图所示。点击右边的 Set up in Desktop 下载桌面版 GitHub，下载完成之后，登入你的 GitHub 账号。 选择文件-克隆仓库。 + 第一种方式，选择 GitHub.com 从自己的仓库列表中克隆仓库。 ![GitHub烹饪指南-05](http://images.leegeing.cn/hexoImg/GitHub烹饪指南-05.png) + 第二方式，选择 URL ![GitHub烹饪指南-06](http://images.leegeing.cn/hexoImg/GitHub烹饪指南-06.png) 绿色框表示对应的 URL，橙色框代表克隆至本地的地址。 这两种方式都可以将仓库克隆到自己本地，任选其一即可。 等待克隆结束 稍等片刻就完成了。 我们可以选择第一个打开你刚刚克隆到本地的仓库文件夹。 里面除了一个隐藏的 git文件夹就没有别的东西了。如果我们在创建的时候，勾选上了那个自述文件，那么还会有一个 README.md 文件。 要看到隐藏的文件，需要根据自己的操作系统去开启这个设置，一般默认是关闭的。 以后我们的代码就存放到这个文件夹里面了。 尝试上传到 GitHub 上因为我们没有自述文件，刚好就自己创建一个，上传到 GitHub 当做一次练习。 创建一个名为 README.md 的文件。 前缀 “README” 是 GitHub 自述文件的固定写法，后缀 “.md”，是支持 Markdown 的文本文件。有关于 Markdown 的语法介绍可以自己去百度查一下，有很多有关于这个的介绍。 在 GitHub 客户端上可以看到这个关于这个文件的变动。 在提交处填写你的”提交信息“，然后点击 “commit to master”, 进行提交。然后我们点击”Publish branch“ 发布到当前分支。 等待结束后就完成了上传。我们可以点击”View on GitHub“,打开你的 GitHub 仓库地址，验证是否上传完毕。 如图所示，这是我刚刚上传的自述文件，就已经显示出来了。还有一种方法是使用命令行进行使用 GitHub 的操作，下次有空再说。 ( ^ _ ^ )/~~拜拜]]></content>
       <categories>
-        <category>Git</category>
+        <category>工具</category>
       </categories>
       <tags>
         <tag>git</tag>
@@ -449,7 +448,7 @@
         <category>碎碎念</category>
       </categories>
       <tags>
-        <tag>小秘密</tag>
+        <tag>碎碎念</tag>
       </tags>
   </entry>
   <entry>
@@ -468,7 +467,7 @@
     <url>%2F2019%2F04%2F22%2FVue%E7%AE%80%E5%8D%95%E8%B7%AF%E7%94%B1%2F</url>
     <content type="text"><![CDATA[附上demo 地址：Vue简单路由 demo 项目中引入 vue-router npm install vue-router 新建一个 *.js 文件 初始化路由模块 //router.js import Vue from &#39;vue&#39; import VueRouter from &#39;vue-router&#39; Vue.use(VueRouter) 新建一个文件夹，名字随意，创建两个子 *.vue文件，并把它们初始化。 如图所示蓝色框内的是子路由，绿色框内的是平级路由。 在router.js 中设置路由配置 import Vue from &#39;vue&#39; import Router from &#39;vue-router&#39; //引入*.vue 页面 import Index from &#39;@/components/index.vue&#39; import Hi1 from &#39;@/components/children/hi1.vue&#39; import Hi2 from &#39;@/components/children/hi2.vue&#39; import Clicli from &#39;@/components/clicli.vue&#39; Vue.use(Router) export default new Router({ routes: [{ path: &#39;/&#39;, //重定向路由 name: &#39;Index&#39;, component: Index, children: [ //配置子路由 { path: &#39;/&#39;, component: Hi2 }, { path: &#39;/index/hi1&#39;, component: Hi1 }, { path: &#39;/index/hi2&#39;, component: Hi2 } ] }, { //同级路由 path: &#39;/clicli&#39;, name: &#39;Clicli&#39;, component: Clicli }, { path: &#39;/hi1&#39;, name: &#39;Hi1&#39;, component: Hi1 }] }) 在 index.vue 中配置子路由的入口端 &lt;template&gt; &lt;div&gt; &lt;ol start=&quot;1&quot; class=&quot;index-list&quot;&gt; &lt;li&gt;&lt;router-link to=&quot;/index/hi1&quot;&gt;子路由 H1&lt;/router-link&gt;&lt;/li&gt; &lt;li&gt;&lt;router-link to=&quot;/index/hi2&quot;&gt;子路由 H2&lt;/router-link&gt;&lt;/li&gt; &lt;li&gt;&lt;router-link to=&quot;/clicli&quot;&gt;(全屏) 平级路由 CliCli&lt;/router-link&gt;&lt;/li&gt; &lt;li&gt;&lt;router-link to=&quot;/hi1&quot;&gt;(全屏) 子路由 H1&lt;/router-link&gt;&lt;/li&gt; &lt;/ol&gt; &lt;div class=&quot;routerBox&quot;&gt; &lt;router-view&gt;&lt;/router-view&gt; &lt;/div&gt; &lt;/div&gt; &lt;/template&gt; &lt;script&gt; &lt;/script&gt; &lt;style&gt; li{ list-style: none; } .index-list{ margin: 0; padding: 10px; text-align: left; } .index-list&gt;li{ line-height: 30px; } .routerBox{ margin: 10px; padding: 10px; border: 1px solid #000; } &lt;/style&gt; 具体实现效果如下 vue路由 mode属性 hash 使用 URL 的 hash 来模拟一个完整的 URL，当 URL 改变时，页面不会重新加载。(有#号) history 如果不想要很丑的 hash，我们可以用路由的 history 模式，这种模式充分利用 history.pushState API 来完成 URL 跳转而无须重新加载页面。 当你使用 history 模式时，URL 就像正常的 url一样。(无#号)]]></content>
       <categories>
-        <category>前端</category>
+        <category>Vue</category>
       </categories>
       <tags>
         <tag>vue</tag>
@@ -482,7 +481,7 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>Mac</tag>
+        <tag>OpenInTerminal</tag>
       </tags>
   </entry>
   <entry>
@@ -493,7 +492,7 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>MUI</tag>
+        <tag>mui</tag>
       </tags>
   </entry>
   <entry>
@@ -504,7 +503,7 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>DOS</tag>
+        <tag>Nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -526,7 +525,7 @@
         <category>博客</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -548,7 +547,7 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>MUI</tag>
+        <tag>mui</tag>
       </tags>
   </entry>
   <entry>
@@ -559,7 +558,7 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>MUI</tag>
+        <tag>mui</tag>
       </tags>
   </entry>
   <entry>
@@ -567,10 +566,10 @@
     <url>%2F2019%2F04%2F13%2FMUI%E5%88%9B%E5%BB%BA%E6%96%B0%E9%A1%B5%E9%9D%A2%2F</url>
     <content type="text"><![CDATA[在常规的前端开发中,我们经常使用a标签中的href属性来进行页面之间的跳转和传参. 但是这样会产生一个问题,a标签打开的页面返回时并不是返回到上一个页面,返回只是一个后退的操作. 如果对页面进行多次操作页面,当你想回到上一个页面时,就会来回的切换页面,严重影响体验. 在一个项目中,我们可以写一个公共的JS文件,创建新页面方法,代码如下. //创建新页面 function openUrl(url, id, params) { if (typeof(params) == &#39;undefined&#39;) { params = {}; } if (mui.os.plus) { mui.openWindow({ id: id, //url:新页面的地址 url: url, //id:新页面的 WebView ID extras: params, //params:页面传参 styles: { statusbar: { //设置新页面状态栏背景颜色，以便达到沉浸式状态栏 background: &#39;#3EAD74&#39;, color: &#39;#FFFFFF&#39; } } }) } else { window.location.href = url; } } 引用 js 文件后就可以,我们可以用a标签进行快速的使用. &lt;a href=&quot;javascript:openUrl(&#39;url&#39;,&#39;id&#39;,{})&quot;&gt;打开新的 webview页面&lt;/a&gt; 我们可以很方便的用 a 标签进行传参，但是要注意的是，在动态生成的 DOM 结构里，用 a 标签来传参的话，页面跳转会失效。我的建议是用JS点击绑定事件进行页面的跳转和传参。]]></content>
       <categories>
-        <category>MUI</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>Mui page</tag>
+        <tag>mui</tag>
       </tags>
   </entry>
 </search>
