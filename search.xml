@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[TypeScript 函数的定义]]></title>
+    <url>%2F2019%2F09%2F16%2FTypeScript-%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%2F</url>
+    <content type="text"><![CDATA[函数的定义 函数相关 函数声明方法 function add (n1:number, n2:number):number { ... } 函数表达式法 var add2 = function (n1:number, n2:number):number { ... } 箭头函数 var add3 = (n1:number, n2:number):number =&gt; { ... } 参数相关 基本使用 必须使用 function 关键字来声明函数。 function searchGoods(参数名:参数类型):函数返回类型 { ... } 形参: 顾名思义，什么形式的参数，也就是定义函数上的参数实参: 真实传递的参数，是传递过去的参数，称为实参 有可选参数的函数 参数后面跟 ? 代表参数是可选参数 function searchGoodsInfo(goods:string, price?:number):string { ... } 带默认参数的函数 在变量声明的类型后面直接跟等于，就是默认参数 function defaultGoodsInfo(goods:string=&#39;西瓜&#39;, price:number= 12 ):string { ... } 不确定参数个数的函数 用 ... 来表示参数 function searchGoodsList (...goods:string[]):string { ... }]]></content>
+      <categories>
+        <category>TypeScript</category>
+      </categories>
+      <tags>
+        <tag>typescript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Typescript 的变量类型]]></title>
+    <url>%2F2019%2F09%2F16%2FTypescript-%E7%9A%84%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%2F</url>
+    <content type="text"><![CDATA[Typescript 的变量类型 变量的类型 Typescript它有十种变量类型。 Undefined : 未定义，顾名思义当变量未定义的时候，直接使用会报错。 Number : 数字类型，支持整数类型和浮点类型，还有一个 NAN 类型。 String : 字符串,单引号或者双引号括起来的一串字符就是字符串。 Boolean : 布尔类型,它类型只有两种值，true 和 false,任务判断逻辑都会有它的参与。 enum : 枚举类型，当变量的结果是固定的几个数据时，我们就可以使用枚举类型了。 any : 任意类型，什么都可以，但是不是很建议使用哦。 void : 空类型。 Array : 数组类型。 Tuple : 元祖类型。 Null : 空类型，变量值就是空值。 变量的声明 // 声明 Number 类型 let decimal: number = 6; // 声明 String 类型 // 使用模板字符串 // 1.字符串由反引号/反引号（`）字符包围,可以跨越多行 // 2.表达式具有形式${ expr } let color: string = `白色`; let like: string = `我喜欢${ color }, 你呢？`; // 1.声明 Array 类型 // a. 变量后面直接跟元素类型然后加上[]表示 let list:number[] = [1,3,5,7,9]; // b. 使用通用数组类型Array&lt;elemType&gt; let list:Array&lt;number&gt; = [2,4,6,8]; // 2.声明 Boolean 类型，true 或者 false let isDone: boolean = false; // 3.声明 Boolean 类型，true 或者 false let isDone: boolean = false; // 4.声明 Tuple 类型,不能访问已知索引集之外的元素 let x: [string, number] = [&quot;hello&quot;, 10]; console.log(x[0].substring(1)); // OK // 5.声明 enum 类型,枚举是一种为数值集提供更友好名称的方法。 enum Color {Red, Green, Blue} let c: Color = Color.Green; // 6.声明 any 任意类型,不知道的变量类型。这些值可能是动态的内容 let notSure: any = 4; // 声明 void 类型，它有点像是相反的any，代表没有任何类型，通常视为不返回值的函数的返回类型 function warnUser(): void { console.log(&quot;This is my warning message&quot;); } let unusable: void = undefined; unusable = null;]]></content>
+      <categories>
+        <category>TypeScript</category>
+      </categories>
+      <tags>
+        <tag>typescript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[TypeScript开发环境和构建]]></title>
+    <url>%2F2019%2F09%2F16%2FTS%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%92%8C%E6%9E%84%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[开发环境和构建 安装 Typescript# 初始化 package.json npm init --y # 全局安装 Typescript npm install -g typescript # 初始化 Typescript tsc --init # 安装必备的包 # -解决模块的声明文件问题 npm install -D @types/node 尝试使用 Typescript新建一个 HelloTS.ts 文件，我们输入以下代码，进行一个简单的打印操作 // HelloTS.ts var msg:String = &#39;Hello World&#39; console.log(msg) 这样直接运行肯定是会报错的，因为不能直接运行 .ts 文件，我们需要转换成 .js 文件才能运行。 在终端输入 tsc HelloTS.ts , 然后它会在根目录生成一个 HelloTS.js 的文件。 // HelloTS.js var msg = &#39;Hello World&#39;; console.log(msg); 在终端输入 node Hello.js 运行，会看到在控制台输出了 Hello World。 一个简单的编译过程就算完成了。]]></content>
+      <categories>
+        <category>TypeScript</category>
+      </categories>
+      <tags>
+        <tag>typescript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[游戏人生]]></title>
     <url>%2F2019%2F09%2F16%2F%E6%B8%B8%E6%88%8F%E4%BA%BA%E7%94%9F%2F</url>
     <content type="text"><![CDATA[人生就像一场不可重来的游戏，你需要好好经营这场游戏，你的付出可能和你的收获不成正比，但是你不付出就肯定没有收获。 有些人生来就有得天独厚的条件，有些人生来就比别人贫苦，这都是随机的。 而你呢，生在一个一般般的家庭中，说不上有多富有，也谈不上有多贫穷，你天赋也一般般，考试一般般，成绩一般般，上个一般般的大学，干着一般般的工作，你的生活也是一般般，你以为你的一生就这样子一般般的度过了，但你的下一代也会继承你的一般般，你儿子也会出生在一个般般的家庭…如此循环。 你以为游戏就这样了，可是这个游戏还有很多未知的地方你都没有去过，别说去过了，连看都没有看过，更糟糕的是或许你连听都没有听过。如果你还想见更多的风景，遇到更多不同的人，或许你可以努努力了。去看看更美的风景，遇到更多有趣的人，做一些与众不同的事情。]]></content>
