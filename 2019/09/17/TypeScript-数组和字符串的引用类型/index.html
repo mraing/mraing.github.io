@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
   
-  <title>初始化CSS - 绪锋</title>
+  <title>TypeScriptd 数组和字符串的引用类型 - 绪锋</title>
   <meta charset="UTF-8">
   <meta name="description" content="小镇青年,心怀远方">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,18 +14,18 @@
     <meta name="baidu-site-verification" content="cXpXJOvmtY">
 
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <meta name="description" content="初始化 CSS,我觉得这个还蛮重要的，比较浏览器就自带了一些基本样式，但是为了统一性，所以会重置一些 CSS 的基本样式">
-<meta name="keywords" content="css">
+  <meta name="description" content="字面量赋值法和构造函数赋值法">
+<meta name="keywords" content="typescript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初始化CSS">
-<meta property="og:url" content="https://mraing.github.io/2019/05/07/初始化CSS/index.html">
+<meta property="og:title" content="TypeScriptd 数组和字符串的引用类型">
+<meta property="og:url" content="https://mraing.github.io/2019/09/17/TypeScript-数组和字符串的引用类型/index.html">
 <meta property="og:site_name" content="绪锋">
-<meta property="og:description" content="初始化 CSS,我觉得这个还蛮重要的，比较浏览器就自带了一些基本样式，但是为了统一性，所以会重置一些 CSS 的基本样式">
+<meta property="og:description" content="字面量赋值法和构造函数赋值法">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T16:08:55.508Z">
+<meta property="og:updated_time" content="2019-09-17T15:12:35.596Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初始化CSS">
-<meta name="twitter:description" content="初始化 CSS,我觉得这个还蛮重要的，比较浏览器就自带了一些基本样式，但是为了统一性，所以会重置一些 CSS 的基本样式">
+<meta name="twitter:title" content="TypeScriptd 数组和字符串的引用类型">
+<meta name="twitter:description" content="字面量赋值法和构造函数赋值法">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -33,7 +33,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1568733208130">
+  <link rel="stylesheet" href="/css/style.css?v=1568733207810">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -200,79 +200,44 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
+        <img src="http://images.leegeing.cn/ikonTypeScript.png">
         
-        <h1>初始化CSS</h1>
+        <h1>TypeScriptd 数组和字符串的引用类型</h1>
     </div>
   <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年05月07日</a>
-    <a><i class="nexmoefont icon-areachart"></i>455 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月17日</a>
+    <a><i class="nexmoefont icon-areachart"></i>194 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/TypeScript/">TypeScript</a>
     
     
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/css/">css</a>
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/typescript/">typescript</a>
     
   </div>
   <article>
     <blockquote>
-<p>初始化 CSS,我觉得这个还蛮重要的，比较浏览器就自带了一些基本样式，但是为了统一性，所以会重置一些 CSS 的基本样式</p>
+<p>字面量赋值法和构造函数赋值法</p>
 </blockquote>
 <a id="more"></a>
-<p>新浪官网:</p>
-<pre><code class="css">body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;} 
-body{background:#fff;color:#333;font-size:12px; margin-top:5px;font-family:&quot;SimSun&quot;,&quot;宋体&quot;,&quot;Arial Narrow&quot;;} 
+<h1 id="引用类型-数组"><a href="#引用类型-数组" class="headerlink" title="引用类型-数组"></a>引用类型-数组</h1><h3 id="字面量赋值法"><a href="#字面量赋值法" class="headerlink" title="字面量赋值法"></a>字面量赋值法</h3><pre><code class="JavaScript">let arr:number[] = []
+let arr:number[] = [1,2,3,4,5]
 
-ul,ol{list-style-type:none;} 
-select,input,img,select{vertical-align:middle;} 
+let arr:Array&lt;string&gt; = [&#39;苟&#39;,&#39;利&#39;,&#39;国&#39;,&#39;家&#39;,&#39;生&#39;,&#39;死&#39;,&#39;以&#39;]
+let arr:Array&lt;boolean&gt; = [true, false, true]
+</code></pre>
+<h3 id="构造函数赋值法"><a href="#构造函数赋值法" class="headerlink" title="构造函数赋值法"></a>构造函数赋值法</h3><pre><code class="JavaScript">let arr5:number[] = new Array()
+let arr6:number[] = new Array(1,2,3,4,5)
 
-a{text-decoration:none;} 
-a:link{color:#009;} 
-a:visited{color:#800080;} 
-a:hover,a:active,a:focus{color:#c00;text-decoration:underline;}
+let arr7:Array&lt;string&gt; = new Array(&#39;苟&#39;,&#39;利&#39;,&#39;国&#39;,&#39;家&#39;,&#39;生&#39;,&#39;死&#39;,&#39;以&#39;)
+let arr8:Array&lt;boolean&gt; = new Array(true, false, true)
 </code></pre>
-<p>淘宝官网:</p>
-<pre><code class="css">body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; } 
-body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; } 
-h1, h2, h3, h4, h5, h6{ font-size:100%; } 
-address, cite, dfn, em, var { font-style:normal; } 
-code, kbd, pre, samp { font-family:couriernew, courier, monospace; } 
-small{ font-size:12px; } 
-ul, ol { list-style:none; } 
-a { text-decoration:none; } 
-a:hover { text-decoration:underline; } 
-sup { vertical-align:text-top; } 
-sub{ vertical-align:text-bottom; } 
-legend { color:#000; } 
-fieldset, img { border:0; } 
-button, input, select, textarea { font-size:100%; } 
-table { border-collapse:collapse; border-spacing:0; }
-</code></pre>
-<p>网易官网:</p>
-<pre><code class="css">html {overflow-y:scroll;} 
-body {margin:0; padding:29px00; font:12px&quot;\5B8B\4F53&quot;,sans-serif;background:#ffffff;} 
-div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0; margin:0;} 
-table,td,tr,th{font-size:12px;} 
-li{list-style-type:none;} 
-img{vertical-align:top;border:0;} 
-ol,ul {list-style:none;} 
-h1,h2,h3,h4,h5,h6{font-size:12px; font-weight:normal;} 
-address,cite,code,em,th {font-weight:normal; font-style:normal;}
-</code></pre>
-<p>腾讯QQ官网:</p>
-<pre><code class="css">body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0} 
-body{font:12px&quot;宋体&quot;,&quot;Arial Narrow&quot;,HELVETICA;background:#fff;-webkit-text-size-adjust:100%;} 
-a{color:#2d374b;text-decoration:none} 
-a:hover{color:#cd0200;text-decoration:underline} 
-em{font-style:normal} 
-li{list-style:none} 
-img{border:0;vertical-align:middle} 
-table{border-collapse:collapse;border-spacing:0} 
-p{word-wrap:break-word}
-</code></pre>
-<p>自用:</p>
-<pre><code class="css">body,html,p,ul,li,h1,h2,h3,h4,h5,h6,input,button{margin:0;padding:0;}
+<h1 id="引用类型-字符串"><a href="#引用类型-字符串" class="headerlink" title="引用类型-字符串"></a>引用类型-字符串</h1><p>和数组一样，有两种方式去赋值，字面量赋值法和构造函数赋值法。</p>
+<pre><code class="JavaScript">// 字面量赋值
+let name:string = &#39;LeeGeing&#39;
+
+// 构造函数赋值
+let name:string = new String(&#39;LeeGeing&#39;)
 </code></pre>
 
   </article>
@@ -285,8 +250,8 @@ p{word-wrap:break-word}
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://mraing.github.io/2019/05/07/初始化CSS/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://mraing.github.io/2019/05/07/初始化CSS/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://mraing.github.io/2019/09/17/TypeScript-数组和字符串的引用类型/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://mraing.github.io/2019/09/17/TypeScript-数组和字符串的引用类型/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 <script id="disqus-thread-script">
@@ -316,7 +281,7 @@ p{word-wrap:break-word}
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1568733208136"></script>
+<script src="/js/app.js?v=1568733207822"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
