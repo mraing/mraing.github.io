@@ -32,7 +32,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1575954028086">
+  <link rel="stylesheet" href="/css/style.css?v=1575954141813">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -228,161 +228,6 @@
 <p>通过把数据存储在浏览器中，用户不必每次都向服务器请求获取同一个信息。在你离线时，使用本地存储的数据而不是向远端服务器上请求数据就显得非常有用。</p>
 </blockquote>
 <p>做个小案例，输入数据，并保存至本地存储中，并实时更新列表，可以对列表进行删除。</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
-<li>首先实现一个双向绑定。输入框与列表的绑定，可以新增，删除列表。</li>
-<li>然后把列表的数据绑定到本地存储中。</li>
-</ol>
-<h3 id="列表的双向绑定"><a href="#列表的双向绑定" class="headerlink" title="列表的双向绑定"></a>列表的双向绑定</h3><p>因为主要是实现功能，所以就没有做任何样式了。</p>
-<p>页面由两部分组成，一部分是输入框和新增按钮。另一部分是列表。</p>
-<pre><code class="HTML">&lt;div&gt;
-  &lt;input type=&quot;text&quot; v-model=&quot;msg&quot; placeholder=&quot;等待输入&quot;&gt;
-  &lt;button @click=&quot;addClick()&quot;&gt;新增&lt;/button&gt;
-&lt;/div&gt;
-&lt;!--列表--&gt;
-&lt;ul&gt;
-  &lt;li v-for=&quot;(item, index) in msgList&quot; :key=&quot;index&quot;&gt;
-    {{item}} &lt;button @click=&quot;clearClick(index)&quot;&gt;remvoe&lt;/button&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-</code></pre>
-<p>下面是关于列表的新增和删除，这部分非常简单，可以先自己实现一下。</p>
-<p>删除的方法就是传入当前的列表的下标，进行删除。</p>
-<pre><code class="JavaScript">data () {
-    return {
-      // 双向绑定 msg
-      msg: &#39;&#39;,
-      // 列表循环msgList
-      msgList: []
-    }
-},
-methods: {
-    // 新增
-    addClick () {
-      this.msgList.push(this.msg)
-    },
-    // 删除
-    clearClick (x) {
-      this.msgList.splice(x, 1)
-    }
-}
-</code></pre>
-<h3 id="把数组中的数据传入本地存储中"><a href="#把数组中的数据传入本地存储中" class="headerlink" title="把数组中的数据传入本地存储中"></a>把数组中的数据传入本地存储中</h3><p>本地存储需要用到两个方法：</p>
-<ol>
-<li><p>存储数据 <code>localStorage.setItem(&quot;键&quot;, &quot;值&quot;)</code></p>
-</li>
-<li><p>获取数据 <code>localStorage.getItem(&quot;键&quot;)</code></p>
-</li>
-</ol>
-<p>我们写一个方法，监听数组，每次数组变化，就存储一次数据。</p>
-<pre><code class="JavaScript">&lt;!--监听 msgList变化，调用存储方法--&gt;
-watch: {
-    msgList () {
-      this.savaClick()
-    }
-}
-</code></pre>
-<pre><code class="JavaScript">&lt;!--本地存储方法--&gt;
-savaClick () {
-    localStorage.setItem(&#39;locaMsgList&#39;, this.msgList)
-}
-</code></pre>
-<p>上面的步骤完成后，就是下面的效果了。可以看到在本地存储中看到了数据的增加和删除。</p>
-<p><img src="http://images.leegeing.cn/hexoImg/vue%20%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A81.gif" alt="vue 数据存储1"></p>
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>我们可以看到，还有一些问题没有解决。比如：</p>
-<ol>
-<li><p>每次新增完数据后，没有清空输入框。</p>
-</li>
-<li><p>还有就是输入框没有做判断，空数据也会录入。</p>
-</li>
-<li><p>当页面刚进来或者刷新时，应该默认要读取本地存储的数据；</p>
-</li>
-</ol>
-<p>接下来，我们就去解决他们。</p>
-<pre><code class="JavaScript">addClick () {
-  // 在新增的时候判断输入框,如果是空数据，直接 return 结束
-  if (!this.msg) return
-  this.msgList.push(this.msg)
-  // 在新增完数据后，清空 msg
-  this.msg = &#39;&#39;
-},
-</code></pre>
-<p>在实例创建的阶段已经可以访问 <code>data</code>, <code>methods</code>, <code>watch</code>上面的方法和数据了，将本地存储的数据赋值给 msgList。</p>
-<p>这样就能保证即便刷新后，也能看到存储的数据。</p>
-<pre><code class="JavaScript">created () {
-    // 判断本地存储中是否有值,有值的话赋予给msgList,没有的话，删除本地存储的locaMsgList进一步防止有东西乱入
-    if (localStorage.getItem(&#39;locaMsgList&#39;)) {
-      this.msgList = JSON.parse(localStorage.getItem(&#39;locaMsgList&#39;))
-    } else {
-      localStorage.removeItem(&#39;locaMsgList&#39;)
-    }
-  }
-</code></pre>
-<p>至此，就全部结束了。</p>
-<p><img src="http://images.leegeing.cn/hexoImg/vue%20%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A82.gif" alt="vue 数据存储2"></p>
-<p>全部源代码奉上</p>
-<pre><code class="HTML">&lt;template&gt;
-  &lt;div&gt;
-    &lt;h2&gt;本地存储&lt;/h2&gt;
-    &lt;div&gt;
-      &lt;input type=&quot;text&quot; v-model=&quot;msg&quot; placeholder=&quot;等待输入&quot;&gt;
-      &lt;button @click=&quot;addClick()&quot;&gt;新增&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;ul&gt;
-      &lt;li v-for=&quot;(item, index) in msgList&quot; :key=&quot;index&quot;&gt;
-        {{item}} &lt;button @click=&quot;removeClick(index)&quot;&gt;remove&lt;/button&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-export default {
-  data () {
-    return {
-      // 双向绑定 msg
-      msg: &#39;&#39;,
-      // 列表循环msgList
-      msgList: []
-    }
-  },
-  watch: {
-    // 监听 msgList，每次变动就去做存储数据这个事情
-    msgList () {
-      this.savaClick()
-    }
-  },
-  methods: {
-    // 新增
-    addClick () {
-      // 如果 msg 为空，直接 return 结束
-      if (!this.msg) return
-      this.msgList.push(this.msg)
-      this.msg = &#39;&#39;
-    },
-    // 删除
-    removeClick (x) {
-      this.msgList.splice(x, 1)
-    },
-    savaClick () {
-      localStorage.setItem(&#39;locaMsgList&#39;, JSON.stringify(this.msgList))
-    }
-  },
-  created () {
-    // 判断本地存储中是否有值,有值的话赋予给msgList,没有的话，删除本地存储的locaMsgList进一步防止有东西乱入
-    if (localStorage.getItem(&#39;locaMsgList&#39;)) {
-      this.msgList = JSON.parse(localStorage.getItem(&#39;locaMsgList&#39;))
-    } else {
-      localStorage.removeItem(&#39;locaMsgList&#39;)
-    }
-  }
-}
-&lt;/script&gt;
-
-&lt;style&gt;
-&lt;/style&gt;
-
-</code></pre>
-
             
         </article>
     </div>
@@ -659,7 +504,7 @@ export default {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1575954028093"></script>
+<script src="/js/app.js?v=1575954141820"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

@@ -14,20 +14,20 @@
     <meta name="baidu-site-verification" content="cXpXJOvmtY">
 
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <meta name="description" content="通过把数据存储在浏览器中，用户不必每次都向服务器请求获取同一个信息。在你离线时，使用本地存储的数据而不是向远端服务器上请求数据就显得非常有用。  做个小案例，输入数据，并保存至本地存储中，并实时更新列表，可以对列表进行删除。 思路 首先实现一个双向绑定。输入框与列表的绑定，可以新增，删除列表。 然后把列表的数据绑定到本地存储中。  列表的双向绑定因为主要是实现功能，所以就没有做任何样式了。 页面">
+  <meta name="description" content="通过把数据存储在浏览器中，用户不必每次都向服务器请求获取同一个信息。在你离线时，使用本地存储的数据而不是向远端服务器上请求数据就显得非常有用。  做个小案例，输入数据，并保存至本地存储中，并实时更新列表，可以对列表进行删除。">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue 本地存储">
 <meta property="og:url" content="https://mraing.github.io/2019/12/10/vue-本地存储/index.html">
 <meta property="og:site_name" content="绪锋">
-<meta property="og:description" content="通过把数据存储在浏览器中，用户不必每次都向服务器请求获取同一个信息。在你离线时，使用本地存储的数据而不是向远端服务器上请求数据就显得非常有用。  做个小案例，输入数据，并保存至本地存储中，并实时更新列表，可以对列表进行删除。 思路 首先实现一个双向绑定。输入框与列表的绑定，可以新增，删除列表。 然后把列表的数据绑定到本地存储中。  列表的双向绑定因为主要是实现功能，所以就没有做任何样式了。 页面">
+<meta property="og:description" content="通过把数据存储在浏览器中，用户不必每次都向服务器请求获取同一个信息。在你离线时，使用本地存储的数据而不是向远端服务器上请求数据就显得非常有用。  做个小案例，输入数据，并保存至本地存储中，并实时更新列表，可以对列表进行删除。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://images.leegeing.cn/hexoImg/vue%20%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A81.gif">
 <meta property="og:image" content="http://images.leegeing.cn/hexoImg/vue%20%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A82.gif">
-<meta property="og:updated_time" content="2019-12-10T05:00:03.645Z">
+<meta property="og:updated_time" content="2019-12-10T05:02:11.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue 本地存储">
-<meta name="twitter:description" content="通过把数据存储在浏览器中，用户不必每次都向服务器请求获取同一个信息。在你离线时，使用本地存储的数据而不是向远端服务器上请求数据就显得非常有用。  做个小案例，输入数据，并保存至本地存储中，并实时更新列表，可以对列表进行删除。 思路 首先实现一个双向绑定。输入框与列表的绑定，可以新增，删除列表。 然后把列表的数据绑定到本地存储中。  列表的双向绑定因为主要是实现功能，所以就没有做任何样式了。 页面">
+<meta name="twitter:description" content="通过把数据存储在浏览器中，用户不必每次都向服务器请求获取同一个信息。在你离线时，使用本地存储的数据而不是向远端服务器上请求数据就显得非常有用。  做个小案例，输入数据，并保存至本地存储中，并实时更新列表，可以对列表进行删除。">
 <meta name="twitter:image" content="http://images.leegeing.cn/hexoImg/vue%20%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A81.gif">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
@@ -36,7 +36,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1575954028861">
+  <link rel="stylesheet" href="/css/style.css?v=1575954141223">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -227,6 +227,7 @@
 <p>通过把数据存储在浏览器中，用户不必每次都向服务器请求获取同一个信息。在你离线时，使用本地存储的数据而不是向远端服务器上请求数据就显得非常有用。</p>
 </blockquote>
 <p>做个小案例，输入数据，并保存至本地存储中，并实时更新列表，可以对列表进行删除。</p>
+<a id="more"></a>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
 <li>首先实现一个双向绑定。输入框与列表的绑定，可以新增，删除列表。</li>
 <li>然后把列表的数据绑定到本地存储中。</li>
@@ -423,7 +424,7 @@ export default {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1575954028869"></script>
+<script src="/js/app.js?v=1575954141233"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
