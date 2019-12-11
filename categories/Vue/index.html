@@ -32,7 +32,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1575954141791">
+  <link rel="stylesheet" href="/css/style.css?v=1576044246281">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -56,7 +56,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>62</div>
+        <div><span>文章</span>63</div>
         <div><span>标签</span>25</div>
         <div><span>分类</span>7</div>
     </div>
@@ -127,7 +127,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/Vue/">Vue</a>
-          <span class="category-list-count">23</span>
+          <span class="category-list-count">24</span>
         </li>
 
         
@@ -203,12 +203,259 @@
         <section class="nexmoe-posts" id="brand-waterfall">
     
     <div class="nexmoe-post">
-        <a href="/2019/12/10/vue-本地存储/">
+        <a href="/2019/12/11/Vue-多语言切换/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
-                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="vue 本地存储">
+                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="Vue 多语言切换">
                 
-                <h1>vue 本地存储</h1>
+                <h1>Vue 多语言切换</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月11日</a>
+            <a><i class="nexmoefont icon-areachart"></i>1.5k 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 7 分钟</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue/">Vue</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -link" href="/tags/vue/">vue</a>
+            
+        </div>
+        <article>
+            
+            <blockquote>
+<p>Vue I18n 是 Vue.js 的国际化插件。它可以轻松地将一些本地化功能集成到你的 Vue.js 应用程序中。</p>
+</blockquote>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>我使用的是 npm 安装</p>
+<pre><code class="shell">npm install vue-i18n
+</code></pre>
+<p>然后在 <code>main.js</code> 中引入 vue-i18n</p>
+<pre><code class="javaScript">// main.js
+import Vue from &#39;vue&#39;
+import VueI18n from &#39;vue-i18n&#39;
+
+Vue.use(VueI18n)
+</code></pre>
+<h2 id="新建语言文件"><a href="#新建语言文件" class="headerlink" title="新建语言文件"></a>新建语言文件</h2><p>新建一个文件夹 <code>l18n</code>（文件夹名字随意），用于存放语言文件。在文件夹中新建 <code>zh.js</code> 和 <code>ja.js</code> 文件。分别用于存放中文和日文的语言文件。</p>
+<pre><code class="javaScript">// zh.js
+module.exports = {
+  message: {
+    title: &#39;你好! 世界&#39;,
+    hello: &#39;{msg}的世界&#39;,
+    helloT: &#39;你好!{0}&#39;,
+    helloH: &#39;你好! &lt;br&gt; 世界&#39;
+  },
+  placeholder: {
+    enter: &#39;你想对世界说的话&#39;
+  },
+  meal: {
+    breakfast: &#39;早餐&#39;,
+    lunch: &#39;中餐&#39;,
+    dinner: &#39;晚餐&#39;,
+    supper: &#39;夜宵&#39;
+  }
+}
+
+</code></pre>
+<pre><code class="javaScript">// ja.js
+// 注意：一定是 exports，不是 export，否则会报错，报错信息是下列的中的内容不是 string
+module.exports = {
+  message: {
+    title: &#39;ハロー! 世界&#39;,
+    hello: &#39;{msg}の世界&#39;,
+    helloT: &#39;ハロー!{0}&#39;,
+    helloH: &#39;ハロー! &lt;br&gt; 世界&#39;
+  },
+  placeholder: {
+    enter: &#39;世界に言いたいことを入力してください&#39;
+  },
+  meal: {
+    breakfast: &#39;朝食&#39;,
+    lunch: &#39;ランチ&#39;,
+    dinner: &#39;ディナー&#39;,
+    supper: &#39;ナイトナイト&#39;
+  }
+}
+
+</code></pre>
+<h2 id="引用语言文件"><a href="#引用语言文件" class="headerlink" title="引用语言文件"></a>引用语言文件</h2><p>设置完语言文件后，在 <code>mian.js</code> 中进行引用</p>
+<pre><code class="javaScript">const i18n = new VueI18n({
+  locale: &#39;zh&#39;, // 默认语言标识
+  messages: {
+    &#39;ja&#39;: require(&#39;@/l18n/lang/ja&#39;), // 语言文件目录地址
+    &#39;zh&#39;: require(&#39;@/l18n/lang/zh&#39;)  // 语言文件目录地址
+  }
+})
+
+// 在 new 中新增i18n
+new Vue({
+  el: &#39;#app&#39;,
+  ...
+  i18n
+})
+</code></pre>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在语言文件中的变量都是<code>$t(&#39;键名&#39;)</code>，接下来就可以在组件中使用了。</p>
+<p><strong>直接使用</strong></p>
+<pre><code class="HTML">&lt;!--.vue--&gt;
+&lt;p&gt;{{ $t("message.title") }}&lt;/p&gt;
+
+&lt;!--经过编译后就会变成--&gt;
+&lt;p&gt;你好！世界&lt;/p&gt;
+</code></pre>
+<p>比如需要绑定某些属性</p>
+<pre><code class="HTML">&lt;input type=&quot;text&quot; :placeholder=&quot;$t(&#39;message.title&#39;)&quot;&gt;
+
+&lt;!--经过编译后就会变成--&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;你好!世界&quot;&gt;
+</code></pre>
+<p><strong>变量使用</strong></p>
+<p>我们可以看到 <code>message.hello</code> 的值里面有个花括号 <code>{msg}</code>,这里便是传入变量的地方</p>
+<pre><code class="HTML">&lt;p&gt;{{ $t("message.hello", { msg: '绪锋' }) }}&lt;/p&gt;
+
+&lt;!--经过编译后就会变成--&gt;
+&lt;p&gt;绪锋的世界&lt;/p&gt;
+</code></pre>
+<p>还有一些其他的属性和方法，可以自己去官网查看，这就算一个简单的入门吧。</p>
+<h2 id="更换语言选项"><a href="#更换语言选项" class="headerlink" title="更换语言选项"></a>更换语言选项</h2><blockquote>
+<p>每个组件都包含一个引用为 <code>$i18n</code> 属性的 VueI18n 实例，该实例也可用于更改语言环境.</p>
+</blockquote>
+<p>每个组件都包含有一个 <code>$i18n.locale</code> 的属性，我们只需要更改这个属性的值，就达到了更换语言选项的目的。</p>
+<pre><code class="HTML">// template
+&lt;button @click=&quot;selectLang()&quot;&gt;中文/日文&lt;/button&gt;
+</code></pre>
+<pre><code class="JavaScript">// script
+selectLang () {
+  this.$i18n.locale = this.$i18n.locale === &#39;zh&#39; ? &#39;ja&#39; : &#39;zh&#39;
+}
+</code></pre>
+<p>至此，一个简单的国际化就算完成了。</p>
+<p>![l18n-lang](—<br>title: Vue 多语言切换<br>date: 2019-12-11 09:53:35<br>tags:</p>
+<ul>
+<li>vue<br>categories:</li>
+<li>Vue</li>
+</ul>
+<hr>
+<blockquote>
+<p>Vue I18n 是 Vue.js 的国际化插件。它可以轻松地将一些本地化功能集成到你的 Vue.js 应用程序中。</p>
+</blockquote>
+<h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><p>我使用的是 npm 安装</p>
+<pre><code class="shell">npm install vue-i18n
+</code></pre>
+<p>然后在 <code>main.js</code> 中引入 vue-i18n</p>
+<pre><code class="javaScript">// main.js
+import Vue from &#39;vue&#39;
+import VueI18n from &#39;vue-i18n&#39;
+
+Vue.use(VueI18n)
+</code></pre>
+<h2 id="新建语言文件-1"><a href="#新建语言文件-1" class="headerlink" title="新建语言文件"></a>新建语言文件</h2><p>新建一个文件夹 <code>l18n</code>（文件夹名字随意），用于存放语言文件。在文件夹中新建 <code>zh.js</code> 和 <code>ja.js</code> 文件。分别用于存放中文和日文的语言文件。</p>
+<pre><code class="javaScript">// zh.js
+module.exports = {
+  message: {
+    title: &#39;你好! 世界&#39;,
+    hello: &#39;{msg}的世界&#39;,
+    helloT: &#39;你好!{0}&#39;,
+    helloH: &#39;你好! &lt;br&gt; 世界&#39;
+  },
+  placeholder: {
+    enter: &#39;你想对世界说的话&#39;
+  },
+  meal: {
+    breakfast: &#39;早餐&#39;,
+    lunch: &#39;中餐&#39;,
+    dinner: &#39;晚餐&#39;,
+    supper: &#39;夜宵&#39;
+  }
+}
+
+</code></pre>
+<pre><code class="javaScript">// ja.js
+// 注意：一定是 exports，不是 export，否则会报错，报错信息是下列的中的内容不是 string
+module.exports = {
+  message: {
+    title: &#39;ハロー! 世界&#39;,
+    hello: &#39;{msg}の世界&#39;,
+    helloT: &#39;ハロー!{0}&#39;,
+    helloH: &#39;ハロー! &lt;br&gt; 世界&#39;
+  },
+  placeholder: {
+    enter: &#39;世界に言いたいことを入力してください&#39;
+  },
+  meal: {
+    breakfast: &#39;朝食&#39;,
+    lunch: &#39;ランチ&#39;,
+    dinner: &#39;ディナー&#39;,
+    supper: &#39;ナイトナイト&#39;
+  }
+}
+
+</code></pre>
+<h2 id="引用语言文件-1"><a href="#引用语言文件-1" class="headerlink" title="引用语言文件"></a>引用语言文件</h2><p>设置完语言文件后，在 <code>mian.js</code> 中进行引用</p>
+<pre><code class="javaScript">const i18n = new VueI18n({
+  locale: &#39;zh&#39;, // 默认语言标识
+  messages: {
+    &#39;ja&#39;: require(&#39;@/l18n/lang/ja&#39;), // 语言文件目录地址
+    &#39;zh&#39;: require(&#39;@/l18n/lang/zh&#39;)  // 语言文件目录地址
+  }
+})
+
+// 在 new 中新增i18n
+new Vue({
+  el: &#39;#app&#39;,
+  ...
+  i18n
+})
+</code></pre>
+<h2 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h2><p>在语言文件中的变量都是<code>$t(&#39;键名&#39;)</code>，接下来就可以在组件中使用了。</p>
+<p><strong>直接使用</strong></p>
+<pre><code class="HTML">&lt;!--.vue--&gt;
+&lt;p&gt;{{ $t("message.title") }}&lt;/p&gt;
+
+&lt;!--经过编译后就会变成--&gt;
+&lt;p&gt;你好！世界&lt;/p&gt;
+</code></pre>
+<p>比如需要绑定某些属性</p>
+<pre><code class="HTML">&lt;input type=&quot;text&quot; :placeholder=&quot;$t(&#39;message.title&#39;)&quot;&gt;
+
+&lt;!--经过编译后就会变成--&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;你好!世界&quot;&gt;
+</code></pre>
+<p><strong>变量使用</strong></p>
+<p>我们可以看到 <code>message.hello</code> 的值里面有个花括号 <code>{msg}</code>,这里便是传入变量的地方</p>
+<pre><code class="HTML">&lt;p&gt;{{ $t("message.hello", { msg: '绪锋' }) }}&lt;/p&gt;
+
+&lt;!--经过编译后就会变成--&gt;
+&lt;p&gt;绪锋的世界&lt;/p&gt;
+</code></pre>
+<p>还有一些其他的属性和方法，可以自己去官网查看，这就算一个简单的入门吧。</p>
+<h2 id="更换语言选项-1"><a href="#更换语言选项-1" class="headerlink" title="更换语言选项"></a>更换语言选项</h2><blockquote>
+<p>每个组件都包含一个引用为 <code>$i18n</code> 属性的 VueI18n 实例，该实例也可用于更改语言环境.</p>
+</blockquote>
+<p>每个组件都包含有一个 <code>$i18n.locale</code> 的属性，我们只需要更改这个属性的值，就达到了更换语言选项的目的。</p>
+<pre><code class="HTML">// template
+&lt;button @click=&quot;selectLang()&quot;&gt;中文/日文&lt;/button&gt;
+</code></pre>
+<pre><code class="JavaScript">// script
+selectLang () {
+  this.$i18n.locale = this.$i18n.locale === &#39;zh&#39; ? &#39;ja&#39; : &#39;zh&#39;
+}
+</code></pre>
+<p>至此，一个简单的国际化就算完成了。</p>
+<p><img src="http://images.leegeing.cn/hexoImg/l18n-lang.gif" alt="l18n-lang"></p>
+<p><a href="https://github.com/mraing/vue-set/tree/master/vue-l18n" target="_blank" rel="noopener">项目源代码见 Github</a></p>
+
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/12/10/Vue-本地存储/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="Vue 本地存储">
+                
+                <h1>Vue 本地存储</h1>
             </div>
         </a>
         <div class="nexmoe-post-meta">
@@ -467,35 +714,6 @@
         </article>
     </div>
     
-    <div class="nexmoe-post">
-        <a href="/2019/07/10/Vuex的简单使用/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                <img src="http://images.leegeing.cn/ikons4-original.png" alt="Vuex的简单使用">
-                
-                <h1>Vuex的简单使用</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年07月10日</a>
-            <a><i class="nexmoefont icon-areachart"></i>480 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue/">Vue</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/Vuex/">Vuex</a>
-            
-        </div>
-        <article>
-            
-            <blockquote>
-<p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
-</blockquote>
-            
-        </article>
-    </div>
-    
 </section>
 
     <nav class="nexmoe-page-nav">
@@ -517,7 +735,7 @@
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1575954141796"></script>
+<script src="/js/app.js?v=1576044246288"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
