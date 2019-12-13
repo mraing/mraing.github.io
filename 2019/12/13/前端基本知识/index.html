@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
   
-  <title>TypeScriptd 数组和字符串的引用类型 - 绪锋</title>
+  <title>前端基本知识 - 绪锋</title>
   <meta charset="UTF-8">
   <meta name="description" content="小镇青年,心怀远方">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,18 +14,18 @@
     <meta name="baidu-site-verification" content="cXpXJOvmtY">
 
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <meta name="description" content="字面量赋值法和构造函数赋值法">
-<meta name="keywords" content="typescript">
+  <meta name="description" content="虽然有些东西每天用到，但是并不意味着真的记住了，经常的就是知道有那么个东西存在，然后去百度，谷歌。有人说，写程序不就是 CV大法么？我觉得如果能熟记于心的话，对自己也是一种提升。">
+<meta name="keywords" content="知识点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TypeScriptd 数组和字符串的引用类型">
-<meta property="og:url" content="https://mraing.github.io/2019/09/17/TypeScript-数组和字符串的引用类型/index.html">
+<meta property="og:title" content="前端基本知识">
+<meta property="og:url" content="https://mraing.github.io/2019/12/13/前端基本知识/index.html">
 <meta property="og:site_name" content="绪锋">
-<meta property="og:description" content="字面量赋值法和构造函数赋值法">
+<meta property="og:description" content="虽然有些东西每天用到，但是并不意味着真的记住了，经常的就是知道有那么个东西存在，然后去百度，谷歌。有人说，写程序不就是 CV大法么？我觉得如果能熟记于心的话，对自己也是一种提升。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-17T15:12:35.596Z">
+<meta property="og:updated_time" content="2019-12-13T07:43:58.637Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TypeScriptd 数组和字符串的引用类型">
-<meta name="twitter:description" content="字面量赋值法和构造函数赋值法">
+<meta name="twitter:title" content="前端基本知识">
+<meta name="twitter:description" content="虽然有些东西每天用到，但是并不意味着真的记住了，经常的就是知道有那么个东西存在，然后去百度，谷歌。有人说，写程序不就是 CV大法么？我觉得如果能熟记于心的话，对自己也是一种提升。">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -33,7 +33,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1576223057750">
+  <link rel="stylesheet" href="/css/style.css?v=1576223057666">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -204,44 +204,217 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-        <img src="http://images.leegeing.cn/ikonTypeScript.png">
+            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
         
-        <h1>TypeScriptd 数组和字符串的引用类型</h1>
+        <h1>前端基本知识</h1>
     </div>
   <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月17日</a>
-    <a><i class="nexmoefont icon-areachart"></i>194 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月13日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.1k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 5 分钟</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/TypeScript/">TypeScript</a>
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
     
     
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/typescript/">typescript</a>
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/知识点/">知识点</a>
     
   </div>
   <article>
     <blockquote>
-<p>字面量赋值法和构造函数赋值法</p>
+<p>虽然有些东西每天用到，但是并不意味着真的记住了，经常的就是知道有那么个东西存在，然后去百度，谷歌。有人说，写程序不就是 CV大法么？我觉得如果能熟记于心的话，对自己也是一种提升。</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="引用类型-数组"><a href="#引用类型-数组" class="headerlink" title="引用类型-数组"></a>引用类型-数组</h1><h3 id="字面量赋值法"><a href="#字面量赋值法" class="headerlink" title="字面量赋值法"></a>字面量赋值法</h3><pre><code class="JavaScript">let arr:number[] = []
-let arr:number[] = [1,2,3,4,5]
-
-let arr:Array&lt;string&gt; = [&#39;苟&#39;,&#39;利&#39;,&#39;国&#39;,&#39;家&#39;,&#39;生&#39;,&#39;死&#39;,&#39;以&#39;]
-let arr:Array&lt;boolean&gt; = [true, false, true]
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h4 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h4><p>盒模型: 由 content , padding ,border , margin 组成。但是 mraing 只是盒子占据的位置，而不组成盒子的大小。</p>
+<p>盒模型有两种方式：</p>
+<ul>
+<li><p>标准盒模型: 由 content 组成。</p>
+</li>
+<li><p>IE盒模型: 由 content + padding + border 组成。</p>
+</li>
+</ul>
+<h4 id="CSS3的新特性"><a href="#CSS3的新特性" class="headerlink" title="CSS3的新特性"></a>CSS3的新特性</h4><ul>
+<li>选择器:</li>
+</ul>
+<pre><code class="CSS">element1~element2: 选择前面有element1元素的每个element2元素。
+[attribute^=value]: 选择某元素attribute属性是以value开头的。
+[attribute$=value]: 选择某元素attribute属性是以value结尾的。
+[attribute*=value]: 选择某元素attribute属性包含value字符串的。
+E:first-of-type: 选择属于其父元素的首个E元素的每个E元素。
+E:last-of-type: 选择属于其父元素的最后E元素的每个E元素。
+E:only-of-type: 选择属于其父元素唯一的E元素的每个E元素。
+E:only-child: 选择属于其父元素的唯一子元素的每个E元素。
+E:nth-child(n): 选择属于其父元素的第n个子元素的每个E元素。
+E:nth-last-child(n): 选择属于其父元素的倒数第n个子元素的每个E元素。
+E:nth-of-type(n): 选择属于其父元素第n个E元素的每个E元素。
+E:nth-last-of-type(n): 选择属于其父元素倒数第n个E元素的每个E元素。
+E:last-child: 选择属于其父元素最后一个子元素每个E元素。
+:root: 选择文档的根元素。
+E:empty: 选择没有子元素的每个E元素（包括文本节点)。
+E:target: 选择当前活动的E元素。
+E:enabled: 选择每个启用的E元素。
+E:disabled: 选择每个禁用的E元素。
+E:checked: 选择每个被选中的E元素。
+E:not(selector): 选择非selector元素的每个元素。
+E::selection: 选择被用户选取的元素部分。
 </code></pre>
-<h3 id="构造函数赋值法"><a href="#构造函数赋值法" class="headerlink" title="构造函数赋值法"></a>构造函数赋值法</h3><pre><code class="JavaScript">let arr5:number[] = new Array()
-let arr6:number[] = new Array(1,2,3,4,5)
+<ul>
+<li>动画</li>
+</ul>
+<pre><code class="CSS">Transition: 动画过渡效果。
 
-let arr7:Array&lt;string&gt; = new Array(&#39;苟&#39;,&#39;利&#39;,&#39;国&#39;,&#39;家&#39;,&#39;生&#39;,&#39;死&#39;,&#39;以&#39;)
-let arr8:Array&lt;boolean&gt; = new Array(true, false, true)
+Transform:应用各种2D和3D转换，该属性允许我们对元素进行旋转、缩放、移动或倾斜等操作。
+
+Animation: 制作动画的功能。
 </code></pre>
-<h1 id="引用类型-字符串"><a href="#引用类型-字符串" class="headerlink" title="引用类型-字符串"></a>引用类型-字符串</h1><p>和数组一样，有两种方式去赋值，字面量赋值法和构造函数赋值法。</p>
-<pre><code class="JavaScript">// 字面量赋值
-let name:string = &#39;LeeGeing&#39;
+<ul>
+<li>文字效果</li>
+</ul>
+<pre><code class="CSS">word-wrap: 是否换行
 
-// 构造函数赋值
-let name:string = new String(&#39;LeeGeing&#39;)
+text-overflow: 超过边界时是否显示
+
+text-shadow: 文字投影
+
+text-decoration: 文字渲染
+text-fill-color: 设置文字内部填充颜色
+text-stroke-color: 设置文字边界填充颜色
+text-stroke-width: 设置文字边界宽度
+</code></pre>
+<ul>
+<li>渐变</li>
+</ul>
+<pre><code class="CSS">linear-gradient: 线性渐变
+
+radial-gradient: 径向渐变
+</code></pre>
+<ul>
+<li>尺寸</li>
+</ul>
+<pre><code class="CSS">resize: 是否可由用户调整元素尺寸
+// 如果希望此属性生效，需要设置元素的 overflow 属性，值可以是 auto、hidden 或 scroll。
+</code></pre>
+<ul>
+<li>盒模型</li>
+</ul>
+<pre><code class="CSS">// 标准盒模型
+box-sizing:content-box;
+
+// IE盒模型
+box-sizing: border-box;
+</code></pre>
+<h4 id="CSS选择器及其优先级"><a href="#CSS选择器及其优先级" class="headerlink" title="CSS选择器及其优先级"></a>CSS选择器及其优先级</h4><p>从上之下依次是：</p>
+<ul>
+<li><p>!important 优先级爆表</p>
+</li>
+<li><p>内联样式 style=””</p>
+</li>
+<li><p>id 选择器 #id</p>
+</li>
+<li><p>类选择器 .class / 属性选择器 .class[href=””] / 伪类选择器 ::after</p>
+</li>
+<li><p>元素选择器 div / 关系选择器 div+span  / 伪元素选择器</p>
+</li>
+<li><p>通配符选择器 *</p>
+</li>
+</ul>
+<h4 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h4><blockquote>
+<p>BFC (block formatting context): 格式化上下文，是盒模型布局的 CSS 渲染模式，指一个独立的渲染区域或者说是一个隔离的独立容器。</p>
+</blockquote>
+<h5 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h5><ul>
+<li><p>防止 margin 重叠</p>
+</li>
+<li><p>清楚内部浮动</p>
+</li>
+<li><p>自适应多栏布局</p>
+</li>
+<li><p>防止字体环绕</p>
+</li>
+</ul>
+<h5 id="触发条件"><a href="#触发条件" class="headerlink" title="触发条件"></a>触发条件</h5><ul>
+<li><p>根元素</p>
+</li>
+<li><p>float的值不为 none</p>
+</li>
+<li><p>overflow 的值不为 visible</p>
+</li>
+<li><p>display 的值为 inline-block,table-cell, table-caption</p>
+</li>
+<li><p>position 的值为 absolute, fixed</p>
+</li>
+</ul>
+<h5 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h5><ul>
+<li><p>内部的 Box 是紧邻的垂直摆放的</p>
+</li>
+<li><p>垂直方向上的距离由 margin 决定</p>
+</li>
+<li><p>BFC 的区域不会与 float 的元素区域重叠</p>
+</li>
+<li><p>计算 BFC 的高度时，浮动元素也参与计算</p>
+</li>
+<li><p>BFC 就是页面上的一个独立容器，容器里面的子元素不会影响外面元素</p>
+</li>
+</ul>
+<h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><pre><code class="CSS">// 行内元素
+text-align: center;
+</code></pre>
+<pre><code class="CSS">// 块级元素
+margin: 0 auto;
+</code></pre>
+<pre><code class="CSS">// flex布局
+display: flex; 
+justify-content: center;
+</code></pre>
+<pre><code class="CSS">// 绝对定位定宽
+position: absolute; 
+width: 宽度; 
+left:50%; 
+margin-left: -0.5*宽度
+</code></pre>
+<pre><code class="CSS">// 绝对定位不定宽
+position: absolute;
+left: 50%;
+transform: translate(-50%, 0);
+</code></pre>
+<pre><code class="CSS">// left,right: 0
+position: absolute;
+width: 宽度;
+left: 0;
+right: 0;
+margin: 0 auto;
+</code></pre>
+<h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><pre><code class="CSS">// 行内元素
+height: 高度; 
+line-height: 高度;
+</code></pre>
+<pre><code class="CSSS">// table
+.parent {
+  display: table;
+}
+.son {
+  display: table-cell;
+  vertical-align: middle;
+}
+</code></pre>
+<pre><code class="CSS">// flex
+display: flex;
+align-items: center;
+</code></pre>
+<pre><code class="CSS">// 绝对定位
+position: absolute;
+top: 50%;
+height: 高度;
+margin-top: -0.5高度;
+</code></pre>
+<pre><code class="CSS">// 绝对定位不定高
+position: absolute;
+top: 50%;
+transform: translate( 0, -50%);
+</code></pre>
+<pre><code class="CSS">// top,bottom: 0
+position: absolute;
+top: 0;
+bottom: 0;
+margin: auto 0;
 </code></pre>
 
   </article>
@@ -254,8 +427,8 @@ let name:string = new String(&#39;LeeGeing&#39;)
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://mraing.github.io/2019/09/17/TypeScript-数组和字符串的引用类型/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://mraing.github.io/2019/09/17/TypeScript-数组和字符串的引用类型/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://mraing.github.io/2019/12/13/前端基本知识/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://mraing.github.io/2019/12/13/前端基本知识/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 <script id="disqus-thread-script">
@@ -285,7 +458,7 @@ let name:string = new String(&#39;LeeGeing&#39;)
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1576223057762"></script>
+<script src="/js/app.js?v=1576223057675"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
