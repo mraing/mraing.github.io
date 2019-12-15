@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
   
-  <title>在React中安装Ant Design组件库 - 绪锋</title>
+  <title>vue 响应式系统基本原理 - 绪锋</title>
   <meta charset="UTF-8">
   <meta name="description" content="小镇青年,心怀远方">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,18 +14,18 @@
     <meta name="baidu-site-verification" content="cXpXJOvmtY">
 
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <meta name="description" content="Ant Design of React 其中包含一组高质量的组件和演示，用于构建丰富的交互式用户界面。">
-<meta name="keywords" content="antd">
+  <meta name="description" content="Vue.js 是一款 MVVM 框架，数据模型仅仅是普通的 JavaScript 对象，但是对这些对象进行操作时，却能影响对应视图，它的核心实现就是「响应式系统」。">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在React中安装Ant Design组件库">
-<meta property="og:url" content="https://mraing.github.io/2019/08/13/React 安装 antd 组件库/index.html">
+<meta property="og:title" content="vue 响应式系统基本原理">
+<meta property="og:url" content="https://mraing.github.io/2019/12/15/vue-响应式系统基本原理/index.html">
 <meta property="og:site_name" content="绪锋">
-<meta property="og:description" content="Ant Design of React 其中包含一组高质量的组件和演示，用于构建丰富的交互式用户界面。">
+<meta property="og:description" content="Vue.js 是一款 MVVM 框架，数据模型仅仅是普通的 JavaScript 对象，但是对这些对象进行操作时，却能影响对应视图，它的核心实现就是「响应式系统」。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T16:03:01.451Z">
+<meta property="og:updated_time" content="2019-12-15T14:45:43.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在React中安装Ant Design组件库">
-<meta name="twitter:description" content="Ant Design of React 其中包含一组高质量的组件和演示，用于构建丰富的交互式用户界面。">
+<meta name="twitter:title" content="vue 响应式系统基本原理">
+<meta name="twitter:description" content="Vue.js 是一款 MVVM 框架，数据模型仅仅是普通的 JavaScript 对象，但是对这些对象进行操作时，却能影响对应视图，它的核心实现就是「响应式系统」。">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -33,7 +33,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1576421186073">
+  <link rel="stylesheet" href="/css/style.css?v=1576421187160">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -204,69 +204,131 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-        <img src="http://images.leegeing.cn/ikons143-original.png">
+            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
         
-        <h1>在React中安装Ant Design组件库</h1>
+        <h1>vue 响应式系统基本原理</h1>
     </div>
   <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月13日</a>
-    <a><i class="nexmoefont icon-areachart"></i>320 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月15日</a>
+    <a><i class="nexmoefont icon-areachart"></i>661 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/React/">React</a>
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue/">Vue</a>
     
     
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/antd/">antd</a>
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/vue/">vue</a>
     
   </div>
   <article>
     <blockquote>
-<p><code>Ant Design of React</code> 其中包含一组高质量的组件和演示，用于构建丰富的交互式用户界面。</p>
+<p>Vue.js 是一款 MVVM 框架，数据模型仅仅是普通的 JavaScript 对象，但是对这些对象进行操作时，却能影响对应视图，它的核心实现就是「响应式系统」。</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="安装-Yarn"><a href="#安装-Yarn" class="headerlink" title="安装 Yarn"></a>安装 Yarn</h3><p>根据操作系统选择不同的安装方式，我这里以 macOS 为例。</p>
-<pre><code class="JS">brew install yarn
-</code></pre>
-<p>安装完成之后可以查看 Yarn 的版本号，是否安装成功</p>
-<pre><code class="JS">yarn --version
-</code></pre>
-<p>若是出现版本号，那就代表安装成功了。</p>
-<h3 id="安装-create-react-app"><a href="#安装-create-react-app" class="headerlink" title="安装 create-react-app"></a>安装 create-react-app</h3><pre><code class="JS">yarn create react-app antd-demo
-cd antd-demo
-yarn start
-</code></pre>
-<p>此时浏览器会访问 <a href="http://localhost:3000/" target="_blank" rel="noopener">http://localhost:3000/</a> ，看到 Welcome to React 的界面就算成功了。</p>
-<h3 id="引入-antd-组件库"><a href="#引入-antd-组件库" class="headerlink" title="引入 antd 组件库"></a>引入 antd 组件库</h3><pre><code class="JS">yarn add antd
-</code></pre>
-<h3 id="按需引入"><a href="#按需引入" class="headerlink" title="按需引入"></a>按需引入</h3><ul>
-<li>安装 <code>react-app-rewired</code> <code>customize-cra</code> <code>babel-plugin-import</code></li>
-</ul>
-<p>此时我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 react-app-rewired，由于新的 <a href="mailto:react-app-rewired@2.x" target="_blank" rel="noopener">react-app-rewired@2.x</a> 版本的关系，你还需要安装 customize-cra</p>
-<pre><code class="JS">yarn add react-app-rewired customize-cra babel-plugin-import
-</code></pre>
+<p>Vue 中的响应式系统，说白了就是<code>数据劫持</code>， 利用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener">Object.defineProperty</a> 方法进行数据的重新绑定和监听。</p>
+<h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty()"></a>Object.defineProperty()</h3><p>我觉得先要从认识这个函数开始，何为<code>Object.defineProperty()</code> ? 这个方法它会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。</p>
+<p>它有三个参数</p>
 <ul>
-<li>修改 <code>package.json</code> 配置</li>
+<li><p>obj: 要在其上定义的属性的对象，说白了就是你要操作对象</p>
+</li>
+<li><p>prop: 对象上的你需要修改的属性名称。</p>
+</li>
+<li><p>descriptor: 将被定义或修改的属性描述符。</p>
+</li>
 </ul>
-<pre><code class="JS">/* package.json */
-&quot;scripts&quot;: {
-  &quot;start&quot;: &quot;react-app-rewired start&quot;,
-  &quot;build&quot;: &quot;react-app-rewired build&quot;,
-  &quot;test&quot;: &quot;react-app-rewired test&quot;
+<pre><code class="JavaScript">let obj = {}
+obj.singer = &#39;周杰伦&#39;
+
+// obj: 目标对象
+// prop: 需要操作的目标对象的属性名
+// descriptor: 描述符
+Object.defineProperty(obj, &#39;music&#39;, {
+  // value: &#39;刘德华&#39;,
+  // writable : false,
+  configurable: true,  // 可以配置对象，删除属性
+  enumerable: true,     // 是否可以枚举
+  // get,set设置时不能设置writable和value，它们代替了二者且是互斥的
+
+  get () {
+    return &#39;青花瓷&#39;
+  },
+  set (val) {
+    console.log(&#39;视图更新&#39;);
+  }
+})
+</code></pre>
+<p>运行后，到浏览器的控制台中输入</p>
+<pre><code class="JavaScript">obj
+/* 打印
+music: &quot;青花瓷&quot;
+singer: &quot;周杰伦&quot;
+get music: ƒ ()
+set music: ƒ (val)
+__proto__: Object
+*/
+</code></pre>
+<p>当我们尝试更改数据,可以看到调用到了 set() 方法.</p>
+<pre><code class="JavaScript">obj.music = &#39;稻香&#39;
+/*
+视图更新
+&quot;稻香&quot;
+*/
+</code></pre>
+<p>热身结束。我们开始下个阶段。</p>
+<h3 id="响应式系统"><a href="#响应式系统" class="headerlink" title="响应式系统"></a>响应式系统</h3><blockquote>
+<p>思路： -&gt; 获取数据 -&gt; 劫持数据 -&gt; 绑定监听方法</p>
+</blockquote>
+<pre><code class="JavaScript">// 调用它即代表更新视图
+function cb(val) {
+  console.log(&#39;视图更新了&#39;);
+}
+
+// 我们的 obj 的 key 属性在「读」的时候会触发 reactiveGetter 方法，
+// 而在该属性被「写」的时候则会触发 reactiveSetter 方法。
+function defineReactive(obj, key, val) {
+  Object.defineProperty(obj, key, {
+    enumerable: true,       /* 属性可枚举 */
+    configurable: true,     /* 属性可被修改或删除 */
+    get: function reactiveGetter() {
+      return val;         /* 实际上会依赖收集 */
+    },
+    set: function reactiveSetter(newVal) {
+      if (newVal === val) {
+        return
+      };
+      cb(newVal);
+    }
+  })
 }
 </code></pre>
-<ul>
-<li>创建 <code>config-overrides.js</code> 文件</li>
-</ul>
-<pre><code class="JS">const { override, fixBabelImports } = require(&#39;customize-cra&#39;)
-module.exports = override(
-  fixBabelImports(&#39;import&#39;, {
-    libraryName: &#39;antd&#39;,
-    libraryDirectory: &#39;es&#39;,
-    style: &#39;css&#39;,
-  }),
-)
+<pre><code class="JavaScript">/*
+函数传入一个 value（需要「响应式」化的对象）,
+通过遍历所有属性的方式对该对象的每一个属性都通过 defineReactive 处理。
+*/
+function observer(value) {
+  // 当 val 为空的时候或者 val 不等于一个对象的时候，结束这次操作
+  if (!value || typeof value !== &#39;object&#39;) {
+    return
+  }
+  Object.keys(value).forEach((key) =&gt; {
+    defineReactive(value, key, value[key]);
+  })
+}
 </code></pre>
-<p>最后重启 yarn start 访问页面，antd 组件的 js 和 css 代码都会按需加载</p>
+<pre><code class="JavaScript">&lt;!--模拟数据--&gt;
+constructor(options) {
+    this._data = options.data;
+    observer(this._data);
+}
+</code></pre>
+<p>最后在页面中调用</p>
+<pre><code class="JavaScript">let o = new Vue({
+  data: {
+    name: &#39;Hello Word&#39;,
+    age: &#39;18&#39;,
+    hobby: &#39;PC Game&#39;
+  }
+})
+</code></pre>
 
   </article>
   
@@ -278,8 +340,8 @@ module.exports = override(
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://mraing.github.io/2019/08/13/React 安装 antd 组件库/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://mraing.github.io/2019/08/13/React 安装 antd 组件库/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://mraing.github.io/2019/12/15/vue-响应式系统基本原理/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://mraing.github.io/2019/12/15/vue-响应式系统基本原理/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 <script id="disqus-thread-script">
@@ -309,7 +371,7 @@ module.exports = override(
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1576421186082"></script>
+<script src="/js/app.js?v=1576421187169"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
