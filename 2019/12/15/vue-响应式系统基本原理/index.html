@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="绪锋">
 <meta property="og:description" content="Vue.js 是一款 MVVM 框架，数据模型仅仅是普通的 JavaScript 对象，但是对这些对象进行操作时，却能影响对应视图，它的核心实现就是「响应式系统」。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-15T14:45:43.812Z">
+<meta property="og:updated_time" content="2019-12-16T01:55:39.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue 响应式系统基本原理">
 <meta name="twitter:description" content="Vue.js 是一款 MVVM 框架，数据模型仅仅是普通的 JavaScript 对象，但是对这些对象进行操作时，却能影响对应视图，它的核心实现就是「响应式系统」。">
@@ -33,7 +33,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1576421187160">
+  <link rel="stylesheet" href="/css/style.css?v=1576491222618">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -57,7 +57,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>65</div>
+        <div><span>文章</span>66</div>
         <div><span>标签</span>26</div>
         <div><span>分类</span>7</div>
     </div>
@@ -128,7 +128,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/Vue/">Vue</a>
-          <span class="category-list-count">25</span>
+          <span class="category-list-count">26</span>
         </li>
 
         
@@ -210,7 +210,7 @@
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月15日</a>
-    <a><i class="nexmoefont icon-areachart"></i>661 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>825 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
     
       <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue/">Vue</a>
@@ -224,7 +224,9 @@
 <p>Vue.js 是一款 MVVM 框架，数据模型仅仅是普通的 JavaScript 对象，但是对这些对象进行操作时，却能影响对应视图，它的核心实现就是「响应式系统」。</p>
 </blockquote>
 <a id="more"></a>
-<p>Vue 中的响应式系统，说白了就是<code>数据劫持</code>， 利用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener">Object.defineProperty</a> 方法进行数据的重新绑定和监听。</p>
+<p>在 Vue 中，数据模型下的所有属性，会被 Vue 使用<code>Object.defineProperty</code>（Vue3.0 使用 Proxy）进行数据劫持代理。</p>
+<p>响应式的核心机制是<strong>观察者模式</strong>，数据是被观察的一方，一旦发生变化，通知所有观察者，这样观察者可以做出响应，比如当观察者为视图时，视图可以做出视图的更新。</p>
+<p>Vue.js 的响应式系统以来三个重要的概念，<code>Observer</code>、<code>Dep</code>、<code>Watcher</code>.</p>
 <h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty()"></a>Object.defineProperty()</h3><p>我觉得先要从认识这个函数开始，何为<code>Object.defineProperty()</code> ? 这个方法它会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。</p>
 <p>它有三个参数</p>
 <ul>
@@ -235,6 +237,7 @@
 <li><p>descriptor: 将被定义或修改的属性描述符。</p>
 </li>
 </ul>
+<p>例子：</p>
 <pre><code class="JavaScript">let obj = {}
 obj.singer = &#39;周杰伦&#39;
 
@@ -300,6 +303,7 @@ function defineReactive(obj, key, val) {
   })
 }
 </code></pre>
+<p><strong>Observe</strong> 扮演的角色是发布者，他的主要作用是在组件初始化的时，调用<code>defineReactive</code>函数，使用<code>Object.defineProperty</code>方法对对象的每一个子属性进行数据劫持/监听，即为每个属性添加<code>getter和setter</code>，将对应的属性值变成响应式。</p>
 <pre><code class="JavaScript">/*
 函数传入一个 value（需要「响应式」化的对象）,
 通过遍历所有属性的方式对该对象的每一个属性都通过 defineReactive 处理。
@@ -371,7 +375,7 @@ constructor(options) {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1576421187169"></script>
+<script src="/js/app.js?v=1576491222628"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

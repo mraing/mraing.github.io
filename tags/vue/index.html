@@ -32,7 +32,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1576421186850">
+  <link rel="stylesheet" href="/css/style.css?v=1576491223702">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -56,7 +56,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>65</div>
+        <div><span>文章</span>66</div>
         <div><span>标签</span>26</div>
         <div><span>分类</span>7</div>
     </div>
@@ -127,7 +127,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/Vue/">Vue</a>
-          <span class="category-list-count">25</span>
+          <span class="category-list-count">26</span>
         </li>
 
         
@@ -203,6 +203,56 @@
         <section class="nexmoe-posts" id="brand-waterfall">
     
     <div class="nexmoe-post">
+        <a href="/2019/12/16/Vue-检测数组变化/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="Vue 检测数组变化">
+                
+                <h1>Vue 检测数组变化</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月16日</a>
+            <a><i class="nexmoefont icon-areachart"></i>134 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue/">Vue</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -link" href="/tags/vue/">vue</a>
+            
+        </div>
+        <article>
+            
+            <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>在Array.prototype上挂载的方法并不能触发该属性的 setter，所以 <code>observe</code>并不能监听到数组的变化。</p>
+<pre><code class="JavaScript">// 当你使用索引直接设置一项时，例如 
+vm.items[indexOfItem] = newValue
+
+// 当你修改数组长度时，例如 
+vm.items.length = newLength
+</code></pre>
+<h3 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h3><ul>
+<li>当你使用索引直接设置一项时</li>
+</ul>
+<pre><code class="JavaScript">// Vue.set
+Vue.set(vm.items, indexOfItem, newValue)
+// vm.$set，Vue.set的一个别名
+vm.$set(vm.items, indexOfItem, newValue)
+// Array.prototype.splice
+vm.items.splice(indexOfItem, 1, newValue)
+</code></pre>
+<ul>
+<li>当你修改数组长度时</li>
+</ul>
+<pre><code class="JavaScript">// Array.prototype.splice
+vm.items.splice(newLength)
+</code></pre>
+
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
         <a href="/2019/12/15/vue-响应式系统基本原理/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
@@ -213,7 +263,7 @@
         </a>
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月15日</a>
-            <a><i class="nexmoefont icon-areachart"></i>661 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>825 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
             
                 <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue/">Vue</a>
@@ -467,33 +517,6 @@
         </article>
     </div>
     
-    <div class="nexmoe-post">
-        <a href="/2019/06/29/Vue快捷引用目录/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                <img src="http://images.leegeing.cn/ikons63-original.png" alt="Vue快捷引用目录">
-                
-                <h1>Vue快捷引用目录</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年06月29日</a>
-            <a><i class="nexmoefont icon-areachart"></i>260 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue/">Vue</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/vue/">vue</a>
-            
-        </div>
-        <article>
-            
-            <p>Vue 中，有时候需要经常引用到某个文件，每次输入一长串的目录地址，不是很方便。这时我们可以给目录取一个别名，快捷引用目录。</p>
-            
-        </article>
-    </div>
-    
 </section>
 
     <nav class="nexmoe-page-nav">
@@ -515,7 +538,7 @@
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1576421186856"></script>
+<script src="/js/app.js?v=1576491223708"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
