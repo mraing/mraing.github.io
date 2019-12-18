@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[v-model 的本质]]></title>
+    <url>%2F2019%2F12%2F18%2Fv-model-%E5%8E%9F%E7%90%86%2F</url>
+    <content type="text"><![CDATA[v-model 本质上不过是语法糖，v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件。 举个例子&lt;template&gt; &lt;div&gt; &lt;input type=&quot;text&quot; v-model=&quot;msg&quot; placeholder=&quot;请输入&quot;&gt; &lt;p&gt;{{ msg }}&lt;/p&gt; &lt;/div&gt; &lt;/template&gt; &lt;script&gt; export default { data () { return { msg: &#39;Hello&#39; } } } &lt;/script&gt; 当组件 mounted 阶段结束后，输入框中的默认值就是 Hello。 我们可以认为输入框中的 value属性绑定了 data 中的 msg 属性。 当我们尝试修改输入框中的 value，也会发现 P 标签中的 msg，会发生变化。 所以输入框中的 value 属性值也会影响 deta 中的 msg 的值。 这就是v-model的双向绑定，两个相互绑定的值相互影响。 我来试试我们用自己的方式实现一下这个功能 &lt;template&gt; &lt;div&gt; &lt;input type=&quot;text&quot; v-bind:value=&quot;myMsg&quot; v-on:input=&quot;myInput&quot;&gt; &lt;p&gt;{{ myMsg }}&lt;/p&gt; &lt;/div&gt; &lt;/template&gt; &lt;script&gt; export default { data () { return { msg: &#39;Hello&#39; } }, methods: { myInput (e) { this.myMsg = e.target.value } } } &lt;/script&gt; 我们可以看到一样可以实现双向绑定，v-model 的效果。 举一反三从上面的例子中，可以看到，v-model 其实是封装了某种方法，负责监听用户的输入事件以更新数据，并对一些极端场景进行特殊处理，从而达到了双向绑定的效果， v-model 会忽略所有表单元素的 value、checked、selected 特性的初始值而总是将 Vue 实例的数据作为数据来源。 你应该通过 JavaScript 在组件的 data 选项中声明初始值。 v-model 在不同的 HTML 标签上使用会监控不同的属性和抛出不同的事件： text 和 textarea 元素使用 value 属性和 input 事件 checkbox 和 radio 使用 checked 属性和 change 事件 select 字段将 value 作为 prop 并将 change 作为事件]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[似水流年]]></title>
     <url>%2F2019%2F12%2F17%2F%E4%BC%BC%E6%B0%B4%E6%B5%81%E5%B9%B4%2F</url>
     <content type="text"><![CDATA[什么是似水流年？就像一个人中了邪躺在河底眼看潺潺流水，波光粼粼落叶，浮木，空玻璃瓶一样一样地从自己的身上流过去 似水流年似水流年是一个人所有的一切，只有这个东西，才真正归你所有其余的一切，都是片刻的欢愉和不幸 生活中那么多琐碎，无趣的东西凝结成了生命的大半部分如果哪天我要是死了回想一生那些闪现在眼前的是因为有你才变得灿烂无比 我已习惯每天早上从你身边起来，你不再像第一次那样特别因为彼此了解如此透彻，无需多言在我眼里你是空气，相处或许平淡但我离不开你]]></content>

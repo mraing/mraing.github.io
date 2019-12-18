@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
   
-  <title>JS格式化时间戳 - 绪锋</title>
+  <title>v-model 的本质 - 绪锋</title>
   <meta charset="UTF-8">
   <meta name="description" content="小镇青年,心怀远方">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,18 +14,18 @@
     <meta name="baidu-site-verification" content="cXpXJOvmtY">
 
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <meta name="description" content="在项目中经常会遇到后台接口返回来的时间戳，我们需要转换一下才能显示日常使用的时间格式。">
-<meta name="keywords" content="JS">
+  <meta name="description" content="v-model 本质上不过是语法糖，v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件。">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS格式化时间戳">
-<meta property="og:url" content="https://mraing.github.io/2019/04/16/JS格式化时间戳/index.html">
+<meta property="og:title" content="v-model 的本质">
+<meta property="og:url" content="https://mraing.github.io/2019/12/18/v-model-原理/index.html">
 <meta property="og:site_name" content="绪锋">
-<meta property="og:description" content="在项目中经常会遇到后台接口返回来的时间戳，我们需要转换一下才能显示日常使用的时间格式。">
+<meta property="og:description" content="v-model 本质上不过是语法糖，v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T16:05:47.635Z">
+<meta property="og:updated_time" content="2019-12-18T03:40:04.774Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS格式化时间戳">
-<meta name="twitter:description" content="在项目中经常会遇到后台接口返回来的时间戳，我们需要转换一下才能显示日常使用的时间格式。">
+<meta name="twitter:title" content="v-model 的本质">
+<meta name="twitter:description" content="v-model 本质上不过是语法糖，v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件。">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -33,7 +33,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1576640594421">
+  <link rel="stylesheet" href="/css/style.css?v=1576640595307">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -206,57 +206,88 @@
         
             <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
         
-        <h1>JS格式化时间戳</h1>
+        <h1>v-model 的本质</h1>
     </div>
   <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年04月16日</a>
-    <a><i class="nexmoefont icon-areachart"></i>169 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年12月18日</a>
+    <a><i class="nexmoefont icon-areachart"></i>503 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue/">Vue</a>
     
     
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/JS/">JS</a>
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/vue/">vue</a>
     
   </div>
   <article>
     <blockquote>
-<p>在项目中经常会遇到后台接口返回来的时间戳，我们需要转换一下才能显示日常使用的时间格式。</p>
+<p>v-model 本质上不过是语法糖，v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件。</p>
 </blockquote>
 <a id="more"></a>
-<pre><code>//转换时间格式
-function getNowFormatDate(setdate) {
-    var date = new Date(setdate);
-    var seperator1 = &quot;-&quot;;
-    var seperator2 = &quot;:&quot;;
-    var month = date.getMonth() + 1;
-    var strDate = date.getDate();
-    if (month &gt;= 1 &amp;&amp; month &lt;= 9) {
-        month = &quot;0&quot; + month;
-    }
-    if (strDate &gt;= 0 &amp;&amp; strDate &lt;= 9) {
-        strDate = &quot;0&quot; + strDate;
-    }
-    var h = date.getHours();
-    var m = date.getMinutes();
-    var s = date.getSeconds();
-    if (h &gt;= 0 &amp;&amp; h &lt;= 9) {
-        h = &quot;0&quot; + h;
-    }
-    if (m &gt;= 0 &amp;&amp; m &lt;= 9) {
-        m = &quot;0&quot; + m;
-    }
-    if (s &gt;= 0 &amp;&amp; s &lt;= 9) {
-        s = &quot;0&quot; + s;
-    }
+<h3 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h3><pre><code class="JavaScript">&lt;template&gt;
+    &lt;div&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;msg&quot; placeholder=&quot;请输入&quot;&gt;
+        &lt;p&gt;{{ msg }}&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
 
-
-    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
-        &quot; &quot; + h + seperator2 + m;
-
-    return currentdate;
+&lt;script&gt;
+export default {
+    data () {
+        return {
+            msg: &#39;Hello&#39;
+        }
+    }
 }
+&lt;/script&gt;
 </code></pre>
+<p>当组件 mounted 阶段结束后，输入框中的默认值就是 Hello。</p>
+<ul>
+<li>我们可以认为输入框中的 value属性绑定了 data 中的 msg 属性。</li>
+</ul>
+<p>当我们尝试修改输入框中的 value，也会发现 P 标签中的 msg，会发生变化。</p>
+<ul>
+<li>所以输入框中的 value 属性值也会影响 deta 中的 msg 的值。</li>
+</ul>
+<p>这就是v-model的双向绑定，两个相互绑定的值相互影响。</p>
+<h3 id="我来试试"><a href="#我来试试" class="headerlink" title="我来试试"></a>我来试试</h3><p>我们用自己的方式实现一下这个功能</p>
+<pre><code class="JavaScript">&lt;template&gt;
+    &lt;div&gt;
+          &lt;input type=&quot;text&quot; v-bind:value=&quot;myMsg&quot; v-on:input=&quot;myInput&quot;&gt;
+          &lt;p&gt;{{ myMsg }}&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+ &lt;script&gt;
+export default {
+    data () {
+        return {
+            msg: &#39;Hello&#39;
+        }
+    },
+    methods: {
+        myInput (e) {
+          this.myMsg = e.target.value
+        }
+    }
+}
+&lt;/script&gt;
+</code></pre>
+<p>我们可以看到一样可以实现双向绑定，v-model 的效果。</p>
+<h3 id="举一反三"><a href="#举一反三" class="headerlink" title="举一反三"></a>举一反三</h3><p>从上面的例子中，可以看到，v-model 其实是封装了某种方法，负责监听用户的输入事件以更新数据，并对一些极端场景进行特殊处理，从而达到了双向绑定的效果，</p>
+<p>v-model 会忽略所有表单元素的 value、checked、selected 特性的初始值而总是将 Vue 实例的数据作为数据来源。</p>
+<p>你应该通过 JavaScript 在组件的 data 选项中声明初始值。</p>
+<p>v-model 在不同的 HTML 标签上使用会监控不同的属性和抛出不同的事件：</p>
+<ul>
+<li>text 和 textarea 元素使用 <code>value 属性和 input</code> 事件</li>
+</ul>
+<ul>
+<li>checkbox 和 radio 使用 <code>checked 属性和 change</code> 事件</li>
+</ul>
+<ul>
+<li>select 字段将 value 作为 <code>prop 并将 change</code> 作为事件</li>
+</ul>
+
   </article>
   
     
@@ -267,8 +298,8 @@ function getNowFormatDate(setdate) {
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://mraing.github.io/2019/04/16/JS格式化时间戳/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://mraing.github.io/2019/04/16/JS格式化时间戳/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://mraing.github.io/2019/12/18/v-model-原理/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://mraing.github.io/2019/12/18/v-model-原理/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 <script id="disqus-thread-script">
@@ -298,7 +329,7 @@ function getNowFormatDate(setdate) {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1576640594427"></script>
+<script src="/js/app.js?v=1576640595316"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
