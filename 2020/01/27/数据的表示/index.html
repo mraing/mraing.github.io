@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+  <title>数据的表示 - 绪锋</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="小镇青年,心怀远方">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="cXpXJOvmtY">
+
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <meta name="description" content="数据的表示">
+<meta name="keywords" content="软考笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据的表示">
+<meta property="og:url" content="https://mraing.github.io/2020/01/27/数据的表示/index.html">
+<meta property="og:site_name" content="绪锋">
+<meta property="og:description" content="数据的表示">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-27T15:28:40.194Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据的表示">
+<meta name="twitter:description" content="数据的表示">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1580138962437">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="LeeGeing" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.jpg"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="LeeGeing">
+            <img src="/images/avatar.jpg" alt="LeeGeing">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>70</div>
+        <div><span>标签</span>28</div>
+        <div><span>分类</span>8</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">社交按钮</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/11147795" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/mraing/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/TypeScript/">TypeScript</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Vue/">Vue</a>
+          <span class="category-list-count">28</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">17</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/工具/">工具</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/碎碎念/">碎碎念</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件设计师/">软件设计师</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
+      <a href="/tags/Hbuilder/" style="font-size: 10px;">Hbuilder</a> <a href="/tags/Homebrew/" style="font-size: 10px;">Homebrew</a> <a href="/tags/JS/" style="font-size: 12px;">JS</a> <a href="/tags/JSX/" style="font-size: 10px;">JSX</a> <a href="/tags/Mint-UI/" style="font-size: 10px;">Mint-UI</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Ngnix/" style="font-size: 10px;">Ngnix</a> <a href="/tags/OpenInTerminal/" style="font-size: 10px;">OpenInTerminal</a> <a href="/tags/Sass/" style="font-size: 14px;">Sass</a> <a href="/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/tags/antd/" style="font-size: 10px;">antd</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/docsify/" style="font-size: 10px;">docsify</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mui/" style="font-size: 18px;">mui</a> <a href="/tags/react/" style="font-size: 14px;">react</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a> <a href="/tags/typescript/" style="font-size: 16px;">typescript</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vux/" style="font-size: 10px;">vux</a> <a href="/tags/她/" style="font-size: 10px;">她</a> <a href="/tags/感悟/" style="font-size: 12px;">感悟</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/消息推送/" style="font-size: 10px;">消息推送</a> <a href="/tags/知识点/" style="font-size: 10px;">知识点</a> <a href="/tags/软考笔记/" style="font-size: 10px;">软考笔记</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <!-- <div class="nexmoe-copyright">
+        &copy; 2020 LeeGeing
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div> -->
+    <div class="nexmoe-copyright">
+        <a href="http://beian.miit.gov.cn/state/outPortal/loginPortal.action" target="_blank">湘ICP备16019481号</a>
+        <!-- & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a> -->
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    <div class="nexmoe-post-cover"> 
+        
+            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
+        
+        <h1>数据的表示</h1>
+    </div>
+  <div class="nexmoe-post-meta">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年01月27日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
+    
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/软件设计师/">软件设计师</a>
+    
+    
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/软考笔记/">软考笔记</a>
+    
+  </div>
+  <article>
+    <h1 id="数据的表示"><a href="#数据的表示" class="headerlink" title="数据的表示"></a>数据的表示</h1><a id="more"></a>
+<h2 id="进制之间的转换"><a href="#进制之间的转换" class="headerlink" title="进制之间的转换"></a>进制之间的转换</h2><blockquote>
+<p>其实十进制就是我们日常生活中使用的阿拉伯数字，但是计算机只认识 0 和 1，所以我们都要进行进制转换。</p>
+</blockquote>
+<h3 id="R进制转十进制可以用按权展开法"><a href="#R进制转十进制可以用按权展开法" class="headerlink" title="R进制转十进制可以用按权展开法"></a>R进制转十进制可以用<code>按权展开法</code></h3><p>比如 <code>29481</code> 可以根据按权展开法表示成:</p>
+<pre><code class="math">    29482 = 2*10^4 + 9*10^3 + 4*10^2 + 8*10^1 + 1*10^1
+</code></pre>
+<h3 id="十进制转R进制可以用短除法"><a href="#十进制转R进制可以用短除法" class="headerlink" title="十进制转R进制可以用短除法"></a>十进制转R进制可以用<code>短除法</code></h3><p>比如将<code>94</code>转为二进制根据短除法表示成为： </p>
+<pre><code class="HTML">    2 | 94……余 0
+    2 | 47……余 1
+    2 | 23……余 1
+    2 | 11……余 1
+    2 | 5 ……余 1
+    2 | 2 ……余 0
+    2 | 1 ……余 1
+</code></pre>
+<p>所以最后得到结果倒序往上排列就是： <code>1011110</code> </p>
+<h3 id="二进制转八进制"><a href="#二进制转八进制" class="headerlink" title="二进制转八进制"></a>二进制转八进制</h3><p>比如把刚刚上面的二进制数 <code>1011110</code> 转为八进制：</p>
+<p>我们先从后面三三分组 <code>001,011,110</code> ==位数不够的用零代替==</p>
+<pre><code class="math">001,011,110 = (1*2^0) , (0*2^2+1*2^1+1*2^0) , (1*2^2+1*2^1+0*2^0)
+            = 1,3,6
+</code></pre>
+<p>所以 <code>1011110</code> 转换为八进制的结果就是 <code>136</code></p>
+<h3 id="二进制转十六进制"><a href="#二进制转十六进制" class="headerlink" title="二进制转十六进制"></a>二进制转十六进制</h3><p>我们还是刚刚那个数字 <code>1011110</code> 转为十六进制：</p>
+<p>我们现在需要四四分组 <code>0101,1110</code> 还是一样的，位数不够用零代替</p>
+<pre><code class="math">0101,1110 = (0*2^3+1*2^2+0*2^1+1*2^0),(1*2^3+1*2^2+1*2^1+0*2^0) = 5,14
+</code></pre>
+<p>这里结果出现了两位数，这是不允许的，所以我们用字母代替</p>
+<p>从 10 ~ 15 分别用大写字母表示：<code>10 = A</code> ,<code>11 = B</code> ,<code>12 = C</code> ,<code>13 = D</code> ,<code>14 = E</code> ,<code>15 = F</code></p>
+<p>所以转 16 进制的结果是： <code>5E</code></p>
+<h2 id="码制"><a href="#码制" class="headerlink" title="码制"></a>码制</h2><h3 id="码制之间的表示"><a href="#码制之间的表示" class="headerlink" title="码制之间的表示"></a>码制之间的表示</h3><blockquote>
+<p>码制包括四种：<code>原码</code>，<code>反码</code>，<code>补码</code>，<code>移码</code>.</p>
+</blockquote>
+<p>第一位是符号位：<code>0 代表正数</code>，<code>1 代表负数</code>.</p>
+<p>剩下的七位代表数值</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>1</th>
+<th>-1</th>
+<th>1-1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原码</td>
+<td>0000 0001</td>
+<td>1000 0001</td>
+<td>1000 0010❌</td>
+</tr>
+<tr>
+<td>反码</td>
+<td>0000 0001</td>
+<td>1111 1110</td>
+<td>1111 1111❌</td>
+</tr>
+<tr>
+<td>补码</td>
+<td>0000 0001</td>
+<td>1111 1111</td>
+<td>0000 0000✅</td>
+</tr>
+<tr>
+<td>移码</td>
+<td>1000 0001</td>
+<td>0111 1111</td>
+<td>1000 0000❌</td>
+</tr>
+</tbody>
+</table>
+<p><strong>正数</strong></p>
+<ul>
+<li>原码，反码，补码是相同的。</li>
+<li>移码是在补码的基础上<strong>符号位取反</strong>。</li>
+</ul>
+<p><strong>负数</strong></p>
+<ul>
+<li>原码第一位是 1。</li>
+<li>反码是在原码的基础上<strong>除符号位以外</strong>全部取反。</li>
+<li>补码是在反码的基础上再加 1。</li>
+<li>移码是在补码的基础上<strong>符号位取反</strong>。</li>
+</ul>
+<p>上面的 1-1 其实是 <code>1+(-1)</code> 结果是：<code>0</code>。</p>
+<p>但是用原码和反码以及移码表示的结果都是错误的结果，只有补码的结果是正确的。</p>
+<p>所以在计算当中都是用<strong>补码来进行加减运算</strong>的。</p>
+<h3 id="码制的范围"><a href="#码制的范围" class="headerlink" title="码制的范围"></a>码制的范围</h3><table>
+<thead>
+<tr>
+<th>码制</th>
+<th>定点整数</th>
+<th>定点小数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原码</td>
+<td>-(2<sup>n-1</sup> - 1) ~ (2<sup>n-1</sup> - 1)</td>
+<td>-(1- 2<sup>-(n-1)</sup>) ~ (1- 2<sup>-(n-1)</sup>)</td>
+</tr>
+<tr>
+<td>反码</td>
+<td>-(2<sup>n-1</sup> - 1) ~ (2<sup>n-1</sup> - 1)</td>
+<td>-(1- 2<sup>-(n-1)</sup>) ~ (1- 2<sup>-(n-1)</sup>)</td>
+</tr>
+<tr>
+<td>补码</td>
+<td>-2<sup>n-1</sup> ~ (2<sup>n-1</sup> - 1)</td>
+<td>-1 ~ (1- 2<sup>-(n-1)</sup>)</td>
+</tr>
+<tr>
+<td>移码</td>
+<td>-2<sup>n-1</sup> ~ (2<sup>n-1</sup> - 1)</td>
+<td>-1 ~ (1- 2<sup>-(n-1)</sup>)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="浮点数的运算"><a href="#浮点数的运算" class="headerlink" title="浮点数的运算"></a>浮点数的运算</h1><h3 id="浮点数的表示"><a href="#浮点数的表示" class="headerlink" title="浮点数的表示"></a>浮点数的表示</h3><p>N = 尾数*基数<sup>指数</sup></p>
+<h3 id="运算过程"><a href="#运算过程" class="headerlink" title="运算过程"></a>运算过程</h3><p>对阶 &gt; 尾数计算 &gt; 结果格式化</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li><p>一般<strong>尾数用补码</strong>，<strong>阶码用移码</strong>。</p>
+</li>
+<li><p><strong>阶码的位数</strong>决定数的表示范围，位数越多范围越大。 </p>
+</li>
+<li><p><strong>尾数的位数</strong>决定数的有效精度，位数越多精度越高。</p>
+</li>
+<li><p>对阶时，<strong>小数向大数看齐</strong>。</p>
+</li>
+<li><p>对阶是通过<strong>较小数的尾数右移</strong>实现的。</p>
+</li>
+</ul>
+<p>比如</p>
+<pre><code>3.14*10^3 + 1.2*10^5
+</code></pre><p>按照上面的运算过程，先对阶</p>
+<pre><code>0.0314*10^5 + 1.2*10^5
+</code></pre><p>尾数的计算就是将尾数相加，然后乘上基数</p>
+<pre><code>(0.0314+1.2) * 10^5 = 1.2414*10^5
+</code></pre><p>最后有一步是结果格式化，那是相对于二进制的数而言的，我们知道有这一步的存在就可以了。</p>
+<p>在实际考试中是不会真的要求我们去计算的，主要需要掌握理论知识。</p>
+<table>
+<thead>
+<tr>
+<th>阶符</th>
+<th>阶码</th>
+<th>数符</th>
+<th>尾数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>5</td>
+<td>0</td>
+<td>0.0314</td>
+</tr>
+<tr>
+<td>0</td>
+<td>5</td>
+<td>0</td>
+<td>1.2</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><strong>阶符</strong>：就是阶码的符号，像这里阶码就是 10^5 ，因为指数 5是正数那么阶符就是 0，如果是-5那么阶符就是 1.</p>
+</li>
+<li><p><strong>阶码</strong>：指数的数值。</p>
+</li>
+<li><p><strong>数符</strong>：尾数的正负符号。</p>
+</li>
+<li><p><strong>尾数</strong>：尾数的大小。</p>
+</li>
+</ul>
+
+  </article>
+  
+    
+
+  
+  <section class="nexmoe-comment">
+    <script id="dsq-count-scr" src="https://leegeing-cn.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://mraing.github.io/2020/01/27/数据的表示/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://mraing.github.io/2020/01/27/数据的表示/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//leegeing-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+</section>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1580138962449"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+  
+
+
+
+
+
+</body>
+
+</html>
