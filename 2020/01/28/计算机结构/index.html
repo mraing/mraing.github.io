@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+  <title>计算机结构 - 绪锋</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="小镇青年,心怀远方">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="cXpXJOvmtY">
+
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <meta name="description" content="计算机结构">
+<meta name="keywords" content="软考笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机结构">
+<meta property="og:url" content="https://mraing.github.io/2020/01/28/计算机结构/index.html">
+<meta property="og:site_name" content="绪锋">
+<meta property="og:description" content="计算机结构">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-28T13:24:19.839Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机结构">
+<meta name="twitter:description" content="计算机结构">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1580217872841">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="LeeGeing" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.jpg"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="LeeGeing">
+            <img src="/images/avatar.jpg" alt="LeeGeing">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>71</div>
+        <div><span>标签</span>28</div>
+        <div><span>分类</span>8</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">社交按钮</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/11147795" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/mraing/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/TypeScript/">TypeScript</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Vue/">Vue</a>
+          <span class="category-list-count">28</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">17</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/工具/">工具</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/碎碎念/">碎碎念</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件设计师/">软件设计师</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
+      <a href="/tags/Hbuilder/" style="font-size: 10px;">Hbuilder</a> <a href="/tags/Homebrew/" style="font-size: 10px;">Homebrew</a> <a href="/tags/JS/" style="font-size: 12px;">JS</a> <a href="/tags/JSX/" style="font-size: 10px;">JSX</a> <a href="/tags/Mint-UI/" style="font-size: 10px;">Mint-UI</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Ngnix/" style="font-size: 10px;">Ngnix</a> <a href="/tags/OpenInTerminal/" style="font-size: 10px;">OpenInTerminal</a> <a href="/tags/Sass/" style="font-size: 14px;">Sass</a> <a href="/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/tags/antd/" style="font-size: 10px;">antd</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/docsify/" style="font-size: 10px;">docsify</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mui/" style="font-size: 18px;">mui</a> <a href="/tags/react/" style="font-size: 14px;">react</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a> <a href="/tags/typescript/" style="font-size: 16px;">typescript</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vux/" style="font-size: 10px;">vux</a> <a href="/tags/她/" style="font-size: 10px;">她</a> <a href="/tags/感悟/" style="font-size: 12px;">感悟</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/消息推送/" style="font-size: 10px;">消息推送</a> <a href="/tags/知识点/" style="font-size: 10px;">知识点</a> <a href="/tags/软考笔记/" style="font-size: 12px;">软考笔记</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <!-- <div class="nexmoe-copyright">
+        &copy; 2020 LeeGeing
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div> -->
+    <div class="nexmoe-copyright">
+        <a href="http://beian.miit.gov.cn/state/outPortal/loginPortal.action" target="_blank">湘ICP备16019481号</a>
+        <!-- & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a> -->
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    <div class="nexmoe-post-cover"> 
+        
+            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
+        
+        <h1>计算机结构</h1>
+    </div>
+  <div class="nexmoe-post-meta">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年01月28日</a>
+    <a><i class="nexmoefont icon-areachart"></i>923 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+    
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/软件设计师/">软件设计师</a>
+    
+    
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/软考笔记/">软考笔记</a>
+    
+  </div>
+  <article>
+    <h1 id="计算机结构"><a href="#计算机结构" class="headerlink" title="计算机结构"></a>计算机结构</h1><a id="more"></a>
+<h2 id="计算机五大件"><a href="#计算机五大件" class="headerlink" title="计算机五大件"></a>计算机五大件</h2><p>计算机五大件：运算器，控制器，存储器，输入设备，输出设备</p>
+<p>存储器：主存储器，辅存储器</p>
+<p><strong>运算器</strong>包括：</p>
+<ul>
+<li><p>算数逻辑单元ALU： 数据的算术运算和逻辑运算</p>
+</li>
+<li><p>累加寄存器AC：通用寄存器，为ALU提供一个工作区，用于暂存数据</p>
+</li>
+<li><p>数据缓冲寄存器DR：写内存时，暂存指令或者数据</p>
+</li>
+<li><p>状态条件寄存器PSW：存储状态标志和控制状态（也有其归类于控制器的）</p>
+</li>
+</ul>
+<p><strong>控制器</strong>包括：</p>
+<ul>
+<li><p>程序计数器PC：存储下一条要执行指令的地址</p>
+</li>
+<li><p>指令寄存器IR：存储即将要执行的指令</p>
+</li>
+<li><p>指令译码器ID：对指令中的操作码字段进行分析解释</p>
+</li>
+<li><p>时序部件：提供时序控制信号</p>
+</li>
+</ul>
+<h2 id="计算机体系结构Flynn"><a href="#计算机体系结构Flynn" class="headerlink" title="计算机体系结构Flynn"></a>计算机体系结构Flynn</h2><table>
+<thead>
+<tr>
+<th>体系结构类型</th>
+<th>结构</th>
+<th>关键特征</th>
+<th>代表</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单指令流单数据流SISD</td>
+<td>控制器：一个<br>处理器：一个<br>主存模块：一个</td>
+<td></td>
+<td>单处理器系统</td>
+</tr>
+<tr>
+<td>单指令流多数据流SIMD</td>
+<td>控制器：一个<br>处理器：多个<br>主存模块：多个</td>
+<td>各处理器以异步的形式执行同一条指令</td>
+<td>并行处理器<br>阵列计算机<br>超级向量处理机</td>
+<td>控制器：一个<br>处理器：一个<br>主存模块：一个</td>
+<td></td>
+<td>单处理器系统</td>
+</tr>
+<tr>
+<td>多指令流单数据流MISD</td>
+<td>控制器：多个<br>处理器：一个<br>主存模块：多个</td>
+<td>被证明不可能，至少不切实际</td>
+<td>目前没有，有文献称流水线计算机为此类</td>
+</tr>
+<tr>
+<td>多指令流多数据流MIMD</td>
+<td>控制器：多个<br>处理器：多个<br>主存模块：多个</td>
+<td>能够实现作业，任务，指令等各级全面并行</td>
+<td>多处理机系统<br>多计算机</td>
+</tr>
+</tbody>
+</table>
+<h2 id="指令的基本概念"><a href="#指令的基本概念" class="headerlink" title="指令的基本概念"></a>指令的基本概念</h2><p>一条指令就是机器语言的一个语言，它是一组有意义的二进制代码，指令的基本格式如下：</p>
+<p>操作码字段</p>
+<table>
+<thead>
+<tr>
+<th>操作码字段</th>
+<th>地址码字段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>操作码部分指出了计算机要执行什么性质的操作，如加法，减法，取数，存数等。</p>
+<p>地址码字段需要包含操作数的地址及操作结果的存放地址等，从其地址结构的角度可以分为三地址指令,二地址指令，一地址指令和零地址指令。</p>
+<p>OP 表示操作符，地址分别表示数值的地址</p>
+<table>
+<thead>
+<tr>
+<th>OP</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>OP</th>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+=</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>OP</th>
+<th>A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>宕机</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h2><ul>
+<li><p>立即寻址：操作数直接在指令中，速度快，灵活性差。</p>
+</li>
+<li><p>直接寻址：指令中寻放的是操作数的地址。</p>
+</li>
+<li><p>间接寻址：指令中存放了一个地址，这个地址对应的内容是操作数的地址。</p>
+</li>
+<li><p>寄存器寻址：寄存器存放操作数。</p>
+</li>
+<li><p>寄存器间接寻址：寄存器存放的是操作数的地址。</p>
+</li>
+</ul>
+<h2 id="CISC与RISC"><a href="#CISC与RISC" class="headerlink" title="CISC与RISC"></a>CISC与RISC</h2><table>
+<thead>
+<tr>
+<th>指令系统类型</th>
+<th>指令</th>
+<th>寻址方式</th>
+<th>实现方式</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CISC(复杂)</td>
+<td>数量多，使用频率差别大，可变长格式</td>
+<td>支持多种</td>
+<td>微程序控制技术(微码)</td>
+<td>研制周期长</td>
+</tr>
+<tr>
+<td>RISC(精简)</td>
+<td>数量少，使用频率接近，定长格式，大部分为单周指令，操作寄存器，只有 load/Store操作内存</td>
+<td>支持方式少</td>
+<td>增加了通用寄存器，硬布线控制为主适合采用流水线</td>
+<td>优化编译，有效支持高级语言</td>
+</tr>
+</tbody>
+</table>
+<p>它们之间的区别：</p>
+<ul>
+<li><p>CISC: 复杂，指令数量多，频率差别大，多寻址。</p>
+</li>
+<li><p>RISC：精简，指令数量少，操作寄存器，单周期，少寻址，多通用寄存器，流水线。</p>
+</li>
+</ul>
+
+  </article>
+  
+    
+
+  
+  <section class="nexmoe-comment">
+    <script id="dsq-count-scr" src="https://leegeing-cn.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://mraing.github.io/2020/01/28/计算机结构/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://mraing.github.io/2020/01/28/计算机结构/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//leegeing-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+</section>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1580217872853"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+  
+
+
+
+
+
+</body>
+
+</html>
