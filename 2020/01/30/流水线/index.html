@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
   
-  <title>Vue路由重定向 - 绪锋</title>
+  <title>流水线 - 绪锋</title>
   <meta charset="UTF-8">
   <meta name="description" content="小镇青年,心怀远方">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,18 +14,18 @@
     <meta name="baidu-site-verification" content="cXpXJOvmtY">
 
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <meta name="description" content="重定向路由，刚进来就默认显示其中的一个子页面。">
-<meta name="keywords" content="vue">
+  <meta name="description" content="流水线 流水线是指在程序执行时，多条指令重叠进行操作的一种准并行处理实现技术。  各种部件处理是针对不同指令而言的，它们可同时为多条指令的不同部分进行工作，以提高各部件的利用率和指令的平均速度。">
+<meta name="keywords" content="软考笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue路由重定向">
-<meta property="og:url" content="https://mraing.github.io/2019/06/12/Vue路由重定向/index.html">
+<meta property="og:title" content="流水线">
+<meta property="og:url" content="https://mraing.github.io/2020/01/30/流水线/index.html">
 <meta property="og:site_name" content="绪锋">
-<meta property="og:description" content="重定向路由，刚进来就默认显示其中的一个子页面。">
+<meta property="og:description" content="流水线 流水线是指在程序执行时，多条指令重叠进行操作的一种准并行处理实现技术。  各种部件处理是针对不同指令而言的，它们可同时为多条指令的不同部分进行工作，以提高各部件的利用率和指令的平均速度。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T15:58:17.141Z">
+<meta property="og:updated_time" content="2020-01-30T15:28:20.911Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue路由重定向">
-<meta name="twitter:description" content="重定向路由，刚进来就默认显示其中的一个子页面。">
+<meta name="twitter:title" content="流水线">
+<meta name="twitter:description" content="流水线 流水线是指在程序执行时，多条指令重叠进行操作的一种准并行处理实现技术。  各种部件处理是针对不同指令而言的，它们可同时为多条指令的不同部分进行工作，以提高各部件的利用率和指令的平均速度。">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -33,7 +33,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1580398113084">
+  <link rel="stylesheet" href="/css/style.css?v=1580398114186">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -211,54 +211,70 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-        <img src="http://images.leegeing.cn/ikons74-original.png">
+            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
         
-        <h1>Vue路由重定向</h1>
+        <h1>流水线</h1>
     </div>
   <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年06月12日</a>
-    <a><i class="nexmoefont icon-areachart"></i>92 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年01月30日</a>
+    <a><i class="nexmoefont icon-areachart"></i>484 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue/">Vue</a>
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/软件设计师/">软件设计师</a>
     
     
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/vue/">vue</a>
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/软考笔记/">软考笔记</a>
     
   </div>
   <article>
-    <blockquote>
-<p>重定向路由，刚进来就默认显示其中的一个子页面。</p>
+    <h1 id="流水线"><a href="#流水线" class="headerlink" title="流水线"></a>流水线</h1><blockquote>
+<p>流水线是指在程序执行时，多条指令重叠进行操作的一种准并行处理实现技术。</p>
 </blockquote>
+<p>各种部件处理是针对不同指令而言的，它们可同时为多条指令的不同部分进行工作，以提高各部件的利用率和指令的平均速度。</p>
 <a id="more"></a>
-<pre><code class="JS">// 路由属性
-redirect: &#39;重定向地址&#39;
+<h2 id="流水线计算"><a href="#流水线计算" class="headerlink" title="流水线计算"></a>流水线计算</h2><ul>
+<li><p>流水线周期为执行时间最长的一段</p>
+</li>
+<li><p>流水线计算公式为：</p>
+</li>
+</ul>
+<p>一条指令执行时间 + (指令条数 - 1) * 流水线周期</p>
+<pre><code>1.理论公式: (t1 + t2 + ... + tk) + (n-1) * △t
+</code></pre><pre><code>2.实践公式: k * △t + (n-1) * △t
+</code></pre><p>比如下题：</p>
+<pre><code>问题：
+
+一条指令的执行过程可以分解为取值，分析和执行三步，在取值时间为 3△t，分析时间为2△t，执行时间为4△t。
+
+1.若按串行方式执行，则 10 条指令全部执行完需要多少△t？
+
+2.若按流水线的方式执行，流水线周期为多少△t？10条指令全部执行完需要多少△t？
+
+解题：
+
+1.串行方式，10 条指令执行完成需要多少△t？
+
+(3△t + 2△t + 4△t) * 10 = 90△t
+
+所以串行方式需要90△t。
+
+
+2.若按流水线的方式执行，流水线周期为多少△t？
+
+流水线周期为执行时间最长的一段,所以是 4△t。
+
+
+10条指令全部执行完需要多少△t？
+
+(3△t + 2△t + 4△t) + (10 - 1) * 4△t = 9△t + 36△t = 45△t
+
+所以完全执行完需要45△t。
+</code></pre><h2 id="超标量流水线"><a href="#超标量流水线" class="headerlink" title="超标量流水线"></a>超标量流水线</h2><p>…</p>
+<h2 id="流水线吞吐率计算"><a href="#流水线吞吐率计算" class="headerlink" title="流水线吞吐率计算"></a>流水线吞吐率计算</h2><p>流水线的吞吐率是指单位时间内流水线所完成的任务数量或输出的结果数量。</p>
+<p>计算流水线吞吐率的最基本的公式如下：</p>
+<pre><code class="math">TP = \frac{指令条数}{流水线执行时间}
 </code></pre>
-<!-- more -->
-<pre><code class="JS">// router.js
-import Vue from &#39;vue&#39;
-import Router from &#39;vue-router&#39;
-import HelloWorld from &#39;@/components/HelloWorld&#39;
-import Switch from &#39;@/components/mint-ui-switch&#39;
-
-
-
-Vue.use(Router)
-
-export default new Router({
-  routes: [
-    {
-      path: &#39;/&#39;,
-      name: &#39;HelloWorld&#39;,
-      component: HelloWorld,
-      redirect: &#39;/switch&#39;,
-      children:[{
-        path:&#39;/switch&#39;,
-        component:Switch
-      }]
-    }
-  ]
-})
+<h2 id="流水线最大吞吐率"><a href="#流水线最大吞吐率" class="headerlink" title="流水线最大吞吐率"></a>流水线最大吞吐率</h2><pre><code class="math">TP_{max} = \lim_{m=0}\frac{n}{k+n-1△t} = \frac{1}{△t}
 </code></pre>
 
   </article>
@@ -271,8 +287,8 @@ export default new Router({
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://mraing.github.io/2019/06/12/Vue路由重定向/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://mraing.github.io/2019/06/12/Vue路由重定向/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://mraing.github.io/2020/01/30/流水线/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://mraing.github.io/2020/01/30/流水线/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 <script id="disqus-thread-script">
@@ -302,7 +318,7 @@ export default new Router({
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1580398113091"></script>
+<script src="/js/app.js?v=1580398114196"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
