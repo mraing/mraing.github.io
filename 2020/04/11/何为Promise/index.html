@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
   
-  <title>Vue项目常用插件 - 绪锋</title>
+  <title>何为Promise - 绪锋</title>
   <meta charset="UTF-8">
   <meta name="description" content="小镇青年,心怀远方">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,18 +14,18 @@
     <meta name="baidu-site-verification" content="cXpXJOvmtY">
 
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <meta name="description" content="Vue 项目常用插件集合">
-<meta name="keywords" content="vue">
+  <meta name="description" content="Promise 是进行异步操作的构造函数。Promise 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值.">
+<meta name="keywords" content="JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue项目常用插件">
-<meta property="og:url" content="https://mraing.github.io/2019/08/18/项目常用插件/index.html">
+<meta property="og:title" content="何为Promise">
+<meta property="og:url" content="https://mraing.github.io/2020/04/11/何为Promise/index.html">
 <meta property="og:site_name" content="绪锋">
-<meta property="og:description" content="Vue 项目常用插件集合">
+<meta property="og:description" content="Promise 是进行异步操作的构造函数。Promise 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T16:07:42.100Z">
+<meta property="og:updated_time" content="2020-04-12T12:43:28.247Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue项目常用插件">
-<meta name="twitter:description" content="Vue 项目常用插件集合">
+<meta name="twitter:title" content="何为Promise">
+<meta name="twitter:description" content="Promise 是进行异步操作的构造函数。Promise 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -33,7 +33,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1586695423795">
+  <link rel="stylesheet" href="/css/style.css?v=1586695425137">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -211,85 +211,144 @@
         <div class="nexmoe-post">
     <div class="nexmoe-post-cover"> 
         
-        <img src="http://images.leegeing.cn/ikons14-original.png">
+            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
         
-        <h1>Vue项目常用插件</h1>
+        <h1>何为Promise</h1>
     </div>
   <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年08月18日</a>
-    <a><i class="nexmoefont icon-areachart"></i>226 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年04月11日</a>
+    <a><i class="nexmoefont icon-areachart"></i>913 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue/">Vue</a>
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
     
     
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/vue/">vue</a>
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/JS/">JS</a>
     
   </div>
   <article>
     <blockquote>
-<p>Vue 项目常用插件集合</p>
+<p><strong>Promise</strong> 是进行异步操作的构造函数。<strong>Promise</strong> 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值.</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="babel-polyfill"><a href="#babel-polyfill" class="headerlink" title="babel-polyfill"></a>babel-polyfill</h3><blockquote>
-<p>Babel是一个工具链，主要用于将ECMAScript 2015+代码转换为当前和旧版浏览器或环境中的向后兼容版本的JavaScript。</p>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><code>Promise</code> 接收一个函数，并传入两个参数  <code>resolve</code>和<code>reject</code> ，分别表示异步操作执行<strong>成功后的回调</strong>函数和异步操作执行<strong>失败后的回调</strong>函数。</p>
+<pre><code class="JavaScript">new Promise((resolve, reject) =&gt; {
+    // 成功||将promise的状态改为fulfilled
+    resolve()
+    // 失败||将promise的状态改为rejected
+    reject()
+})
+</code></pre>
+<p>顾名思义是承诺，以后会发生的事情。</p>
+<h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p><code>Promise有</code>以下几种状态:</p>
+<ul>
+<li>pending: 初始状态，既不是成功，也不是失败状态。</li>
+<li>fulfilled: 意味着操作成功完成。</li>
+<li>rejected: 意味着操作失败。</li>
+</ul>
+<p><strong>Promise 的状态一旦发生变化，就会一直保持这个状态，是不可逆的状态。</strong></p>
+<p>当<code>Promise</code>状态为<code>fulfilled</code>时 =&gt; 调用 <code>.then()</code> 方法</p>
+<p>当<code>Promise</code>状态为<code>rejected</code>时 =&gt; 调用 <code>.catch()</code> 方法</p>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h3 id="then"><a href="#then" class="headerlink" title=".then()"></a>.then()</h3><p>当状态发生变化时，会调用.then() 绑定的函数方法。</p>
+<pre><code class="JavaScript">Promise.then(
+    success =&gt; {
+        // 成功 resolve
+    },
+    error =&gt; {
+        // 失败 reject
+    }
+)
+</code></pre>
+<h3 id="catch"><a href="#catch" class="headerlink" title=".catch()"></a>.catch()</h3><p>当 JS执行异常报错时，会执行.catch()捕获错误信息</p>
+<pre><code class="JavaScript">Promise.catch(
+    // 捕获错误
+)
+</code></pre>
+<h3 id="all"><a href="#all" class="headerlink" title=".all()"></a>.all()</h3><pre><code class="JavaScript">var p = Promise.all([p1(), p2(), p3()])
+</code></pre>
+<p><code>all()</code>接受数组作为参数。</p>
+<p>数组中的<code>p1,p2,p3</code>都是Promise的实例对象，p要变成<code>Resolved</code>状态需要<code>p1，p2，p3</code>状态都是<code>Resolved</code>。</p>
+<p>如果<code>p1,p2,p3</code><strong>至少</strong>有一个状态是<code>Rejected</code>，p就会变成<code>Rejected</code>状态。</p>
+<p><strong>即便只有一个是失败的状态，整体都会变成失败的状态</strong></p>
+<h3 id="race"><a href="#race" class="headerlink" title=".race()"></a>.race()</h3><p>用法和 <code>.all()</code>方法一样，也是接收数组作为参数。</p>
+<p>只要<code>p1、p2、p3</code>之中有一个实例率先改变状态，p的状态就跟着改变。</p>
+<p>那个率先改变的 Promise 实例的返回值，就传递给p的回调函数,p的状态就会改变<code>Resolved</code>状态。</p>
+<p><strong>即便只有一个是成功的状态，整体都会变成成功的状态</strong></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><blockquote>
+<p>主要应用场景我觉得是解决回调地狱而产生的。</p>
 </blockquote>
-<ul>
-<li><strong>安装</strong></li>
-</ul>
-<pre><code class="JS">npm install babel-polyfill --save-dev 
-</code></pre>
-<ul>
-<li><strong>使用</strong></li>
-</ul>
-<pre><code class="JS">// main.js
-import &#39;babel-polyfill&#39;
-</code></pre>
-<hr>
-<h3 id="stylus"><a href="#stylus" class="headerlink" title="stylus"></a>stylus</h3><blockquote>
-<p>预编译 CSS 样式</p>
-</blockquote>
-<ul>
-<li><strong>安装</strong></li>
-</ul>
-<pre><code class="JS">npm install stylus --save
-</code></pre>
-<pre><code class="JS">npm install stylus-loader --save
-</code></pre>
-<hr>
-<h3 id="FastClick"><a href="#FastClick" class="headerlink" title="FastClick"></a>FastClick</h3><blockquote>
-<p>FastClick是一个简单易用的库，用于消除物理点击和click在移动浏览器上触发事件之间300毫秒的延迟。目的是使您的应用程序感觉不那么迟钝和响应更快，同时避免干扰您当前的逻辑。</p>
-</blockquote>
-<ul>
-<li><strong>安装</strong></li>
-</ul>
-<pre><code class="JS">npm install fastclick --save
-</code></pre>
-<pre><code class="JS">// main.js
-fastclick.attach(document.bdoy)
-</code></pre>
-<ul>
-<li><strong>使用</strong></li>
-</ul>
-<pre><code class="JS">// main.js
-import fastclick from &#39;fastclick&#39;
+<h3 id="基本例子"><a href="#基本例子" class="headerlink" title="基本例子"></a>基本例子</h3><pre><code class="JavaScript">// 一个简单的例子
+let func1 = () =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    //  改变状态 =&gt; 成功 
+    resolve(&#39;OK&#39;)
+    // 改变状态 =&gt; 失败
+    reject(&#39;Fail&#39;)
+  })
+ }
 
-fastclick.attach(document.body)
+func1().then(
+  success =&gt; {
+    console.log(&#39;success&#39;, success)
+  },
+  error =&gt; {
+    console.log(&#39;error&#39;, error)
+  }
+)
 </code></pre>
-<hr>
-<h3 id="better-scroll"><a href="#better-scroll" class="headerlink" title="better-scroll"></a>better-scroll</h3><blockquote>
-<p>为移动端（已支持 PC）各种滚动场景提供丝滑的滚动效果。</p>
-</blockquote>
-<ul>
-<li><strong>安装</strong></li>
-</ul>
-<pre><code class="JS">npm install better-scroll --save
+<p>上述打印输出的结果是</p>
+<pre><code class="JavaScript">success OK
 </code></pre>
-<ul>
-<li><strong>使用</strong></li>
-</ul>
-<pre><code class="JS">import BScroll from &#39;better-scroll&#39;
+<p>原因是执行<code>resolve()</code>的时候，Promise 的状态已经发生了变化，所以后面的再执行 <code>reject()</code> 也是无法再次改变状态的。</p>
+<p>在 <code>new Promise</code> 的时候传入两个参数，分别代表成功和失败的回调函数。</p>
+<p>在状态发送改变后，就会调用<code>.then()</code>绑定的函数，<code>.then()</code>包含两个函数，第一个是成功的回调，第二个是失败的回调。</p>
+<h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><p>现在有一个需求，也是我们项目中常见的需求:</p>
+<pre><code>先请求A数据 =&gt; 再根据A数据中的ID =&gt; 再去请求B数据 ...
+</code></pre><p>如果用传统的方式实现的，就很容易陷入<strong>回调地狱</strong>,如果层级一旦多的话，那代码看得令人头皮发麻。</p>
+<pre><code class="JavaScript">$ajax({
+    url: &#39;https:....&#39;,
+    success: function () {
+        $ajax({
+            url: &#39;https:....&#39;,
+            success: function () {
+                .....
+            }
+        })
+    }
+})
 </code></pre>
+<p>现在改用 Promise 的方式实现一下一上需求</p>
+<pre><code class="JavaScript">let func1 = () =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    //  改变状态 =&gt; 成功 
+    resolve()
+    console.log(&#39;A数据&#39;)
+    // 改变状态 =&gt; 失败
+    reject(&#39;Fail&#39;)
+  })
+ }
+
+let fun2 = func1().then(
+  success =&gt; {
+    return new Promise((resolve, reject) =&gt; {
+      resolve()
+      console.log(&#39;B数据&#39;)
+    })
+  }
+)
+
+fun2.then(
+  success =&gt; {
+    console.log(&#39;成功的回调&#39;)
+  }
+)
+</code></pre>
+<p>上述代码运行后的结果是</p>
+<pre><code class="JavaScript">A数据
+B数据
+成功的回调
+</code></pre>
+<p>这样就能保证能在 A 数据拿到的情况下才会去调用 B方法的请求。</p>
 
   </article>
   
@@ -301,8 +360,8 @@ fastclick.attach(document.body)
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://mraing.github.io/2019/08/18/项目常用插件/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://mraing.github.io/2019/08/18/项目常用插件/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://mraing.github.io/2020/04/11/何为Promise/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://mraing.github.io/2020/04/11/何为Promise/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 <script id="disqus-thread-script">
@@ -332,7 +391,7 @@ fastclick.attach(document.body)
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1586695423803"></script>
+<script src="/js/app.js?v=1586695425150"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
