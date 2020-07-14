@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Vue解析shapefile]]></title>
+    <url>%2F2020%2F07%2F14%2FVue%E8%A7%A3%E6%9E%90shapefile%2F</url>
+    <content type="text"><![CDATA[解析 shapfile 文件需要用到一个插件。 安装npm i shapefile 使用import {open} from &#39;shapefile&#39; open(shpfile, dbffile, { // 编码方式 encoding: &#39;GBK&#39; }) .then(source =&gt; source.read() .then(function log (result) { if (result.done) { // 执行完毕的方法 // ... return } return source.read().then(log) }) ) .catch(error =&gt; console.error(error.stack)) 文档地址(shapefile 文件解析)[]]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Vue 部署]]></title>
     <url>%2F2020%2F06%2F29%2FVue-%E9%83%A8%E7%BD%B2%2F</url>
     <content type="text"><![CDATA[Vue 部署: `npm run build 根目录部署// config/index.js module.exports = { dev: { assetsSubDirectory: &#39;static&#39;, // 原 &#39;/&#39; =&gt; 新 &#39;./&#39; assetsPublicPath: &#39;./&#39;, }, build: { // Template for index.html index: path.resolve(__dirname, &#39;../dist/index.html&#39;), // Paths assetsRoot: path.resolve(__dirname, &#39;../dist/index.html&#39;), assetsSubDirectory: &#39;../dist/static&#39;, assetsPublicPath: &#39;/&#39;, } 非根目录部署/dist/ 目录是可以修改的，根据实际的项目需求可以更改这个打包目录 // config/index.js module.exports = { dev: { assetsSubDirectory: &#39;static&#39;, assetsPublicPath: &#39;./&#39;, }, build: { // dist 目录是可以根据实际需求进行更改的 // Template for index.html index: path.resolve(__dirname, &#39;../dist/index.html&#39;), // Paths assetsRoot: path.resolve(__dirname, &#39;../dist/index.html&#39;), assetsSubDirectory: &#39;../dist/static&#39;, assetsPublicPath: &#39;./&#39;, } 防止本地的静态资源访问不到 // config/utils.js if (options.extract) { return ExtractTextPlugin.extract({ use: loaders, fallback: &#39;vue-style-loader&#39;, // 新增或者修改 publicPath: &#39;../../&#39; }) } else { return [&#39;vue-style-loader&#39;].concat(loaders) } // router/index.js export default new Router({ // 这里与config打包目录的文件夹保持一致 base: &#39;/dist/&#39;, routes: []]]></content>
