@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
   
-  <title>MUI跨页面调用方法 - 绪锋</title>
+  <title>文章归档：2020/9 - 绪锋</title>
   <meta charset="UTF-8">
   <meta name="description" content="小镇青年,心怀远方">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,18 +14,17 @@
     <meta name="baidu-site-verification" content="cXpXJOvmtY">
 
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <meta name="description" content="因为公司项目用 MUI 用得比较多，有碰到如下需求：">
-<meta name="keywords" content="mui">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MUI跨页面调用方法">
-<meta property="og:url" content="https://mraing.github.io/2019/04/17/MUI跨页面调用方法/index.html">
+  <meta name="description" content="小镇青年,心怀远方">
+<meta name="keywords" content="个人博客,前端,学习">
+<meta property="og:type" content="website">
+<meta property="og:title" content="绪锋">
+<meta property="og:url" content="https://mraing.github.io/archives/2020/09/index.html">
 <meta property="og:site_name" content="绪锋">
-<meta property="og:description" content="因为公司项目用 MUI 用得比较多，有碰到如下需求：">
+<meta property="og:description" content="小镇青年,心怀远方">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T16:03:58.219Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MUI跨页面调用方法">
-<meta name="twitter:description" content="因为公司项目用 MUI 用得比较多，有碰到如下需求：">
+<meta name="twitter:title" content="绪锋">
+<meta name="twitter:description" content="小镇青年,心怀远方">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -33,7 +32,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1599467706525">
+  <link rel="stylesheet" href="/css/style.css?v=1599467707635">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -208,72 +207,40 @@
   </div>
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
-        <div class="nexmoe-post">
-    <div class="nexmoe-post-cover"> 
-        
-            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
-        
-        <h1>MUI跨页面调用方法</h1>
+        <section class="nexmoe-posts" id="brand-waterfall">
+    
+    <div class="nexmoe-post">
+        <a href="/2020/09/07/Vue-跨域问题/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                    <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg" alt="Vue 跨域问题">
+                
+                <h1>Vue 跨域问题</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月07日</a>
+            <a><i class="nexmoefont icon-areachart"></i>364 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue/">Vue</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -link" href="/tags/vue/">vue</a>
+            
+        </div>
+        <article>
+            
+            <p>跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。</p>
+<blockquote>
+<p>当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。</p>
+</blockquote>
+            
+        </article>
     </div>
-  <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年04月17日</a>
-    <a><i class="nexmoefont icon-areachart"></i>149 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
-    
-    
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/mui/">mui</a>
-    
-  </div>
-  <article>
-    <p>因为公司项目用 MUI 用得比较多，有碰到如下需求：</p>
-<a id="more"></a>
-<p>　　在一个双 WebView 的上拉刷新下拉加载的页面中，A页面就是父页面，B页面就是列表页。A页面中还带有搜索框，搜索框中的值会被传到 B页面，进行数据请求。
-　</p>
-<pre><code>//A页面
-function setTotal(parameters){
-    ……
-}
-</code></pre><p>　</p>
-<pre><code>//B页面
-var total = 需要传的参数;
-var evalstr = &#39;setTotal(\&#39;&#39; + total + &#39;\&#39;)&#39;;
-var wvs = plus.webview.all();
-for (var i = 0; i &lt; wvs.length; i++) {
-    console.log(&#39;webview&#39; + i + &#39;: &#39; + wvs[i].id);
-    if(wvs[i].id==&quot;你的 WebView ID&quot;){
-        wvs[i].evalJS(evalstr);
-
-    }
-}
-</code></pre>
-  </article>
-  
-    
-
-  
-  <section class="nexmoe-comment">
-    <script id="dsq-count-scr" src="https://leegeing-cn.disqus.com/count.js" async></script>
-<div id="disqus_thread"></div>
-<script>
-    var disqus_config = function () {
-        this.page.url = 'https://mraing.github.io/2019/04/17/MUI跨页面调用方法/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://mraing.github.io/2019/04/17/MUI跨页面调用方法/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-</script>
-<script id="disqus-thread-script">
-    (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document;
-        var s = d.createElement('script');
-        s.src = '//leegeing-cn.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', + new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-
 </section>
-</div>
+
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
@@ -289,7 +256,7 @@ for (var i = 0; i &lt; wvs.length; i++) {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1599467706534"></script>
+<script src="/js/app.js?v=1599467707649"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

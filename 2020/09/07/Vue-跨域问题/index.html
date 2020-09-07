@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
   
-  <title>MUI跨页面调用方法 - 绪锋</title>
+  <title>Vue 跨域问题 - 绪锋</title>
   <meta charset="UTF-8">
   <meta name="description" content="小镇青年,心怀远方">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,18 +14,18 @@
     <meta name="baidu-site-verification" content="cXpXJOvmtY">
 
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-  <meta name="description" content="因为公司项目用 MUI 用得比较多，有碰到如下需求：">
-<meta name="keywords" content="mui">
+  <meta name="description" content="跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。  当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MUI跨页面调用方法">
-<meta property="og:url" content="https://mraing.github.io/2019/04/17/MUI跨页面调用方法/index.html">
+<meta property="og:title" content="Vue 跨域问题">
+<meta property="og:url" content="https://mraing.github.io/2020/09/07/Vue-跨域问题/index.html">
 <meta property="og:site_name" content="绪锋">
-<meta property="og:description" content="因为公司项目用 MUI 用得比较多，有碰到如下需求：">
+<meta property="og:description" content="跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。  当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T16:03:58.219Z">
+<meta property="og:updated_time" content="2020-09-07T08:34:53.930Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MUI跨页面调用方法">
-<meta name="twitter:description" content="因为公司项目用 MUI 用得比较多，有碰到如下需求：">
+<meta name="twitter:title" content="Vue 跨域问题">
+<meta name="twitter:description" content="跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。  当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -33,7 +33,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1599467706525">
+  <link rel="stylesheet" href="/css/style.css?v=1599467707605">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -213,40 +213,70 @@
         
             <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
         
-        <h1>MUI跨页面调用方法</h1>
+        <h1>Vue 跨域问题</h1>
     </div>
   <div class="nexmoe-post-meta">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2019年04月17日</a>
-    <a><i class="nexmoefont icon-areachart"></i>149 字</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月07日</a>
+    <a><i class="nexmoefont icon-areachart"></i>364 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
-      <a class="nexmoefont icon-appstore-fill -link" href="/categories/前端/">前端</a>
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue/">Vue</a>
     
     
-      <a class="nexmoefont icon-tag-fill -link" href="/tags/mui/">mui</a>
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/vue/">vue</a>
     
   </div>
   <article>
-    <p>因为公司项目用 MUI 用得比较多，有碰到如下需求：</p>
+    <p>跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。</p>
+<blockquote>
+<p>当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。</p>
+</blockquote>
 <a id="more"></a>
-<p>　　在一个双 WebView 的上拉刷新下拉加载的页面中，A页面就是父页面，B页面就是列表页。A页面中还带有搜索框，搜索框中的值会被传到 B页面，进行数据请求。
-　</p>
-<pre><code>//A页面
-function setTotal(parameters){
-    ……
-}
-</code></pre><p>　</p>
-<pre><code>//B页面
-var total = 需要传的参数;
-var evalstr = &#39;setTotal(\&#39;&#39; + total + &#39;\&#39;)&#39;;
-var wvs = plus.webview.all();
-for (var i = 0; i &lt; wvs.length; i++) {
-    console.log(&#39;webview&#39; + i + &#39;: &#39; + wvs[i].id);
-    if(wvs[i].id==&quot;你的 WebView ID&quot;){
-        wvs[i].evalJS(evalstr);
-
+<h1 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h1><p>在 Vue 中，可以在 <code>config/index.js</code> 中配置代理。</p>
+<pre><code class="JavaScript">dev: {
+    proxyTable: {
+      &#39;/api/v1&#39;: {
+        // 接口域名（后台接口地址）
+        target: &#39;http://10.***.**.**:****&#39;,
+        // 如果是https接口，需要配置这个参数
+        secure: false,
+        //代理websocket
+        // ws:true,
+        //是否跨域
+        changeOrigin: true,
+        pathRewrite: {
+          //需要rewrite的, 将 /api/v1 替换为 /api/v1
+          &#39;^/api/v1&#39;: &#39;/api/v1&#39;
+        }
+      }
     }
 }
+</code></pre>
+<h1 id="生产环境"><a href="#生产环境" class="headerlink" title="生产环境"></a>生产环境</h1><p>生产环境下就不能用 webpack 自带的代理去处理跨域问题了。只能在服务端去做操作了。</p>
+<p>我这里使用的是 <code>Nginx</code> 解决的跨域问题。</p>
+<ul>
+<li>首先下载 <a href="https://nginx.org/en/download.html" target="_blank" rel="noopener">Nginx 官网</a> </li>
+<li>然后找到 Nginx 的配置文件 <code>conf/nginx.conf</code></li>
+<li>配置代理，如下所示</li>
+</ul>
+<pre><code>server {
+        # nginx服务项目端口
+        listen       8088;
+        # nginx服务IP 些自己本地IP就行
+        server_name  10.219.**.**;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+        # 监听地址关键字
+        location /api/v1 {
+            # 跨域相关
+            add_header &#39;Access-Control-Allow-Origin&#39; &#39;*&#39;;
+            add_header &#39;Access-Control-Allow-Credentials&#39; &#39;true&#39;; 
+            # 转换成需要的代理地址(后端接口地址)
+            proxy_pass http://10.219.88.61:8889/api/v1;
+        }
+     }
 </code></pre>
   </article>
   
@@ -258,8 +288,8 @@ for (var i = 0; i &lt; wvs.length; i++) {
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://mraing.github.io/2019/04/17/MUI跨页面调用方法/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://mraing.github.io/2019/04/17/MUI跨页面调用方法/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://mraing.github.io/2020/09/07/Vue-跨域问题/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://mraing.github.io/2020/09/07/Vue-跨域问题/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 <script id="disqus-thread-script">
@@ -289,7 +319,7 @@ for (var i = 0; i &lt; wvs.length; i++) {
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1599467706534"></script>
+<script src="/js/app.js?v=1599467707617"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
