@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+  <title>vueの计算属性computed - 绪锋</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="小镇青年,心怀远方">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="cXpXJOvmtY">
+
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <meta name="description" content="对于任何复杂逻辑，你都应当使用计算属性">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vueの计算属性computed">
+<meta property="og:url" content="https://mraing.github.io/2019/06/19/vueの计算属性computed/index.html">
+<meta property="og:site_name" content="绪锋">
+<meta property="og:description" content="对于任何复杂逻辑，你都应当使用计算属性">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-15T15:56:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vueの计算属性computed">
+<meta name="twitter:description" content="对于任何复杂逻辑，你都应当使用计算属性">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1617001313248">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="LeeGeing" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.jpg"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="LeeGeing">
+            <img src="/images/avatar.jpg" alt="LeeGeing">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>80</div>
+        <div><span>标签</span>28</div>
+        <div><span>分类</span>8</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">社交按钮</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/11147795" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/mraing/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/TypeScript/">TypeScript</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Vue/">Vue</a>
+          <span class="category-list-count">32</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">18</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/工具/">工具</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/碎碎念/">碎碎念</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件设计师/">软件设计师</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
+      <a href="/tags/Hbuilder/" style="font-size: 10px;">Hbuilder</a> <a href="/tags/Homebrew/" style="font-size: 10px;">Homebrew</a> <a href="/tags/JS/" style="font-size: 13.33px;">JS</a> <a href="/tags/JSX/" style="font-size: 10px;">JSX</a> <a href="/tags/Mint-UI/" style="font-size: 10px;">Mint-UI</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Ngnix/" style="font-size: 10px;">Ngnix</a> <a href="/tags/OpenInTerminal/" style="font-size: 10px;">OpenInTerminal</a> <a href="/tags/Sass/" style="font-size: 15px;">Sass</a> <a href="/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/tags/antd/" style="font-size: 10px;">antd</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/docsify/" style="font-size: 10px;">docsify</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mui/" style="font-size: 18.33px;">mui</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a> <a href="/tags/typescript/" style="font-size: 16.67px;">typescript</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vux/" style="font-size: 10px;">vux</a> <a href="/tags/她/" style="font-size: 10px;">她</a> <a href="/tags/感悟/" style="font-size: 11.67px;">感悟</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/消息推送/" style="font-size: 10px;">消息推送</a> <a href="/tags/知识点/" style="font-size: 10px;">知识点</a> <a href="/tags/软考笔记/" style="font-size: 16.67px;">软考笔记</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <!-- <div class="nexmoe-copyright">
+        &copy; 2021 LeeGeing
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div> -->
+    <div class="nexmoe-copyright">
+        <a href="http://beian.miit.gov.cn/state/outPortal/loginPortal.action" target="_blank">湘ICP备16019481号</a>
+        <!-- & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a> -->
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    <div class="nexmoe-post-cover"> 
+        
+        <img src="http://images.leegeing.cn/ikons66-original.png">
+        
+        <h1>vueの计算属性computed</h1>
+    </div>
+  <div class="nexmoe-post-meta">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年06月19日</a>
+    <a><i class="nexmoefont icon-areachart"></i>516 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+    
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue/">Vue</a>
+    
+    
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/vue/">vue</a>
+    
+  </div>
+  <article>
+    <blockquote>
+<p>对于任何复杂逻辑，你都应当使用计算属性</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><pre><code class="html">&lt;!--html--&gt;
+&lt;div&gt;计算属性 : {{fullName}}&lt;/div&gt;
+</code></pre>
+<pre><code class="JS">//js
+var vm = new Vue({
+    el: &quot;#app&quot;,
+    data: {
+        firstName: &quot;Lee&quot;,
+        lastName: &quot;Geing&quot;,
+        fullName: &quot;LeeGeing&quot;
+    },
+    //计算属性
+    computed: {
+        fullName:function() {
+            return this.fullName = this.firstName + this.lastName;
+        }
+    }
+});
+</code></pre>
+<p>计算属性 <code>computed</code> 有缓存的机制，如果依赖的值没有变化，是不会进行改变的，这样做的好处是减少性能的损耗。</p>
+<h3 id="计算属性缓存和方法的区别"><a href="#计算属性缓存和方法的区别" class="headerlink" title="计算属性缓存和方法的区别"></a>计算属性缓存和方法的区别</h3><p><strong>计算属性 computed</strong> : 是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生改变时它们才会重新求值。这就意味着只要 fullName 还没有发生改变，多次访问 fullName 计算属性会立即返回之前的计算结果，而不必再次执行函数。</p>
+<p><strong>方法 methods</strong> : 数据的每次变换都会重新加载一次。</p>
+<p><strong>监听 watch</strong>: 只有变换的那个数据会被重新加载。</p>
+<p>完整代码如下</p>
+<pre><code class="html">&lt;!--html--&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;!-- 计算属性 --&gt;
+    &lt;div&gt;计算属性 computed :有缓存的机制，如果依赖的值没有变化，是不会进行改变的，这样做的好处是减少性能的损耗&lt;/div&gt;
+    &lt;div&gt;计算属性 : {{fullName}} {{age}}&lt;/div&gt;
+    &lt;hr&gt;
+    &lt;!-- 方法属性 --&gt;
+    &lt;div&gt;通过方式去实现的数据更改，改变数据会重新加载一次 DOM&lt;/div&gt;
+    &lt;div&gt;方法 : {{ fullNameFuc() }} {{age}}&lt;/div&gt;
+    &lt;hr&gt;
+    &lt;!-- 监听 --&gt;
+    &lt;div&gt;监听 : {{ fullName2 }} {{age}}&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="JS">//js
+var vm = new Vue({
+    el: &quot;#app&quot;,
+    data: {
+        firstName: &quot;Lee&quot;,
+        lastName: &quot;Geing&quot;,
+        fullName2: &quot;LeeGeing&quot;,
+        age: 23
+    },
+    //计算属性
+    computed: {
+        fullName:function() {
+            console.log(&quot;computed 执行了一次&quot;);
+            return this.firstName + this.lastName;
+        }
+    },
+    //方法
+    methods: {
+        fullNameFuc:function() {
+            console.log(&quot;methods 执行了一次&quot;);
+            return this.firstName + this.lastName;
+        }
+    },
+
+    //监听
+    watch: {
+        //监听firstName
+        firstName:function(){
+            console.log(&quot;监听firstName 执行了一次&quot;);
+            this.fullName2 = this.firstName + this.lastName;
+        },
+        //监听lastName
+        lastName:function(){
+            console.log(&quot;监听lastName 执行了一次&quot;);
+            this.fullName2 = this.firstName + this.lastName;
+        }
+    }
+
+});
+</code></pre>
+
+  </article>
+  
+    
+
+  
+  <section class="nexmoe-comment">
+    <script id="dsq-count-scr" src="https://leegeing-cn.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://mraing.github.io/2019/06/19/vueの计算属性computed/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://mraing.github.io/2019/06/19/vueの计算属性computed/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//leegeing-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+</section>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1617001313255"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+  
+
+
+
+
+
+</body>
+
+</html>

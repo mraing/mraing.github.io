@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+  <title>Vue组件使用过程中的小坑 - 绪锋</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="小镇青年,心怀远方">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="cXpXJOvmtY">
+
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <meta name="description" content="模板组件渲染出错">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue组件使用过程中的小坑">
+<meta property="og:url" content="https://mraing.github.io/2019/06/20/Vue中使用组件的小坑/index.html">
+<meta property="og:site_name" content="绪锋">
+<meta property="og:description" content="模板组件渲染出错">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/vue组件小坑-01.png">
+<meta property="og:image" content="http://images.leegeing.cn/hexoImg/vue组件小坑-02.png">
+<meta property="og:updated_time" content="2019-09-15T15:57:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue组件使用过程中的小坑">
+<meta name="twitter:description" content="模板组件渲染出错">
+<meta name="twitter:image" content="http://images.leegeing.cn/hexoImg/vue组件小坑-01.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1617001313238">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="LeeGeing" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.jpg"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="LeeGeing">
+            <img src="/images/avatar.jpg" alt="LeeGeing">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>80</div>
+        <div><span>标签</span>28</div>
+        <div><span>分类</span>8</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">社交按钮</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/11147795" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/mraing/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/TypeScript/">TypeScript</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Vue/">Vue</a>
+          <span class="category-list-count">32</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">18</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/工具/">工具</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/碎碎念/">碎碎念</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件设计师/">软件设计师</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
+      <a href="/tags/Hbuilder/" style="font-size: 10px;">Hbuilder</a> <a href="/tags/Homebrew/" style="font-size: 10px;">Homebrew</a> <a href="/tags/JS/" style="font-size: 13.33px;">JS</a> <a href="/tags/JSX/" style="font-size: 10px;">JSX</a> <a href="/tags/Mint-UI/" style="font-size: 10px;">Mint-UI</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Ngnix/" style="font-size: 10px;">Ngnix</a> <a href="/tags/OpenInTerminal/" style="font-size: 10px;">OpenInTerminal</a> <a href="/tags/Sass/" style="font-size: 15px;">Sass</a> <a href="/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/tags/antd/" style="font-size: 10px;">antd</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/docsify/" style="font-size: 10px;">docsify</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mui/" style="font-size: 18.33px;">mui</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a> <a href="/tags/typescript/" style="font-size: 16.67px;">typescript</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vux/" style="font-size: 10px;">vux</a> <a href="/tags/她/" style="font-size: 10px;">她</a> <a href="/tags/感悟/" style="font-size: 11.67px;">感悟</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/消息推送/" style="font-size: 10px;">消息推送</a> <a href="/tags/知识点/" style="font-size: 10px;">知识点</a> <a href="/tags/软考笔记/" style="font-size: 16.67px;">软考笔记</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <!-- <div class="nexmoe-copyright">
+        &copy; 2021 LeeGeing
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div> -->
+    <div class="nexmoe-copyright">
+        <a href="http://beian.miit.gov.cn/state/outPortal/loginPortal.action" target="_blank">湘ICP备16019481号</a>
+        <!-- & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a> -->
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    <div class="nexmoe-post-cover"> 
+        
+        <img src="http://images.leegeing.cn/ikons65-original.png">
+        
+        <h1>Vue组件使用过程中的小坑</h1>
+    </div>
+  <div class="nexmoe-post-meta">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年06月20日</a>
+    <a><i class="nexmoefont icon-areachart"></i>853 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
+    
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/Vue/">Vue</a>
+    
+    
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/vue/">vue</a>
+    
+  </div>
+  <article>
+    <h3 id="模板组件渲染出错"><a href="#模板组件渲染出错" class="headerlink" title="模板组件渲染出错"></a>模板组件渲染出错</h3><a id="more"></a>
+<p>在使用组件的过程中，会碰到耦合性特别强的标签，比如 <code>ul,li</code> 、 <code>ol,li</code>  、<code>select,option</code> 、<code>table tr, td</code> 标签等。</p>
+<p>如果我们直接用里面的子标签做为组件使用，就可能会出现问题。</p>
+<p>例如下面这个表格</p>
+<pre><code class="html">&lt;!--html--&gt;
+&lt;table&gt;
+    &lt;tr&gt;&lt;td&gt;123&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;123&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;123&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<p>在网页上展示的 DOM 结构为如下图所示，这样是没有问题的。</p>
+<p><img src="http://images.leegeing.cn/hexoImg/vue组件小坑-01.png" alt="vue组件小坑-01"></p>
+<p>当我们把 <code>td</code> 当做一个子组件去使用时，就可能会出现下面这种情况。</p>
+<pre><code class="html">&lt;!--html--&gt;
+&lt;table&gt;
+  &lt;tr&gt;&lt;my-td&gt;&lt;/my-td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;my-td&gt;&lt;/my-td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;my-td&gt;&lt;/my-td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<pre><code class="JS">//注册全局组件
+Vue.component(&quot;my-td&quot;,{
+    &quot;template&quot;: &quot;&lt;td&gt;123&lt;/td&gt;&quot;
+});
+
+//创建 Vue 实例
+var vm = new Vue({
+    el: &quot;#app&quot;,
+    data: {}
+});
+</code></pre>
+<p>我们注册了一个全局组件，组件内容就是 <code>td</code> 标签，然后放入到页面中去使用它，然后我们到页面上查看 DOM 结构，发现有问题。<br><img src="http://images.leegeing.cn/hexoImg/vue组件小坑-02.png" alt="vue组件小坑-02"></p>
+<p>在 H5的规范里面，我们需要遵循标签的嵌套，<code>table</code> &gt; <code>tr</code> &gt;<code>tr</code> 。但是现在<code>table tr</code> 并没有包裹住 <code>td</code> 标签。</p>
+<p>那么如果解决这种情况呢？</p>
+<p>Vue 给我们提供了解决方法，既然对于某些标签有严格的嵌套标准，那么我们便去遵守它，还是和原来的代码一样。只不过 <code>DOM</code> 结构有些不同。</p>
+<pre><code class="html">&lt;table&gt;
+  &lt;tr&gt;&lt;td is=&quot;my-td&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td is=&quot;my-td&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td is=&quot;my-td&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<p>用 <code>is</code> 表示指向这个组件，这样符合H5的代码标准，又能保证我们能正常使用组件。</p>
+<p>同理，对于其他耦合性较强的标签，都可以使用 <code>is</code> 属性进行模板组件的使用。</p>
+<h3 id="子组件数据渲染出错"><a href="#子组件数据渲染出错" class="headerlink" title="子组件数据渲染出错"></a>子组件数据渲染出错</h3><p><strong>在子组件中定义 <code>data</code> 时，<code>data</code> 必须是个函数。</strong></p>
+<p>还是刚刚那个例子，这时我们在 <code>data</code> 中定义一个<code>content</code> 参数，然后在模板中调用它。</p>
+<pre><code class="JS">//注册全局组件
+Vue.component(&quot;my-td&quot;,{
+    data: {
+      content: &#39;123&#39;
+    },
+    &quot;template&quot;: &quot;&lt;td&gt;{{ content }}&lt;/td&gt;&quot;
+});
+</code></pre>
+<p>运行到浏览器中，我们会发现控制台报错了。</p>
+<pre><code class="console.log">vue:6 ReferenceError: content is not defined
+</code></pre>
+<p>提示我们 content 没有定义，这是因为在子组件中定义 <code>data</code> 时，<code>data</code> 必须是个函数。</p>
+<p>所以，我们应该这样把 <code>data</code> 改为一个函数，这样就能正常渲染出数据了。</p>
+<pre><code class="JS">//注册全局组件
+Vue.component(&quot;my-td&quot;,{
+    data(){
+      return {
+        content: &#39;123&#39;
+      }
+    },
+    &quot;template&quot;: &quot;&lt;td&gt;{{ content }}&lt;/td&gt;&quot;
+});
+</code></pre>
+<h3 id="操作-DOM"><a href="#操作-DOM" class="headerlink" title="操作 DOM"></a>操作 DOM</h3><p>vue 官方不推荐我们去操作 DOM，取而代之的是数据绑定，但是在处理某些极为复杂的情况时，又必须得去操作 DOM ,所以 vue 给我们提供了 <code>ref</code> 属性。</p>
+<pre><code class="html">&lt;!--html--&gt;
+&lt;div @click=&quot;handleClickMe&quot; ref=&quot;hello&quot;&gt;Click Me&lt;/div&gt;
+</code></pre>
+<pre><code class="JS">//JS
+methods:{
+  handleClickMe() {
+    console.log(this.$refs.hello);
+  }
+}
+</code></pre>
+<p>打印结果如下,它会把这个 DOM 节点都打印输出。</p>
+<pre><code class="console">&lt;div&gt;Click Me&lt;/div&gt;
+</code></pre>
+
+  </article>
+  
+    
+
+  
+  <section class="nexmoe-comment">
+    <script id="dsq-count-scr" src="https://leegeing-cn.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://mraing.github.io/2019/06/20/Vue中使用组件的小坑/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://mraing.github.io/2019/06/20/Vue中使用组件的小坑/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//leegeing-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+</section>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1617001313244"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+  
+
+
+
+
+
+</body>
+
+</html>

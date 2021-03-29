@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+  <title>第一章 计算机组成与体系结构 - 绪锋</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="小镇青年,心怀远方">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="cXpXJOvmtY">
+
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <meta name="description" content="阶码决定数表示的范围，尾数的长度决定数表示的精度。">
+<meta name="keywords" content="软考笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一章 计算机组成与体系结构">
+<meta property="og:url" content="https://mraing.github.io/2020/10/18/第一章 计算机组成与体系结构/index.html">
+<meta property="og:site_name" content="绪锋">
+<meta property="og:description" content="阶码决定数表示的范围，尾数的长度决定数表示的精度。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-03-14T13:54:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第一章 计算机组成与体系结构">
+<meta name="twitter:description" content="阶码决定数表示的范围，尾数的长度决定数表示的精度。">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
+  <link rel="stylesheet" href="/css/style.css?v=1617001312791">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://i.loli.net/2019/01/13/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="LeeGeing" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.jpg"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="LeeGeing">
+            <img src="/images/avatar.jpg" alt="LeeGeing">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>80</div>
+        <div><span>标签</span>28</div>
+        <div><span>分类</span>8</div>
+    </div>
+    <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </ul>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">社交按钮</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/11147795" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/mraing/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/TypeScript/">TypeScript</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Vue/">Vue</a>
+          <span class="category-list-count">32</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端/">前端</a>
+          <span class="category-list-count">18</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/博客/">博客</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/工具/">工具</a>
+          <span class="category-list-count">6</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/碎碎念/">碎碎念</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/软件设计师/">软件设计师</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
+      <a href="/tags/Hbuilder/" style="font-size: 10px;">Hbuilder</a> <a href="/tags/Homebrew/" style="font-size: 10px;">Homebrew</a> <a href="/tags/JS/" style="font-size: 13.33px;">JS</a> <a href="/tags/JSX/" style="font-size: 10px;">JSX</a> <a href="/tags/Mint-UI/" style="font-size: 10px;">Mint-UI</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Ngnix/" style="font-size: 10px;">Ngnix</a> <a href="/tags/OpenInTerminal/" style="font-size: 10px;">OpenInTerminal</a> <a href="/tags/Sass/" style="font-size: 15px;">Sass</a> <a href="/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/tags/antd/" style="font-size: 10px;">antd</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/docsify/" style="font-size: 10px;">docsify</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mui/" style="font-size: 18.33px;">mui</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/swiper/" style="font-size: 10px;">swiper</a> <a href="/tags/typescript/" style="font-size: 16.67px;">typescript</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vux/" style="font-size: 10px;">vux</a> <a href="/tags/她/" style="font-size: 10px;">她</a> <a href="/tags/感悟/" style="font-size: 11.67px;">感悟</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/消息推送/" style="font-size: 10px;">消息推送</a> <a href="/tags/知识点/" style="font-size: 10px;">知识点</a> <a href="/tags/软考笔记/" style="font-size: 16.67px;">软考笔记</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <!-- <div class="nexmoe-copyright">
+        &copy; 2021 LeeGeing
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div> -->
+    <div class="nexmoe-copyright">
+        <a href="http://beian.miit.gov.cn/state/outPortal/loginPortal.action" target="_blank">湘ICP备16019481号</a>
+        <!-- & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a> -->
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+    <div class="nexmoe-post-cover"> 
+        
+            <img src="https://i.loli.net/2019/01/13/5c3aec85a4343.jpg">
+        
+        <h1>第一章 计算机组成与体系结构</h1>
+    </div>
+  <div class="nexmoe-post-meta">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年10月18日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.2k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
+    
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/软件设计师/">软件设计师</a>
+    
+    
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/软考笔记/">软考笔记</a>
+    
+  </div>
+  <article>
+    <ol>
+<li><strong>阶码</strong>决定数表示的范围，<strong>尾数</strong>的长度决定数表示的精度。<a id="more"></a></li>
+<li><p>两个浮点数相加，首先要统一阶码。</p>
+</li>
+<li><p>±0 编码相同的是补码和移码。</p>
+</li>
+<li><p>逻辑加：<br> A或B只要有一个为1，其逻辑加的结果就为1；<br> 只有当两者都为0时，逻辑加的结果才为0。</p>
+<p> 逻辑异或:<br> 0同0 异或 为 0，<br> 0同1 异或 为 1，<br> 1同0 异或 为 1，<br> 1同1 异或 为 0</p>
+</li>
+<li><p>补码可以<strong>简化计算机运算部件的设计</strong>。</p>
+</li>
+<li><p>程序计数器 (PC) 是专门寄存器，具有<strong>寄存信息</strong>和<strong>计数</strong>两种功能，又称为指令计数器。</p>
+</li>
+<li><p>程序被加载到内存后开始运行，当CPU执行一条指令时，先把它从内存储器取到缓冲寄存器DR中，再送入IR暂存，<strong>指令译码器根据IR的内容产生各种微操作指令</strong>，控制其他的组成部件工作，完成所需的功能。</p>
+</li>
+<li><p><strong>指令寄存器</strong>用来存放当前的指令，对用户是完全透明的。</p>
+</li>
+<li><p>CPU 中译码器的主要作用是<strong>指令译码</strong>。</p>
+</li>
+<li><p>在 CPU 中，<strong>控制器</strong>不仅要保证指令的正确执行，还要能够处理异常事件。</p>
+</li>
+<li><p>在 CPU 中，为 ALU 执行算数逻辑运算提供数据并暂存运算结果的是 <strong>累加寄存器</strong>。</p>
+</li>
+<li><p>属于 CPU 中算数逻辑单元的是<strong>加法器</strong>。</p>
+<pre><code class="HTML">    运算器：
+    * 算数逻辑单元 ALU
+    * 累加寄存器器
+    * 数据缓冲寄存器
+    * 状态条件缓存器
+
+    控制器：
+    * 程序计数器 PC
+    * 指令寄存器 IR
+    * 指令译码器
+    * 时序部件
+</code></pre>
+</li>
+<li>在 CPU 执行指令的过程中，会自动修改PC 的内容，PC 是指令计数器，用来执行即将要执行的下一条指令。<pre><code class="HTML">    * 指令寄存器IR: 存放即将要执行的指令。
+    * 指令译码器ID: 对指令中的操作码和字段进行分析和解释。
+    * 地址寄存器AR: 保存当前 CPU 要访问的内存单元或 I/O设备的地址。
+</code></pre>
+</li>
+<li><p>计算器执行指令过程中，需要由<strong>CPU的控制器</strong>产生每条指令的操作信号并送往相应的部件进行处理，并完成指定的操作。<br>CPU 的运算器只完成运算，而控制器控制着整个 CPU 的工作。</p>
+</li>
+<li><p>Flynn 分类法</p>
+<pre><code class="HTML">    * SISD 传统的串行计算机。
+    * SIMD 一个指令流处理多个数据流。
+    * MISD 多个指令流处理单个数据流。
+    * MIMD 同时执行多个指令，并处理个不同的数据。
+</code></pre>
+</li>
+<li><p>流水线的吞吐率是指<strong>单位时间流水线输出的结果的数目</strong>。因此流水线的吞吐率为一个流水级时间的倒数，即<strong>最长流水级的倒数</strong>。</p>
+</li>
+</ol>
+<ol start="17">
+<li><p><strong>相连存储器</strong>是按内容访问的存储器。</p>
+</li>
+<li><p><strong>虚拟存储器</strong>由主存和辅存构成。</p>
+</li>
+<li><p>计算机中CPU 对访问速度最快的是： <strong>通用寄存器 &gt; Cache &gt; 内存 &gt; 硬盘</strong> 。</p>
+</li>
+<li><p>计算机中的主存主要有 <strong>DRAM</strong> 构成的。</p>
+<pre><code class="HTML">    * DRAM 动态随机存取存储器
+    * SRAM 静态随机存取存储器
+    * Cache 高速缓存
+    * EEPROM 电可擦可编程只读存储器
+</code></pre>
+</li>
+<li><p>RAM 断电会丢失，ROM 断电不会丢失。</p>
+</li>
+<li><p>高速缓存Cache的存储系统的平均存取时间为</p>
+<p><strong>T<sub>A</sub> = HT<sub>A1</sub> + (1 - H) T<sub>A2</sub></strong></p>
+<ul>
+<li>平均存取时间：T<sub>A</sub></li>
+<li>命中率：H</li>
+<li>高速缓存存取速度：T<sub>A1</sub></li>
+<li>主存存取速度：T<sub>A2</sub></li>
+</ul>
+</li>
+<li><p>Cache与主存的地址映像需要专门的<strong>硬件</strong>自动完成，使用硬件来处理具有更高的转换效率。</p>
+</li>
+<li><p>CPU 中数据总线的宽度会影响<strong>系统的运算速度</strong>。</p>
+</li>
+<li><p>处理机主要由<strong>处理器，存储器，总线</strong>构成。其中总线包括<strong>数据总线</strong>，<strong>地址总线</strong>，<strong>控制总线</strong>。</p>
+</li>
+<li><p>在计算机系统中采用总线构造，便于实现系统的积木化构造，同时可以<strong>减少信息线传输的数量</strong>。</p>
+</li>
+<li><p>软件的可靠性，可用性，可维护性，可伸缩性。</p>
+<pre><code class="HTML">    * 软件的可靠性是指一个系统在给定时间间隔内和给定条件下无失效运行的概率。
+    * 软件的可用性是指软件在特定使用环境下为特定用户用于特定用途时所具有的有效性。
+    * 软件的可维护性是指与软件维护的难易程度相关的一组软件属性。
+    * 软件的可伸缩性是指是否可以通过运行更多的实例或者采用分布式处理来支持更多的用户。
+</code></pre>
+</li>
+<li><p>指令系统中采用不同的寻址方式目的是扩大寻址空间，并提高编程灵活性。</p>
+</li>
+</ol>
+
+  </article>
+  
+    
+
+  
+  <section class="nexmoe-comment">
+    <script id="dsq-count-scr" src="https://leegeing-cn.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://mraing.github.io/2020/10/18/第一章 计算机组成与体系结构/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://mraing.github.io/2020/10/18/第一章 计算机组成与体系结构/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//leegeing-cn.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+</section>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.9/SmoothScroll.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="/js/app.js?v=1617001312803"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+  
+
+
+
+
+
+</body>
+
+</html>
