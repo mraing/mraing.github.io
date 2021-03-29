@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[测试]]></title>
+    <title><![CDATA[hexo 迁移]]></title>
     <url>%2F2021%2F03%2F29%2F%E6%B5%8B%E8%AF%95%2F</url>
-    <content type="text"><![CDATA[测试Hexo 能否上传 测试Hexo 编辑上传 降级Node版本，希望能编译成功！！！]]></content>
+    <content type="text"><![CDATA[好久都没有更新博客了，因为数据迁移的关系，很多东西需要重新部署。 在重新部署的过程中遇到了很多坑，如果你的源代码迁移到了一台新的设备上。你需要准备一些事情。 添加 SSH密钥添加git的SSH密钥，会让你事半功倍。 1.查看是否已经配置首先确认你本地是否已经生成了SSH密钥。我不太习惯在终端打开文件，所以你可以像我一样 command+空格，调出全局搜索。 ～/.ssh 查看目录下是否有两个文件 id_rsa、id_rsa.pub，如果没有的话，则进行下一步，如果有的话直接看第三步。 2. 重新配置配置账户# 用户名，建议拼音或英文 git config --global user.name &quot;account name&quot; # 邮箱地址 git config --global user.email &quot;account email&quot; 生成秘钥# 上面配置的邮箱地址 ssh -keygen -t rsa -C &quot;account email&quot; 然后一路回车，最后出现一个气泡图，就表示生成成功了。回到第一步，打开 ./ssh 文件夹，用编辑器查看刚刚生成的 id_rsa.pub。 复制里面的内容，等会我们会用到的。 3.添加密钥点击进入 github 添加 SSH ，新增SSH keys。 title 是keys的名称，由自己自定义。 key 里面的内容就是刚刚我们复制的内容，粘贴进来就可以了。 安装hexo安装 Hexo 的前提是安装 Node 环境, 如何安装 Node 环境，网上有很多教程，这里就不多说了。 如果在尝试安装 Hexo 的过程中出现 EACCES 权限错误，请遵循 由 npmjs 发布的指导 修复该问题。强烈建议 不要 使用 root、sudo 等方法覆盖权限。 我比较简单粗暴，我直接使用的就是 sudo， 提升权限安装。 sudo npm install -g hexo-cli 打开Finder，然后使用command+shift+G，在弹出的目录中填写/usr/local，然后回车打开文件夹。 可以在 /usr/local/lib/node_modules 中看到刚刚安装好的 hexo-cli。 在控制台输出 hexo -v,如果能看到 hexo 版本信息，那就表示安装成功了。 Hexo 问题hexo-deployer-git 版本问题老规矩，hexo 一键三连 # 清除 hexo 缓存 hexo clean # 生成静态文件 hexo g # 部署hexo hexo d 在部署阶段，可能会有错误git提交错误的问题，极大可能是 hexo-deployer-git 版本的问题。 # 卸载 npm un hexo-deployer-git # 安装 npm i hexo-deployer-git@3.0.0 如果还有问题，或许你开了vpn 代理，把代理关掉重新来一次就好。这时候我们差不多了是接近成功的状态了。如果没有 hexo 部署后打开是白屏的问题，那么你已经成功了。 hexo 部署后是白屏我们本地预览hexo没有问题，但是hexo部署发布后，我们打开却是白屏，搜遍全网，怀疑是 node 版本 的问题。 在控制台输出 node -v 查看当前安装的node版本。我目前本机是 14.16.0， 显然这个版本对于hexo来说还是高了一些，我们需要降级node版本。 我经过测试 12.21.0 这个版本是可以正常部署发布的，大家可以以这个版本为准。 Mac 切换 Node 版本安装 N安装 n npm install -g n # 如果不成功,提升权限试一下 sudo npm install -g n 修改几个本地目录的拥有者sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share n 会在系统目录下创建一个目录，也需要修改下它的拥有者 sudo chown -R $(whoami) /usr/local/n 如果报错了，那么我们可以先手动添加 n 文件夹。 打开Finder，然后使用command+shift+G，在弹出的目录中填写/usr/local，然后回车打开文件夹。 在这个 local 文件夹里面新建一个 名为 n 的文件夹，这一步你可能需要输入密码。 然后再次运行： sudo chown -R $(whoami) /usr/local/n 安装指定版本的node# 下载并安装node 10.16.3 n 10.16.3 # 下载并安装node 最新版本 n latest # 下载并安装node 长期稳定维护版 n lts 切换node版本输入 n 查看已缓存的版本，然后上下键选择对应的版本，回车选择就可以了。 # 列出所有缓存的node版本 n node/4.4.4 ο node/8.11.1 node/10.16.3 用 node -v 查看版本是否生效。 删除node版本# 删除指定版本 n rm xxx # 删除当前版本外的所有版本 n prune # 卸载当前已安装的node n uninstall # 查看已下载的node版本列表 n ls]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[第一章 计算机组成与体系结构]]></title>
